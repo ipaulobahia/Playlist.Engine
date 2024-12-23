@@ -2,14 +2,25 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { Eye, EyeOff } from "lucide-react"
+import { useState } from "react"
 
 export function LoginForm() {
+  const [typePassword, setTypePassword] = useState<"password" | "text">("password")
+
+  function changeTypePassword() {
+    setTypePassword((prev) => {
+      if (prev === 'password') { return 'text' }
+      return 'password'
+    })
+  }
+
   return (
     <div className="flex flex-col gap-6">
       <Card className="overflow-hidden">
         <CardContent className="grid p-0 md:grid-cols-2 h-[45vh]">
-          <form className="flex justify-center p-8 items-center">
-            <div className="flex w-full flex-col gap-6">
+          <form className="flex items-center justify-center p-8">
+            <div className="flex flex-col w-full gap-6">
               <div className="flex flex-col items-center text-center">
                 <h1 className="text-2xl font-bold">Bem-vindo de volta</h1>
                 <p className="text-balance text-muted-foreground">
@@ -35,7 +46,19 @@ export function LoginForm() {
                     Esqueceu a senha?
                   </a>
                 </div>
-                <Input id="password" type="password" required />
+                <div className="relative w-full">
+                  <Input
+                    autoFocus
+                    type={typePassword}
+                    id="password"
+                    placeholder="*******"
+                    required
+                    className="dark:bg-black border-muted placeholder:text-xs"
+                  />
+                  <span onClick={changeTypePassword} className="absolute inset-y-0 flex items-center pl-2 right-3">
+                    {typePassword == 'password' ? <Eye className="w-5 h-5 cursor-pointer text-itens-primary" /> : <EyeOff className="w-5 h-5 cursor-pointer text-itens-primary" />}
+                  </span>
+                </div>
               </div>
               <Button type="submit" className="w-full">
                 Conecte-se

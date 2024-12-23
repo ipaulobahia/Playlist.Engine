@@ -43,6 +43,7 @@ export const OperatorPinDialog = () => {
           <div className="relative w-full">
             <Input
               autoFocus
+              required
               type={typePassword}
               id="password"
               placeholder="*******"
