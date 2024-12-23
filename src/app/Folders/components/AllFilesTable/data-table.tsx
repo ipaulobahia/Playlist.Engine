@@ -31,11 +31,11 @@ export const DataTable = <TData, TValue>({ data, columns }: DataTableProps<TData
   })
 
   return (
-    <div className="">
-      <Table className="">
-        <TableHeader className="">
+    <div>
+      <Table>
+        <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow className="" key={headerGroup.id}>
+            <TableRow key={headerGroup.id}>
               {headerGroup.headers.map((header) => {
                 return (
                   <TableHead className="font-medium bg-white first:rounded-tl-sm last:rounded-tr-md dark:hover:bg-black dark:border-none dark:bg-black" key={header.id}>

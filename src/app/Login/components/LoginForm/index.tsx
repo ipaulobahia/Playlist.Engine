@@ -53,7 +53,7 @@ export function LoginForm() {
                     id="password"
                     placeholder="*******"
                     required
-                    className="dark:bg-black border-muted placeholder:text-xs"
+                    className="dark:bg-black border-muted-foreground/25 placeholder:text-xs"
                   />
                   <span onClick={changeTypePassword} className="absolute inset-y-0 flex items-center pl-2 right-3">
                     {typePassword == 'password' ? <Eye className="w-5 h-5 cursor-pointer text-itens-primary" /> : <EyeOff className="w-5 h-5 cursor-pointer text-itens-primary" />}

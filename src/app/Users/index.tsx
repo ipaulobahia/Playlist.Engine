@@ -4,7 +4,7 @@ import { CardOperators } from "./components";
 export const Users = () => {
   return (
     <main className="flex flex-col justify-center min-h-screen antialiased dark:bg-black">
-      <nav className="flex items-center justify-center w-full border-b border-muted dark:bg-background">
+      <nav className="flex items-center justify-center w-full border-b border-muted-foreground/25 dark:bg-background">
         <div className="flex items-center justify-between w-full px-4 h-14">
           <span className="text-sm font-bold">
             Playlist Engine

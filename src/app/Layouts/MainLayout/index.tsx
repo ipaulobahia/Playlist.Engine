@@ -28,7 +28,7 @@ export const MainLayout = () => {
 
   return (
     <main className="flex flex-col items-center h-screen dark:bg-black">
-      <nav className="flex items-center justify-center w-full border-b border-muted dark:bg-background">
+      <nav className="flex items-center justify-center w-full border-b border-muted-foreground/25 dark:bg-background">
         <div className="flex items-center justify-between w-full px-4 h-14">
           <div className="flex flex-row items-center gap-x-5">
             <span className="text-sm font-bold">

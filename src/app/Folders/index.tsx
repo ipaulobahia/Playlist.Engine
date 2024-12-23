@@ -39,7 +39,7 @@ const data = {
 export const Folders = () => {
   return (
     <SidebarProvider>
-      <Sidebar className="border-r border-muted" collapsible="none">
+      <Sidebar className="border-r border-muted-foreground/25" collapsible="none">
         <SidebarContent>
           <SidebarGroup>
             <SidebarGroupLabel>Upload Recentes</SidebarGroupLabel>
@@ -73,7 +73,7 @@ export const Folders = () => {
         <SidebarRail />
       </Sidebar>
       <SidebarInset className="p-3">
-        <div className="flex-1 p-4 space-y-3 border rounded shadow-sm border-muted bg-sidebar">
+        <div className="flex-1 p-4 space-y-3 border rounded shadow-sm border-muted-foreground/25 bg-sidebar">
           <div className="flex flex-col gap-0.5">
             <span className="text-xl font-semibold">Arquivos da emissora</span>
             <span className="text-sm font-normal text-muted-foreground">Organize e gerencie seus arquivos de forma prática e eficiente</span>
@@ -100,7 +100,7 @@ export const Folders = () => {
               Todos os arquivos
             </span>
             <div className="flex flex-row items-center justify-between">
-              <div className="flex p-1 bg-white border rounded border-muted dark:bg-black gap-x-1">
+              <div className="flex p-1 bg-white border rounded border-muted-foreground/25 dark:bg-black gap-x-1">
                 <Button size={'sm'} variant={'outline'} className="h-6 px-5 font-semibold border rounded dark:bg-black text-accent-foreground border-muted">
                   Todos
                 </Button>
@@ -116,7 +116,7 @@ export const Folders = () => {
               </div>
               <div className="flex flex-row items-center justify-between gap-2">
                 <div className="relative w-full">
-                  <Input type="files" className="h-8 dark:bg-black border-muted placeholder:text-xs" placeholder="Pesquise" />
+                  <Input type="files" className="h-8 dark:bg-black border-muted-foreground/25 placeholder:text-xs" placeholder="Pesquise" />
                   <span className="absolute inset-y-0 flex items-center right-3">
                     <Search size={16} />
                   </span>

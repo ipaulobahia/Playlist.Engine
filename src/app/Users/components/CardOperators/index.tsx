@@ -12,7 +12,7 @@ export const CardOperators = () => {
   const [operators] = useState([...FAKE_USERS_DATA])
 
   return (
-    <Card className="col-span-2 p-5 border rounded-lg bg-background dark:border-muted border-muted-foreground/20">
+    <Card className="col-span-2 p-5 border rounded-lg bg-background dark:border-muted-foreground/25 border-muted-foreground/20">
       <div className="grid grid-cols-3">
         <div className="col-span-1 py-5 pr-3 space-y-3">
           <div className="flex flex-col space-y-1.5">
@@ -22,7 +22,7 @@ export const CardOperators = () => {
             </span>
           </div>
           <div className="relative w-full">
-            <Input type="operador" className="dark:bg-black border-muted placeholder:text-xs" placeholder="Pesquise pelo operador..." />
+            <Input type="operador" className="dark:bg-black border-muted-foreground/25 placeholder:text-xs" placeholder="Pesquise pelo operador..." />
             <span className="absolute inset-y-0 flex items-center right-3">
               <Search size={16} />
             </span>

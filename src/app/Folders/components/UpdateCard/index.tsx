@@ -10,7 +10,7 @@ interface IUpdateCardProps {
 
 export const UpdateCard = ({ title, size, type }: IUpdateCardProps) => {
   return (
-    <Card className="flex flex-row items-start gap-3 p-3 bg-transparent rounded cursor-pointer dark:hover:bg-muted/50 hover:bg-muted">
+    <Card className="flex flex-row items-start gap-3 p-3 bg-transparent rounded cursor-pointer border-muted-foreground/25 dark:hover:bg-muted/50 hover:bg-muted">
       <div className="flex items-center justify-center rounded bg-accent-foreground/30 dark:bg-accent size-7">
         <FileText className="text-white dark:text-muted-foreground size-4" />
       </div>

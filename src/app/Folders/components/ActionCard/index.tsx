@@ -9,7 +9,7 @@ interface IActionCardProps {
 
 export const ActionCard = ({ title, MainIcon, SubIcon }: IActionCardProps) => {
   return (
-    <Card className="flex flex-col gap-3 p-3 bg-transparent rounded cursor-pointer dark:hover:bg-muted/50 hover:bg-muted">
+    <Card className="flex flex-col gap-3 p-3 bg-transparent rounded cursor-pointer border-muted-foreground/25 dark:hover:bg-muted/50 hover:bg-muted">
       <div className="flex flex-row justify-between w-full">
         <div className="flex items-center justify-center rounded bg-accent-foreground size-8">
           <MainIcon className="text-white dark:text-black size-5" />
