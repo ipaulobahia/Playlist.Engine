@@ -100,8 +100,8 @@ export const Folders = () => {
               Todos os arquivos
             </span>
             <div className="flex flex-row items-center justify-between">
-              <div className="flex p-1 rounded dark:bg-black gap-x-1">
-                <Button size={'sm'} variant={'outline'} className="h-6 px-5 font-semibold bg-black border rounded text-accent-foreground border-muted">
+              <div className="flex p-1 bg-white border rounded border-muted dark:bg-black gap-x-1">
+                <Button size={'sm'} variant={'outline'} className="h-6 px-5 font-semibold border rounded dark:bg-black text-accent-foreground border-muted">
                   Todos
                 </Button>
                 <Button size={'sm'} variant={'outline'} className="h-6 px-5 font-medium border-none rounded bg-sidebar text-muted-foreground">
