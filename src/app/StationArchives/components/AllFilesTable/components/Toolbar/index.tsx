@@ -16,27 +16,30 @@ interface ToolbarProps<TData> {
 export const Toolbar = <TData,>({ table }: ToolbarProps<TData>) => {
   const [typeFile, setTypeFile] = useState<string>("Todos")
 
-  function handlerFilterType(type: string) { setTypeFile(type) }
+  function handlerFilterType(type: string) {
+    setTypeFile(type)
+    table.getColumn("file")?.setFilterValue(type.toLowerCase())
+  }
 
   return (
     <div className="flex flex-row items-center justify-between my-3">
       <div className="flex p-1 bg-white border rounded border-muted-foreground/25 dark:bg-black gap-x-1">
-        <FilterButton typeFile={typeFile} currentType="Todos" label="Todos" onFilter={handlerFilterType} />
+        <FilterButton typeFile={typeFile} currentType="" label="Todos" onFilter={handlerFilterType} />
         <FilterButton typeFile={typeFile} currentType="MP3" label="MP3" onFilter={handlerFilterType} />
         <FilterButton typeFile={typeFile} currentType="MP4" label="MP4" onFilter={handlerFilterType} />
         <FilterButton typeFile={typeFile} currentType="TXT" label="TXT" onFilter={handlerFilterType} />
       </div>
       <div className="flex flex-row items-center justify-between gap-2">
-        <div className="relative w-full">
+        <div className="relative w-full pl-4 bg-black">
+          <span className="absolute inset-y-0 flex items-center left-2">
+            <Search size={16} />
+          </span>
           <Input
             placeholder="Pesquise"
             value={(table.getColumn("file")?.getFilterValue() as string) ?? ""}
             onChange={(event) => table.getColumn("file")?.setFilterValue(event.target.value)}
             className="h-8 dark:bg-black border-muted-foreground/25 placeholder:text-xs"
           />
-          <span className="absolute inset-y-0 flex items-center right-3">
-            <Search size={16} />
-          </span>
         </div>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>

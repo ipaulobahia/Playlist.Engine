@@ -3,7 +3,7 @@ import { ColumnFiltersState, flexRender, getCoreRowModel, getFacetedRowModel, ge
 import { useState } from "react"
 import { FAKE_DATA_ALL_FILES_TALBE } from "@/utils/fakeData"
 import { Pagination, Toolbar } from "./components"
-import { columns } from './config'
+import { columns } from './Columns'
 
 export const AllFilesTable = () => {
   const [rowSelection, setRowSelection] = useState({})

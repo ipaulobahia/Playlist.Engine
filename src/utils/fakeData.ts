@@ -1,4 +1,4 @@
-import { IAllFilesTable } from "@/app/Folders/components/AllFilesTable/columns";
+import { IAllFilesTable } from "@/app/StationArchives/components/AllFilesTable/Columns";
 
 export const FAKE_USERS_DATA = [
   { id: 1, avatar: 'https://github.com/shadcn.png', name: 'João', profile: 'Operador Padrão' },
@@ -734,70 +734,70 @@ export const FAKE_FOLDERS =
 export const FAKE_DATA_ALL_FILES_TALBE: IAllFilesTable[] = [
   {
     id: '1',
-    file: { name: 'documento1', size: '2MB', type: 'application/pdf' },
+    file: { name: 'documento1', size: '2MB', type: 'mp3' },
     folder: 'Documentos/Trabalho',
     uploadedBy: 'Carlos Silva',
     lastModified: new Date('2023-12-01T14:23:00'),
   },
   {
     id: '2',
-    file: { name: 'imagem1', size: '3MB', type: 'image/png' },
+    file: { name: 'imagem1', size: '3MB', type: 'mp3' },
     folder: 'Imagens/Pessoal',
     uploadedBy: 'Ana Costa',
     lastModified: new Date('2023-12-05T10:15:30'),
   },
   {
     id: '3',
-    file: { name: 'relatorio', size: '1.5MB', type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' },
+    file: { name: 'relatorio', size: '1.5MB', type: 'mp3' },
     folder: 'Documentos/Financeiro',
     uploadedBy: 'Ricardo Lima',
     lastModified: new Date('2023-12-10T08:45:00'),
   },
   {
     id: '4',
-    file: { name: 'video', size: '50MB', type: 'video/mp4' },
+    file: { name: 'video', size: '50MB', type: 'mp4' },
     folder: 'Vídeos/Projetos',
     uploadedBy: 'Mariana Souza',
     lastModified: new Date('2023-12-12T13:30:20'),
   },
   {
     id: '5',
-    file: { name: 'foto_festa', size: '4MB', type: 'image/jpeg' },
+    file: { name: 'foto_festa', size: '4MB', type: 'mp4' },
     folder: 'Imagens/Festa',
     uploadedBy: 'Lucas Oliveira',
     lastModified: new Date('2023-12-18T16:05:50'),
   },
   {
     id: '6',
-    file: { name: 'apresentacao', size: '6MB', type: 'application/vnd.openxmlformats-officedocument.presentationml.presentation' },
+    file: { name: 'apresentacao', size: '6MB', type: 'mp3' },
     folder: 'Documentos/Trabalho',
     uploadedBy: 'Fernanda Almeida',
     lastModified: new Date('2023-12-20T09:40:30'),
   },
   {
     id: '7',
-    file: { name: 'planilha_financeira', size: '2.3MB', type: 'application/vnd.ms-excel' },
+    file: { name: 'planilha_financeira', size: '2.3MB', type: 'txt' },
     folder: 'Documentos/Financeiro',
     uploadedBy: 'Eduardo Pereira',
     lastModified: new Date('2023-12-15T17:10:00'),
   },
   {
     id: '8',
-    file: { name: 'script', size: '150KB', type: 'application/javascript' },
+    file: { name: 'script', size: '150KB', type: 'mp3' },
     folder: 'Código/Frontend',
     uploadedBy: 'Raquel Santos',
     lastModified: new Date('2023-12-17T14:00:10'),
   },
   {
     id: '9',
-    file: { name: 'audio', size: '5MB', type: 'audio/mpeg' },
+    file: { name: 'audio', size: '5MB', type: 'txt' },
     folder: 'Músicas/Estudo',
     uploadedBy: 'João Martins',
     lastModified: new Date('2023-12-14T18:20:00'),
   },
   {
     id: '10',
-    file: { name: 'backup', size: '100MB', type: 'application/zip' },
+    file: { name: 'backup', size: '100MB', type: 'txt' },
     folder: 'Backups/2023',
     uploadedBy: 'Beatriz Costa',
     lastModified: new Date('2023-12-22T11:30:40'),
