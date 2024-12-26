@@ -1,20 +1,18 @@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { ColumnDef, ColumnFiltersState, flexRender, getCoreRowModel, getFacetedRowModel, getFacetedUniqueValues, getFilteredRowModel, getPaginationRowModel, getSortedRowModel, SortingState, useReactTable, VisibilityState } from "@tanstack/react-table"
+import { ColumnFiltersState, flexRender, getCoreRowModel, getFacetedRowModel, getFacetedUniqueValues, getFilteredRowModel, getPaginationRowModel, getSortedRowModel, SortingState, useReactTable, VisibilityState } from "@tanstack/react-table"
 import { useState } from "react"
+import { FAKE_DATA_ALL_FILES_TALBE } from "@/utils/fakeData"
+import { Pagination, Toolbar } from "./components"
+import { columns } from './config'
 
-interface DataTableProps<TData, TValue> {
-  columns: ColumnDef<TData, TValue>[]
-  data: TData[]
-}
-
-export const DataTable = <TData, TValue>({ data, columns }: DataTableProps<TData, TValue>) => {
+export const AllFilesTable = () => {
   const [rowSelection, setRowSelection] = useState({})
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({})
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
   const [sorting, setSorting] = useState<SortingState>([])
 
   const table = useReactTable({
-    data,
+    data: FAKE_DATA_ALL_FILES_TALBE,
     columns,
     state: { sorting, columnVisibility, rowSelection, columnFilters },
     enableRowSelection: true,
@@ -32,13 +30,14 @@ export const DataTable = <TData, TValue>({ data, columns }: DataTableProps<TData
 
   return (
     <div>
-      <Table>
+      <Toolbar table={table} />
+      <Table className="border dark:border-transparent dark:border-none border-muted-foreground/25">
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
               {headerGroup.headers.map((header) => {
                 return (
-                  <TableHead className="font-medium bg-white first:rounded-tl-sm last:rounded-tr-md dark:hover:bg-black dark:border-none dark:bg-black" key={header.id}>
+                  <TableHead className="font-medium bg-white first:rounded-tl-md last:rounded-tr-md dark:hover:bg-black dark:border-none dark:bg-black" key={header.id}>
                     {
                       header.isPlaceholder
                         ?
@@ -57,10 +56,7 @@ export const DataTable = <TData, TValue>({ data, columns }: DataTableProps<TData
             ?
             (
               table.getRowModel().rows.map((row) => (
-                <TableRow
-                  key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
-                >
+                <TableRow key={row.id} data-state={row.getIsSelected() && "selected"}>
                   {
                     row.getVisibleCells().map((cell) => (
                       <TableCell key={cell.id}>
@@ -74,10 +70,7 @@ export const DataTable = <TData, TValue>({ data, columns }: DataTableProps<TData
             :
             (
               <TableRow>
-                <TableCell
-                  colSpan={columns.length}
-                  className="h-24 text-center"
-                >
+                <TableCell colSpan={columns.length} className="h-24 text-center">
                   Sem resultados
                 </TableCell>
               </TableRow>
@@ -85,6 +78,7 @@ export const DataTable = <TData, TValue>({ data, columns }: DataTableProps<TData
           }
         </TableBody>
       </Table>
-    </div>
+      <Pagination table={table} />
+    </div >
   )
 }

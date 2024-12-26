@@ -22,23 +22,27 @@ export const columns: ColumnDef<IAllFilesTable>[] = [
   {
     accessorKey: "id",
     header: ({ table }) => (
-      <Checkbox
-        className="border-muted-foreground"
-        checked={
-          table.getIsAllPageRowsSelected() ||
-          (table.getIsSomePageRowsSelected() && "indeterminate")
-        }
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label="Selecionar todos"
-      />
+      <div className="flex w-0 mx-0.5">
+        <Checkbox
+          className="border-muted-foreground"
+          checked={
+            table.getIsAllPageRowsSelected() ||
+            (table.getIsSomePageRowsSelected() && "indeterminate")
+          }
+          onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+          aria-label="Selecionar todos"
+        />
+      </div>
     ),
     cell: ({ row }) => (
-      <Checkbox
-        className="border-muted-foreground"
-        checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label="Select row"
-      />
+      <div className="flex w-0 mx-0.5">
+        <Checkbox
+          className="border-muted-foreground"
+          checked={row.getIsSelected()}
+          onCheckedChange={(value) => row.toggleSelected(!!value)}
+          aria-label="Select row"
+        />
+      </div>
     ),
     enableSorting: false,
     enableHiding: false,
@@ -51,7 +55,7 @@ export const columns: ColumnDef<IAllFilesTable>[] = [
 
       return (
         <div className="flex flex-row items-center gap-2">
-          <div className="flex items-center justify-center rounded-sm bg-accent-foreground/30 dark:bg-accent size-8">
+          <div className="flex items-center justify-center rounded-md bg-accent-foreground/30 dark:bg-accent size-8">
             <FileText className="text-white dark:text-white size-4" />
           </div>
           <div className="flex flex-col">
@@ -65,6 +69,19 @@ export const columns: ColumnDef<IAllFilesTable>[] = [
         </div>
       )
     },
+    filterFn: (row, _, value) => {
+      const file = row.original.file;
+      const keys: (keyof File)[] = ['name', 'size', 'type'];
+
+      for (const key of keys) {
+        console.log(value)
+        if (file[key].toLowerCase().includes(value.toLowerCase())) {
+          return true;
+        }
+      }
+
+      return false;
+    },
   },
   {
     accessorKey: "uploadedBy",
@@ -76,7 +93,7 @@ export const columns: ColumnDef<IAllFilesTable>[] = [
     cell: ({ row }) => {
       const lastModified: Date = row.getValue("lastModified")
 
-      return (<div className="font-medium capitalize">{dayjs(lastModified).format('DD/MM/YYYY')}</div>)
+      return (<div className="capitalize">{dayjs(lastModified).format('DD/MM/YYYY')}</div>)
     },
   },
   {
