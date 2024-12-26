@@ -1,4 +1,5 @@
 import { IAllFilesTable } from "@/app/StationArchives/components/AllFilesTable/Columns";
+import { faker } from '@faker-js/faker'
 
 export const FAKE_USERS_DATA = [
   { id: 1, avatar: 'https://github.com/shadcn.png', name: 'João', profile: 'Operador Padrão' },
@@ -731,6 +732,8 @@ export const FAKE_FOLDERS =
   ]
 }
 
+export const FAKE_DATA_ARCHIVE: IAllFilesTable[] = [];
+
 export const FAKE_DATA_ALL_FILES_TALBE: IAllFilesTable[] = [
   {
     id: '1',
@@ -803,3 +806,21 @@ export const FAKE_DATA_ALL_FILES_TALBE: IAllFilesTable[] = [
     lastModified: new Date('2023-12-22T11:30:40'),
   }
 ];
+
+function generateItem(id: number) {
+  return {
+    id: id.toString(),
+    file: {
+      name: faker.system.fileName(),
+      size: faker.number.int({ min: 1, max: 100 }) + 'KB',
+      type: faker.system.commonFileType(),
+    },
+    folder: faker.system.directoryPath(),
+    uploadedBy: faker.person.fullName(),
+    lastModified: faker.date.past(),
+  };
+}
+
+for (let i = 1; i <= 100; i++) {
+  FAKE_DATA_ARCHIVE.push(generateItem(i))
+}

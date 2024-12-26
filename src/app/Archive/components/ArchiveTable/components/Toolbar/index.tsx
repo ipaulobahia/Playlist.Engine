@@ -1,6 +1,4 @@
 import { Table } from "@tanstack/react-table"
-import { FilterButton } from "./components/FilterButton"
-import { useState } from "react"
 import { Input } from "@/components/ui/input"
 import { ListFilter, Search } from "lucide-react"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
@@ -14,23 +12,10 @@ interface ToolbarProps<TData> {
 }
 
 export const Toolbar = <TData,>({ table }: ToolbarProps<TData>) => {
-  const [typeFile, setTypeFile] = useState<string>("")
-
-  function handlerFilterType(type: string) {
-    setTypeFile(type)
-    table.getColumn("file")?.setFilterValue(type.toLowerCase())
-  }
-
   return (
-    <div className="flex flex-row items-center justify-between my-3">
-      <div className="flex p-1 bg-white border rounded border-muted-foreground/25 dark:bg-black gap-x-1">
-        <FilterButton typeFile={typeFile} currentType="" label="Todos" onFilter={handlerFilterType} />
-        <FilterButton typeFile={typeFile} currentType="MP3" label="MP3" onFilter={handlerFilterType} />
-        <FilterButton typeFile={typeFile} currentType="MP4" label="MP4" onFilter={handlerFilterType} />
-        <FilterButton typeFile={typeFile} currentType="TXT" label="TXT" onFilter={handlerFilterType} />
-      </div>
-      <div className="flex flex-row items-center justify-between gap-2">
-        <div className="relative w-full pl-4 bg-black">
+    <div className="flex flex-row items-center my-3">
+      <div className="flex flex-row items-center justify-between w-full gap-2">
+        <div className="relative justify-between pl-4 bg-black w-fit">
           <span className="absolute inset-y-0 flex items-center left-2">
             <Search size={16} />
           </span>
