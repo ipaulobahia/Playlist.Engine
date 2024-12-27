@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Eye, EyeOff } from "lucide-react"
 import { useState } from "react"
+import { Link } from "react-router-dom"
 
 export function LoginForm() {
   const [typePassword, setTypePassword] = useState<"password" | "text">("password")
@@ -61,7 +62,9 @@ export function LoginForm() {
                 </div>
               </div>
               <Button type="submit" className="w-full">
-                Conecte-se
+                <Link to={'/users'}>
+                  Conecte-se
+                </Link>
               </Button>
             </div>
           </form>

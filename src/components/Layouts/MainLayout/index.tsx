@@ -1,41 +1,8 @@
 import { ModeToggle } from "@/components/mode-toggle"
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu"
-import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarProvider, SidebarRail } from "@/components/ui/sidebar"
 import { cn } from "@/lib/utils"
-import { FileText, Folder } from "lucide-react"
 import { forwardRef } from "react"
 import { Link, Outlet, useLocation } from "react-router-dom"
-
-const data = {
-  recentUploads: [
-    {
-      file: "24-12-2024",
-      state: "U",
-    },
-    {
-      file: "Fim de ano é no BK",
-      state: "U",
-    },
-    {
-      file: "Vinheta de Fim de Ano",
-      state: "M",
-    },
-  ],
-  archivesTree: [
-    ["Acervo Musical Rede Aleluia"],
-    ["Banda e Cantores Gospel"],
-    ["Coleção Rock Clássico"],
-    ["Documentos e Registros"],
-    ["Fotos do Evento 2024"],
-    ["Vídeos do Projeto 2023"],
-    ["Diversos Arquivos"],
-    ["Arquivos de Áudio"],
-    ["Acervo de Discos Vinil"],
-    ["Master de Gravações"],
-    ["Projetos em Andamento"],
-    ["Material Promocional"]
-  ],
-}
 
 export const MainLayout = () => {
   const { pathname } = useLocation()
@@ -79,19 +46,7 @@ export const MainLayout = () => {
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className={`h-0 p-0 text-sm font-medium transition-colors text-muted-foreground dark:hover:text-white hover:text-black ${pathname.includes("archive") && 'dark:text-white text-black'}`}>Pastas</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid grid-cols-3 grid-rows-3 gap-3 p-3 w-[600px]">
-                      <li className="row-span-3">
-                        <NavigationMenuLink asChild>
-                          <div
-                            className="flex flex-col justify-end w-full h-full p-4 no-underline rounded-md outline-none select-none bg-gradient-to-b from-muted/50 to-muted focus:shadow-md">
-                            <div className="mt-4 mb-2 text-lg font-medium">
-                              Playlist Engine
-                            </div>
-                            <p className="text-sm leading-tight text-muted-foreground">
-                            </p>
-                          </div>
-                        </NavigationMenuLink>
-                      </li>
+                    <ul className="grid grid-cols-2 gap-3 p-3 w-[600px]">
                       <li className="col-span-2">
                         <NavigationMenuLink asChild>
                           <Link
@@ -105,7 +60,7 @@ export const MainLayout = () => {
                           </Link>
                         </NavigationMenuLink>
                       </li>
-                      <li className="col-span-2">
+                      <li className="row-span-1">
                         <NavigationMenuLink asChild>
                           <Link
                             to={'/station-archives'}
@@ -118,7 +73,7 @@ export const MainLayout = () => {
                           </Link>
                         </NavigationMenuLink>
                       </li>
-                      <li className="col-span-2">
+                      <li className="row-span-1">
                         <NavigationMenuLink asChild>
                           <Link
                             to={'/station-archives'}
@@ -137,24 +92,26 @@ export const MainLayout = () => {
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className={`h-0 p-0 text-sm font-medium transition-colors text-muted-foreground dark:hover:text-white hover:text-black ${pathname == '/maps' && 'dark:text-white text-black'}`}>Mapas</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid gap-3 p-3 w-[600px] lg:grid-cols-2">
-                      <ListItem href="/" title="Gerenciar Mapa Comerciais">
+                    <ul className="grid gap-3 p-3 w-[600px] grid-cols-2">
+                      <ListItem href="/overview" title="Gerenciar Mapa Comerciais">
                         Organize e administre seus mapas comerciais de forma prática e eficiente.
                       </ListItem>
-                      <ListItem href="/" title="Criar Mapa Comercial">
+                      <ListItem href="/overview" title="Criar Mapa Comercial">
                         Crie novos mapas comerciais de maneira simples e rápida.
                       </ListItem>
-                      <ListItem href="/" title="Gerenciar Mapas Musicais">
+                      <ListItem href="/overview" title="Gerenciar Mapas Musicais">
                         Organize e gerencie seus mapas musicais de forma fácil e rápida.
                       </ListItem>
-                      <ListItem href="/" title="Criar Mapa Musical">
+                      <ListItem href="/overview" title="Criar Mapa Musical">
                         Crie novos mapas musicais de forma simples e intuitiva.
                       </ListItem>
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className={`h-0 p-0 text-sm font-medium transition-colors text-muted-foreground dark:hover:text-white hover:text-black ${pathname == '/settings' && 'dark:text-white text-black'}`}>Configurações</NavigationMenuTrigger>
+                  <Link to={'/settings'}>
+                    <NavigationMenuTrigger className={`h-0 p-0 text-sm font-medium transition-colors text-muted-foreground dark:hover:text-white hover:text-black ${pathname == '/settings' && 'dark:text-white text-black'}`}>Configurações</NavigationMenuTrigger>
+                  </Link>
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
@@ -164,55 +121,7 @@ export const MainLayout = () => {
           </nav>
         </div>
       </nav>
-      <SidebarProvider>
-        <Sidebar collapsible="none" className="fixed z-10 h-screen border-r top-14 border-muted-foreground/25">
-          <SidebarContent>
-            <SidebarGroup>
-              <SidebarGroupLabel>Upload Recentes</SidebarGroupLabel>
-              <SidebarGroupContent>
-                <SidebarMenu>
-                  {data.recentUploads.map(({ file, state }, index) => (
-                    <SidebarMenuItem key={index}>
-                      <SidebarMenuButton className="flex flex-row items-center gap-1.5">
-                        <FileText />
-                        <span className="text-xs font-medium">
-                          {file}
-                        </span>
-                      </SidebarMenuButton>
-                      <SidebarMenuBadge>{state}</SidebarMenuBadge>
-                    </SidebarMenuItem>
-                  ))}
-                </SidebarMenu>
-              </SidebarGroupContent>
-            </SidebarGroup>
-            <SidebarGroup>
-              <SidebarGroupLabel>Pastas</SidebarGroupLabel>
-              <SidebarGroupContent className="overflow-auto max-h-[70vh]">
-                <SidebarMenu>
-                  {
-                    data.archivesTree.map((item, index) => {
-                      return (
-                        <SidebarMenuItem key={index}>
-                          <Link to={`/archive/${index}`}>
-                            <SidebarMenuButton>
-                              <Folder />
-                              {item}
-                            </SidebarMenuButton>
-                          </Link>
-                        </SidebarMenuItem>
-                      )
-                    })
-                  }
-                </SidebarMenu>
-              </SidebarGroupContent>
-            </SidebarGroup>
-          </SidebarContent>
-          <SidebarRail />
-        </Sidebar>
-        <div className="w-full pl-[--sidebar-width]">
-          <Outlet />
-        </div>
-      </SidebarProvider>
+      <Outlet />
     </main>
   )
 }

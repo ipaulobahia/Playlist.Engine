@@ -1,9 +1,9 @@
-import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import { ColumnDef } from "@tanstack/react-table"
-import { Dot, FileText, MoreVertical } from "lucide-react"
+import { Dot, FileText } from "lucide-react"
 import dayjs from 'dayjs'
 import clsx from "clsx"
+import { DropdownMenuRowActions } from "./components"
 
 interface File {
   name: string
@@ -56,8 +56,8 @@ export const columns: ColumnDef<IAllFilesTable>[] = [
 
       return (
         <div className="flex flex-row items-center gap-2">
-          <div className="flex items-center justify-center rounded-md bg-accent-foreground/30 dark:bg-accent size-8">
-            <FileText className="text-white dark:text-white size-4" />
+          <div className="flex items-center justify-center rounded-md bg-muted-foreground dark:bg-white size-8">
+            <FileText className="text-white dark:text-black size-4" />
           </div>
           <div className="flex flex-col">
             <span className="text-xs font-medium">{name}</span>
@@ -92,7 +92,7 @@ export const columns: ColumnDef<IAllFilesTable>[] = [
     accessorKey: "uploadedBy",
     header: "Upload realizado por",
   },
-{
+  {
     accessorKey: "status",
     header: () => {
       return (
@@ -142,15 +142,9 @@ export const columns: ColumnDef<IAllFilesTable>[] = [
   {
     id: "actions",
     enableHiding: false,
-    cell: () => {
-      return (
-        <div className="flex justify-end">
-          <Button variant="ghost" className="p-0 size-8">
-            <span className="sr-only">Abrir menu</span>
-            <MoreVertical />
-          </Button>
-        </div>
-      )
+    cell: ({ row }) => {
+      const status = row.getValue("status") as string
+      return (<DropdownMenuRowActions currentStatus={status} />)
     },
   },
 ]

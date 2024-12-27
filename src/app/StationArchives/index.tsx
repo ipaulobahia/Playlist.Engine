@@ -1,8 +1,14 @@
 import { SidebarInset } from "@/components/ui/sidebar"
 import { CloudUpload, FilePlus2, FolderPlus, Plus, SquareArrowOutUpRight, Logs } from "lucide-react"
 import { ActionCard, UpdateCard, AllFilesTable, StationArchivesBreadchumbs } from "./components"
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { Label } from "@/components/ui/label"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { Button } from "@/components/ui/button"
 
 export const StationArchives = () => {
+
   return (
     <SidebarInset className="p-3">
       <StationArchivesBreadchumbs />
@@ -12,21 +18,62 @@ export const StationArchives = () => {
           <span className="text-sm font-normal text-muted-foreground">Organize e gerencie seus arquivos de forma prática e eficiente</span>
         </div>
         <div className="grid grid-cols-4 gap-4">
-          <ActionCard title="Criar pasta" MainIcon={FolderPlus} SubIcon={Plus} />
-          <ActionCard title="Criar arquivo" MainIcon={FilePlus2} SubIcon={Plus} />
-          <ActionCard title="Gerenciar uploads" MainIcon={CloudUpload} SubIcon={SquareArrowOutUpRight} />
-          <ActionCard title="Ultimos eventos" MainIcon={Logs} SubIcon={Plus} />
+          <Dialog>
+            <DialogTrigger className="text-start">
+              <ActionCard title="Criar pasta" MainIcon={FolderPlus} SubIcon={Plus} />
+            </DialogTrigger>
+            <DialogContent className="gap-y-5">
+              <DialogHeader>
+                <DialogTitle>Criar nova pasta</DialogTitle>
+                <DialogDescription>
+                  Crie uma nova pasta que ficará associada a sua emissora.
+                </DialogDescription>
+              </DialogHeader>
+              <div className="grid gap-4">
+                <div className="grid items-center gap-3">
+                  <Label htmlFor="name" className="text-left tex">
+                    Nome da pasta
+                  </Label>
+                  <Input id="name" placeholder="Pasta de músicas" className="placeholder:text-xs" />
+                </div>
+                <div className="grid items-center gap-3">
+                  <Label htmlFor="description" className="text-left tex">
+                    Descrição
+                  </Label>
+                  <Textarea className="max-h-44 min-h-32 placeholder:text-xs" placeholder="Escreva uma boa descrição para identificar a pasta." />
+                </div>
+              </div>
+              <DialogFooter className="flex items-center w-full sm:justify-between">
+                <Button size={'default'} variant={'outline'}>Cancelar</Button>
+                <Button size={'default'}>Criar</Button>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
+          <Dialog>
+            <DialogTrigger className="text-start">
+              <ActionCard title="Criar arquivo" MainIcon={FilePlus2} SubIcon={Plus} />
+            </DialogTrigger>
+            <DialogContent></DialogContent>
+          </Dialog>
+          <Dialog>
+            <DialogTrigger className="text-start">
+              <ActionCard title="Gerenciar uploads" MainIcon={CloudUpload} SubIcon={SquareArrowOutUpRight} />
+            </DialogTrigger>
+            <DialogContent></DialogContent>
+          </Dialog>
+          <Dialog>
+            <DialogTrigger className="text-start">
+              <ActionCard title="Ultimos eventos" MainIcon={Logs} SubIcon={Plus} />
+            </DialogTrigger>
+            <DialogContent></DialogContent>
+          </Dialog>
         </div>
         <div className="flex flex-col gap-3">
           <span className="text-[16px] font-medium">
             Atualizações recentes
           </span>
           <div className="grid grid-cols-5 gap-4">
-            <UpdateCard title="24-12-2024" size="50B" type="txt" />
-            <UpdateCard title="Fim de ano é no BK" size="20K" type="mp4" />
-            <UpdateCard title="Vinheta de Fim de Ano" size="50B" type="mp3" />
-            <UpdateCard title="Hora Certa - Natal" size="50B" type="mp3" />
-            <UpdateCard title="Churrasco é Sadia" size="20k" type="mp4" />
+            {[...Array(5)].map((_, index) => { return (<UpdateCard key={index} />) })}
           </div>
         </div>
         <div className="flex flex-col">

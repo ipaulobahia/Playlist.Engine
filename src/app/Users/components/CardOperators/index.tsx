@@ -37,7 +37,7 @@ export const CardOperators = () => {
                   <DialogTrigger asChild>
                     <Card key={item.id} className="flex flex-col items-center justify-center gap-3 p-6 border rounded shadow-none cursor-pointer hover:bg-secondary dark:bg-black border-muted-foreground/20 dark:border-muted/80 dark:hover:bg-secondary/20 dark:hover:text-accent-foreground">
                       <Avatar className="size-16">
-                        <AvatarImage src={item.avatar} />
+                        <AvatarImage src="" />
                         <AvatarFallback className="font-bold">{item.name.slice(0, 2).toUpperCase()}</AvatarFallback>
                       </Avatar>
                       <div className="flex flex-col items-center justify-center gap-1 text-center">
