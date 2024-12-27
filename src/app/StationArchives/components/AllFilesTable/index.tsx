@@ -59,7 +59,7 @@ export const AllFilesTable = () => {
                 <TableRow key={row.id} data-state={row.getIsSelected() && "selected"}>
                   {
                     row.getVisibleCells().map((cell) => (
-                      <TableCell key={cell.id}>
+                      <TableCell className="text-xs font-medium " key={cell.id}>
                         {flexRender(cell.column.columnDef.cell, cell.getContext())}
                       </TableCell>
                     ))

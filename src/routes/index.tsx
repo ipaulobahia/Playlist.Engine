@@ -7,8 +7,8 @@ export const Routers = createBrowserRouter(
     <Route>
       <Route index element={<Login />} />
       <Route path="/users" element={<Users />} />
+      <Route path="/dashboard" element={<Dashboard />} />
       <Route element={<MainLayout />}>
-        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/station-archives" element={<StationArchives />} />
         <Route path="/archive/:id" element={<Archive />} />
       </Route>

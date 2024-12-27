@@ -15,7 +15,7 @@ export const Toolbar = <TData,>({ table }: ToolbarProps<TData>) => {
   return (
     <div className="flex flex-row items-center my-3">
       <div className="flex flex-row items-center justify-between w-full gap-2">
-        <div className="relative justify-between pl-4 bg-black w-fit">
+        <div className="relative justify-between pl-4 border rounded dark:bg-black border-muted-foreground/25 w-fit">
           <span className="absolute inset-y-0 flex items-center left-2">
             <Search size={16} />
           </span>
@@ -23,7 +23,7 @@ export const Toolbar = <TData,>({ table }: ToolbarProps<TData>) => {
             placeholder="Pesquise"
             value={(table.getColumn("file")?.getFilterValue() as string) ?? ""}
             onChange={(event) => table.getColumn("file")?.setFilterValue(event.target.value)}
-            className="h-8 dark:bg-black border-muted-foreground/25 placeholder:text-xs"
+            className="h-8 border-0 dark:bg-black placeholder:text-xs"
           />
         </div>
         <DropdownMenu>
@@ -72,6 +72,22 @@ export const Toolbar = <TData,>({ table }: ToolbarProps<TData>) => {
                       <SelectItem value="8">Raquel Santos</SelectItem>
                       <SelectItem value="9">João Martins</SelectItem>
                       <SelectItem value="10">Beatriz Costa</SelectItem>
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="flex items-center justify-between px-2">
+                <Label className="text-xs font-normal text-muted-foreground">Status</Label>
+                <Select>
+                  <SelectTrigger className="h-8 text-xs w-fit">
+                    <SelectValue placeholder="Selecione o status" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectLabel>Status</SelectLabel>
+                      <SelectItem value="1">Inativo</SelectItem>
+                      <SelectItem value="2">Pendente</SelectItem>
+                      <SelectItem value="3">Ativo</SelectItem>
                     </SelectGroup>
                   </SelectContent>
                 </Select>

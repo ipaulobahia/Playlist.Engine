@@ -1,6 +1,4 @@
 import { Table } from "@tanstack/react-table"
-import { FilterButton } from "./components/FilterButton"
-import { useState } from "react"
 import { Input } from "@/components/ui/input"
 import { ListFilter, Search } from "lucide-react"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
@@ -8,29 +6,17 @@ import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Switch } from "@/components/ui/switch"
+import { StatusFilter } from "./components"
 
 interface ToolbarProps<TData> {
   table: Table<TData>
 }
 
 export const Toolbar = <TData,>({ table }: ToolbarProps<TData>) => {
-  const [typeFile, setTypeFile] = useState<string>("")
-
-  function handlerFilterType(type: string) {
-    setTypeFile(type)
-    table.getColumn("file")?.setFilterValue(type.toLowerCase())
-  }
-
   return (
     <div className="flex flex-row items-center justify-between my-3">
-      <div className="flex p-1 bg-white border rounded border-muted-foreground/25 dark:bg-black gap-x-1">
-        <FilterButton typeFile={typeFile} currentType="" label="Todos" onFilter={handlerFilterType} />
-        <FilterButton typeFile={typeFile} currentType="MP3" label="MP3" onFilter={handlerFilterType} />
-        <FilterButton typeFile={typeFile} currentType="MP4" label="MP4" onFilter={handlerFilterType} />
-        <FilterButton typeFile={typeFile} currentType="TXT" label="TXT" onFilter={handlerFilterType} />
-      </div>
-      <div className="flex flex-row items-center justify-between gap-2">
-        <div className="relative w-full pl-4 bg-black">
+      <div className="flex flex-row items-center gap-x-2">
+        <div className="relative justify-between pl-4 border rounded dark:bg-black border-muted-foreground/25 w-fit">
           <span className="absolute inset-y-0 flex items-center left-2">
             <Search size={16} />
           </span>
@@ -38,9 +24,12 @@ export const Toolbar = <TData,>({ table }: ToolbarProps<TData>) => {
             placeholder="Pesquise"
             value={(table.getColumn("file")?.getFilterValue() as string) ?? ""}
             onChange={(event) => table.getColumn("file")?.setFilterValue(event.target.value)}
-            className="h-8 dark:bg-black border-muted-foreground/25 placeholder:text-xs"
+            className="h-8 border-0 dark:bg-black placeholder:text-xs"
           />
         </div>
+        <StatusFilter column={table.getColumn("status")} />
+      </div>
+      <div className="flex flex-row items-center justify-between gap-2">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button size={'sm'} variant={'outline'} className="rounded text-muted-foreground">
@@ -87,6 +76,22 @@ export const Toolbar = <TData,>({ table }: ToolbarProps<TData>) => {
                       <SelectItem value="8">Raquel Santos</SelectItem>
                       <SelectItem value="9">João Martins</SelectItem>
                       <SelectItem value="10">Beatriz Costa</SelectItem>
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="flex items-center justify-between px-2">
+                <Label className="text-xs font-normal text-muted-foreground">Status</Label>
+                <Select>
+                  <SelectTrigger className="h-8 text-xs w-fit">
+                    <SelectValue placeholder="Selecione o status" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectLabel>Status</SelectLabel>
+                      <SelectItem value="1">Inativo</SelectItem>
+                      <SelectItem value="2">Pendente</SelectItem>
+                      <SelectItem value="3">Ativo</SelectItem>
                     </SelectGroup>
                   </SelectContent>
                 </Select>

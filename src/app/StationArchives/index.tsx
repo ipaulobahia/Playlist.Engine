@@ -1,10 +1,11 @@
 import { SidebarInset } from "@/components/ui/sidebar"
 import { CloudUpload, FilePlus2, FolderPlus, Plus, SquareArrowOutUpRight, Logs } from "lucide-react"
-import { ActionCard, UpdateCard, AllFilesTable } from "./components"
+import { ActionCard, UpdateCard, AllFilesTable, StationArchivesBreadchumbs } from "./components"
 
 export const StationArchives = () => {
   return (
     <SidebarInset className="p-3">
+      <StationArchivesBreadchumbs />
       <div className="p-4 space-y-3 border rounded shadow-sm border-muted-foreground/25 bg-sidebar">
         <div className="flex flex-col gap-0.5">
           <span className="text-xl font-semibold">Arquivos da emissora</span>

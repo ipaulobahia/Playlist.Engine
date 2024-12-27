@@ -3,6 +3,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { ColumnDef } from "@tanstack/react-table"
 import { Dot, FileText, MoreVertical } from "lucide-react"
 import dayjs from 'dayjs'
+import clsx from "clsx"
 
 interface File {
   name: string
@@ -84,16 +85,58 @@ export const columns: ColumnDef<IAllFilesTable>[] = [
     },
   },
   {
+    accessorKey: "folder",
+    header: "Pasta",
+  },
+  {
     accessorKey: "uploadedBy",
     header: "Upload realizado por",
   },
   {
+    accessorKey: "status",
+    header: () => {
+      return (
+        <div className="flex items-center justify-center">
+          Status
+        </div>
+      )
+    },
+    cell: ({ row }) => {
+      const statusMap: Record<number, { color: string; label: string }> = {
+        0: { color: 'bg-red-500', label: 'Inativo' },
+        1: { color: 'bg-yellow-500', label: 'Pendente' },
+        2: { color: 'bg-green-500', label: 'Ativo' },
+      };
+
+      const defaultStatus = { color: 'bg-gray-500', label: 'Indefinido' };
+      const status = statusMap[row.getValue("status") as number] || defaultStatus;
+
+      return (
+        <div className="flex items-center justify-center gap-1">
+          <span className={clsx('p-1 rounded-full animate-pulse', status.color)} />
+          <span className="text-xs font-medium text-muted-foreground">
+            {status.label}
+          </span>
+        </div>
+      );
+    },
+    filterFn: (row, id, value) => {
+      return value.includes(row.getValue(id))
+    },
+  },
+  {
     accessorKey: "lastModified",
-    header: "Ultima atualização",
+    header: () => {
+      return (
+        <div className="flex items-center justify-center">
+          Ultima atualização
+        </div>
+      )
+    },
     cell: ({ row }) => {
       const lastModified: Date = row.getValue("lastModified")
 
-      return (<div className="capitalize">{dayjs(lastModified).format('DD/MM/YYYY')}</div>)
+      return (<div className="flex items-center justify-center capitalize">{dayjs(lastModified).format('DD/MM/YYYY')}</div>)
     },
   },
   {
