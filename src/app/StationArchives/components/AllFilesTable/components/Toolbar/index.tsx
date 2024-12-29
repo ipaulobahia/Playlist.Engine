@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input"
 import { ListFilter, Search } from "lucide-react"
 import { DropdownMenu, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Button } from "@/components/ui/button"
-import { DropdownMenuFilter, StatusFilter } from "./components"
+import { DropdownMenuFilter } from "./components"
 
 interface ToolbarProps<TData> {
   table: Table<TData>
@@ -24,7 +24,6 @@ export const Toolbar = <TData,>({ table }: ToolbarProps<TData>) => {
             className="h-8 border-0 dark:bg-black placeholder:text-xs"
           />
         </div>
-        <StatusFilter column={table.getColumn("status")} />
       </div>
       <div className="flex flex-row items-center justify-between gap-2">
         <DropdownMenu>

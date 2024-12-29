@@ -18,18 +18,33 @@ const data = {
     },
   ],
   archivesTree: [
-    ["Acervo Musical Rede Aleluia"],
-    ["Banda e Cantores Gospel"],
-    ["Coleção Rock Clássico"],
-    ["Documentos e Registros"],
-    ["Fotos do Evento 2024"],
-    ["Vídeos do Projeto 2023"],
-    ["Diversos Arquivos"],
-    ["Arquivos de Áudio"],
-    ["Acervo de Discos Vinil"],
-    ["Master de Gravações"],
-    ["Projetos em Andamento"],
-    ["Material Promocional"]
+    { folderName: "Acervo Musical Rede Aleluia", icon: "Icones5_dll_329.png", },
+    { folderName: "Cliente", icon: "Icones5_dll_5.png", },
+    { folderName: "Comerciais", icon: "Icones5_dll_330.png", },
+    { folderName: "Commercial Videos", icon: "Icones5_dll_303.png", },
+    { folderName: "Resume", icon: "Icones10_dll_335.png", },
+    { folderName: "Downloaded", icon: "folders_dll_7.png", },
+    { folderName: "Exact Time", icon: "relogios_dll_3.png", },
+    { folderName: "Geral", icon: "Icones5_dll_4.png", },
+    { folderName: "Institutional audios", icon: "icones6_dll_0.png", },
+    { folderName: "Jingles", icon: "icones6_dll_1.png", },
+    { folderName: "Jornalismo", icon: "Icones5_dll_4.png", },
+    { folderName: "Nacionais", icon: "icones6_dll_93.png", },
+    { folderName: "News", icon: "icones6_dll_66.png", },
+    { folderName: "PlayStation", icon: "Icones_dll_23.png", },
+    { folderName: "Pop", icon: "icones6_dll_2.png", },
+    { folderName: "Pop Seq", icon: "folders_dll_6.png", },
+    { folderName: "R&B", icon: "icones6_dll_4.png", },
+    { folderName: "Reggae", icon: "Icones5_dll_347.png", },
+    { folderName: "Remove Overlays", icon: "Icones5_dll_24.png", },
+    { folderName: "Rock", icon: "instrumentos_dll_3.png", },
+    { folderName: "Seals", icon: "icones6_dll_42.png", },
+    { folderName: "Sweeper Videos", icon: "Icones5_dll_356.png", },
+    { folderName: "Sweppers", icon: "ícones12_dll_75.png", },
+    { folderName: "Tracks", icon: "icones6_dll_31.png", },
+    { folderName: "Video Clipes", icon: "icones6_dll_209.png", },
+    { folderName: "Virar Geradora", icon: "Icones5_dll_83.png", },
+    { folderName: "Voice Track", icon: "icones6_dll_187.png", }
   ],
 }
 
@@ -61,13 +76,19 @@ export const ArchivesLayout = () => {
             <SidebarGroupContent className="overflow-auto max-h-[70vh]">
               <SidebarMenu>
                 {
-                  data.archivesTree.map((item, index) => {
+                  data.archivesTree.map(({ icon, folderName }, index) => {
                     return (
                       <SidebarMenuItem key={index}>
                         <Link to={`/archive/${index}`}>
                           <SidebarMenuButton>
-                            <Folder />
-                            {item}
+                            {
+                              icon != ""
+                                ?
+                                <img src={`http://playlist.ddns.com.br:8010/icons/${icon}`} />
+                                :
+                                <Folder />
+                            }
+                            {folderName}
                           </SidebarMenuButton>
                         </Link>
                       </SidebarMenuItem>
