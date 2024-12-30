@@ -55,9 +55,13 @@ const data = {
 
 export const ArchivesLayout = () => {
   const { isOpen, toggleSidebar } = useInfoSidebar()
+
   const [isOpenCollapsibleArchive, setIsOpenCollapsibleArchive] = useState<boolean>(true)
   const [isOpenCollapsibleMoreData, setIsOpenCollapsibleMoreData] = useState<boolean>(false)
   const [isOpenCollapsiblePlaylists, setIsOpenCollapsiblePlaylists] = useState<boolean>(false)
+  const [isOpenCollapsibleScheduledTimes, setIsOpenCollapsibleScheduledTimes] = useState<boolean>(false)
+  const [isOpenCollapsibleLatestBroadcasts, setIsOpenCollapsibleLatestBroadcasts] = useState<boolean>(false)
+
 
   return (
     <SidebarProvider>
@@ -290,6 +294,72 @@ export const ArchivesLayout = () => {
                   <TableRow>
                     <TableCell className="font-medium">Lista</TableCell>
                     <TableCell className="text-left">Sucessos 2023</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </CollapsibleContent>
+          </Collapsible>
+          <Collapsible
+            open={isOpenCollapsibleScheduledTimes}
+            onOpenChange={setIsOpenCollapsibleScheduledTimes}
+            className="space-y-2"
+
+          >
+            <div className="flex items-center justify-between space-x-4">
+              <h4 className={`text-sm font-medium text-foreground ${!isOpenCollapsibleScheduledTimes && "text-muted-foreground"}`}>
+                Horários programados
+              </h4>
+              <CollapsibleTrigger asChild>
+                <Button variant="ghost" size="sm" className="p-0 w-9 text-foreground [&[data-state=closed]>svg]:text-muted-foreground [&[data-state=open]>svg]:rotate-180">
+                  <ChevronUp className="transition-transform duration-200 size-4 text-foreground shrink-0" />
+                </Button>
+              </CollapsibleTrigger>
+            </div>
+            <CollapsibleContent>
+              <Table>
+                <TableBody>
+                  <TableRow>
+                    <TableCell className="font-medium">28/12/2024</TableCell>
+                    <TableCell className="text-left">00:02, 18:05</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium">31/12/2024</TableCell>
+                    <TableCell className="text-left">17:25</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </CollapsibleContent>
+          </Collapsible>
+          <Collapsible
+            open={isOpenCollapsibleLatestBroadcasts}
+            onOpenChange={setIsOpenCollapsibleLatestBroadcasts}
+            className="space-y-2"
+
+          >
+            <div className="flex items-center justify-between space-x-4">
+              <h4 className={`text-sm font-medium text-foreground ${!isOpenCollapsibleLatestBroadcasts && "text-muted-foreground"}`}>
+                Últimas Veiculações
+              </h4>
+              <CollapsibleTrigger asChild>
+                <Button variant="ghost" size="sm" className="p-0 w-9 text-foreground [&[data-state=closed]>svg]:text-muted-foreground [&[data-state=open]>svg]:rotate-180">
+                  <ChevronUp className="transition-transform duration-200 size-4 text-foreground shrink-0" />
+                </Button>
+              </CollapsibleTrigger>
+            </div>
+            <CollapsibleContent>
+              <Table>
+                <TableBody>
+                  <TableRow>
+                    <TableCell className="font-medium">20/12/2024</TableCell>
+                    <TableCell className="text-left">09:33</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium">19/12/2024</TableCell>
+                    <TableCell className="text-left">09:08</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium">01/11/2024</TableCell>
+                    <TableCell className="text-left">14:03</TableCell>
                   </TableRow>
                 </TableBody>
               </Table>

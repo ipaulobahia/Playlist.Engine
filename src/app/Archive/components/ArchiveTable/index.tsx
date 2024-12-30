@@ -4,12 +4,15 @@ import { useState } from "react"
 import { FAKE_DATA_ARCHIVE } from "@/utils/fakeData"
 import { columns, Pagination, Toolbar } from './components'
 import { IAllFilesTable } from "./components/Columns"
+import { useInfoSidebar } from "@/hooks/use-sidebar"
 
 export const ArchiveTable = () => {
+  const { selectRow } = useInfoSidebar()
   const [rowSelection, setRowSelection] = useState({})
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({ uploadedBy: false, folder: false, type: false, size: false })
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
   const [sorting, setSorting] = useState<SortingState>([])
+
 
   const table = useReactTable({
     data: FAKE_DATA_ARCHIVE,
@@ -32,6 +35,7 @@ export const ArchiveTable = () => {
   function handlerSelectedRow(row: Row<IAllFilesTable>, table: Table<IAllFilesTable>) {
     table.toggleAllPageRowsSelected(false)
     row.toggleSelected()
+    selectRow(row)
   }
 
   return (
@@ -41,19 +45,22 @@ export const ArchiveTable = () => {
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
-              {headerGroup.headers.map((header) => {
-                return (
-                  <TableHead className="font-medium bg-white first:rounded-tl-md last:rounded-tr-md dark:hover:bg-black dark:border-none dark:bg-black" key={header.id}>
-                    {
-                      header.isPlaceholder
-                        ?
-                        null
-                        :
-                        flexRender(header.column.columnDef.header, header.getContext())
-                    }
-                  </TableHead>
+              {
+                headerGroup.headers.map((header) => {
+                  return (
+                    <TableHead className="font-medium bg-white first:rounded-tl-md last:rounded-tr-md dark:hover:bg-black dark:border-none dark:bg-black" key={header.id}>
+                      {
+                        header.isPlaceholder
+                          ?
+                          null
+                          :
+                          flexRender(header.column.columnDef.header, header.getContext())
+                      }
+                    </TableHead>
+                  )
+                }
                 )
-              })}
+              }
             </TableRow>
           ))}
         </TableHeader>
