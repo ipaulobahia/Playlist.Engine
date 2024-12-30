@@ -746,6 +746,7 @@ function generateItem(id: number) {
     },
     folder: faker.helpers.arrayElement(["Acervo Musical Rede Aleluia", "Banda e Cantores Gospel", "Coleção Rock Clássico", "Documentos e Registros", "Fotos do Evento 2024", "Vídeos do Projeto 2023", "Diversos Arquivos", "Arquivos de Áudio", "Acervo de Discos Vinil", "Master de Gravações", "Projetos em Andamento", "Material Promocional"]),
     status: faker.helpers.arrayElement(["0", "1", "2"]),
+    duration: faker.date.anytime().getSeconds().toFixed(0) + ' min',
     uploadedBy: faker.person.fullName(),
     lastModified: faker.date.past(),
   };

@@ -1,18 +1,21 @@
 import { Table } from "@tanstack/react-table"
 import { Input } from "@/components/ui/input"
-import { ListFilter, Search } from "lucide-react"
+import { Info, ListFilter, Search } from "lucide-react"
 import { DropdownMenu, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Button } from "@/components/ui/button"
-import { DropdownMenuFilter } from "./components"
+import { ColumnFilter, DropdownMenuFilter } from "./components"
+import { useInfoSidebar } from "@/hooks/use-sidebar"
 
 interface ToolbarProps<TData> {
   table: Table<TData>
 }
 
 export const Toolbar = <TData,>({ table }: ToolbarProps<TData>) => {
+  const { toggleSidebar } = useInfoSidebar()
+
   return (
     <div className="flex flex-row items-center justify-between my-3">
-      <div className="flex flex-row items-center gap-x-2">
+      <div className="flex flex-row items-center gap-x-1">
         <div className="relative justify-between pl-4 border rounded dark:bg-black border-muted-foreground/25 w-fit">
           <span className="absolute inset-y-0 flex items-center left-2">
             <Search size={16} />
@@ -25,7 +28,7 @@ export const Toolbar = <TData,>({ table }: ToolbarProps<TData>) => {
           />
         </div>
       </div>
-      <div className="flex flex-row items-center justify-between gap-2">
+      <div className="flex flex-row items-center gap-x-1">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button size={'sm'} variant={'outline'} className="rounded text-muted-foreground">
@@ -37,6 +40,10 @@ export const Toolbar = <TData,>({ table }: ToolbarProps<TData>) => {
           </DropdownMenuTrigger>
           <DropdownMenuFilter />
         </DropdownMenu>
+        <ColumnFilter table={table} />
+        <Button onClick={toggleSidebar} variant={'ghost'} size={'sm'}>
+          <Info />
+        </Button>
       </div>
     </div>
   )

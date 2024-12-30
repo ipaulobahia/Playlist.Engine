@@ -9,10 +9,10 @@ export const Users = () => {
           <span className="text-sm font-bold">
             Playlist Engine
           </span>
-          <nav className="flex items-center mx-6 space-x-4 lg:space-x-6">
+          <div className="flex items-center mx-6 space-x-4 lg:space-x-6">
             <span className="text-sm font-medium transition-colors cursor-pointer hover:text-black/50 dark:hover:text-white/40">Sair</span>
             <ModeToggle />
-          </nav>
+          </div>
         </div>
       </nav>
       <div className="grid items-start w-full grid-cols-3 px-10 mx-auto my-auto max-w-screen-2xl gap-x-5 ">

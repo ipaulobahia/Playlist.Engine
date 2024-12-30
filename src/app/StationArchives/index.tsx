@@ -1,5 +1,5 @@
 import { SidebarInset } from "@/components/ui/sidebar"
-import { CloudUpload, FilePlus2, FolderPlus, Plus, SquareArrowOutUpRight, Logs } from "lucide-react"
+import { CloudUpload, FilePlus2, FolderPlus, Plus, SquareArrowOutUpRight } from "lucide-react"
 import { ActionCard, UpdateCard, AllFilesTable, StationArchivesBreadchumbs } from "./components"
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Label } from "@/components/ui/label"
@@ -17,7 +17,7 @@ export const StationArchives = () => {
           <span className="text-xl font-semibold">Arquivos da emissora</span>
           <span className="text-sm font-normal text-muted-foreground">Organize e gerencie seus arquivos de forma prática e eficiente</span>
         </div>
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-3 gap-3">
           <Dialog>
             <DialogTrigger className="text-start">
               <ActionCard title="Criar pasta" MainIcon={FolderPlus} SubIcon={Plus} />
@@ -55,18 +55,7 @@ export const StationArchives = () => {
             </DialogTrigger>
             <DialogContent></DialogContent>
           </Dialog>
-          <Dialog>
-            <DialogTrigger className="text-start">
-              <ActionCard title="Gerenciar uploads" MainIcon={CloudUpload} SubIcon={SquareArrowOutUpRight} />
-            </DialogTrigger>
-            <DialogContent></DialogContent>
-          </Dialog>
-          <Dialog>
-            <DialogTrigger className="text-start">
-              <ActionCard title="Ultimos eventos" MainIcon={Logs} SubIcon={Plus} />
-            </DialogTrigger>
-            <DialogContent></DialogContent>
-          </Dialog>
+          <ActionCard title="Gerenciar uploads" MainIcon={CloudUpload} SubIcon={SquareArrowOutUpRight} />
         </div>
         <div className="flex flex-col gap-3">
           <span className="text-[16px] font-medium">
@@ -83,6 +72,6 @@ export const StationArchives = () => {
           <AllFilesTable />
         </div>
       </div>
-    </SidebarInset>
+    </SidebarInset >
   )
 }

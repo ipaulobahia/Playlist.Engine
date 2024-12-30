@@ -1,6 +1,4 @@
-import { Checkbox } from "@/components/ui/checkbox"
 import { ColumnDef } from "@tanstack/react-table"
-import { Dot, FileText } from "lucide-react"
 import dayjs from 'dayjs'
 import clsx from "clsx"
 import { DropdownMenuRowActions } from "./components"
@@ -21,58 +19,18 @@ export interface IAllFilesTable {
 
 export const columns: ColumnDef<IAllFilesTable>[] = [
   {
-    accessorKey: "id",
-    header: ({ table }) => (
-      <div className="flex w-0 mx-0.5">
-        <Checkbox
-          className="border-muted-foreground"
-          checked={
-            table.getIsAllPageRowsSelected() ||
-            (table.getIsSomePageRowsSelected() && "indeterminate")
-          }
-          onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-          aria-label="Selecionar todos"
-        />
-      </div>
-    ),
-    cell: ({ row }) => (
-      <div className="flex w-0 mx-0.5">
-        <Checkbox
-          className="border-muted-foreground"
-          checked={row.getIsSelected()}
-          onCheckedChange={(value) => row.toggleSelected(!!value)}
-          aria-label="Select row"
-        />
-      </div>
-    ),
-    enableSorting: false,
-    enableHiding: false,
-  },
-  {
     accessorKey: "file",
     header: "Arquivo",
     cell: ({ row }) => {
-      const { name, size, type }: File = row.getValue("file")
+      const { name }: File = row.getValue("file")
 
       return (
-        <div className="flex flex-row items-center gap-2">
-          <div className="flex items-center justify-center rounded-md bg-muted-foreground dark:bg-white size-8">
-            <FileText className="text-white dark:text-black size-4" />
-          </div>
-          <div className="flex flex-col">
-            <span className="text-xs font-medium">{name}</span>
-            <div className="flex flex-row items-center">
-              <span className="text-xs font-normal text-muted-foreground">{size}</span>
-              <Dot className="text-xs font-normal text-muted-foreground" size={12} />
-              <span className="text-xs font-normal text-muted-foreground">{type}</span>
-            </div>
-          </div>
-        </div>
+        <span className="text-xs font-medium">{name}</span>
       )
     },
     filterFn: (row, _, value) => {
       const file = row.original.file;
-      const keys: (keyof File)[] = ['name', 'size', 'type'];
+      const keys: (keyof File)[] = ['name'];
 
       for (const key of keys) {
         console.log(value)
@@ -83,6 +41,58 @@ export const columns: ColumnDef<IAllFilesTable>[] = [
 
       return false;
     },
+  },
+  {
+    accessorKey: "size",
+    header: "Tamanho",
+    cell: ({ row }) => {
+      const { size }: File = row.getValue("file")
+
+      return (
+        <span className="text-xs font-medium">{size}</span>
+      )
+    },
+    filterFn: (row, _, value) => {
+      const file = row.original.file;
+      const keys: (keyof File)[] = ['size'];
+
+      for (const key of keys) {
+        console.log(value)
+        if (file[key].toLowerCase().includes(value.toLowerCase())) {
+          return true;
+        }
+      }
+
+      return false;
+    },
+  },
+  {
+    accessorKey: "type",
+    header: "Tipo",
+    cell: ({ row }) => {
+      const { type }: File = row.getValue("file")
+
+      return (
+        <span className="text-xs font-medium">{type}</span>
+      )
+    },
+    filterFn: (row, _, value) => {
+      const file = row.original.file;
+      const keys: (keyof File)[] = ['type'];
+
+      for (const key of keys) {
+        console.log(value)
+        if (file[key].toLowerCase().includes(value.toLowerCase())) {
+          return true;
+        }
+      }
+
+      return false;
+    },
+  },
+  {
+    accessorKey: "duration",
+    header: "Duração",
   },
   {
     accessorKey: "folder",

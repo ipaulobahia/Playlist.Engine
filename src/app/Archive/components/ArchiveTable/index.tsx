@@ -1,12 +1,13 @@
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { ColumnFiltersState, flexRender, getCoreRowModel, getFacetedRowModel, getFacetedUniqueValues, getFilteredRowModel, getPaginationRowModel, getSortedRowModel, SortingState, useReactTable, VisibilityState } from "@tanstack/react-table"
+import { Table as TableUI, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { ColumnFiltersState, flexRender, getCoreRowModel, getFacetedRowModel, getFacetedUniqueValues, getFilteredRowModel, getPaginationRowModel, getSortedRowModel, Row, SortingState, Table, useReactTable, VisibilityState } from "@tanstack/react-table"
 import { useState } from "react"
 import { FAKE_DATA_ARCHIVE } from "@/utils/fakeData"
 import { columns, Pagination, Toolbar } from './components'
+import { IAllFilesTable } from "./components/Columns"
 
 export const ArchiveTable = () => {
   const [rowSelection, setRowSelection] = useState({})
-  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({})
+  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({ uploadedBy: false, folder: false, type: false, size: false })
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
   const [sorting, setSorting] = useState<SortingState>([])
 
@@ -19,7 +20,7 @@ export const ArchiveTable = () => {
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
     onColumnVisibilityChange: setColumnVisibility,
-    initialState: { pagination: { pageSize: 13 } },
+    initialState: { pagination: { pageSize: 15 } },
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
@@ -28,10 +29,15 @@ export const ArchiveTable = () => {
     getFacetedUniqueValues: getFacetedUniqueValues(),
   })
 
+  function handlerSelectedRow(row: Row<IAllFilesTable>, table: Table<IAllFilesTable>) {
+    table.toggleAllPageRowsSelected(false)
+    row.toggleSelected()
+  }
+
   return (
     <div>
       <Toolbar table={table} />
-      <Table className="border dark:border-transparent dark:border-none border-muted-foreground/25">
+      <TableUI className="border dark:border-transparent dark:border-none border-muted-foreground/25">
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
@@ -56,10 +62,12 @@ export const ArchiveTable = () => {
             ?
             (
               table.getRowModel().rows.map((row) => (
-                <TableRow key={row.id} data-state={row.getIsSelected() && "selected"}>
+                <TableRow
+                  onClick={() => handlerSelectedRow(row, table)}
+                  className="cursor-pointer" key={row.id} data-state={row.getIsSelected() && "selected"}>
                   {
                     row.getVisibleCells().map((cell) => (
-                      <TableCell className="text-xs font-medium" key={cell.id}>
+                      <TableCell className="p-1 text-xs font-medium " key={cell.id}>
                         {flexRender(cell.column.columnDef.cell, cell.getContext())}
                       </TableCell>
                     ))
@@ -77,7 +85,7 @@ export const ArchiveTable = () => {
             )
           }
         </TableBody>
-      </Table>
+      </TableUI>
       <Pagination table={table} />
     </div >
   )

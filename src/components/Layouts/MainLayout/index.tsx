@@ -28,13 +28,13 @@ export const MainLayout = () => {
 
   return (
     <main className="relative flex flex-col items-center dark:bg-black">
-      <nav className="sticky top-0 z-20 flex items-center justify-center w-full border-b border-muted-foreground/25 dark:bg-background">
+      <nav className="sticky top-0 z-50 flex items-center justify-center w-full bg-white border-b border-muted-foreground/25 dark:bg-background">
         <div className="flex items-center justify-between w-full px-4 h-14">
           <div className="flex flex-row items-center gap-x-5">
             <span className="text-sm font-bold">
               Playlist Engine
             </span>
-            <NavigationMenu>
+            <NavigationMenu delayDuration={50}>
               <NavigationMenuList className="flex items-center mx-6 space-x-4 lg:space-x-6">
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className={`h-0 p-0 text-sm font-medium transition-colors text-muted-foreground dark:hover:text-white hover:text-black ${pathname.includes("dashboard") && 'dark:text-white text-black'}`}>
