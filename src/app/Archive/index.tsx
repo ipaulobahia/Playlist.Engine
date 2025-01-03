@@ -27,7 +27,7 @@ export const Archive = () => {
                 <span className="text-sm font-normal text-muted-foreground">Pasta de musica principal da emissora</span>
               </div>
             </div>
-            <TabsList className="hidden ml-auto sm:block">
+            <TabsList className="hidden ml-auto sm:flex">
               <TooltipProvider>
                 <Tooltip delayDuration={100}>
                   <TooltipTrigger>

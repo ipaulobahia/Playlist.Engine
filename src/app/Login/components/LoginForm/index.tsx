@@ -35,6 +35,7 @@ export function LoginForm() {
                   type="email"
                   placeholder="seuemail@playlist.com"
                   required
+                  className="dark:bg-black border-muted-foreground/25 placeholder:text-xs"
                 />
               </div>
               <div className="grid gap-2">

@@ -27,7 +27,7 @@ export const MainLayout = () => {
   })
 
   return (
-    <main className="relative flex flex-col items-center dark:bg-black">
+    <main className="relative flex flex-col items-center">
       <nav className="sticky top-0 z-50 flex items-center justify-center w-full bg-white border-b border-muted-foreground/25 dark:bg-background">
         <div className="flex items-center justify-between w-full px-4 h-14">
           <div className="flex flex-row items-center gap-x-5">
@@ -107,7 +107,7 @@ export const MainLayout = () => {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger disabled className={`h-0 p-0 text-sm font-medium transition-colors text-muted-foreground dark:hover:text-white hover:text-black ${pathname == '/maps' && 'dark:text-white text-black'}`}>
+                  <NavigationMenuTrigger disabled className={`h-0 p-0 text-sm font-medium transition-colors text-muted-foreground dark:hover:text-white hover:text-black ${pathname.includes('/maps') && 'dark:text-white text-black'}`}>
                     <Link to={'/overview'}>
                       Mapas
                     </Link>
@@ -130,8 +130,8 @@ export const MainLayout = () => {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <Link to={'/settings'}>
-                    <NavigationMenuTrigger className={`h-0 p-0 text-sm font-medium transition-colors text-muted-foreground dark:hover:text-white hover:text-black ${pathname == '/settings' && 'dark:text-white text-black'}`}>Configurações</NavigationMenuTrigger>
+                  <Link to={'/settings/my-account/profile'}>
+                    <NavigationMenuTrigger className={`h-0 p-0 text-sm font-medium transition-colors text-muted-foreground dark:hover:text-white hover:text-black ${pathname.includes('/settings') && 'dark:text-white text-black'}`}>Configurações</NavigationMenuTrigger>
                   </Link>
                 </NavigationMenuItem>
               </NavigationMenuList>

@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
+import { Input } from "@/components/ui/input"
 import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider } from "@/components/ui/sidebar"
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table"
 import { useInfoSidebar } from "@/hooks/use-sidebar"
-import { ChevronUp, FileSearch, Folder, X } from "lucide-react"
+import { FileSearch, Folder, Search, X, ChevronDown } from "lucide-react"
 import { useEffect, useState } from "react"
 import { Link, Outlet } from "react-router-dom"
 
@@ -72,7 +73,15 @@ export const ArchivesLayout = () => {
     <SidebarProvider>
       <Sidebar collapsible="none" className="fixed z-10 hidden h-screen border-r sm:block top-14 border-muted-foreground/25">
         <SidebarContent>
-          <SidebarGroup>
+          <div className="p-2 pb-0">
+            <div className="relative">
+              <Input type="operador" className="dark:bg-black border-muted-foreground/25 placeholder:text-xs" placeholder="Pesquise pelo arquivo..." />
+              <span className="absolute inset-y-0 flex items-center right-3">
+                <Search size={16} />
+              </span>
+            </div>
+          </div>
+          <SidebarGroup className="pt-0">
             <SidebarGroupLabel>Favoritos</SidebarGroupLabel>
           </SidebarGroup>
           <SidebarGroup>
@@ -80,18 +89,12 @@ export const ArchivesLayout = () => {
             <SidebarGroupContent className="overflow-auto max-h-[70vh]">
               <SidebarMenu>
                 {
-                  data.archivesTree.map(({ icon, folderName }, index) => {
+                  data.archivesTree.map(({ folderName }, index) => {
                     return (
                       <SidebarMenuItem key={index}>
                         <Link to={`/archive/${index}`}>
                           <SidebarMenuButton>
-                            {
-                              icon != ""
-                                ?
-                                <img src={`http://playlist.ddns.com.br:8010/icons/${icon}`} />
-                                :
-                                <Folder />
-                            }
+                            <Folder />
                             {folderName}
                           </SidebarMenuButton>
                         </Link>
@@ -107,7 +110,7 @@ export const ArchivesLayout = () => {
       <div className={`w-full p-0 sm:pl-[--sidebar-width] transition-all ease-linear ${isOpen ? 'pr-[16rem] xl:pr-[23rem]' : 'sm:pr-0'}`}>
         <Outlet />
       </div>
-      <Sidebar collapsible="none" className={`fixed hidden lg:block ease-linear right-0 z-10 h-screen transition-all border-r top-14 border-muted-foreground/25 ${isOpen ? 'w-[16rem] xl:w-[23rem]' : 'w-0'}`}>
+      <Sidebar collapsible="none" className={`fixed hidden lg:flex ease-linear right-0 z-10 h-screen transition-all border-r top-14 border-muted-foreground/25 ${isOpen ? 'w-[16rem] xl:w-[23rem]' : 'w-0'}`}>
         <SidebarContent className="p-4">
           <div className="flex flex-row items-start justify-between">
             <div className="flex flex-col gap-0.5">
@@ -136,7 +139,7 @@ export const ArchivesLayout = () => {
                     </h4>
                     <CollapsibleTrigger asChild>
                       <Button variant="ghost" size="sm" className="p-0 w-9 text-foreground [&[data-state=closed]>svg]:text-muted-foreground [&[data-state=open]>svg]:rotate-180">
-                        <ChevronUp className="transition-transform duration-200 size-4 text-foreground shrink-0" />
+                        <ChevronDown className="transition-transform duration-200 size-4 text-foreground shrink-0" />
                       </Button>
                     </CollapsibleTrigger>
                   </div>
@@ -183,7 +186,7 @@ export const ArchivesLayout = () => {
                     </h4>
                     <CollapsibleTrigger asChild>
                       <Button variant="ghost" size="sm" className="p-0 w-9 text-foreground [&[data-state=closed]>svg]:text-muted-foreground [&[data-state=open]>svg]:rotate-180">
-                        <ChevronUp className="transition-transform duration-200 size-4 text-foreground shrink-0" />
+                        <ChevronDown className="transition-transform duration-200 size-4 text-foreground shrink-0" />
                       </Button>
                     </CollapsibleTrigger>
                   </div>
@@ -238,7 +241,7 @@ export const ArchivesLayout = () => {
                     </h4>
                     <CollapsibleTrigger asChild>
                       <Button variant="ghost" size="sm" className="p-0 w-9 text-foreground [&[data-state=closed]>svg]:text-muted-foreground [&[data-state=open]>svg]:rotate-180">
-                        <ChevronUp className="transition-transform duration-200 size-4 text-foreground shrink-0" />
+                        <ChevronDown className="transition-transform duration-200 size-4 text-foreground shrink-0" />
                       </Button>
                     </CollapsibleTrigger>
                   </div>
@@ -305,7 +308,7 @@ export const ArchivesLayout = () => {
                     </h4>
                     <CollapsibleTrigger asChild>
                       <Button variant="ghost" size="sm" className="p-0 w-9 text-foreground [&[data-state=closed]>svg]:text-muted-foreground [&[data-state=open]>svg]:rotate-180">
-                        <ChevronUp className="transition-transform duration-200 size-4 text-foreground shrink-0" />
+                        <ChevronDown className="transition-transform duration-200 size-4 text-foreground shrink-0" />
                       </Button>
                     </CollapsibleTrigger>
                   </div>
@@ -336,7 +339,7 @@ export const ArchivesLayout = () => {
                     </h4>
                     <CollapsibleTrigger asChild>
                       <Button variant="ghost" size="sm" className="p-0 w-9 text-foreground [&[data-state=closed]>svg]:text-muted-foreground [&[data-state=open]>svg]:rotate-180">
-                        <ChevronUp className="transition-transform duration-200 size-4 text-foreground shrink-0" />
+                        <ChevronDown className="transition-transform duration-200 size-4 text-foreground shrink-0" />
                       </Button>
                     </CollapsibleTrigger>
                   </div>

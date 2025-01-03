@@ -753,7 +753,7 @@ function generateItem(id: number) {
   };
 }
 
-for (let i = 1; i <= 100; i++) {
+for (let i = 1; i <= 200; i++) {
   FAKE_DATA_ARCHIVE.push(generateItem(i))
 }
 
