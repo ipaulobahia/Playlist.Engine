@@ -1,21 +1,15 @@
 import { Table } from "@tanstack/react-table"
 import { Input } from "@/components/ui/input"
-import { Info, ListFilter, Search } from "lucide-react"
+import { ListFilter, Search } from "lucide-react"
 import { DropdownMenu, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Button } from "@/components/ui/button"
-import { ColumnFilter, DropdownMenuFilter } from "./components"
-import { useInfoSidebar } from "@/hooks/use-sidebar"
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import { ColumnFilter, DropdownMenuContentFilter } from "./components"
 
 interface ToolbarProps<TData> {
   table: Table<TData>
 }
 
 export const Toolbar = <TData,>({ table }: ToolbarProps<TData>) => {
-  const { toggleSidebar, isOpen } = useInfoSidebar()
-  const selectedRows = table.getSelectedRowModel().rows;
-  const isSelectedRow = selectedRows.length === 0;
-
   return (
     <div className="flex flex-row items-center justify-between my-3">
       <div className="flex flex-row items-center gap-x-1">
@@ -41,37 +35,9 @@ export const Toolbar = <TData,>({ table }: ToolbarProps<TData>) => {
               </span>
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuFilter />
+          <DropdownMenuContentFilter />
         </DropdownMenu>
         <ColumnFilter table={table} />
-        <TooltipProvider>
-          <Tooltip delayDuration={150}>
-            <TooltipTrigger>
-              <Button disabled={isSelectedRow} onClick={toggleSidebar} variant={'ghost'} size={'sm'}>
-                <Info />
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent side="left" className="text-black bg-white">
-              {
-                isSelectedRow
-                  ?
-                  <p className="text-xs font-semibold">
-                    Selecione um item para ver os detalhes.
-                  </p>
-                  :
-                  <p className="text-xs font-semibold">
-                    {
-                      isOpen
-                        ?
-                        "Ocultar detalhes"
-                        :
-                        "Mostrar detalhes"
-                    }
-                  </p>
-              }
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
       </div >
     </div >
   )

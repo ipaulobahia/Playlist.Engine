@@ -1,7 +1,7 @@
 import { ColumnDef } from "@tanstack/react-table"
 import dayjs from 'dayjs'
 import clsx from "clsx"
-import { DropdownMenuRowActions } from "./components"
+import { DropdownMenuRowActions, HeaderFilter } from "./components"
 
 interface File {
   name: string
@@ -20,7 +20,7 @@ export interface IAllFilesTable {
 export const columns: ColumnDef<IAllFilesTable>[] = [
   {
     accessorKey: "file",
-    header: "Arquivo",
+    header: ({ column }) => (<HeaderFilter column={column} title="Arquivo" />),
     cell: ({ row }) => {
       const { name }: File = row.getValue("file")
 
@@ -44,7 +44,7 @@ export const columns: ColumnDef<IAllFilesTable>[] = [
   },
   {
     accessorKey: "size",
-    header: "Tamanho",
+    header: ({ column }) => (<HeaderFilter column={column} title="Tamanho" />),
     cell: ({ row }) => {
       const { size }: File = row.getValue("file")
 
@@ -68,7 +68,7 @@ export const columns: ColumnDef<IAllFilesTable>[] = [
   },
   {
     accessorKey: "type",
-    header: "Tipo",
+    header: ({ column }) => (<HeaderFilter column={column} title="Tipo" />),
     cell: ({ row }) => {
       const { type }: File = row.getValue("file")
 
@@ -92,25 +92,19 @@ export const columns: ColumnDef<IAllFilesTable>[] = [
   },
   {
     accessorKey: "duration",
-    header: "Duração",
+    header: ({ column }) => (<HeaderFilter column={column} title="Duração" />),
   },
   {
     accessorKey: "folder",
-    header: "Pasta",
+    header: ({ column }) => (<HeaderFilter column={column} title="Pasta" />),
   },
   {
     accessorKey: "uploadedBy",
-    header: "Upload realizado por",
+    header: ({ column }) => (<HeaderFilter column={column} title="Upload realizado por" />),
   },
   {
     accessorKey: "status",
-    header: () => {
-      return (
-        <div className="flex items-center justify-center">
-          Status
-        </div>
-      )
-    },
+    header: ({ column }) => (<HeaderFilter column={column} title="Status" />),
     cell: ({ row }) => {
       const statusMap: Record<number, { color: string; label: string }> = {
         0: { color: 'bg-red-500', label: 'Inativo' },
@@ -122,7 +116,7 @@ export const columns: ColumnDef<IAllFilesTable>[] = [
       const status = statusMap[row.getValue("status") as number] || defaultStatus;
 
       return (
-        <div className="flex items-center justify-center gap-1">
+        <div className="flex flex-row items-center gap-1 ">
           <span className={clsx('p-1 rounded-full animate-pulse', status.color)} />
           <span className="text-xs font-medium text-muted-foreground">
             {status.label}
@@ -136,17 +130,11 @@ export const columns: ColumnDef<IAllFilesTable>[] = [
   },
   {
     accessorKey: "lastModified",
-    header: () => {
-      return (
-        <div className="flex items-center justify-center">
-          Ultima atualização
-        </div>
-      )
-    },
+    header: ({ column }) => (<HeaderFilter column={column} title="Ultima atualização" />),
     cell: ({ row }) => {
       const lastModified: Date = row.getValue("lastModified")
 
-      return (<div className="flex items-center justify-center capitalize">{dayjs(lastModified).format('DD/MM/YYYY')}</div>)
+      return (<div className="capitalize">{dayjs(lastModified).format('DD/MM/YYYY')}</div>)
     },
   },
   {

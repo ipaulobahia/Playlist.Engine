@@ -1,18 +1,10 @@
-import { Table } from "@tanstack/react-table"
-import { Input } from "@/components/ui/input"
-import { Info, ListFilter, Search } from "lucide-react"
-import { DropdownMenu, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Button } from "@/components/ui/button"
-import { ColumnFilter, DropdownMenuFilter } from "./components"
-import { useInfoSidebar } from "@/hooks/use-sidebar"
+import { DropdownMenu, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { Input } from "@/components/ui/input"
+import { ListFilter, Search } from "lucide-react"
+import { DropdownMenuContentFilter } from "./components"
 
-interface ToolbarProps<TData> {
-  table: Table<TData>
-}
-
-export const Toolbar = <TData,>({ table }: ToolbarProps<TData>) => {
-  const { toggleSidebar } = useInfoSidebar()
-
+export const Toolbar = () => {
   return (
     <div className="flex flex-row items-center justify-between my-3">
       <div className="flex flex-row items-center gap-x-1">
@@ -22,8 +14,6 @@ export const Toolbar = <TData,>({ table }: ToolbarProps<TData>) => {
           </span>
           <Input
             placeholder="Pesquise"
-            value={(table.getColumn("file")?.getFilterValue() as string) ?? ""}
-            onChange={(event) => table.getColumn("file")?.setFilterValue(event.target.value)}
             className="h-8 border-0 dark:bg-black placeholder:text-xs"
           />
         </div>
@@ -38,13 +28,9 @@ export const Toolbar = <TData,>({ table }: ToolbarProps<TData>) => {
               </span>
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuFilter />
+          <DropdownMenuContentFilter />
         </DropdownMenu>
-        <ColumnFilter table={table} />
-        <Button onClick={toggleSidebar} variant={'ghost'} size={'sm'}>
-          <Info />
-        </Button>
-      </div>
+      </div >
     </div>
   )
 }

@@ -17,8 +17,8 @@ export const OperatorPinDialog = () => {
   }
 
   return (
-    <DialogContent className="sm:max-w-[425px]">
-      <DialogHeader>
+    <DialogContent className="w-[90%]">
+      <DialogHeader className="flex flex-col justify-start">
         <DialogTitle>Aceesar operador</DialogTitle>
         <DialogDescription>
           Este operador está protegido por senha. Por favor, insira a senha para acessar o operador.
@@ -26,7 +26,7 @@ export const OperatorPinDialog = () => {
       </DialogHeader>
       <div className="grid gap-4 py-4">
         <div className="grid items-center gap-3">
-          <Label htmlFor="operator" className="text-start">
+          <Label htmlFor="operator" className="text-sm text-start">
             Operador
           </Label>
           <Input
@@ -37,12 +37,11 @@ export const OperatorPinDialog = () => {
           />
         </div>
         <div className="grid items-center gap-3">
-          <Label htmlFor="password" className="text-start">
+          <Label htmlFor="password" className="text-sm text-start">
             Senha
           </Label>
           <div className="relative w-full">
             <Input
-              autoFocus
               required
               type={typePassword}
               id="password"
@@ -55,9 +54,9 @@ export const OperatorPinDialog = () => {
           </div>
         </div>
       </div>
-      <DialogFooter>
+      <DialogFooter className="justify-end">
         <Button type="submit">
-          <Link to={'/dashboard'}>
+          <Link to={'/overview'}>
             Acessar
           </Link>
         </Button>

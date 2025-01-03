@@ -34,33 +34,50 @@ export const MainLayout = () => {
             <span className="text-sm font-bold">
               Playlist Engine
             </span>
-            <NavigationMenu delayDuration={50}>
+            <NavigationMenu className="hidden sm:block" delayDuration={50}>
               <NavigationMenuList className="flex items-center mx-6 space-x-4 lg:space-x-6">
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className={`h-0 p-0 text-sm font-medium transition-colors text-muted-foreground dark:hover:text-white hover:text-black ${pathname.includes("dashboard") && 'dark:text-white text-black'}`}>
-                    <Link to={'/dashboard'}>
+                  <NavigationMenuTrigger className={`h-0 p-0 text-sm font-medium transition-colors text-muted-foreground dark:hover:text-white hover:text-black ${pathname.includes("overview") && 'dark:text-white text-black'}`}>
+                    <Link to={'/overview'}>
                       Overview
                     </Link>
                   </NavigationMenuTrigger>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className={`h-0 p-0 text-sm font-medium transition-colors text-muted-foreground dark:hover:text-white hover:text-black ${pathname.includes("archive") && 'dark:text-white text-black'}`}>Pastas</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className={`h-0 p-0 text-sm font-medium transition-colors text-muted-foreground dark:hover:text-white hover:text-black ${pathname.includes("library") && 'dark:text-white text-black'}`}>
+                    <Link to={'/library'}>
+                      Biblioteca
+                    </Link>
+                  </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid grid-cols-2 gap-3 p-3 w-[600px]">
-                      <li className="col-span-2">
+                      <li>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            to={'/library'}
+                            className="block p-3 space-y-1 leading-none no-underline transition-colors rounded-md outline-none select-none hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          >
+                            <div className="text-sm font-medium leading-none">Biblioteca</div>
+                            <p className="text-sm leading-snug line-clamp-2 text-muted-foreground">
+
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                      <li>
                         <NavigationMenuLink asChild>
                           <Link
                             to={'/station-archives'}
                             className="block p-3 space-y-1 leading-none no-underline transition-colors rounded-md outline-none select-none hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                           >
-                            <div className="text-sm font-medium leading-none">Gerenciar pastas</div>
+                            <div className="text-sm font-medium leading-none">Gerenciar arquivos</div>
                             <p className="text-sm leading-snug line-clamp-2 text-muted-foreground">
                               Organize e gerencie seus arquivos de forma prática e eficiente
                             </p>
                           </Link>
                         </NavigationMenuLink>
                       </li>
-                      <li className="row-span-1">
+                      <li>
                         <NavigationMenuLink asChild>
                           <Link
                             to={'/station-archives'}
@@ -73,7 +90,7 @@ export const MainLayout = () => {
                           </Link>
                         </NavigationMenuLink>
                       </li>
-                      <li className="row-span-1">
+                      <li>
                         <NavigationMenuLink asChild>
                           <Link
                             to={'/station-archives'}
@@ -90,7 +107,11 @@ export const MainLayout = () => {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className={`h-0 p-0 text-sm font-medium transition-colors text-muted-foreground dark:hover:text-white hover:text-black ${pathname == '/maps' && 'dark:text-white text-black'}`}>Mapas</NavigationMenuTrigger>
+                  <NavigationMenuTrigger disabled className={`h-0 p-0 text-sm font-medium transition-colors text-muted-foreground dark:hover:text-white hover:text-black ${pathname == '/maps' && 'dark:text-white text-black'}`}>
+                    <Link to={'/overview'}>
+                      Mapas
+                    </Link>
+                  </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid gap-3 p-3 w-[600px] grid-cols-2">
                       <ListItem href="/overview" title="Gerenciar Mapa Comerciais">
@@ -116,9 +137,7 @@ export const MainLayout = () => {
               </NavigationMenuList>
             </NavigationMenu>
           </div>
-          <nav className="flex items-center mx-6 space-x-4 lg:space-x-6">
-            <ModeToggle />
-          </nav>
+          <ModeToggle />
         </div>
       </nav>
       <Outlet />

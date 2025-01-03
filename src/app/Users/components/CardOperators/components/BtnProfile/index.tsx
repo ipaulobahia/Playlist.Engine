@@ -12,7 +12,7 @@ export const BtnProfile = () => {
   }
 
   return (
-    <div className="space-y-1.5 h-[250px] overflow-auto">
+    <div className="space-y-1.5 hidden lg:block overflow-auto">
       {
         stationProfiles.map((profile, index) => {
           return (

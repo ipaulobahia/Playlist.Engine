@@ -20,7 +20,7 @@ export function LoginForm() {
     <div className="flex flex-col gap-6">
       <Card className="overflow-hidden">
         <CardContent className="grid p-0 md:grid-cols-2 h-[45vh]">
-          <form className="flex items-center justify-center p-8">
+          <form className="flex items-center justify-center p-8 bg-sidebar">
             <div className="flex flex-col w-full gap-6">
               <div className="flex flex-col items-center text-center">
                 <h1 className="text-2xl font-bold">Bem-vindo de volta</h1>
@@ -49,7 +49,6 @@ export function LoginForm() {
                 </div>
                 <div className="relative w-full">
                   <Input
-                    autoFocus
                     type={typePassword}
                     id="password"
                     placeholder="*******"
@@ -61,7 +60,7 @@ export function LoginForm() {
                   </span>
                 </div>
               </div>
-              <Button type="submit" className="w-full">
+              <Button type="submit" className="w-full text-white">
                 <Link to={'/users'}>
                   Conecte-se
                 </Link>

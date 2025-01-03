@@ -35,7 +35,7 @@ export const ArchiveTable = () => {
   function handlerSelectedRow(row: Row<IAllFilesTable>, table: Table<IAllFilesTable>) {
     table.toggleAllPageRowsSelected(false)
     row.toggleSelected()
-    selectRow(row)
+    selectRow(row.original)
   }
 
   return (
@@ -74,7 +74,7 @@ export const ArchiveTable = () => {
                   className="cursor-pointer" key={row.id} data-state={row.getIsSelected() && "selected"}>
                   {
                     row.getVisibleCells().map((cell) => (
-                      <TableCell className="p-1 text-xs font-medium " key={cell.id}>
+                      <TableCell className="px-3 py-1 text-xs font-medium " key={cell.id}>
                         {flexRender(cell.column.columnDef.cell, cell.getContext())}
                       </TableCell>
                     ))

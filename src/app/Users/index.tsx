@@ -9,13 +9,13 @@ export const Users = () => {
           <span className="text-sm font-bold">
             Playlist Engine
           </span>
-          <div className="flex items-center mx-6 space-x-4 lg:space-x-6">
+          <div className="flex items-center space-x-4">
             <span className="text-sm font-medium transition-colors cursor-pointer hover:text-black/50 dark:hover:text-white/40">Sair</span>
             <ModeToggle />
           </div>
         </div>
       </nav>
-      <div className="grid items-start w-full grid-cols-3 px-10 mx-auto my-auto max-w-screen-2xl gap-x-5 ">
+      <div className="grid items-start w-full grid-cols-1 gap-5 px-6 mx-auto my-auto lg:gap-10 lg:grid-cols-3 lg:px-10 xl:grid-cols-3 max-w-screen-2xl ">
         <div className="flex flex-col col-span-1 ">
           <span className="text-6xl font-black leading-tight tracking-tighter">Seus</span>
           <span className="text-6xl font-black leading-tight tracking-tighter">Operadores</span>

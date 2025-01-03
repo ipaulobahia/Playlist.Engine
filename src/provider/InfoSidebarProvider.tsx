@@ -1,6 +1,5 @@
-import { IAllFilesTable } from '@/app/StationArchives/components/AllFilesTable/Columns';
+import { IAllFilesTable } from '@/app/Archive/components/ArchiveTable/components/Columns';
 import InfoSidebarContext from '@/contexts/InfoSidebarContext';
-import { Row } from '@tanstack/react-table';
 import React, { useState, ReactNode } from 'react';
 
 interface InfoSidebarProviderProps {
@@ -9,18 +8,23 @@ interface InfoSidebarProviderProps {
 
 const InfoSidebarProvider: React.FC<InfoSidebarProviderProps> = ({ children }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [row, setRow] = useState<Row<IAllFilesTable>>()
+  const [row, setRow] = useState<IAllFilesTable | null>(null)
 
   const toggleSidebar = () => {
     setIsOpen(prev => !prev);
   };
 
-  const selectRow = (row: Row<IAllFilesTable>) => {
-    setRow(row)
+  const closeSidebar = () => {
+    setIsOpen(false)
+  }
+
+  const selectRow = (newRow: IAllFilesTable) => {
+    const isSameRow = newRow.id === row?.id
+    setRow(isSameRow ? null : newRow)
   }
 
   return (
-    <InfoSidebarContext.Provider value={{ isOpen, toggleSidebar, row, selectRow }}>
+    <InfoSidebarContext.Provider value={{ isOpen, toggleSidebar, row, selectRow, closeSidebar }}>
       {children}
     </InfoSidebarContext.Provider>
   );

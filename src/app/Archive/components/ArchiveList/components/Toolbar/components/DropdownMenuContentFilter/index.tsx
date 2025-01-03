@@ -11,7 +11,7 @@ import { CalendarIcon } from "lucide-react"
 import { useState } from "react"
 import { ptBR } from 'date-fns/locale/pt-BR'
 
-export const DropdownMenuFilter = () => {
+export const DropdownMenuContentFilter = () => {
   const [showFilterDate, setShowFilterDate] = useState<boolean>(false)
   const [isCalendarOpen, setIsCapendarOpen] = useState<boolean>(false)
   const [date, setDate] = useState<Date>()

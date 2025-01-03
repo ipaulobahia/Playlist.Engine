@@ -1,4 +1,4 @@
-import { IAllFilesTable } from "@/app/StationArchives/components/AllFilesTable/Columns";
+import { IAllFilesTable } from '@/app/Archive/components/ArchiveTable/components/Columns';
 import { faker } from '@faker-js/faker'
 
 export const FAKE_USERS_DATA = [
@@ -737,12 +737,13 @@ export const FAKE_DATA_ARCHIVE: IAllFilesTable[] = [];
 export const FAKE_DATA_ALL_FILES_TALBE: IAllFilesTable[] = [];
 
 function generateItem(id: number) {
+  const fileType = faker.helpers.arrayElement(['.mp3', '.mp4', '.txt'])
   return {
     id: id.toString(),
     file: {
-      name: faker.system.fileName(),
+      name: faker.system.fileName().split(".")[0] + fileType,
       size: faker.number.int({ min: 1, max: 100 }) + 'KB',
-      type: faker.helpers.arrayElement(['mp3', 'mp4', 'txt']),
+      type: fileType,
     },
     folder: faker.helpers.arrayElement(["Acervo Musical Rede Aleluia", "Banda e Cantores Gospel", "Coleção Rock Clássico", "Documentos e Registros", "Fotos do Evento 2024", "Vídeos do Projeto 2023", "Diversos Arquivos", "Arquivos de Áudio", "Acervo de Discos Vinil", "Master de Gravações", "Projetos em Andamento", "Material Promocional"]),
     status: faker.helpers.arrayElement(["0", "1", "2"]),

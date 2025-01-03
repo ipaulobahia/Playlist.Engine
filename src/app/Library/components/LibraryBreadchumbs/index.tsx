@@ -1,7 +1,7 @@
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb"
 import { Link } from "react-router-dom"
 
-export const StationArchivesBreadchumbs = () => {
+export const LibraryBreadchumbs = () => {
   return (
     <Breadcrumb className="pb-3">
       <BreadcrumbList>
@@ -14,15 +14,7 @@ export const StationArchivesBreadchumbs = () => {
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink>
-            <Link to={'/library'}>
-              Biblioteca
-            </Link>
-          </BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbPage>Gerenciar Pastas</BreadcrumbPage>
+          <BreadcrumbPage>Biblioteca</BreadcrumbPage>
         </BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>

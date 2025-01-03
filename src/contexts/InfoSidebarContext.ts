@@ -1,12 +1,12 @@
-import { IAllFilesTable } from '@/app/StationArchives/components/AllFilesTable/Columns';
-import { Row } from '@tanstack/react-table';
+import { IAllFilesTable } from '@/app/Archive/components/ArchiveTable/components/Columns';
 import { createContext } from 'react';
 
 interface InfoSidebarContextType {
   isOpen: boolean;
   toggleSidebar: () => void;
-  row: Row<IAllFilesTable> | undefined
-  selectRow: (row: Row<IAllFilesTable>) => void
+  row: IAllFilesTable | null
+  selectRow: (row: IAllFilesTable) => void
+  closeSidebar: () => void;
 }
 
 const InfoSidebarContext = createContext<InfoSidebarContextType | undefined>(undefined);
