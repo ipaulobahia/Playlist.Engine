@@ -1,8 +1,6 @@
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { faker } from "@faker-js/faker";
-import { FileText, Dot, MoreVertical } from "lucide-react";
+import { FileText, Dot } from "lucide-react";
 
 export const UpdateCard = () => {
   return (
@@ -13,23 +11,6 @@ export const UpdateCard = () => {
       <div className="flex flex-col w-full">
         <div className="flex flex-row items-start justify-between">
           <span className="text-xs font-medium">{faker.system.fileName()}</span>
-          <DropdownMenu>
-            <DropdownMenuTrigger>
-              <Button
-                size="icon"
-                variant="ghost"
-                className="rounded size-6"
-              >
-                <MoreVertical size={12} />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="start">
-              <DropdownMenuItem>
-                Abrir
-              </DropdownMenuItem>
-              <DropdownMenuItem>Remover</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
         </div>
         <div className="flex flex-row items-center gap-0.5">
           <span className="text-xs font-normal text-muted-foreground">{faker.number.int({ min: 1, max: 100 }) + 'KB'}</span>

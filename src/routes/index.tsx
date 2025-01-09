@@ -1,4 +1,18 @@
-import { Overview, StationArchives, Login, Users, Archive, Library, Profile, General, Appearance, Password, ManageTeam } from "@/app";
+import {
+  Overview,
+  StationArchives,
+  Login,
+  Users,
+  Archive,
+  Library,
+  Operator,
+  General,
+  Appearance,
+  Password,
+  ManageProfile,
+  ManageOperators,
+  CreateProfile
+} from "@/app";
 import { ArchivesLayout, MainLayout, SettingsLayout } from "@/components/Layouts";
 import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
 
@@ -12,14 +26,16 @@ export const Routers = createBrowserRouter(
         <Route path="/library" element={<Library />} />
         <Route element={<ArchivesLayout />}>
           <Route path="/station-archives" element={<StationArchives />} />
-          <Route path="/archive/:id" element={<Archive />} />
+          <Route path="/archive" element={<Archive />} />
         </Route>
         <Route element={<SettingsLayout />}>
-          <Route path="/settings/my-account/profile" element={<Profile />} />
+          <Route path="/settings/my-account/operator" element={<Operator />} />
           <Route path="/settings/my-account/general" element={<General />} />
           <Route path="/settings/my-account/appearance" element={<Appearance />} />
           <Route path="/settings/security/password" element={<Password />} />
-          <Route path="/settings/operators/manage-team" element={<ManageTeam />} />
+          <Route path="/settings/operators/manage-operators" element={<ManageOperators />} />
+          <Route path="/settings/profile/manage-profile" element={<ManageProfile />} />
+          <Route path="/settings/profile/create-profile" element={<CreateProfile />} />
         </Route>
       </Route>
     </Route>

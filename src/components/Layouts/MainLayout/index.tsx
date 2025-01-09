@@ -59,7 +59,7 @@ export const MainLayout = () => {
                           >
                             <div className="text-sm font-medium leading-none">Biblioteca</div>
                             <p className="text-sm leading-snug line-clamp-2 text-muted-foreground">
-
+                              Organize e gerencie sua lista de arquivos de forma prática e eficiente
                             </p>
                           </Link>
                         </NavigationMenuLink>
@@ -130,7 +130,7 @@ export const MainLayout = () => {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <Link to={'/settings/my-account/profile'}>
+                  <Link to={'/settings/my-account/operator'}>
                     <NavigationMenuTrigger className={`h-0 p-0 text-sm font-medium transition-colors text-muted-foreground dark:hover:text-white hover:text-black ${pathname.includes('/settings') && 'dark:text-white text-black'}`}>Configurações</NavigationMenuTrigger>
                   </Link>
                 </NavigationMenuItem>

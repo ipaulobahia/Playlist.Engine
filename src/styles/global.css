@@ -75,6 +75,10 @@
   }
 }
 
+.rainbow {
+  background: conic-gradient(red, yellow, lime, aqua, blue, magenta, red);
+}
+
 ::-webkit-scrollbar {
   @apply w-2.5 h-2.5;
 

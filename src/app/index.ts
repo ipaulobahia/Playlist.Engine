@@ -4,6 +4,7 @@ export { Library } from "./Library";
 export { Users } from "./Users";
 export { Login } from "./Login";
 export { StationArchives } from "./StationArchives";
-export { Appearance, General, Profile } from "./Settings/MyAccount"
-export { ManageTeam } from "./Settings/Operators"
+export { Appearance, General, Operator } from "./Settings/MyAccount"
+export { ManageProfile, CreateProfile } from "./Settings/Profile";
+export { ManageOperators } from "./Settings/Operators";
 export { Password } from "./Settings/Security"

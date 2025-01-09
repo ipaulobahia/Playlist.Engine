@@ -1,11 +1,11 @@
-import { IAllFilesTable } from '@/app/Archive/components/ArchiveTable/components/Columns';
+import { IFile } from '@/service/api/files/getFiles';
 import { createContext } from 'react';
 
 interface InfoSidebarContextType {
   isOpen: boolean;
   toggleSidebar: () => void;
-  row: IAllFilesTable | null
-  selectRow: (row: IAllFilesTable) => void
+  row: IFile | null
+  selectRow: (row: IFile) => void
   closeSidebar: () => void;
 }
 

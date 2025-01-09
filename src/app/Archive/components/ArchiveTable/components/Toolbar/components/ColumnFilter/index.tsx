@@ -12,7 +12,7 @@ type LabelColumns = {
 };
 
 export const columnsMapping: LabelColumns = {
-  "file": "Arquivo",
+  "title": "Título",
   "folder": "Pasta",
   "status": "Status",
   "type": "Tipo",

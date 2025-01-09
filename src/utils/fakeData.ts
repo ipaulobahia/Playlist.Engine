@@ -732,6 +732,731 @@ export const FAKE_FOLDERS =
   ]
 }
 
+export const FAKE_CONFIG_PROFILE: ProfileConfig = [
+  {
+    id: 1,
+    name: "Geral",
+    description: "[Descrição]",
+    options: [
+      {
+        id: 1,
+        name: "Personalizar fontes e cores",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 2,
+        name: "Modo dark",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 3,
+        name: "Relógio AM/PM",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 4,
+        name: "Barra de espaço passa para a próxima inserção",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 5,
+        name: "Trava painéis",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 6,
+        name: "Bloqueia/desbloqueia blocos",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 7,
+        name: "Adiciona inserções",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 8,
+        name: "Remover inserções",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 9,
+        name: "Move inserções",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 10,
+        name: "Salvar edição de blocos",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 11,
+        name: "Visualizar as pastas",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 12,
+        name: "Toca inserções diretamente das pastas",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 13,
+        name: "Edita os arquivos de áudio (Marcadores)",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 14,
+        name: "Edita informações do áudio",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 15,
+        name: "Converte nomes de arquivos para maiúsculas",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 15,
+        name: "Usar carimbos de hora-certa e temperatura",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      }
+    ]
+  },
+  {
+    id: 2,
+    name: "Edição",
+    description: "[Descrição]",
+    options: [
+      {
+        id: 1,
+        name: "Inserir com um só clique",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 2,
+        name: "Abrir pastas com um só clique",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 3,
+        name: "Inserir antes do item selecionado",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+    ]
+  },
+  {
+    id: 3,
+    name: "QuickStart",
+    description: "[Descrição]",
+    options: [
+      {
+        id: 1,
+        name: "Usa QuickStart",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 2,
+        name: "Usa QuickStart via rede",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 3,
+        name: "Executar QuickStart via rede",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 4,
+        name: "Comprovar QuickStart via rede",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 5,
+        name: "Criar QuickStart",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 5,
+        name: "Painéis QuickStart individuais",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+    ]
+  },
+  {
+    id: 4,
+    name: "Mudança de blocos",
+    description: "[Descrição]",
+    options: [
+      {
+        id: 1,
+        name: "Sempre pausar a execução ao final de um bloco",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 2,
+        name: "Para em blocos vazios",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 3,
+        name: "Se parado, exibir o próximo bloco automaticamente no horário",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 4,
+        name: "Ignorar todas as trilhas e pausas",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      }
+    ]
+  },
+  {
+    id: 5,
+    name: "Bloco comercial",
+    description: "[Descrição]",
+    options: [
+      {
+        id: 1,
+        name: "Adiciona inserções",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 2,
+        name: "Aceita músicas",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 3,
+        name: "Remove inserções",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 4,
+        name: "Move inserções",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 5,
+        name: "Descarta inserções",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 6,
+        name: "Remove inserções",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+    ]
+  },
+  {
+    id: 6,
+    name: "Bloco musical",
+    description: "[Descrição]",
+    options: [
+      {
+        id: 1,
+        name: "Adiciona inserções",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 2,
+        name: "Aceita músicas",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 3,
+        name: "Remove inserções",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 4,
+        name: "Move inserções",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 5,
+        name: "Descarta inserções",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 6,
+        name: "Remove inserções",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+    ]
+  },
+  {
+    id: 7,
+    name: "Comercial",
+    description: "[Descrição]",
+    options: [
+      {
+        id: 1,
+        name: "Adiciona inserções",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 2,
+        name: "Aceita músicas",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 3,
+        name: "Remove inserções",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 4,
+        name: "Move inserções",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 5,
+        name: "Descarta inserções",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 6,
+        name: "Remove inserções",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+    ]
+  },
+  {
+    id: 8,
+    name: "Músicas",
+    description: "[Descrição]",
+    options: [
+      {
+        id: 1,
+        name: "Adiciona inserções",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 2,
+        name: "Aceita músicas",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 3,
+        name: "Remove inserções",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 4,
+        name: "Move inserções",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 5,
+        name: "Descarta inserções",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 6,
+        name: "Remove inserções",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+    ]
+  },
+  {
+    id: 9,
+    name: "Vinhetas",
+    description: "[Descrição]",
+    options: [
+      {
+        id: 1,
+        name: "Adiciona inserções",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 2,
+        name: "Aceita músicas",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 3,
+        name: "Remove inserções",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 4,
+        name: "Move inserções",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 5,
+        name: "Descarta inserções",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 6,
+        name: "Remove inserções",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+    ]
+  },
+  {
+    id: 10,
+    name: "Inserções genéricas",
+    description: "[Descrição]",
+    options: [
+      {
+        id: 1,
+        name: "Adiciona inserções",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 2,
+        name: "Aceita músicas",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 3,
+        name: "Remove inserções",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 4,
+        name: "Move inserções",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 5,
+        name: "Descarta inserções",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 6,
+        name: "Remove inserções",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+    ]
+  },
+  {
+    id: 11,
+    name: "Pausas",
+    description: "[Descrição]",
+    options: [
+      {
+        id: 1,
+        name: "Adiciona pausas",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 2,
+        name: "Tempo máximo (segundos)",
+        description: "[Descrição]",
+        isChecked: false,
+        active: false,
+        inputValue: ""
+      },
+    ]
+  },
+  {
+    id: 12,
+    name: "Permitir exibir o painel",
+    description: "[Descrição]",
+    options: [
+      {
+        id: 1,
+        name: "Progamação",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 2,
+        name: "Display",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 3,
+        name: "Tempo ao vivo",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 4,
+        name: "Anotação",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 5,
+        name: "Texto do dia",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 6,
+        name: "Hoje",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 7,
+        name: "Pasta",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 8,
+        name: "Propriedades",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 9,
+        name: "Mini-navegador",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 10,
+        name: "Aparência",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 11,
+        name: "Camera Controller",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+      {
+        id: 12,
+        name: "RSS",
+        description: "[Descrição]",
+        isChecked: true,
+        active: false,
+        inputValue: ""
+      },
+    ]
+  },
+  {
+    id: 13,
+    name: "Pastas",
+    description: "[Descrição]",
+    options: []
+  }
+]
+
 export const FAKE_DATA_ARCHIVE: IAllFilesTable[] = [];
 
 export const FAKE_DATA_ALL_FILES_TALBE: IAllFilesTable[] = [];

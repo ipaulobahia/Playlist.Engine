@@ -1,21 +1,25 @@
 import { Table as TableUI, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { ColumnFiltersState, flexRender, getCoreRowModel, getFacetedRowModel, getFacetedUniqueValues, getFilteredRowModel, getPaginationRowModel, getSortedRowModel, Row, SortingState, Table, useReactTable, VisibilityState } from "@tanstack/react-table"
 import { useState } from "react"
-import { FAKE_DATA_ARCHIVE } from "@/utils/fakeData"
 import { columns, Pagination, Toolbar } from './components'
-import { IAllFilesTable } from "./components/Columns"
 import { useInfoSidebar } from "@/hooks/use-sidebar"
+import { useSearchParams } from "react-router-dom"
+import { IFile, useFiles } from "@/service/api/files/getFiles"
 
 export const ArchiveTable = () => {
   const { selectRow } = useInfoSidebar()
+  const [searchParams] = useSearchParams();
+
   const [rowSelection, setRowSelection] = useState({})
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({ uploadedBy: false, folder: false, type: false, size: false })
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
   const [sorting, setSorting] = useState<SortingState>([])
 
+  const folderId = searchParams.get("folderId");
+  const { data: files } = useFiles(folderId)
 
   const table = useReactTable({
-    data: FAKE_DATA_ARCHIVE,
+    data: files ? files : [],
     columns,
     state: { sorting, columnVisibility, rowSelection, columnFilters },
     enableRowSelection: true,
@@ -32,7 +36,7 @@ export const ArchiveTable = () => {
     getFacetedUniqueValues: getFacetedUniqueValues(),
   })
 
-  function handlerSelectedRow(row: Row<IAllFilesTable>, table: Table<IAllFilesTable>) {
+  function handlerSelectedRow(row: Row<IFile>, table: Table<IFile>) {
     table.toggleAllPageRowsSelected(false)
     row.toggleSelected()
     selectRow(row.original)

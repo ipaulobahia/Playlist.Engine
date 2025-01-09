@@ -1,14 +1,18 @@
-import { ArchiveBreadchumbs, ArchiveList, ArchiveTable } from "./components"
-import { Button } from "@/components/ui/button"
+import { ArchiveBreadchumbs, ArchiveList, ArchiveTable } from "./components";
+import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { useInfoSidebar } from "@/hooks/use-sidebar";
-import { ChevronLeft, Info, List, Table2 } from "lucide-react"
-import { useNavigate } from "react-router-dom";
+import { ChevronLeft, Info, List, Table2 } from "lucide-react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 export const Archive = () => {
-  const { toggleSidebar, isOpen } = useInfoSidebar()
   const navigate = useNavigate();
+  const { toggleSidebar, isOpen } = useInfoSidebar()
+
+  const [searchParams] = useSearchParams();
+  const folderName = searchParams.get("folderName");
+
 
   function goBack() { navigate(-1) }
 
@@ -23,7 +27,7 @@ export const Archive = () => {
                 <ChevronLeft size={16} />
               </Button>
               <div className="flex flex-col gap-0.5">
-                <span className="text-xl font-semibold">Acervo Musical Rede Aleluia</span>
+                <span className="text-xl font-semibold">{folderName}</span>
                 <span className="text-sm font-normal text-muted-foreground">Pasta de musica principal da emissora</span>
               </div>
             </div>

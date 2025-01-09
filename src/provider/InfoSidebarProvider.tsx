@@ -1,5 +1,5 @@
-import { IAllFilesTable } from '@/app/Archive/components/ArchiveTable/components/Columns';
 import InfoSidebarContext from '@/contexts/InfoSidebarContext';
+import { IFile } from '@/service/api/files/getFiles';
 import React, { useState, ReactNode } from 'react';
 
 interface InfoSidebarProviderProps {
@@ -8,7 +8,7 @@ interface InfoSidebarProviderProps {
 
 const InfoSidebarProvider: React.FC<InfoSidebarProviderProps> = ({ children }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [row, setRow] = useState<IAllFilesTable | null>(null)
+  const [row, setRow] = useState<IFile | null>(null)
 
   const toggleSidebar = () => {
     setIsOpen(prev => !prev);
@@ -18,8 +18,8 @@ const InfoSidebarProvider: React.FC<InfoSidebarProviderProps> = ({ children }) =
     setIsOpen(false)
   }
 
-  const selectRow = (newRow: IAllFilesTable) => {
-    const isSameRow = newRow.id === row?.id
+  const selectRow = (newRow: IFile) => {
+    const isSameRow = newRow.fileId === row?.fileId
     setRow(isSameRow ? null : newRow)
   }
 

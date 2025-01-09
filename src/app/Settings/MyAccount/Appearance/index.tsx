@@ -55,7 +55,7 @@ export const Appearance = () => {
             <div className="justify-between px-4 py-6 mx-auto border rounded-t-md border-muted-foreground/25 sm:flex sm:px-6">
               <div className="flex items-center w-full">
                 <div>
-                  <h1 className="text-lg font-bold tracking-tight">Formato de visalização</h1>
+                  <h1 className="text-lg font-bold tracking-tight">Formato de visualização</h1>
                   <p className="text-xs text-muted-foreground">Isso se aplica a todo formato de visualização de dados</p>
                 </div>
               </div>

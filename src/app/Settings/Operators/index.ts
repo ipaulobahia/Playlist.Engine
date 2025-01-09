@@ -1,1 +1,1 @@
-export { ManageTeam } from "./ManageTeam";
+export { ManageOperators } from "./ManageOperators";

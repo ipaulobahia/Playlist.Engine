@@ -2,6 +2,7 @@ import { ColumnDef } from "@tanstack/react-table"
 import dayjs from 'dayjs'
 import clsx from "clsx"
 import { DropdownMenuRowActions, HeaderFilter } from "./components"
+import { IFile } from "@/service/api/files/getFiles"
 
 interface File {
   name: string
@@ -17,78 +18,74 @@ export interface IAllFilesTable {
   lastModified: Date
 }
 
-export const columns: ColumnDef<IAllFilesTable>[] = [
+export const columns: ColumnDef<IFile>[] = [
   {
-    accessorKey: "file",
-    header: ({ column }) => (<HeaderFilter column={column} title="Arquivo" />),
+    accessorKey: "title",
+    header: ({ column }) => (<HeaderFilter column={column} title="Título" />),
     cell: ({ row }) => {
-      const { name }: File = row.getValue("file")
-
       return (
-        <span className="text-xs font-medium">{name}</span>
+        <span className="text-xs font-medium">{row.getValue("title")}</span>
       )
     },
-    filterFn: (row, _, value) => {
-      const file = row.original.file;
-      const keys: (keyof File)[] = ['name'];
+    // filterFn: (row, _, value) => {
+    //   const file = row.original.file;
+    //   const keys: (keyof File)[] = ['name'];
 
-      for (const key of keys) {
-        console.log(value)
-        if (file[key].toLowerCase().includes(value.toLowerCase())) {
-          return true;
-        }
-      }
+    //   for (const key of keys) {
+    //     console.log(value)
+    //     if (file[key].toLowerCase().includes(value.toLowerCase())) {
+    //       return true;
+    //     }
+    //   }
 
-      return false;
-    },
+    //   return false;
+    // },
   },
   {
     accessorKey: "size",
     header: ({ column }) => (<HeaderFilter column={column} title="Tamanho" />),
     cell: ({ row }) => {
-      const { size }: File = row.getValue("file")
-
+      const byteSize = row.getValue("size") as number
+      const formatedSize = (byteSize / 1000000).toFixed(3) // Bytes to Kilobytes 
       return (
-        <span className="text-xs font-medium">{size}</span>
+        <span className="text-xs font-medium">{formatedSize} KB</span>
       )
     },
-    filterFn: (row, _, value) => {
-      const file = row.original.file;
-      const keys: (keyof File)[] = ['size'];
+    // filterFn: (row, _, value) => {
+    //   const file = row.original.file;
+    //   const keys: (keyof File)[] = ['size'];
 
-      for (const key of keys) {
-        console.log(value)
-        if (file[key].toLowerCase().includes(value.toLowerCase())) {
-          return true;
-        }
-      }
+    //   for (const key of keys) {
+    //     console.log(value)
+    //     if (file[key].toLowerCase().includes(value.toLowerCase())) {
+    //       return true;
+    //     }
+    //   }
 
-      return false;
-    },
+    //   return false;
+    // },
   },
   {
     accessorKey: "type",
     header: ({ column }) => (<HeaderFilter column={column} title="Tipo" />),
     cell: ({ row }) => {
-      const { type }: File = row.getValue("file")
-
       return (
-        <span className="text-xs font-medium">{type}</span>
+        <span className="text-xs font-medium">{row.getValue("filename")}</span>
       )
     },
-    filterFn: (row, _, value) => {
-      const file = row.original.file;
-      const keys: (keyof File)[] = ['type'];
+    // filterFn: (row, _, value) => {
+    //   const file = row.original.file;
+    //   const keys: (keyof File)[] = ['type'];
 
-      for (const key of keys) {
-        console.log(value)
-        if (file[key].toLowerCase().includes(value.toLowerCase())) {
-          return true;
-        }
-      }
+    //   for (const key of keys) {
+    //     console.log(value)
+    //     if (file[key].toLowerCase().includes(value.toLowerCase())) {
+    //       return true;
+    //     }
+    //   }
 
-      return false;
-    },
+    //   return false;
+    // },
   },
   {
     accessorKey: "duration",

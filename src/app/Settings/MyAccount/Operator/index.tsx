@@ -4,7 +4,7 @@ import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 import { Trash2 } from "lucide-react"
 
-export const Profile = () => {
+export const Operator = () => {
   return (
     <div className="flex flex-1 p-3">
       <div className="justify-center w-full max-w-full mx-auto lg:max-w-3xl">
@@ -12,8 +12,8 @@ export const Profile = () => {
           <header className="justify-between px-4 py-6 mx-auto border rounded-t-md border-muted-foreground/25 sm:flex sm:px-6">
             <div className="flex items-center w-full">
               <div>
-                <h1 className="text-2xl font-bold tracking-tight">Perfil</h1>
-                <p className="text-sm text-muted-foreground">Gerencie as configurações para seu idioma e fuso horário</p>
+                <h1 className="text-2xl font-bold tracking-tight">Operador</h1>
+                <p className="text-sm text-muted-foreground">Gerencie as configurações do seu operador</p>
               </div>
             </div>
           </header>

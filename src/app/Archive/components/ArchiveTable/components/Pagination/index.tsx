@@ -15,7 +15,6 @@ export const Pagination = <TData,>({ table }: PaginationProps<TData>) => {
       variant={currentPagination === pageIndex ? "outline" : "ghost"}
       className="w-8 h-8 p-0"
       onClick={() => table.setPageIndex(pageIndex)}
-      disabled={currentPagination === pageIndex}
     >
       {pageIndex + 1}
     </Button>

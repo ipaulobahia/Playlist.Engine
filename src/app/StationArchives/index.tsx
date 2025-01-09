@@ -70,7 +70,7 @@ export const StationArchives = () => {
           <span className="text-base font-medium">
             Arquivos
           </span>
-          <div className="grid grid-cols-1 gap-3 mt-3 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
+          <div className="grid grid-cols-1 gap-3 mt-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
             {FAKE_FOLDERS.folders.map((folder) => {
               const { folderId, folderName } = folder
               return (
@@ -86,6 +86,9 @@ export const StationArchives = () => {
                       <MoreVertical size={16} />
                     </Button>
                   </div>
+                  {/* <div className="flex items-center justify-center w-full p-1 bg-black h-60">
+                    <Folder size={80}/>
+                  </div> */}
                 </div>
               )
             })}
