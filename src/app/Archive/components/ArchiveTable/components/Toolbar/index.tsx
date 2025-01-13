@@ -28,7 +28,7 @@ export const Toolbar = <TData,>({ table }: ToolbarProps<TData>) => {
       <div className="flex flex-row items-center gap-x-1">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button size={'sm'} variant={'outline'} className="rounded text-muted-foreground">
+            <Button size={'sm'} variant={'outline'}>
               <ListFilter />
               <span className="font-medium">
                 Filtros

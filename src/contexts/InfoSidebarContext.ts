@@ -1,4 +1,3 @@
-import { IFile } from '@/service/api/files/getFiles';
 import { createContext } from 'react';
 
 interface InfoSidebarContextType {

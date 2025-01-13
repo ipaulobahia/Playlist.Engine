@@ -1,5 +1,4 @@
 import InfoSidebarContext from '@/contexts/InfoSidebarContext';
-import { IFile } from '@/service/api/files/getFiles';
 import React, { useState, ReactNode } from 'react';
 
 interface InfoSidebarProviderProps {

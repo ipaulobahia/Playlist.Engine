@@ -6,7 +6,7 @@ export const ArchiveBreadchumbs = () => {
     <Breadcrumb className="pb-3">
       <BreadcrumbList>
         <BreadcrumbItem className="hidden sm:block">
-          <BreadcrumbLink>
+          <BreadcrumbLink asChild>
             <Link to={'/overview'}>
               Overview
             </Link>
@@ -14,7 +14,7 @@ export const ArchiveBreadchumbs = () => {
         </BreadcrumbItem>
         <BreadcrumbSeparator className="hidden sm:block" />
         <BreadcrumbItem>
-          <BreadcrumbLink>
+          <BreadcrumbLink asChild>
             <Link to={'/library'}>
               Biblioteca
             </Link>
@@ -22,7 +22,7 @@ export const ArchiveBreadchumbs = () => {
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink>
+          <BreadcrumbLink asChild>
             <Link to={'/station-archives'}>
               Gerenciar Pastas
             </Link>

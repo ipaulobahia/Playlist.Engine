@@ -31,6 +31,6 @@ const getFolders = async (): Promise<IFolders> => {
 export const useFolders = () => {
   return useQuery<IFolders, Error>({
     queryKey: ['folders'],
-    queryFn: getFolders,
+    queryFn: getFolders
   });
 };

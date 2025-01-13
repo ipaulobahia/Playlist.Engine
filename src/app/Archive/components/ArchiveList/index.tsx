@@ -2,19 +2,19 @@ import { Toolbar } from "./components";
 import { useRef, useState } from "react";
 import { File } from "lucide-react";
 import { useInfoSidebar } from "@/hooks/use-sidebar";
-import { IFile, useFiles } from "@/service/api/files/getFiles";
+import { useFiles } from "@/service/api/files/getFiles";
 import { useSearchParams } from "react-router-dom";
 
 export const ArchiveList = () => {
   const { selectRow } = useInfoSidebar()
 
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const folderId = searchParams.get("folderId");
 
   const [selectedFile, setSelectedFile] = useState<IFile | null>(null)
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-  const { data: files } = useFiles(folderId)
+  const { data } = useFiles(folderId)
 
   function handleWheel(e: React.WheelEvent<HTMLDivElement>) {
     if (e.deltaY !== 0) {
@@ -26,8 +26,13 @@ export const ArchiveList = () => {
   };
 
   function handleSelectedFile(newFile: IFile) {
+    const fileId = newFile.fileId
     const isSameRow = newFile.fileId === selectedFile?.fileId
     setSelectedFile(isSameRow ? null : newFile)
+    setSearchParams((params) => {
+      params.set("fileId", fileId)
+      return params
+    })
     selectRow(newFile)
   }
 
@@ -48,7 +53,7 @@ export const ArchiveList = () => {
     <section>
       <Toolbar />
       {
-        files.length <= 0
+        data && data.files.length <= 0
           ?
           <div className="flex items-center justify-center p-5 align-middle">
             <span className="font-medium">
@@ -63,13 +68,13 @@ export const ArchiveList = () => {
             onWheel={handleWheel}
           >
             {
-              files.map((file) => {
-                const { fileId, filename } = file
+              data?.files.map((file) => {
+                const { fileId: id, filename } = file
                 return (
                   <div
-                    key={fileId}
+                    key={id}
                     onClick={() => handleSelectedFile(file)}
-                    className={`px-3 flex items-center gap-1.5 py-1.5 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground cursor-pointer rounded ${selectedFile?.fileId == fileId && 'bg-sidebar-accent'}`}
+                    className={`px-3 flex items-center gap-1.5 py-1.5 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground cursor-pointer rounded ${selectedFile?.fileId == id && 'bg-sidebar-accent'}`}
                   >
                     <File size={16} />
                     <span className="text-sm font-medium">

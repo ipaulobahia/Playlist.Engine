@@ -1,24 +1,26 @@
-import { ArchiveBreadchumbs, ArchiveList, ArchiveTable } from "./components";
+import { ArchiveList, ArchiveTable } from "./components";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { useInfoSidebar } from "@/hooks/use-sidebar";
+import { useFiles } from "@/service/api/files/getFiles";
 import { ChevronLeft, Info, List, Table2 } from "lucide-react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 export const Archive = () => {
+  const [searchParams] = useSearchParams();
+  const folderId = searchParams.get("folderId");
   const navigate = useNavigate();
   const { toggleSidebar, isOpen } = useInfoSidebar()
 
-  const [searchParams] = useSearchParams();
-  const folderName = searchParams.get("folderName");
-
+  const { data } = useFiles(folderId)
+  const folderName = data && data.folder.folderName
 
   function goBack() { navigate(-1) }
 
   return (
     <main className="flex-1 p-3">
-      <ArchiveBreadchumbs />
+      {/* <ArchiveBreadchumbs /> */}
       <Tabs defaultValue="list">
         <div className="p-4 space-y-3 border rounded shadow-sm border-muted-foreground/25 bg-sidebar">
           <div className="flex flex-row items-start justify-between gap-2 sm:items-center">
@@ -47,7 +49,7 @@ export const Archive = () => {
               <TooltipProvider>
                 <Tooltip delayDuration={100}>
                   <TooltipTrigger>
-                    <TabsTrigger value="detailed">
+                    <TabsTrigger value="detailed" className="">
                       <Table2 size={16} className="text-zinc-600 dark:text-zinc-200" />
                     </TabsTrigger>
                   </TooltipTrigger>

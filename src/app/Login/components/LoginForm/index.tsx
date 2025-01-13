@@ -61,11 +61,11 @@ export function LoginForm() {
                   </span>
                 </div>
               </div>
-              <Button type="submit" className="w-full text-white">
-                <Link to={'/users'}>
+              <Link to={'/users'}>
+                <Button className="w-full">
                   Conecte-se
-                </Link>
-              </Button>
+                </Button>
+              </Link>
             </div>
           </form>
           <div className="relative hidden bg-muted md:block">

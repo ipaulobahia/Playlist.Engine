@@ -1,8 +1,8 @@
 import { ColumnDef } from "@tanstack/react-table"
 import dayjs from 'dayjs'
 import clsx from "clsx"
-import { DropdownMenuRowActions, HeaderFilter } from "./components"
-import { IFile } from "@/service/api/files/getFiles"
+import { DropdownMenuRowActions } from "./components"
+import { HeaderFilter } from "@/components/ui/header-filter"
 
 interface File {
   name: string

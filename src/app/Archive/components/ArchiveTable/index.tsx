@@ -1,14 +1,36 @@
-import { Table as TableUI, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { ColumnFiltersState, flexRender, getCoreRowModel, getFacetedRowModel, getFacetedUniqueValues, getFilteredRowModel, getPaginationRowModel, getSortedRowModel, Row, SortingState, Table, useReactTable, VisibilityState } from "@tanstack/react-table"
+import {
+  Table as TableUI,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow
+} from "@/components/ui/table"
+import {
+  ColumnFiltersState,
+  flexRender,
+  getCoreRowModel,
+  getFacetedRowModel,
+  getFacetedUniqueValues,
+  getFilteredRowModel,
+  getPaginationRowModel,
+  getSortedRowModel,
+  Row,
+  SortingState,
+  Table,
+  useReactTable,
+  VisibilityState
+} from "@tanstack/react-table"
 import { useState } from "react"
-import { columns, Pagination, Toolbar } from './components'
+import { columns, Toolbar } from './components'
 import { useInfoSidebar } from "@/hooks/use-sidebar"
 import { useSearchParams } from "react-router-dom"
-import { IFile, useFiles } from "@/service/api/files/getFiles"
+import { useFiles } from "@/service/api/files/getFiles"
+import { Pagination } from "@/components/ui/pagination"
 
 export const ArchiveTable = () => {
   const { selectRow } = useInfoSidebar()
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const [rowSelection, setRowSelection] = useState({})
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({ uploadedBy: false, folder: false, type: false, size: false })
@@ -19,7 +41,7 @@ export const ArchiveTable = () => {
   const { data: files } = useFiles(folderId)
 
   const table = useReactTable({
-    data: files ? files : [],
+    data: files ? files.files : [],
     columns,
     state: { sorting, columnVisibility, rowSelection, columnFilters },
     enableRowSelection: true,
@@ -37,8 +59,13 @@ export const ArchiveTable = () => {
   })
 
   function handlerSelectedRow(row: Row<IFile>, table: Table<IFile>) {
+    const fileId = row.original.fileId
     table.toggleAllPageRowsSelected(false)
     row.toggleSelected()
+    setSearchParams((params) => {
+      params.set("fileId", fileId)
+      return params
+    })
     selectRow(row.original)
   }
 
@@ -52,7 +79,7 @@ export const ArchiveTable = () => {
               {
                 headerGroup.headers.map((header) => {
                   return (
-                    <TableHead className="font-medium bg-white first:rounded-tl-md last:rounded-tr-md dark:hover:bg-black dark:border-none dark:bg-black" key={header.id}>
+                    <TableHead className="px-5 font-medium bg-white first:rounded-tl-md last:rounded-tr-md dark:hover:bg-black dark:border-none dark:bg-black" key={header.id}>
                       {
                         header.isPlaceholder
                           ?

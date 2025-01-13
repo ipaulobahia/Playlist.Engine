@@ -3,7 +3,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 
 export const General = () => {
   return (
-    <div className="flex flex-1 p-3">
+    <div className="flex flex-1 p-5">
       <div className="justify-center w-full max-w-full mx-auto lg:max-w-3xl">
         <div>
           <header className="justify-between px-4 py-6 mx-auto border rounded-md border-muted-foreground/25 sm:flex sm:px-6">

@@ -6,7 +6,7 @@ export const LibraryBreadchumbs = () => {
     <Breadcrumb className="pb-3">
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbLink>
+          <BreadcrumbLink asChild>
             <Link to={'/overview'}>
               Overview
             </Link>

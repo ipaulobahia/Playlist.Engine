@@ -6,7 +6,7 @@ export const StationArchivesBreadchumbs = () => {
     <Breadcrumb className="pb-3">
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbLink>
+          <BreadcrumbLink asChild>
             <Link to={'/overview'}>
               Overview
             </Link>
@@ -14,7 +14,7 @@ export const StationArchivesBreadchumbs = () => {
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink>
+          <BreadcrumbLink asChild>
             <Link to={'/library'}>
               Biblioteca
             </Link>

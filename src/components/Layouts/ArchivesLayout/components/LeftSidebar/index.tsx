@@ -51,7 +51,7 @@ export const LeftSidebar = () => {
                     <ContextMenu>
                       <ContextMenuTrigger asChild key={id}>
                         <SidebarMenuItem className={`${(folderId === id.toString()) && 'bg-sidebar-accent text-sidebar-accent-foreground'}`}>
-                          <Link to={`/archive?folderId=${id}&folderName=${folderName}`}>
+                          <Link to={`/archive?folderId=${id}`}>
                             <SidebarMenuButton className="flex flex-row items-center justify-start">
                               {
                                 icon == ""
