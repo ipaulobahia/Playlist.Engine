@@ -15,12 +15,14 @@ export const DatePicker = () => {
   const [showFilterDate, setShowFilterDate] = useState<boolean>(false)
   const [isCalendarOpen, setIsCapendarOpen] = useState<boolean>(false)
   const [range, setRange] = useState<string>()
-  const [date, setDate] = useState<Date>()
+  const [date, setDate] = useState<Date | undefined>()
   const [rangeDate, setRangeDate] = useState<DateRange | undefined>()
 
   function handlerCalendar() {
     setIsCapendarOpen(prev => !prev)
   }
+
+  const isRangeDate = range != "2"
 
   return (
     <div className="flex flex-col gap-3 px-2">
@@ -48,15 +50,31 @@ export const DatePicker = () => {
             <PopoverTrigger asChild>
               <Button
                 variant={"outline"}
-                className={cn("w-full h-8 text-xs px-3 border bg-muted border-muted-foreground/10 justify-start text-left font-normal", !date && "text-muted-foreground")}
+                className={cn("w-full h-8 text-xs px-3 border bg-muted border-muted-foreground/10 justify-start text-left font-normal", (!date || !isRangeDate) && "text-muted-foreground")}
               >
                 <CalendarIcon />
-                {date ? format(date, "PPP", { locale: ptBR }) : <span>Selecione uma data</span>}
+                {
+                  isRangeDate
+                    ?
+                    date ? format(date, "PPP", { locale: ptBR }) : <span>Selecione uma data</span>
+                    :
+                    rangeDate?.from
+                      ?
+                      (
+                        rangeDate.to
+                          ?
+                          (<>{format(rangeDate.from, "LLL dd, y")} -{" "} {format(rangeDate.to, "LLL dd, y")}</>)
+                          :
+                          (format(rangeDate.from, "LLL dd, y"))
+                      )
+                      :
+                      (<span>Selecione uma data</span>)
+                }
               </Button>
             </PopoverTrigger>
             <PopoverContent className="w-auto p-0">
               {
-                range != "2"
+                isRangeDate
                   ?
                   <Calendar
                     onDayClick={handlerCalendar}
