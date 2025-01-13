@@ -1,7 +1,7 @@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { ColumnFiltersState, flexRender, getCoreRowModel, getFacetedRowModel, getFacetedUniqueValues, getFilteredRowModel, getPaginationRowModel, getSortedRowModel, SortingState, useReactTable, VisibilityState } from "@tanstack/react-table"
 import { useState } from "react"
-import { columns } from './components'
+import { columns, Toolbar } from './components'
 import { Pagination } from "@/components/ui/pagination"
 
 export const OperatorsTable = () => {
@@ -30,6 +30,7 @@ export const OperatorsTable = () => {
 
   return (
     <div>
+      <Toolbar table={table} />
       <Table className="border dark:border-transparent dark:border-none border-muted-foreground/25">
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (

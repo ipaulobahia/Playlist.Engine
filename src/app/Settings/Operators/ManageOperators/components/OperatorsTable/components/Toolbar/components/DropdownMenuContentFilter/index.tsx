@@ -9,40 +9,18 @@ export const DropdownMenuContentFilter = () => {
     <DropdownMenuContent align="end" className="py-2.5 w-72">
       <div className="flex flex-col gap-y-2.5">
         <div className="flex items-center justify-between px-2">
-          <Label className="text-xs font-normal text-muted-foreground">Tipo</Label>
-          <Select>
-            <SelectTrigger className="w-48 h-8 text-xs border bg-muted border-muted-foreground/10">
-              <SelectValue placeholder="Selecione um tipo" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectGroup>
-                <SelectLabel>Tipo do arquivo</SelectLabel>
-                <SelectItem value="apple">mp3</SelectItem>
-                <SelectItem value="banana">mp4</SelectItem>
-                <SelectItem value="blueberry">txt</SelectItem>
-              </SelectGroup>
-            </SelectContent>
-          </Select>
-        </div>
-        <div className="flex items-center justify-between px-2">
-          <Label className="text-xs font-normal text-muted-foreground">Operador</Label>
+          <Label className="text-xs font-normal text-muted-foreground">Perfils</Label>
           <Select>
             <SelectTrigger className="w-48 h-8 text-xs border bg-muted border-muted-foreground/10">
               <SelectValue placeholder="Selecione um operador" />
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
-                <SelectLabel>Operador</SelectLabel>
-                <SelectItem value="1">Carlos Silva</SelectItem>
-                <SelectItem value="2">Ana Costa</SelectItem>
-                <SelectItem value="3">Ricardo Lima</SelectItem>
-                <SelectItem value="4">Mariana Souza</SelectItem>
-                <SelectItem value="5">Lucas Oliveira</SelectItem>
-                <SelectItem value="6">Fernanda Almeida</SelectItem>
-                <SelectItem value="7">Eduardo Pereira</SelectItem>
-                <SelectItem value="8">Raquel Santos</SelectItem>
-                <SelectItem value="9">João Martins</SelectItem>
-                <SelectItem value="10">Beatriz Costa</SelectItem>
+                <SelectLabel>Perfils</SelectLabel>
+                <SelectItem value="1">Padrão</SelectItem>
+                <SelectItem value="2">Locutor</SelectItem>
+                <SelectItem value="3">Gestor</SelectItem>
+                <SelectItem value="4">Administrador</SelectItem>
               </SelectGroup>
             </SelectContent>
           </Select>
@@ -57,8 +35,7 @@ export const DropdownMenuContentFilter = () => {
               <SelectGroup>
                 <SelectLabel>Status</SelectLabel>
                 <SelectItem value="1">Inativo</SelectItem>
-                <SelectItem value="2">Pendente</SelectItem>
-                <SelectItem value="3">Ativo</SelectItem>
+                <SelectItem value="2">Ativo</SelectItem>
               </SelectGroup>
             </SelectContent>
           </Select>

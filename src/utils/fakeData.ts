@@ -3,9 +3,9 @@ import { faker } from '@faker-js/faker'
 
 export const FAKE_USERS_DATA = [
   { id: 1, avatar: 'https://github.com/shadcn.png', name: 'João', profile: 'Operador Padrão' },
-  { id: 2, avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80', name: 'Davi', profile: 'Loucutor' },
+  { id: 2, avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80', name: 'Davi', profile: 'Locutor' },
   { id: 3, avatar: 'https://github.com/matheus.png', name: 'Matheus', profile: 'Adminitrador' },
-  { id: 4, avatar: 'https://github.com/jorge.png', name: 'Jorge', profile: 'Loucutor' },
+  { id: 4, avatar: 'https://github.com/jorge.png', name: 'Jorge', profile: 'Locutor' },
   { id: 5, avatar: '', name: 'Luisa Fernanda', profile: 'Operador Padrão' },
   { id: 6, avatar: 'https://github.com/maria.png', name: 'Maria', profile: 'Operador Padrão' },
   { id: 7, avatar: '', name: 'Fernanda', profile: 'Operador Padrão' },

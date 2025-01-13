@@ -1,0 +1,85 @@
+import { Calendar } from "@/components/ui/calendar"
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
+import { Switch } from "@/components/ui/switch"
+import { cn } from "@/lib/utils"
+import { format } from "date-fns"
+import { CalendarIcon } from "lucide-react"
+import { ptBR } from 'date-fns/locale/pt-BR'
+import { useState } from "react"
+import { Label } from "./label"
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "./select"
+import { Button } from "./button"
+import { DateRange } from "react-day-picker"
+
+export const DatePicker = () => {
+  const [showFilterDate, setShowFilterDate] = useState<boolean>(false)
+  const [isCalendarOpen, setIsCapendarOpen] = useState<boolean>(false)
+  const [range, setRange] = useState<string>()
+  const [date, setDate] = useState<Date>()
+  const [rangeDate, setRangeDate] = useState<DateRange | undefined>()
+
+  function handlerCalendar() {
+    setIsCapendarOpen(prev => !prev)
+  }
+
+  return (
+    <div className="flex flex-col gap-3 px-2">
+      <div className="flex items-center justify-between">
+        <Label className="text-xs font-normal text-muted-foreground">Data</Label>
+        <Switch checked={showFilterDate} onCheckedChange={setShowFilterDate} id="date" />
+      </div>
+      {
+        showFilterDate &&
+        <>
+          <Select onValueChange={(value) => setRange(value)} defaultValue={range}>
+            <SelectTrigger className="w-full h-8 text-xs border bg-muted border-muted-foreground/10">
+              <SelectValue placeholder="Intervalo" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectLabel>Intervalo</SelectLabel>
+                <SelectItem value="1">Antes</SelectItem>
+                <SelectItem value="2">Entre</SelectItem>
+                <SelectItem value="3">Depois</SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+          <Popover open={isCalendarOpen} onOpenChange={setIsCapendarOpen}>
+            <PopoverTrigger asChild>
+              <Button
+                variant={"outline"}
+                className={cn("w-full h-8 text-xs px-3 border bg-muted border-muted-foreground/10 justify-start text-left font-normal", !date && "text-muted-foreground")}
+              >
+                <CalendarIcon />
+                {date ? format(date, "PPP", { locale: ptBR }) : <span>Selecione uma data</span>}
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-auto p-0">
+              {
+                range != "2"
+                  ?
+                  <Calendar
+                    onDayClick={handlerCalendar}
+                    mode="single"
+                    locale={ptBR}
+                    selected={date}
+                    onSelect={setDate}
+                    initialFocus
+                  />
+                  :
+                  <Calendar
+                    initialFocus
+                    mode="range"
+                    selected={rangeDate}
+                    onSelect={setRangeDate}
+                    numberOfMonths={2}
+                    locale={ptBR}
+                  />
+              }
+            </PopoverContent>
+          </Popover>
+        </>
+      }
+    </div>
+  )
+}
