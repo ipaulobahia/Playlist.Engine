@@ -49,62 +49,20 @@ export const MainLayout = () => {
                       Biblioteca
                     </Link>
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid grid-cols-2 gap-3 p-3 w-[600px]">
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <Link
-                            to={'/library'}
-                            className="block p-3 space-y-1 leading-none no-underline transition-colors rounded-md outline-none select-none hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                          >
-                            <div className="text-sm font-medium leading-none">Biblioteca</div>
-                            <p className="text-sm leading-snug line-clamp-2 text-muted-foreground">
-                              Organize e gerencie sua lista de arquivos de forma prática e eficiente
-                            </p>
-                          </Link>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <Link
-                            to={'/station-archives'}
-                            className="block p-3 space-y-1 leading-none no-underline transition-colors rounded-md outline-none select-none hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                          >
-                            <div className="text-sm font-medium leading-none">Gerenciar arquivos</div>
-                            <p className="text-sm leading-snug line-clamp-2 text-muted-foreground">
-                              Organize e gerencie seus arquivos de forma prática e eficiente
-                            </p>
-                          </Link>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <Link
-                            to={'/station-archives'}
-                            className="block p-3 space-y-1 leading-none no-underline transition-colors rounded-md outline-none select-none hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                          >
-                            <div className="text-sm font-medium leading-none">Upload de arquivos</div>
-                            <p className="text-sm leading-snug line-clamp-2 text-muted-foreground">
-                              Faça o upload dos seus arquivos de maneira simples e rápida
-                            </p>
-                          </Link>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <Link
-                            to={'/station-archives'}
-                            className="block p-3 space-y-1 leading-none no-underline transition-colors rounded-md outline-none select-none hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                          >
-                            <div className="text-sm font-medium leading-none">Uploads recente</div>
-                            <p className="text-sm leading-snug line-clamp-2 text-muted-foreground">
-                              Acesse e gerencie facilmente seus uploads mais recentes
-                            </p>
-                          </Link>
-                        </NavigationMenuLink>
-                      </li>
-                    </ul>
-                  </NavigationMenuContent>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className={`h-0 p-0 text-sm font-medium transition-colors text-muted-foreground dark:hover:text-white hover:text-black ${pathname.includes("archives") && 'dark:text-white text-black'}`}>
+                    <Link to={'/station-archives'}>
+                      Arquivos
+                    </Link>
+                  </NavigationMenuTrigger>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger disabled className={`h-0 p-0 text-sm font-medium transition-colors text-muted-foreground dark:hover:text-white hover:text-black ${pathname.includes("uploads") && 'dark:text-white text-black'}`}>
+                    <Link to={'/station-archives'}>
+                      Uploads
+                    </Link>
+                  </NavigationMenuTrigger>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                   <NavigationMenuTrigger disabled className={`h-0 p-0 text-sm font-medium transition-colors text-muted-foreground dark:hover:text-white hover:text-black ${pathname.includes('/maps') && 'dark:text-white text-black'}`}>

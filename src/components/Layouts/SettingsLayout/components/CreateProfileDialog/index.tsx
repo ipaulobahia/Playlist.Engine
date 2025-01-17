@@ -53,7 +53,7 @@ export const CreateProfileDialog = () => {
         </div>
         <div className="flex flex-col gap-y-3">
           <Label className="text-left">
-            Color
+            Cor
           </Label>
           <div className="grid grid-cols-3 gap-2">
             {profileColors.map((color) => (

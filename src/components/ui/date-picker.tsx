@@ -50,7 +50,7 @@ export const DatePicker = () => {
             <PopoverTrigger asChild>
               <Button
                 variant={"outline"}
-                className={cn("w-full h-8 text-xs px-3 border bg-muted border-muted-foreground/10 justify-start text-left font-normal", (!date || !isRangeDate) && "text-muted-foreground")}
+                className={cn("w-full h-8 text-xs px-3 border bg-muted border-muted-foreground/10 justify-start text-left font-normal", (!date || !rangeDate) && "text-muted-foreground")}
               >
                 <CalendarIcon />
                 {

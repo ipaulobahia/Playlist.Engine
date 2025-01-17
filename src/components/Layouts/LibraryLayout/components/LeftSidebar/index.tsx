@@ -23,11 +23,8 @@ export const LeftSidebar = () => {
             </span>
           </div>
         </div>
-        <SidebarGroup className="pt-0">
-          <SidebarGroupLabel>Favoritos</SidebarGroupLabel>
-        </SidebarGroup>
         <SidebarGroup>
-          <SidebarGroupLabel>Pastas</SidebarGroupLabel>
+          <SidebarGroupLabel>Categorias</SidebarGroupLabel>
           <SidebarGroupContent className="overflow-auto max-h-[70vh]">
             <SidebarMenu>
               {
