@@ -9,6 +9,5 @@ export async function getIcon(iconName: string) {
 export const useIcon = (iconName: string) =>
   useQuery({
     queryKey: ["icon", iconName],
-    queryFn: () => getIcon(iconName),
-    initialData: ''
+    queryFn: () => getIcon(iconName)
   })

@@ -8,7 +8,7 @@ const getFiles = async (folderId: string): Promise<GetFilesResponse> => {
 
 export const useFiles = (folderId: string | null) => {
   return useQuery<GetFilesResponse, Error>({
-    queryKey: ['files', folderId],
+    queryKey: ['folder', folderId],
     queryFn: () => getFiles(folderId!),
     enabled: folderId !== null,
   });

@@ -1,12 +1,14 @@
 import { Button } from "@/components/ui/button"
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
+import { DialogClose } from "@radix-ui/react-dialog"
 import { Trash2 } from "lucide-react"
 
 export const Operator = () => {
   return (
-    <div className="flex flex-1 p-5">
+    <main className="relative flex flex-1 p-5">
       <div className="justify-center w-full max-w-full mx-auto lg:max-w-3xl">
         <div>
           <header className="justify-between px-4 py-6 mx-auto border rounded-t-md border-muted-foreground/25 sm:flex sm:px-6">
@@ -17,7 +19,7 @@ export const Operator = () => {
               </div>
             </div>
           </header>
-          <div className="px-4 pt-8 pb-10 border-muted-foreground/25 border-x sm:px-6">
+          <div className="px-4 pt-8 pb-10 border-b border-muted-foreground/25 border-x sm:px-6">
             <div className="flex flex-col items-center gap-4">
               <div className="flex flex-col w-full gap-3">
                 <Label htmlFor="name">Nome</Label>
@@ -76,29 +78,50 @@ export const Operator = () => {
               </div>
             </div>
           </div>
-          <div className="flex justify-end px-6 py-4 border rounded-b-md border-muted-foreground/25 bg-muted">
-            <Button size={'sm'} disabled>
-              Atualizar
-            </Button>
-          </div>
-          <div className="flex flex-col p-6 mt-6 border border-b-0 rounded-md rounded-b-none border-muted-foreground/25">
-            <Label className="text-sm font-semibold text-red-700 ">
-              Zona de perigo
-            </Label>
-            <span className="text-xs text-muted-foreground">
-              Atenção! A exclusão da conta não pode ser desfeita.
-            </span>
-          </div>
-          <div className="flex justify-end px-6 py-4 border rounded-b-md border-muted-foreground/25 bg-muted">
-            <Button size={'sm'} variant={'destructive'}>
-              <Trash2 />
-              <span>
-                Deletar operador
-              </span>
-            </Button>
-          </div>
         </div>
       </div>
-    </div>
+      <footer className="fixed bottom-0 left-0 flex justify-end w-full p-4 border border-t shadow border-muted-foreground/25 bg-muted">
+        <div className="flex flex-row items-center justify-between gap-x-2">
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button size={'sm'} variant={'destructive'}>
+                <Trash2 />
+                <span>
+                  Remover operador
+                </span>
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="w-[90%]">
+              <DialogHeader>
+                <DialogTitle>
+                  <Label className="text-base font-bold text-red-700 ">
+                    Zona de perigo
+                  </Label>
+                </DialogTitle>
+                <DialogDescription>
+                  Você tem certeza que deseja fazer isso? Ao completar essa ação os dados desse operador não poderam ser recuperados.
+                </DialogDescription>
+              </DialogHeader>
+              <DialogFooter className="flex flex-row items-center justify-between w-full">
+                <DialogClose asChild>
+                  <Button variant={'outline'}>Cancelar</Button>
+                </DialogClose>
+                <DialogClose asChild>
+                  <Button variant={'destructive'}>
+                    Remover
+                  </Button>
+                </DialogClose>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
+          <Button variant={'ghost'} disabled>
+            Cancelar
+          </Button>
+          <Button disabled>
+            Salvar
+          </Button>
+        </div>
+      </footer>
+    </main >
   )
 }

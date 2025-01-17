@@ -1,5 +1,5 @@
 import { BRFlag, ESFlag, EUAFlag } from "@/assets/flags"
-import { DarkMode, LighMode, ListView, SystemMode, TableView } from "@/assets/images"
+import { DarkMode, LighMode, SystemMode } from "@/assets/images"
 import { Button } from "@/components/ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Separator } from "@/components/ui/separator"
@@ -91,7 +91,7 @@ export const Appearance = () => {
               </Select>
             </div>
           </div>
-          <div>
+          {/* <div>
             <div className="justify-between px-4 py-6 mx-auto border rounded-t-md border-muted-foreground/25 sm:flex sm:px-6">
               <div className="flex items-center w-full">
                 <div>
@@ -114,7 +114,7 @@ export const Appearance = () => {
                 </span>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
       <footer className="fixed bottom-0 left-0 flex justify-end w-full p-4 border border-t shadow border-muted-foreground/25 bg-muted">

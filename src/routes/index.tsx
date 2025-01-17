@@ -13,7 +13,12 @@ import {
   ManageOperators,
   CreateProfile
 } from "@/app";
-import { ArchivesLayout, MainLayout, SettingsLayout } from "@/components/Layouts";
+import {
+  ArchivesLayout,
+  LibraryLayout,
+  MainLayout,
+  SettingsLayout
+} from "@/components/Layouts";
 import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
 
 export const Routers = createBrowserRouter(
@@ -23,7 +28,9 @@ export const Routers = createBrowserRouter(
       <Route path="/users" element={<Users />} />
       <Route element={<MainLayout />}>
         <Route path="/overview" element={<Overview />} />
-        <Route path="/library" element={<Library />} />
+        <Route element={<LibraryLayout />}>
+          <Route path="/library" element={<Library />} />
+        </Route>
         <Route element={<ArchivesLayout />}>
           <Route path="/station-archives" element={<StationArchives />} />
           <Route path="/archive" element={<Archive />} />

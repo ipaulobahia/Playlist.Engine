@@ -40,6 +40,21 @@ export const DropdownMenuContentFilter = () => {
             </SelectContent>
           </Select>
         </div>
+        <div className="flex items-center justify-between px-2">
+          <Label className="text-xs font-normal text-muted-foreground">Segurança</Label>
+          <Select>
+            <SelectTrigger className="w-48 h-8 text-xs border bg-muted border-muted-foreground/10">
+              <SelectValue placeholder="Selecione o formato" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectLabel>Segurança</SelectLabel>
+                <SelectItem value="1">Livre</SelectItem>
+                <SelectItem value="2">Pin</SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
       </div>
       <DropdownMenuSeparator className="my-2.5" />
       <DatePicker />
