@@ -1,5 +1,22 @@
 import { IAllFilesTable } from '@/app/Archive/components/ArchiveTable/components/Columns';
 import { faker } from '@faker-js/faker'
+import {
+  CalendarSVG,
+  ClapperBoardSVG,
+  DiscSVG,
+  FlagSVG,
+  FolderSVG,
+  GuitarSVG,
+  KeyboardMusicSVG,
+  MicSVG,
+  MusicNoteSVG,
+  SaxSVG,
+  SingerSVG,
+  StarSVG,
+  CommercialSVG,
+  TextSVG,
+  PendingFileSVG
+} from '@/assets/svg/categories'
 
 export const FAKE_USERS_DATA = [
   { id: 1, avatar: 'https://github.com/shadcn.png', name: 'João', profile: 'Operador Padrão' },
@@ -1485,3 +1502,133 @@ for (let i = 1; i <= 200; i++) {
 for (let i = 1; i <= 25; i++) {
   FAKE_DATA_ALL_FILES_TALBE.push(generateItem(i))
 }
+
+export const FAKE_LIST_LIBRARY = [
+  {
+    name: "Flashback",
+    info: {
+      name: "Flashback",
+      description: "Coleção de músicas ou áudios de décadas passadas, trazendo uma viagem ao passado com grandes sucessos de diferentes épocas."
+    },
+    archiveCount: 520,
+  },
+  {
+    name: "Midback",
+    info: {
+      name: "Midback",
+      description: "Lista com áudios ou músicas de meio de carreira de artistas, possivelmente com foco em períodos intermediários ou transições na indústria musical."
+    },
+    archiveCount: 75,
+  },
+  {
+    name: "Sucesssos 2023",
+    info: {
+      name: "Sucesssos 2023",
+      description: "Compilação dos maiores sucessos musicais ou vídeos mais populares do ano de 2023, trazendo as músicas que dominaram as paradas durante o ano."
+    },
+    archiveCount: 861,
+  },
+  {
+    name: "Top 20 (Petra FM)",
+    info: {
+      name: "Top 20 (Petra FM)",
+      description: "Lista das 20 músicas mais tocadas ou populares na rádio Petra FM, com um foco em hits do momento ou músicas mais solicitadas pelos ouvintes."
+    },
+    archiveCount: 120,
+  },
+  {
+    name: "Top 20 (Pure Pop)",
+    info: {
+      name: "Top 20 (Pure Pop)",
+      description: "Uma seleção das 20 faixas mais populares do gênero pop, possivelmente destacando as canções mais tocadas ou influentes desse estilo musical."
+    },
+    archiveCount: 74,
+  },
+  {
+    name: "Acervo de Vídeos",
+    info: {
+      name: "Acervo de Vídeos",
+      description: "Arquivo de vídeos variados, que podem incluir desde clipes musicais, gravações históricas até outros tipos de conteúdo visual de interesse geral."
+    },
+    archiveCount: 14,
+  },
+  {
+    name: "Dicas Dr. Yano - Cardiologista",
+    info: {
+      name: "Dicas Dr. Yano - Cardiologista",
+      description: "Coleção de áudios ou vídeos com orientações e dicas sobre saúde cardiovascular, fornecidas pelo Dr. Yano, um cardiologista especializado."
+    },
+    archiveCount: 36,
+  },
+  {
+    name: "Giro de Notícias",
+    info: {
+      name: "Giro de Notícias",
+      description: "Compilação de áudios ou vídeos que trazem um resumo das notícias mais relevantes, abordando eventos atuais e informações de interesse público."
+    },
+    archiveCount: 5,
+  }
+]
+
+export const FAKE_LIST_CATEGORY = [
+  {
+    name: "Gênero",
+    icon: SaxSVG
+  },
+  {
+    name: "Ritmo",
+    icon: KeyboardMusicSVG
+  },
+  {
+    name: "Classificação",
+    icon: StarSVG
+  },
+  {
+    name: "Idioma",
+    icon: FlagSVG
+  },
+  {
+    name: "Vocal",
+    icon: MicSVG
+  },
+  {
+    name: "Recentes",
+    icon: PendingFileSVG
+  },
+  {
+    name: "Artistas",
+    icon: SingerSVG
+  },
+  {
+    name: "Ano",
+    icon: CalendarSVG
+  },
+  {
+    name: "Album",
+    icon: DiscSVG
+  },
+  {
+    name: "Compositor",
+    icon: GuitarSVG
+  },
+  {
+    name: "Gravadora",
+    icon: ClapperBoardSVG
+  },
+  {
+    name: "Vinhetas",
+    icon: MusicNoteSVG
+  },
+  {
+    name: "Comerciais",
+    icon: CommercialSVG
+  },
+  {
+    name: "Textos",
+    icon: TextSVG
+  },
+  {
+    name: "Pastas",
+    icon: FolderSVG
+  }
+]

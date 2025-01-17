@@ -1,17 +1,10 @@
 import { ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuTrigger } from "@/components/ui/context-menu"
-import { FolderIcon } from "@/components/ui/folder-icon"
 import { Input } from "@/components/ui/input"
 import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar"
-import { useFolders } from "@/service/api/folders/getFolders"
+import { FAKE_LIST_CATEGORY } from "@/utils/fakeData"
 import { FolderOpen, Info, Search, Star } from "lucide-react"
-import { Link, useSearchParams } from "react-router-dom"
 
 export const LeftSidebar = () => {
-  const [searchParams] = useSearchParams();
-  const folderId = searchParams.get("folderId");
-
-  const { data } = useFolders()
-
   return (
     <Sidebar collapsible="none" className="fixed z-10 hidden h-screen border-r sm:block top-14 border-muted-foreground/25">
       <SidebarContent>
@@ -28,19 +21,17 @@ export const LeftSidebar = () => {
           <SidebarGroupContent className="overflow-auto max-h-[70vh]">
             <SidebarMenu>
               {
-                data && data.folders.map(({ folderId: id, folderName, icon }) => {
+                FAKE_LIST_CATEGORY.map(({ icon, name }, index) => {
                   return (
                     <ContextMenu>
-                      <ContextMenuTrigger asChild key={id}>
-                        <SidebarMenuItem className={`${(folderId === id.toString()) && 'bg-sidebar-accent text-sidebar-accent-foreground'}`}>
-                          <Link to={`/archive?folderId=${id}`}>
-                            <SidebarMenuButton className="flex flex-row items-center justify-start">
-                              <FolderIcon iconName={icon} />
-                              <span>
-                                {folderName}
-                              </span>
-                            </SidebarMenuButton>
-                          </Link>
+                      <ContextMenuTrigger asChild key={index}>
+                        <SidebarMenuItem>
+                          <SidebarMenuButton className="flex flex-row items-center justify-start">
+                            <img src={icon} className="w-3.5 h-3.5" />
+                            <span>
+                              {name}
+                            </span>
+                          </SidebarMenuButton>
                         </SidebarMenuItem>
                       </ContextMenuTrigger>
                       <ContextMenuContent>

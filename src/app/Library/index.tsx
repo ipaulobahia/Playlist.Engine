@@ -1,154 +1,8 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { FAKE_LIST_CATEGORY, FAKE_LIST_LIBRARY } from "@/utils/fakeData";
 import { FileClock, FolderUp, ListMusic, ListPlus, MoreVertical, Plus } from "lucide-react";
-import {
-  CalendarSVG,
-  ClapperBoardSVG,
-  DiscSVG,
-  FlagSVG,
-  FolderSVG,
-  GuitarSVG,
-  KeyboardMusicSVG,
-  MicSVG,
-  MusicNoteSVG,
-  SaxSVG,
-  SingerSVG,
-  StarSVG,
-  CommercialSVG,
-  TextSVG,
-  PendingFileSVG
-} from '@/assets/svg/categories'
-
-const FAKE_LIST_LIBRARY = [
-  {
-    name: "Flashback",
-    info: {
-      name: "Flashback",
-      description: "Coleção de músicas ou áudios de décadas passadas, trazendo uma viagem ao passado com grandes sucessos de diferentes épocas."
-    },
-    archiveCount: 520,
-  },
-  {
-    name: "Midback",
-    info: {
-      name: "Midback",
-      description: "Lista com áudios ou músicas de meio de carreira de artistas, possivelmente com foco em períodos intermediários ou transições na indústria musical."
-    },
-    archiveCount: 75,
-  },
-  {
-    name: "Sucesssos 2023",
-    info: {
-      name: "Sucesssos 2023",
-      description: "Compilação dos maiores sucessos musicais ou vídeos mais populares do ano de 2023, trazendo as músicas que dominaram as paradas durante o ano."
-    },
-    archiveCount: 861,
-  },
-  {
-    name: "Top 20 (Petra FM)",
-    info: {
-      name: "Top 20 (Petra FM)",
-      description: "Lista das 20 músicas mais tocadas ou populares na rádio Petra FM, com um foco em hits do momento ou músicas mais solicitadas pelos ouvintes."
-    },
-    archiveCount: 120,
-  },
-  {
-    name: "Top 20 (Pure Pop)",
-    info: {
-      name: "Top 20 (Pure Pop)",
-      description: "Uma seleção das 20 faixas mais populares do gênero pop, possivelmente destacando as canções mais tocadas ou influentes desse estilo musical."
-    },
-    archiveCount: 74,
-  },
-  {
-    name: "Acervo de Vídeos",
-    info: {
-      name: "Acervo de Vídeos",
-      description: "Arquivo de vídeos variados, que podem incluir desde clipes musicais, gravações históricas até outros tipos de conteúdo visual de interesse geral."
-    },
-    archiveCount: 14,
-  },
-  {
-    name: "Dicas Dr. Yano - Cardiologista",
-    info: {
-      name: "Dicas Dr. Yano - Cardiologista",
-      description: "Coleção de áudios ou vídeos com orientações e dicas sobre saúde cardiovascular, fornecidas pelo Dr. Yano, um cardiologista especializado."
-    },
-    archiveCount: 36,
-  },
-  {
-    name: "Giro de Notícias",
-    info: {
-      name: "Giro de Notícias",
-      description: "Compilação de áudios ou vídeos que trazem um resumo das notícias mais relevantes, abordando eventos atuais e informações de interesse público."
-    },
-    archiveCount: 5,
-  }
-]
-
-const FAKE_LIST_CATEGORY = [
-  {
-    name: "Gênero",
-    icon: SaxSVG
-  },
-  {
-    name: "Ritmo",
-    icon: KeyboardMusicSVG
-  },
-  {
-    name: "Classificação",
-    icon: StarSVG
-  },
-  {
-    name: "Idioma",
-    icon: FlagSVG
-  },
-  {
-    name: "Vocal",
-    icon: MicSVG
-  },
-  {
-    name: "Recentes",
-    icon: PendingFileSVG
-  },
-  {
-    name: "Artistas",
-    icon: SingerSVG
-  },
-  {
-    name: "Ano",
-    icon: CalendarSVG
-  },
-  {
-    name: "Album",
-    icon: DiscSVG
-  },
-  {
-    name: "Compositor",
-    icon: GuitarSVG
-  },
-  {
-    name: "Gravadora",
-    icon: ClapperBoardSVG
-  },
-  {
-    name: "Vinhetas",
-    icon: MusicNoteSVG
-  },
-  {
-    name: "Comerciais",
-    icon: CommercialSVG
-  },
-  {
-    name: "Textos",
-    icon: TextSVG
-  },
-  {
-    name: "Pastas",
-    icon: FolderSVG
-  }
-]
 
 export const Library = () => {
 
@@ -210,25 +64,26 @@ export const Library = () => {
           Categorias
         </span>
         <div className="grid grid-cols-1 gap-2 mt-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-          {FAKE_LIST_CATEGORY.map(({ name, icon }, index) => {
-            return (
-              <Card key={index} className="flex flex-row items-start gap-2 p-3 bg-transparent rounded cursor-pointer border-muted-foreground/25 dark:hover:bg-muted/50 hover:bg-muted">
-                <div className="flex items-center justify-center rounded bg-accent-foreground/30 dark:bg-accent min-w-9 min-h-9">
-                  <img src={icon} className="w-4 h-4" />
-                </div>
-                <div className="flex flex-col w-full">
-                  <div className="flex flex-row items-start justify-between">
-                    <span className="text-[13px] font-medium">
-                      {name}
-                    </span>
+          {
+            FAKE_LIST_CATEGORY.map(({ name, icon }, index) => {
+              return (
+                <Card key={index} className="flex flex-row items-start gap-2 p-3 bg-transparent rounded cursor-pointer border-muted-foreground/25 dark:hover:bg-muted/50 hover:bg-muted">
+                  <div className="flex items-center justify-center rounded bg-accent-foreground/30 dark:bg-accent min-w-9 min-h-9">
+                    <img src={icon} className="w-4 h-4" />
                   </div>
-                  <div className="flex flex-row items-center gap-0.5">
-                    <span className="text-xs font-normal text-muted-foreground">{Math.floor(Math.random() * (20 - 0 + 1) + 0)} arquivos</span>
+                  <div className="flex flex-col w-full">
+                    <div className="flex flex-row items-start justify-between">
+                      <span className="text-[13px] font-medium">
+                        {name}
+                      </span>
+                    </div>
+                    <div className="flex flex-row items-center gap-0.5">
+                      <span className="text-xs font-normal text-muted-foreground">{Math.floor(Math.random() * (20 - 0 + 1) + 0)} arquivos</span>
+                    </div>
                   </div>
-                </div>
-              </Card>
-            )
-          })
+                </Card>
+              )
+            })
           }
         </div>
       </div>
