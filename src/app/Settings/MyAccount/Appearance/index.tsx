@@ -2,14 +2,13 @@ import { BRFlag, ESFlag, EUAFlag } from "@/assets/flags"
 import { DarkMode, LighMode, SystemMode } from "@/assets/images"
 import { Button } from "@/components/ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Separator } from "@/components/ui/separator"
 
 export const Appearance = () => {
   return (
     <main className="relative flex flex-1 p-5 pb-20">
       <div className="justify-center w-full max-w-full mx-auto lg:max-w-3xl">
         <div className="space-y-5">
-          <header className="justify-between px-4 py-6 mx-auto border rounded-md bg-muted border-muted-foreground/25 sm:flex sm:px-6">
+          <header className="justify-between px-4 py-6 mx-auto border rounded-md rounded-b-none border-muted-foreground/25 sm:flex sm:px-6">
             <div className="flex items-center w-full">
               <div>
                 <h1 className="text-2xl font-bold tracking-tight">Aparência</h1>
@@ -17,9 +16,8 @@ export const Appearance = () => {
               </div>
             </div>
           </header>
-          <Separator className="bg-muted-foreground/25" />
           <div>
-            <div className="justify-between px-4 py-6 mx-auto border rounded-t-md border-muted-foreground/25 sm:flex sm:px-6">
+            <div className="justify-between px-4 py-6 mx-auto border rounded-md rounded-b-none border-muted-foreground/25 sm:flex sm:px-6">
               <div className="flex items-center w-full">
                 <div>
                   <h1 className="text-lg font-bold tracking-tight">Tema da aplicação</h1>
@@ -27,7 +25,7 @@ export const Appearance = () => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-row justify-between px-4 pt-8 pb-10 border-b gap-x-4 border-muted-foreground/25 border-x sm:px-6">
+            <div className="flex flex-row justify-between px-4 py-8 border-b gap-x-4 border-muted-foreground/25 border-x sm:px-6">
               <div className="flex flex-col items-start gap-2 cursor-pointer">
                 <img src={SystemMode} className="flex items-center justify-center flex-1 rounded-lg h-36 " />
                 <span className="text-sm font-semibold text-accent-foreground">
@@ -49,7 +47,7 @@ export const Appearance = () => {
             </div>
           </div>
           <div>
-            <div className="justify-between px-4 py-6 mx-auto border rounded-t-md border-muted-foreground/25 sm:flex sm:px-6">
+            <div className="justify-between px-4 py-6 mx-auto border rounded-b-none border-muted-foreground/25 sm:flex sm:px-6">
               <div className="flex items-center w-full">
                 <div>
                   <h1 className="text-lg font-bold tracking-tight">Idioma</h1>
@@ -57,7 +55,7 @@ export const Appearance = () => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-row justify-between px-4 pt-8 pb-10 border-b gap-x-4 border-muted-foreground/25 border-x sm:px-6">
+            <div className="flex flex-row justify-between px-4 py-8 border-b gap-x-4 border-muted-foreground/25 border-x sm:px-6">
               <Select>
                 <SelectTrigger className="text-xs">
                   <SelectValue placeholder="Selecione um idioma" />
@@ -100,7 +98,7 @@ export const Appearance = () => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-row justify-start px-4 pt-8 pb-10 border-b gap-x-4 border-muted-foreground/25 border-x sm:px-6">
+            <div className="flex flex-row justify-start px-4 py-8 border-b gap-x-4 border-muted-foreground/25 border-x sm:px-6">
               <div className="flex flex-col items-start gap-2 cursor-pointer">
                 <img src={ListView} className="flex items-center justify-center flex-1 rounded-lg h-36 " />
                 <span className="text-sm font-semibold text-accent-foreground">

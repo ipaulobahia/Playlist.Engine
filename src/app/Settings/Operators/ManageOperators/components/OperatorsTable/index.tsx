@@ -31,14 +31,14 @@ export const OperatorsTable = () => {
   return (
     <div>
       <Toolbar table={table} />
-      <Table className="border dark:border-transparent dark:border-none border-muted-foreground/25">
+      <Table className="border border-muted-foreground/25">
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
               {
                 headerGroup.headers.map((header) => {
                   return (
-                    <TableHead className="px-5 font-medium bg-white first:rounded-tl-md last:rounded-tr-md dark:hover:bg-black dark:border-none dark:bg-black" key={header.id}>
+                    <TableHead className="px-5 font-medium bg-white first:rounded-tl-md last:rounded-tr-md dark:hover:bg-black dark:bg-black" key={header.id}>
                       {
                         header.isPlaceholder
                           ?

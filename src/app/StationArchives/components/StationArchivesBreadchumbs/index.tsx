@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 export const StationArchivesBreadchumbs = () => {
   return (
-    <Breadcrumb className="pb-3">
+    <Breadcrumb className="p-3">
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink asChild>

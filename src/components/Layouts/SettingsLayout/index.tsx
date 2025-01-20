@@ -3,9 +3,11 @@ import "react-color-palette/css";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider } from "@/components/ui/sidebar";
-import { ChevronLeft, Plus, User, UserPen, Users } from "lucide-react";
+import { ChevronLeft, CircleAlert, Cog, Plus, User, UserPen, Users } from "lucide-react";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { CreateOperatorDialog, CreateProfileDialog } from "./components";
+import { FAKE_CONFIG_PREFERENCE } from "@/utils/fakeData";
+import { PreferenceSidebarMenuItem } from "./components/PreferenceSidebarMenuItem";
 
 export const SettingsLayout = () => {
   const { pathname } = useLocation()
@@ -14,8 +16,8 @@ export const SettingsLayout = () => {
 
   return (
     <SidebarProvider>
-      <Sidebar collapsible="none" className="fixed z-10 hidden h-screen border-r sm:block top-14 border-muted-foreground/25">
-        <SidebarContent className="gap-1.5">
+      <Sidebar collapsible="none" className="fixed z-10 hidden h-screen border-r sm:flex top-14 border-muted-foreground/25">
+        <SidebarContent className="gap-1.5 mb-16">
           <div className="px-2 pt-2">
             <Button className="flex flex-row items-center justify-center px-2" onClick={goBack} size={'sm'} variant={'ghost'}>
               <ChevronLeft size={16} />
@@ -110,6 +112,40 @@ export const SettingsLayout = () => {
                       </span>
                     </SidebarMenuButton>
                   </Link>
+                </SidebarMenuItem>
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+          <SidebarGroup className="px-3 pt-0">
+            <div className="flex flex-row items-center">
+              <Cog size={16} />
+              <SidebarGroupLabel>Preferências</SidebarGroupLabel>
+            </div>
+            <SidebarGroupContent className="pl-4">
+              <SidebarMenu>
+                {
+                  FAKE_CONFIG_PREFERENCE.map(({ id, name, path }) => {
+                    return (
+                      <PreferenceSidebarMenuItem key={id} name={name} path={path} />
+                    )
+                  })
+                }
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+          <SidebarGroup className="px-3 pt-0">
+            <div className="flex flex-row items-center">
+              <CircleAlert size={16} />
+              <SidebarGroupLabel>Outros</SidebarGroupLabel>
+            </div>
+            <SidebarGroupContent className="pl-4">
+              <SidebarMenu>
+                <SidebarMenuItem>
+                  <SidebarMenuButton>
+                    <span className="text-xs">
+                      Licença
+                    </span>
+                  </SidebarMenuButton>
                 </SidebarMenuItem>
               </SidebarMenu>
             </SidebarGroupContent>

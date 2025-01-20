@@ -1,4 +1,4 @@
-import { IAllFilesTable } from '@/app/Archive/components/ArchiveTable/components/Columns';
+import { IAllFilesTable } from '@/app/Library/Category/Archive/components/ArchiveTable/components/Columns';
 import { faker } from '@faker-js/faker'
 import {
   CalendarSVG,
@@ -1474,6 +1474,174 @@ export const FAKE_CONFIG_PROFILE: ProfileConfig = [
   }
 ]
 
+export const FAKE_CONFIG_PREFERENCE: PreferenceConfig = [
+  {
+    id: 1,
+    name: "Playlist Server",
+    description: "",
+    path: "playlist-server",
+    options: {
+      id: 1,
+      name: "",
+      description: "",
+      status: false,
+      value: "",
+      type: "Input",
+      isActive: true
+    }
+  },
+  {
+    id: 2,
+    name: "Avançado",
+    description: "",
+    path: "advanced",
+    options: {
+      id: 1,
+      name: "",
+      description: "",
+      status: false,
+      value: "",
+      type: "Input",
+      isActive: true
+    }
+  },
+  {
+    id: 3,
+    name: "Station Office",
+    description: "",
+    path: "station-office",
+    options: {
+      id: 1,
+      name: "",
+      description: "",
+      status: false,
+      value: "",
+      type: "Input",
+      isActive: true
+    }
+  },
+  {
+    id: 4,
+    name: "Saídas",
+    description: "",
+    path: "outputs",
+    options: {
+      id: 1,
+      name: "",
+      description: "",
+      status: false,
+      value: "",
+      type: "Input",
+      isActive: true
+    }
+  },
+  {
+    id: 5,
+    name: "Entrada de áudio",
+    description: "",
+    path: "audio-source",
+    options: {
+      id: 1,
+      name: "",
+      description: "",
+      status: false,
+      value: "",
+      type: "Input",
+      isActive: true
+    }
+  },
+  {
+    id: 6,
+    name: "Disparo Remoto",
+    description: "",
+    path: "remote-triggering",
+    options: {
+      id: 1,
+      name: "",
+      description: "",
+      status: false,
+      value: "",
+      type: "Input",
+      isActive: true
+    }
+  },
+  {
+    id: 7,
+    name: "Afiliada de rede",
+    description: "",
+    path: "control-satellite",
+    options: {
+      id: 1,
+      name: "",
+      description: "",
+      status: false,
+      value: "",
+      type: "Input",
+      isActive: true
+    }
+  },
+  {
+    id: 8,
+    name: "XML para Web",
+    description: "",
+    path: "xml-web",
+    options: {
+      id: 1,
+      name: "",
+      description: "",
+      status: false,
+      value: "",
+      type: "Input",
+      isActive: true
+    }
+  },
+  {
+    id: 9,
+    name: "RDS e RSS",
+    description: "",
+    path: "rds-rss",
+    options: {
+      id: 1,
+      name: "",
+      description: "",
+      status: false,
+      value: "",
+      type: "Input",
+      isActive: true
+    }
+  },
+  {
+    id: 10,
+    name: "Metadata para streaming",
+    description: "",
+    path: "metadata-streaming",
+    options: {
+      id: 1,
+      name: "",
+      description: "",
+      status: false,
+      value: "",
+      type: "Input",
+      isActive: true
+    }
+  },
+  {
+    id: 11,
+    name: "Diversos",
+    description: "",
+    path: "general",
+    options: {
+      id: 1,
+      name: "",
+      description: "",
+      status: false,
+      value: "",
+      type: "Input",
+      isActive: true
+    }
+  }
+]
+
 export const FAKE_DATA_ARCHIVE: IAllFilesTable[] = [];
 
 export const FAKE_DATA_ALL_FILES_TALBE: IAllFilesTable[] = [];
@@ -1493,14 +1661,6 @@ function generateItem(id: number) {
     uploadedBy: faker.person.fullName(),
     lastModified: faker.date.past(),
   };
-}
-
-for (let i = 1; i <= 200; i++) {
-  FAKE_DATA_ARCHIVE.push(generateItem(i))
-}
-
-for (let i = 1; i <= 25; i++) {
-  FAKE_DATA_ALL_FILES_TALBE.push(generateItem(i))
 }
 
 export const FAKE_LIST_LIBRARY = [
@@ -1572,63 +1732,86 @@ export const FAKE_LIST_LIBRARY = [
 
 export const FAKE_LIST_CATEGORY = [
   {
-    name: "Gênero",
-    icon: SaxSVG
-  },
-  {
-    name: "Ritmo",
-    icon: KeyboardMusicSVG
-  },
-  {
-    name: "Classificação",
-    icon: StarSVG
-  },
-  {
-    name: "Idioma",
-    icon: FlagSVG
-  },
-  {
-    name: "Vocal",
-    icon: MicSVG
-  },
-  {
+    id: 0,
     name: "Recentes",
     icon: PendingFileSVG
   },
   {
+    id: 1,
+    name: "Gênero",
+    icon: SaxSVG
+  },
+  {
+    id: 2,
+    name: "Ritmo",
+    icon: KeyboardMusicSVG
+  },
+  {
+    id: 3,
+    name: "Classificação",
+    icon: StarSVG
+  },
+  {
+    id: 4,
+    name: "Idioma",
+    icon: FlagSVG
+  },
+  {
+    id: 5,
+    name: "Vocal",
+    icon: MicSVG
+  },
+  {
+    id: 6,
     name: "Artistas",
     icon: SingerSVG
   },
   {
+    id: 7,
     name: "Ano",
     icon: CalendarSVG
   },
   {
+    id: 8,
     name: "Album",
     icon: DiscSVG
   },
   {
+    id: 9,
     name: "Compositor",
     icon: GuitarSVG
   },
   {
+    id: 10,
     name: "Gravadora",
     icon: ClapperBoardSVG
   },
   {
+    id: 11,
     name: "Vinhetas",
     icon: MusicNoteSVG
   },
   {
+    id: 12,
     name: "Comerciais",
     icon: CommercialSVG
   },
   {
+    id: 13,
     name: "Textos",
     icon: TextSVG
   },
   {
+    id: 14,
     name: "Pastas",
     icon: FolderSVG
   }
 ]
+
+for (let i = 1; i <= 200; i++) {
+  FAKE_DATA_ARCHIVE.push(generateItem(i))
+}
+
+for (let i = 1; i <= 25; i++) {
+  FAKE_DATA_ALL_FILES_TALBE.push(generateItem(i))
+}

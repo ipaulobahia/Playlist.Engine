@@ -4,7 +4,7 @@ import { AccordionSettingsProfile } from "./components"
 
 export const CreateProfile = () => {
   return (
-    <div className="relative flex flex-1 p-5 pb-20">
+    <div className="relative flex flex-1 pb-20">
       <div className="justify-center w-full max-w-full mx-auto lg:max-w-3xl">
         <div className="space-y-8">
           <header className="justify-between px-4 py-6 mx-auto border rounded-md bg-muted border-muted-foreground/25 sm:flex sm:px-6">

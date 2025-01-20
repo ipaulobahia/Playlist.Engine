@@ -50,20 +50,20 @@ export const MainLayout = () => {
                     </Link>
                   </NavigationMenuTrigger>
                 </NavigationMenuItem>
-                <NavigationMenuItem>
+                {/* <NavigationMenuItem>
                   <NavigationMenuTrigger className={`h-0 p-0 text-sm font-medium transition-colors text-muted-foreground dark:hover:text-white hover:text-black ${pathname.includes("archives") && 'dark:text-white text-black'}`}>
                     <Link to={'/station-archives'}>
                       Arquivos
                     </Link>
                   </NavigationMenuTrigger>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
+                </NavigationMenuItem> */}
+                {/* <NavigationMenuItem>
                   <NavigationMenuTrigger disabled className={`h-0 p-0 text-sm font-medium transition-colors text-muted-foreground dark:hover:text-white hover:text-black ${pathname.includes("uploads") && 'dark:text-white text-black'}`}>
                     <Link to={'/station-archives'}>
                       Uploads
                     </Link>
                   </NavigationMenuTrigger>
-                </NavigationMenuItem>
+                </NavigationMenuItem> */}
                 <NavigationMenuItem>
                   <NavigationMenuTrigger disabled className={`h-0 p-0 text-sm font-medium transition-colors text-muted-foreground dark:hover:text-white hover:text-black ${pathname.includes('/maps') && 'dark:text-white text-black'}`}>
                     <Link to={'/overview'}>
