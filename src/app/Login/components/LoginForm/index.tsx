@@ -62,7 +62,7 @@ export function LoginForm() {
                 </div>
               </div>
               <Link to={'/users'}>
-                <Button className="w-full">
+                <Button size={'sm'} className="w-full">
                   Conecte-se
                 </Button>
               </Link>

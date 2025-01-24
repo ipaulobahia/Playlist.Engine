@@ -56,7 +56,7 @@ export const OperatorPinDialog = () => {
       </div>
       <DialogFooter className="justify-end">
         <Link to={'/overview'}>
-          <Button type="submit">
+          <Button size={'sm'} type="submit">
             Acessar
           </Button>
         </Link>

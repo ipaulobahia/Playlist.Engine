@@ -11,7 +11,7 @@ export const DropdownMenuRowActions = ({ currentStatus }: DropdownMenuRowActions
     <DropdownMenu>
       <div className="flex justify-end">
         <DropdownMenuTrigger asChild>
-          <Button variant="ghost" className="p-0 size-8">
+          <Button size={'sm'} variant="ghost" className="p-0 size-8">
             <span className="sr-only">Abrir menu</span>
             <MoreVertical />
           </Button>

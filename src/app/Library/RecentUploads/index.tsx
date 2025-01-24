@@ -14,7 +14,7 @@ export const RecentUploads = () => {
         </div>
         <Dialog>
           <DialogTrigger asChild>
-            <Button size={'default'} className="flex flex-row items-center">
+            <Button size={'sm'} className="flex flex-row items-center">
               <CloudUpload size={16} />
               <span>
                 Upload

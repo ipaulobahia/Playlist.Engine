@@ -117,10 +117,10 @@ export const Appearance = () => {
       </div>
       <footer className="fixed bottom-0 left-0 flex justify-end w-full p-4 border border-t shadow border-muted-foreground/25 bg-muted">
         <div className="flex flex-row items-center justify-between gap-x-2">
-          <Button variant={'ghost'} disabled>
+          <Button size={'sm'} variant={'ghost'} disabled>
             Cancelar
           </Button>
-          <Button disabled>
+          <Button size={'sm'} disabled>
             Salvar
           </Button>
         </div>

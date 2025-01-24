@@ -102,20 +102,20 @@ export const Operator = () => {
               </DialogHeader>
               <DialogFooter className="flex flex-row items-center justify-between w-full">
                 <DialogClose asChild>
-                  <Button variant={'outline'}>Cancelar</Button>
+                  <Button size={'sm'} variant={'outline'}>Cancelar</Button>
                 </DialogClose>
                 <DialogClose asChild>
-                  <Button variant={'destructive'}>
+                  <Button size={'sm'} variant={'destructive'}>
                     Remover
                   </Button>
                 </DialogClose>
               </DialogFooter>
             </DialogContent>
           </Dialog>
-          <Button variant={'ghost'} disabled>
+          <Button size={'sm'} variant={'ghost'} disabled>
             Cancelar
           </Button>
-          <Button disabled>
+          <Button size={'sm'} disabled>
             Salvar
           </Button>
         </div>

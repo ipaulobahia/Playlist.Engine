@@ -49,8 +49,8 @@ export const StationArchives = () => {
               </div>
             </div>
             <DialogFooter className="flex flex-row items-center justify-between w-full">
-              <Button size={'default'} variant={'outline'}>Cancelar</Button>
-              <Button size={'default'}>Criar</Button>
+              <Button size={'sm'} variant={'outline'}>Cancelar</Button>
+              <Button size={'sm'}>Criar</Button>
             </DialogFooter>
           </DialogContent>
         </Dialog>
