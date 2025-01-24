@@ -1,12 +1,11 @@
-import { ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuTrigger } from "@/components/ui/context-menu"
+import { CategoryContextContent } from "@/components/CategoryContextContent"
 import { Input } from "@/components/ui/input"
 import { SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar"
 import { FAKE_LIST_CATEGORY } from "@/utils/fakeData"
-import { FolderOpen, Info, Search, Star } from "lucide-react"
-import { Link, useNavigate, useSearchParams } from "react-router-dom"
+import { Search } from "lucide-react"
+import { Link, useSearchParams } from "react-router-dom"
 
 export const CategorySidebarGroup = () => {
-  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
   const categoryId = searchParams.get("categoryId");
@@ -20,49 +19,25 @@ export const CategorySidebarGroup = () => {
         </span>
       </div>
       <SidebarGroupLabel>Favoritos</SidebarGroupLabel>
-      <SidebarGroupContent>
-
-      </SidebarGroupContent>
+      <SidebarGroupContent></SidebarGroupContent>
       <SidebarGroupLabel>Categorias</SidebarGroupLabel>
       <SidebarGroupContent className="pb-16">
         <SidebarMenu>
           {
-            FAKE_LIST_CATEGORY.map(({ id, icon, name }, index) => {
+            FAKE_LIST_CATEGORY.map(({ id, icon, name }) => {
               return (
-                <ContextMenu>
-                  <ContextMenuTrigger asChild key={index}>
-                    <SidebarMenuItem className={`${(categoryId === id.toString()) && 'bg-sidebar-accent text-sidebar-accent-foreground'}`}>
-                      <Link to={`/library/category?categoryId=${id}`}>
-                        <SidebarMenuButton onClick={() => navigate(`/library/category?categoryId=${id}`)} className="flex flex-row items-center justify-start">
-                          <img src={icon} className="w-3.5 h-3.5" />
-                          <span>
-                            {name}
-                          </span>
-                        </SidebarMenuButton>
-                      </Link>
-                    </SidebarMenuItem>
-                  </ContextMenuTrigger>
-                  <ContextMenuContent>
-                    <ContextMenuItem className="flex flex-row items-center gap-x-2">
-                      <FolderOpen size={16} />
-                      <span>
-                        Abrir
-                      </span>
-                    </ContextMenuItem>
-                    <ContextMenuItem className="flex flex-row items-center gap-x-2">
-                      <Star size={16} />
-                      <span>
-                        Favoritar
-                      </span>
-                    </ContextMenuItem>
-                    <ContextMenuItem className="flex flex-row items-center gap-x-2">
-                      <Info size={16} />
-                      <span>
-                        Detalhes
-                      </span>
-                    </ContextMenuItem>
-                  </ContextMenuContent>
-                </ContextMenu>
+                <CategoryContextContent key={id} categoryId={id}>
+                  <SidebarMenuItem className={`${(categoryId === id.toString()) && 'bg-sidebar-accent text-sidebar-accent-foreground'}`}>
+                    <Link to={`/library/category?categoryId=${id}`}>
+                      <SidebarMenuButton className="flex flex-row items-center justify-start">
+                        <img src={icon} className="w-3.5 h-3.5" />
+                        <span>
+                          {name}
+                        </span>
+                      </SidebarMenuButton>
+                    </Link>
+                  </SidebarMenuItem>
+                </CategoryContextContent>
               )
             })
           }

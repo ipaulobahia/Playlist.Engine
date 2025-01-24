@@ -1,5 +1,5 @@
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
-import { CategoryBreadchumbs, CategoryList } from "./components"
+import { CategoryBreadchumbs, ArchiveList } from "./components"
 import { Button } from "@/components/ui/button"
 import { Info, List, Table2 } from "lucide-react"
 import { useInfoSidebar } from "@/hooks/use-sidebar"
@@ -70,7 +70,7 @@ export const Category = () => {
             </TooltipProvider>
           </div>
           <TabsContent value="list" className="m-0">
-            <CategoryList />
+            <ArchiveList />
           </TabsContent>
           <TabsContent value="detailed" className="m-0">
             <></>

@@ -13,30 +13,22 @@ export const columns: ColumnDef<Operator>[] = [
   {
     accessorKey: "name",
     header: ({ column }) => (<HeaderFilter column={column} title="Nome" />),
-    cell: ({ row }) => (
-      <div>{row.getValue("name")}</div>
-    ),
+    cell: ({ row }) => (<div>{row.getValue("name")}</div>),
   },
   {
     accessorKey: "profile",
     header: ({ column }) => (<HeaderFilter column={column} title="Perfil" />),
-    cell: ({ row }) => (
-      <div>{row.getValue("profile")}</div>
-    ),
+    cell: ({ row }) => (<div>{row.getValue("profile")}</div>),
   },
   {
     accessorKey: "pin",
     header: ({ column }) => (<HeaderFilter column={column} title="Pin" />),
-    cell: ({ row }) => (
-      <div>{row.getValue("pin")}</div>
-    ),
+    cell: ({ row }) => (<div>{row.getValue("pin")}</div>),
   },
   {
     accessorKey: "status",
     header: ({ column }) => (<HeaderFilter column={column} title="Status" />),
-    cell: ({ row }) => (
-      <div>{row.getValue("status")}</div>
-    ),
+    cell: ({ row }) => (<div>{row.getValue("status")}</div>),
   },
   {
     id: "actions",

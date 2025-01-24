@@ -21,7 +21,7 @@ export const AccordionContentOptions = ({ option }: IAccordionContentOptions) =>
 
   return (
     <div key={id} className="flex flex-row items-center justify-between w-full gap-x-4">
-      <Label className="flex flex-col text-sm font-medium leading-none gap-y-1">
+      <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
         <span>{name}</span>
         <span className="text-xs font-normal leading-snug text-muted-foreground">{description}</span>
       </Label>

@@ -41,35 +41,35 @@ export const Operator = () => {
               />
             </div>
             <div className="flex flex-row items-center justify-between w-full gap-x-4">
-              <Label className="flex flex-col text-sm font-medium leading-none gap-y-1">
+              <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
                 <span>Administrador</span>
                 <span className="text-xs font-normal leading-snug text-muted-foreground">Accesso total ao painel de configurações</span>
               </Label>
               <Switch checked id="adm" />
             </div>
             <div className="flex flex-row items-center justify-between w-full gap-x-4">
-              <Label className="flex flex-col text-sm font-medium leading-none gap-y-1">
+              <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
                 <span>Operador do ar</span>
                 <span className="text-xs font-normal leading-snug text-muted-foreground">O nome do deste operador aparecerá na lista de operadores no estúdio do ar</span>
               </Label>
               <Switch checked id="adm" />
             </div>
             <div className="flex flex-row items-center justify-between w-full gap-x-4">
-              <Label className="flex flex-col text-sm font-medium leading-none gap-y-1">
+              <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
                 <span>Operador da rede</span>
                 <span className="text-xs font-normal leading-snug text-muted-foreground">O nome deste operador aparecerá na lista de operadores quando o programa for executado via rede.</span>
               </Label>
               <Switch checked id="adm" />
             </div>
             <div className="flex flex-row items-center justify-between w-full gap-x-4">
-              <Label className="flex flex-col text-sm font-medium leading-none gap-y-1">
+              <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
                 <span>Visualizar em tempo real</span>
                 <span className="text-xs font-normal leading-snug text-muted-foreground">Durante a operação via rede, visualizar em tempo real o progesso da programação</span>
               </Label>
               <Switch checked id="adm" />
             </div>
             <div className="flex flex-row items-center justify-between w-full gap-x-4">
-              <Label className="flex flex-col text-sm font-medium leading-none gap-y-1">
+              <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
                 <span>Permite operação remota</span>
                 <span className="text-xs font-normal leading-snug text-muted-foreground">É permitido a este operador iniciar, parar e avençar a programação remotamente.</span>
               </Label>

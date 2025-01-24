@@ -1,0 +1,1 @@
+export { AffiliatesTable } from "./AffiliatesTable";

@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Switch } from "@/components/ui/switch"
 
 export const RdsRss = () => {
@@ -19,37 +20,51 @@ export const RdsRss = () => {
             </header>
             <div className="flex flex-col items-center gap-4 px-4 py-8 border border-t-0 rounded-md rounded-t-none gap-x-4 border-muted-foreground/25 sm:px-6">
               <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1">
+                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
                   <span>Modelo</span>
-                  <span className="text-xs font-normal leading-snug text-muted-foreground">[Descrição]</span>
+                  <span className="text-xs font-normal leading-snug text-muted-foreground">Selecione o modelo a ser utilizado: <b>Arquivo,Acadia Biquad, Audemat, Audemat Enc. Silver ou Inovonics</b></span>
                 </Label>
-                <Input className="w-[40%] dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
+                <Select>
+                  <SelectTrigger className="flex-1 h-8 text-xs border bg-muted border-muted-foreground/10">
+                    <SelectValue placeholder="Selecione o modelo" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectLabel>Modelo</SelectLabel>
+                      <SelectItem value="1">Arquivo</SelectItem>
+                      <SelectItem value="2">Acadia (Biquad)</SelectItem>
+                      <SelectItem value="3">Audemat</SelectItem>
+                      <SelectItem value="4">Audemat (Enc. Silver)</SelectItem>
+                      <SelectItem value="5">Inovonics</SelectItem>
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
               </div>
               <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1">
+                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
                   <span>Endereço do encoder RDS</span>
-                  <span className="text-xs font-normal leading-snug text-muted-foreground">[Descrição]</span>
+                  <span className="text-xs font-normal leading-snug text-muted-foreground">Informe o endereço IP e porta do encoder RDS <b>(IP:Porta)</b></span>
                 </Label>
-                <Input className="w-[40%] dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
+                <Input className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
               <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1">
+                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
                   <span>Texto padrão</span>
-                  <span className="text-xs font-normal leading-snug text-muted-foreground">[Descrição]</span>
+                  <span className="text-xs font-normal leading-snug text-muted-foreground">Informe o texto que será enviado quando não estiver executando música e nos blocos comerciais sem título</span>
                 </Label>
-                <Input className="w-[40%] dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
+                <Input className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
               <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1">
+                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
                   <span>Enviar comerciais</span>
-                  <span className="text-xs font-normal leading-snug text-muted-foreground">[Descrição]</span>
+                  <span className="text-xs font-normal leading-snug text-muted-foreground">Enviar o nome das inserções comerciais em execução</span>
                 </Label>
                 <Switch checked id="adm" />
               </div>
               <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1">
+                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
                   <span>Remover carecteres especiais</span>
-                  <span className="text-xs font-normal leading-snug text-muted-foreground">[Descrição]</span>
+                  <span className="text-xs font-normal leading-snug text-muted-foreground">Remove caracteres especiais do nome da inserção</span>
                 </Label>
                 <Switch checked id="adm" />
               </div>
@@ -66,37 +81,37 @@ export const RdsRss = () => {
             </header>
             <div className="flex flex-col items-center gap-4 px-4 py-8 border border-t-0 rounded-md rounded-t-none gap-x-4 border-muted-foreground/25 sm:px-6">
               <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1">
+                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
                   <span>Endereço de Feed</span>
-                  <span className="text-xs font-normal leading-snug text-muted-foreground">[Descrição]</span>
+                  <span className="text-xs font-normal leading-snug text-muted-foreground">Adicione as URLS separadas por <b>;</b></span>
                 </Label>
-                <Input className="w-[40%] dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
+                <Input className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
               <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1">
+                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
                   <span>Intervalo em segundos para envio de RDS</span>
-                  <span className="text-xs font-normal leading-snug text-muted-foreground">[Descrição]</span>
+                  <span className="text-xs font-normal leading-snug text-muted-foreground">Configure quantos segundos a aplicação deve esperar deve esperar antes de enviar outro titulo de notícia para o RDS</span>
                 </Label>
-                <Input placeholder="180" className="w-[40%] dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
+                <Input placeholder="180" className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
               <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1">
+                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
                   <span>Tamanho do campo PS do RDS</span>
-                  <span className="text-xs font-normal leading-snug text-muted-foreground">[Descrição]</span>
+                  <span className="text-xs font-normal leading-snug text-muted-foreground">Verificar documentação do RDS <b>(Padrão: 64)</b></span>
                 </Label>
-                <Input placeholder="64" className="w-[40%] dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
+                <Input placeholder="64" className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
               <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1">
+                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
                   <span>Tamanho do campo RT do RDS</span>
-                  <span className="text-xs font-normal leading-snug text-muted-foreground">[Descrição]</span>
+                  <span className="text-xs font-normal leading-snug text-muted-foreground">Verificar documentação do RDS <b>(Padrão: 64)</b></span>
                 </Label>
-                <Input placeholder="64" className="w-[40%] dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
+                <Input placeholder="64" className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
               <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1">
+                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
                   <span>Enviar o mesmo para o campo RT e PS</span>
-                  <span className="text-xs font-normal leading-snug text-muted-foreground">[Descrição]</span>
+                  <span className="text-xs font-normal leading-snug text-muted-foreground">Enviar o título da notícia para os campos <b>PS</b> e <b>RT</b> do <b>RDS</b></span>
                 </Label>
                 <Switch checked id="adm" />
               </div>

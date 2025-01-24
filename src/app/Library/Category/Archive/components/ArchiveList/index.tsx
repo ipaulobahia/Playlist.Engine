@@ -1,9 +1,10 @@
 import { Toolbar } from "./components";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { File } from "lucide-react";
 import { useInfoSidebar } from "@/hooks/use-sidebar";
 import { useFiles } from "@/service/api/files/getFiles";
 import { useSearchParams } from "react-router-dom";
+import { ScrollList } from "@/components/ui/scroll-list";
 
 export const ArchiveList = () => {
   const { selectRow } = useInfoSidebar()
@@ -12,18 +13,8 @@ export const ArchiveList = () => {
   const folderId = searchParams.get("folderId");
 
   const [selectedFile, setSelectedFile] = useState<IFile | null>(null)
-  const containerRef = useRef<HTMLDivElement | null>(null);
 
   const { data } = useFiles(folderId)
-
-  function handleWheel(e: React.WheelEvent<HTMLDivElement>) {
-    if (e.deltaY !== 0) {
-      e.preventDefault();
-      if (containerRef.current) {
-        containerRef.current.scrollLeft += e.deltaY;
-      }
-    }
-  };
 
   function handleSelectedFile(newFile: IFile) {
     const fileId = newFile.fileId
@@ -61,12 +52,7 @@ export const ArchiveList = () => {
             </span>
           </div>
           :
-          <div
-            ref={containerRef}
-            className="grid grid-flow-col gap-2 overflow-auto"
-            style={{ gridTemplateRows: 'repeat(16, minmax(0, 1fr))' }}
-            onWheel={handleWheel}
-          >
+          <ScrollList>
             {
               data?.files.map((file) => {
                 const { fileId: id, filename } = file
@@ -84,7 +70,7 @@ export const ArchiveList = () => {
                 )
               })
             }
-          </div>
+          </ScrollList>
       }
     </section>
   )

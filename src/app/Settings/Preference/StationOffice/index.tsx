@@ -19,18 +19,17 @@ export const StationOffice = () => {
             </header>
             <div className="flex flex-col items-center gap-4 px-4 py-8 border border-t-0 rounded-md rounded-t-none gap-x-4 border-muted-foreground/25 sm:px-6">
               <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1">
+                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
                   <span>Enviar veiculação para Station Office</span>
-                  <span className="text-xs font-normal leading-snug text-muted-foreground">[Descrição]</span>
+                  <span className="text-xs font-normal leading-snug text-muted-foreground">Enviar comprovação de veiculação pra Station Office. Com este serviço os anunciantes podem emitir o comprovante de veiculação pela Internet.</span>
                 </Label>
                 <Switch checked id="adm" />
               </div>
               <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1">
+                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
                   <span>Código Station Office da Emissora</span>
-                  <span className="text-xs font-normal leading-snug text-muted-foreground">[Descrição]</span>
                 </Label>
-                <Input placeholder="" className="w-[40%] dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
+                <Input placeholder="" className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
             </div>
           </div>

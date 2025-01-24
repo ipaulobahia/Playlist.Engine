@@ -19,12 +19,12 @@ export const Outputs = () => {
             </header>
             <div className="flex flex-col items-center gap-4 px-4 py-8 border border-t-0 rounded-md rounded-t-none gap-x-4 border-muted-foreground/25 sm:px-6">
               <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1">
+                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
                   <span>Programação</span>
-                  <span className="text-xs font-normal leading-snug text-muted-foreground">[Descrição]</span>
+                  <span className="text-xs font-normal leading-snug text-muted-foreground">Saída de áudio padrão para a programação.</span>
                 </Label>
                 <Select>
-                  <SelectTrigger className="w-[40%] h-8 text-xs border bg-muted border-muted-foreground/10">
+                  <SelectTrigger className="flex-1 h-8 text-xs border bg-muted border-muted-foreground/10">
                     <SelectValue placeholder="Selecione o dispositivo" />
                   </SelectTrigger>
                   <SelectContent>
@@ -40,12 +40,12 @@ export const Outputs = () => {
                 </Select>
               </div>
               <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1">
+                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
                   <span>Pré-escuta</span>
-                  <span className="text-xs font-normal leading-snug text-muted-foreground">[Descrição]</span>
+                  <span className="text-xs font-normal leading-snug text-muted-foreground">Saída de áudio para pré-escuta</span>
                 </Label>
                 <Select>
-                  <SelectTrigger className="w-[40%] h-8 text-xs border bg-muted border-muted-foreground/10">
+                  <SelectTrigger className="flex-1 h-8 text-xs border bg-muted border-muted-foreground/10">
                     <SelectValue placeholder="Selecione o dispositivo" />
                   </SelectTrigger>
                   <SelectContent>
@@ -61,12 +61,12 @@ export const Outputs = () => {
                 </Select>
               </div>
               <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1">
+                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
                   <span>QuickStart</span>
-                  <span className="text-xs font-normal leading-snug text-muted-foreground">[Descrição]</span>
+                  <span className="text-xs font-normal leading-snug text-muted-foreground">Saída de áudio para veicular o áudio QuickStart</span>
                 </Label>
                 <Select>
-                  <SelectTrigger className="w-[40%] h-8 text-xs border bg-muted border-muted-foreground/10">
+                  <SelectTrigger className="flex-1 h-8 text-xs border bg-muted border-muted-foreground/10">
                     <SelectValue placeholder="Selecione o dispositivo" />
                   </SelectTrigger>
                   <SelectContent>
@@ -82,12 +82,12 @@ export const Outputs = () => {
                 </Select>
               </div>
               <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1">
+                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
                   <span>Opção Tocar</span>
-                  <span className="text-xs font-normal leading-snug text-muted-foreground">[Descrição]</span>
+                  <span className="text-xs font-normal leading-snug text-muted-foreground">Saída utilizada ao exibir um áudio pela opção "Tocar"</span>
                 </Label>
                 <Select>
-                  <SelectTrigger className="w-[40%] h-8 text-xs border bg-muted border-muted-foreground/10">
+                  <SelectTrigger className="flex-1 h-8 text-xs border bg-muted border-muted-foreground/10">
                     <SelectValue placeholder="Selecione o dispositivo" />
                   </SelectTrigger>
                   <SelectContent>
@@ -103,12 +103,12 @@ export const Outputs = () => {
                 </Select>
               </div>
               <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1">
+                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
                   <span>Comerciais</span>
-                  <span className="text-xs font-normal leading-snug text-muted-foreground">[Descrição]</span>
+                  <span className="text-xs font-normal leading-snug text-muted-foreground">Saída de áudio usada para veicular comerciais</span>
                 </Label>
                 <Select>
-                  <SelectTrigger className="w-[40%] h-8 text-xs border bg-muted border-muted-foreground/10">
+                  <SelectTrigger className="flex-1 h-8 text-xs border bg-muted border-muted-foreground/10">
                     <SelectValue placeholder="Selecione o dispositivo" />
                   </SelectTrigger>
                   <SelectContent>
@@ -124,12 +124,12 @@ export const Outputs = () => {
                 </Select>
               </div>
               <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1">
+                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
                   <span>Músicas</span>
-                  <span className="text-xs font-normal leading-snug text-muted-foreground">[Descrição]</span>
+                  <span className="text-xs font-normal leading-snug text-muted-foreground">Saída de áudio usada para veicular músicas</span>
                 </Label>
                 <Select>
-                  <SelectTrigger className="w-[40%] h-8 text-xs border bg-muted border-muted-foreground/10">
+                  <SelectTrigger className="flex-1 h-8 text-xs border bg-muted border-muted-foreground/10">
                     <SelectValue placeholder="Selecione o dispositivo" />
                   </SelectTrigger>
                   <SelectContent>
@@ -145,12 +145,12 @@ export const Outputs = () => {
                 </Select>
               </div>
               <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1">
+                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
                   <span>Vinhetas</span>
-                  <span className="text-xs font-normal leading-snug text-muted-foreground">[Descrição]</span>
+                  <span className="text-xs font-normal leading-snug text-muted-foreground">Saída de áudio usada para veicular vinhetas</span>
                 </Label>
                 <Select>
-                  <SelectTrigger className="w-[40%] h-8 text-xs border bg-muted border-muted-foreground/10">
+                  <SelectTrigger className="flex-1 h-8 text-xs border bg-muted border-muted-foreground/10">
                     <SelectValue placeholder="Selecione o dispositivo" />
                   </SelectTrigger>
                   <SelectContent>
@@ -178,32 +178,28 @@ export const Outputs = () => {
             </header>
             <div className="flex flex-col items-center gap-4 px-4 py-8 border border-t-0 rounded-md rounded-t-none gap-x-4 border-muted-foreground/25 sm:px-6">
               <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1">
+                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
                   <span>Fone de ouvido (WH-1000XM5)</span>
-                  <span className="text-xs font-normal leading-snug text-muted-foreground">[Descrição]</span>
                 </Label>
-                <Input defaultValue="CH1" className="w-[40%] dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
+                <Input defaultValue="CH1" className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
               <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1">
+                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
                   <span>Conector AUX Interno (DroidCam Audio)</span>
-                  <span className="text-xs font-normal leading-snug text-muted-foreground">[Descrição]</span>
                 </Label>
-                <Input defaultValue="CH2" className="w-[40%] dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
+                <Input defaultValue="CH2" className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
               <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1">
+                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
                   <span>LU28R55 (HD Audio Driver for Display Audio)</span>
-                  <span className="text-xs font-normal leading-snug text-muted-foreground">[Descrição]</span>
                 </Label>
-                <Input defaultValue="CH3" className="w-[40%] dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
+                <Input defaultValue="CH3" className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
               <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1">
+                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
                   <span>Conector AUX Interno</span>
-                  <span className="text-xs font-normal leading-snug text-muted-foreground">[Descrição]</span>
                 </Label>
-                <Input defaultValue="CH4" className="w-[40%] dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
+                <Input defaultValue="CH4" className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
             </div>
           </div>

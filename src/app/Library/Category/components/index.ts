@@ -1,2 +1,2 @@
-export { CategoryList } from "./CategoryList";
+export { ArchiveList } from "./ArchiveList";
 export { CategoryBreadchumbs } from "./CategoryBreadchumbs";

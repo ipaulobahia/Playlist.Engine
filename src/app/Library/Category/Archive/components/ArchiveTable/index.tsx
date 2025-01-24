@@ -79,7 +79,7 @@ export const ArchiveTable = () => {
               {
                 headerGroup.headers.map((header) => {
                   return (
-                    <TableHead className="px-5 font-medium bg-white first:rounded-tl-md last:rounded-tr-md dark:hover:bg-black dark:border-none dark:bg-black" key={header.id}>
+                    <TableHead className="px-5 font-medium bg-white border border-muted-foreground/25 border-x-0 last:border-r first:border-l dark:hover:bg-black dark:bg-black" key={header.id}>
                       {
                         header.isPlaceholder
                           ?

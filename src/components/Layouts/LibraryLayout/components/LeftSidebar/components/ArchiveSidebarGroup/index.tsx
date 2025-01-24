@@ -1,7 +1,7 @@
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import { Input } from "@/components/ui/input"
 import { SidebarGroup, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem } from "@/components/ui/sidebar"
-import { ChevronRight, FolderOpen, Search } from "lucide-react"
+import { FolderOpen, Search } from "lucide-react"
 
 export const ArchiveSidebarGroup = () => {
   return (
@@ -20,7 +20,6 @@ export const ArchiveSidebarGroup = () => {
               <SidebarMenuButton>
                 <FolderOpen />
                 <span className="text-xs">[Nome da Pasta]</span>
-                <ChevronRight className="ml-auto transition-transform duration-200 rotate-90" />
               </SidebarMenuButton>
             </CollapsibleTrigger>
             <CollapsibleContent className="pb-16">

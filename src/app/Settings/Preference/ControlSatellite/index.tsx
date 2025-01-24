@@ -19,39 +19,38 @@ export const ControlSatellite = () => {
             </header>
             <div className="flex flex-col items-center gap-4 px-4 py-8 border border-t-0 rounded-md rounded-t-none gap-x-4 border-muted-foreground/25 sm:px-6">
               <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1">
+                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
                   <span>Afiliada de rede</span>
-                  <span className="text-xs font-normal leading-snug text-muted-foreground">[Descrição]</span>
                 </Label>
                 <Switch checked id="adm" />
               </div>
               <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1">
+                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
                   <span>Se exibindo bloco local, iniciar próximo blco 'Sat'</span>
-                  <span className="text-xs font-normal leading-snug text-muted-foreground">[Descrição]</span>
+                  <span className="text-xs font-normal leading-snug text-muted-foreground">Ao receber o comando remoto 'PLAY' interromper o bloco em exibição e iniciar o próximo bloco sat.</span>
                 </Label>
                 <Switch checked id="adm" />
               </div>
               <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1">
+                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
                   <span>Aceitar disparo somente no horário</span>
-                  <span className="text-xs font-normal leading-snug text-muted-foreground">[Descrição]</span>
+                  <span className="text-xs font-normal leading-snug text-muted-foreground">Ignorar o comando remoto 'PLAY' se o bloco posicionado estiver fora da faixa de horária (minutos) definida abaixo.</span>
                 </Label>
                 <Switch checked id="adm" />
               </div>
               <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1">
+                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
                   <span>Posicionar automaticamente os blocos</span>
-                  <span className="text-xs font-normal leading-snug text-muted-foreground">[Descrição]</span>
+                  <span className="text-xs font-normal leading-snug text-muted-foreground">Posiccionamento automático dos blocos, quandoo parado.</span>
                 </Label>
                 <Switch checked id="adm" />
               </div>
               <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1">
+                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
                   <span>Minutos para posicionar os blocos e para aceitar disparo</span>
-                  <span className="text-xs font-normal leading-snug text-muted-foreground">[Descrição]</span>
+                  <span className="text-xs font-normal leading-snug text-muted-foreground">Tempo de tolerância para posicionamento automático dos blocos e para recebimento do comando remoto 'PLAY', quando parado.  </span>
                 </Label>
-                <Input type="number" placeholder="3" className="w-[40%] dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
+                <Input type="number" placeholder="3" className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
             </div>
           </div>
