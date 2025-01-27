@@ -5,7 +5,7 @@ import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider } from "@/components/ui/sidebar";
 import { ChevronLeft, CircleAlert, Cog, FileCog, Plus, User, UserPen, Users } from "lucide-react";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import { CreateOperatorDialog, CreateProfileDialog } from "./components";
+import { CreateOperatorDialog, DrawerDialogCreateProfile } from "./components";
 import { FAKE_CONFIG_PREFERENCE } from "@/utils/fakeData";
 import { PreferenceSidebarMenuItem } from "./components/PreferenceSidebarMenuItem";
 import { LicenseDialog } from "@/components/LicenseDialog";
@@ -62,17 +62,7 @@ export const SettingsLayout = () => {
               <SidebarGroupContent className="pl-4">
                 <SidebarMenu>
                   <SidebarMenuItem>
-                    <Dialog>
-                      <DialogTrigger asChild>
-                        <SidebarMenuButton>
-                          <Plus size={12} />
-                          <span className="text-xs">
-                            Novo perfil
-                          </span>
-                        </SidebarMenuButton>
-                      </DialogTrigger>
-                      <CreateProfileDialog />
-                    </Dialog>
+                    <DrawerDialogCreateProfile />
                   </SidebarMenuItem>
                   <SidebarMenuItem>
                     <Link to={'/settings/profile/manage-profile'}>

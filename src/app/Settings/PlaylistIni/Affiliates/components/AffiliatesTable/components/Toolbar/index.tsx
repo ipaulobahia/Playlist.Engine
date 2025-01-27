@@ -1,9 +1,7 @@
 import { Table } from "@tanstack/react-table"
 import { Input } from "@/components/ui/input"
 import { Search } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Dialog, DialogTrigger } from "@/components/ui/dialog"
-import { CreateAffiliatesDialog } from "./components"
+import { DrawerDialogCreateAffiliates } from "./components"
 
 interface ToolbarProps<TData> {
   table: Table<TData>
@@ -23,14 +21,7 @@ export const Toolbar = <TData,>({ table }: ToolbarProps<TData>) => {
           className="h-8 border-0 dark:bg-black placeholder:text-xs"
         />
       </div>
-      <Dialog>
-        <DialogTrigger asChild>
-          <Button size={'sm'}>
-            Nova afiliada
-          </Button>
-        </DialogTrigger>
-        <CreateAffiliatesDialog />
-      </Dialog>
+      <DrawerDialogCreateAffiliates />
     </div>
   )
 }

@@ -1,7 +1,4 @@
-import { Button } from "@/components/ui/button"
-import { DragInDropDialog, RecentUploadsBreadchumbs, RecentUploadsTable } from "./components"
-import { CloudUpload } from "lucide-react"
-import { Dialog, DialogTrigger } from "@/components/ui/dialog"
+import { DrawerDialogDragInDrop, RecentUploadsBreadchumbs, RecentUploadsTable } from "./components"
 
 export const RecentUploads = () => {
   return (
@@ -12,17 +9,7 @@ export const RecentUploads = () => {
           <span className="text-xl font-semibold">Uploads recentes</span>
           <span className="text-sm font-normal text-muted-foreground">Gerencie e visualize os uploads realizados nos ultimos 60 dias.</span>
         </div>
-        <Dialog>
-          <DialogTrigger asChild>
-            <Button size={'sm'} className="flex flex-row items-center">
-              <CloudUpload size={16} />
-              <span>
-                Upload
-              </span>
-            </Button>
-          </DialogTrigger>
-          <DragInDropDialog />
-        </Dialog>
+        <DrawerDialogDragInDrop />
       </div>
       <RecentUploadsTable />
     </main>

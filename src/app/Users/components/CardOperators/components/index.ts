@@ -1,2 +1,2 @@
-export { OperatorPinDialog } from "./OperatorPinDialog";
+export { DrawerDialogOperatorPin } from "./DrawerDialogOperatorPin";
 export { BtnProfile } from "./BtnProfile";

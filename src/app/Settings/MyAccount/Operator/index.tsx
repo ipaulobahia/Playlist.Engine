@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 import { DialogClose } from "@radix-ui/react-dialog"
 import { Trash2 } from "lucide-react"
+import { DrawerDialogRemoveOperator } from "./components"
 
 export const Operator = () => {
   return (
@@ -80,38 +81,7 @@ export const Operator = () => {
       </div>
       <footer className="fixed bottom-0 left-0 flex justify-end w-full p-4 border border-t shadow border-muted-foreground/25 bg-muted">
         <div className="flex flex-row items-center justify-between gap-x-2">
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button size={'sm'} variant={'destructive'}>
-                <Trash2 />
-                <span>
-                  Remover operador
-                </span>
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="w-[90%]">
-              <DialogHeader>
-                <DialogTitle>
-                  <Label className="text-base font-bold text-red-700 ">
-                    Zona de perigo
-                  </Label>
-                </DialogTitle>
-                <DialogDescription>
-                  Você tem certeza que deseja fazer isso? Ao completar essa ação os dados desse operador não poderam ser recuperados.
-                </DialogDescription>
-              </DialogHeader>
-              <DialogFooter className="flex flex-row items-center justify-between w-full">
-                <DialogClose asChild>
-                  <Button size={'sm'} variant={'outline'}>Cancelar</Button>
-                </DialogClose>
-                <DialogClose asChild>
-                  <Button size={'sm'} variant={'destructive'}>
-                    Remover
-                  </Button>
-                </DialogClose>
-              </DialogFooter>
-            </DialogContent>
-          </Dialog>
+          <DrawerDialogRemoveOperator />
           <Button size={'sm'} variant={'ghost'} disabled>
             Cancelar
           </Button>

@@ -1,12 +1,9 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
-import { Dialog, DialogTrigger } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { FAKE_USERS_DATA } from "@/utils/fakeData"
 import { ListFilter, Search } from "lucide-react"
 import { useState } from "react"
-import { BtnProfile, OperatorPinDialog } from "./components"
+import { BtnProfile, DrawerDialogOperatorPin } from "./components"
 import { Button } from "@/components/ui/button"
 
 export const CardOperators = () => {
@@ -39,31 +36,7 @@ export const CardOperators = () => {
           <BtnProfile />
         </div>
         <div className="grid max-h-[420px] overflow-auto grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 col-span-2 gap-4">
-          {
-            operators.map((item) => {
-              return (
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <Card key={item.id} className="flex flex-col items-center justify-center gap-3 p-6 border rounded shadow-none cursor-pointer hover:bg-secondary dark:bg-black border-muted-foreground/20 dark:border-muted/80 dark:hover:bg-secondary/20 dark:hover:text-accent-foreground">
-                      <Avatar className="size-16">
-                        <AvatarImage src="" />
-                        <AvatarFallback className="font-bold">{item.name.slice(0, 2).toUpperCase()}</AvatarFallback>
-                      </Avatar>
-                      <div className="flex flex-col items-center justify-center gap-1 text-center">
-                        <span className="text-sm font-bold">
-                          {item.name}
-                        </span>
-                        <Badge variant={'outline'} className="text-xs font-semibold text-black bg-white rounded">
-                          {item.profile}
-                        </Badge>
-                      </div>
-                    </Card>
-                  </DialogTrigger>
-                  <OperatorPinDialog />
-                </Dialog>
-              )
-            })
-          }
+          {operators.map((operator) => <DrawerDialogOperatorPin operator={operator} />)}
         </div>
       </div>
     </Card>
