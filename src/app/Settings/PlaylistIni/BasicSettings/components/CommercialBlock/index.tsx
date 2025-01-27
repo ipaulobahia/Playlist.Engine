@@ -1,3 +1,9 @@
+import { Button } from "@/components/ui/button"
+import { Checkbox } from "@/components/ui/checkbox"
+import { Label } from "@/components/ui/label"
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Cog } from "lucide-react"
+
 export const CommercialBlock = () => {
   return (
     <div>
@@ -9,8 +15,48 @@ export const CommercialBlock = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-4 px-4 py-8 border-b border-muted-foreground/25 border-x sm:px-6">
-
+      <div className="flex flex-col p-6 border-b gap-y-1 border-muted-foreground/25 border-x">
+        <div className="flex flex-col gap-y-2.5">
+          <Label className="text-sm">Formato</Label>
+          <Select>
+            <SelectTrigger className="h-8 text-xs border bg-muted border-muted-foreground/10">
+              <SelectValue placeholder="Selecione um formato" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectLabel>Formato</SelectLabel>
+                <SelectItem value="AUTO">Auto</SelectItem>
+                <SelectItem value="TXT1">TXT</SelectItem>
+                <SelectItem value="DBF">DBF</SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
+        <Label className="my-3">Arquivo</Label>
+        <div className="flex flex-row items-start p-2 rounded-md cursor-pointer gap-x-2 hover:bg-accent hover:text-accent-foreground">
+          <Checkbox className="mt-1" />
+          <div className="flex flex-col gap-y-0.5">
+            <Label className="text-sm">Padrão</Label>
+            <span className="text-xs text-muted-foreground">[Descrição]</span>
+          </div>
+        </div>
+        <div className="flex flex-row items-start p-2 rounded-md cursor-pointer gap-x-2 hover:bg-accent hover:text-accent-foreground">
+          <Checkbox className="mt-1" />
+          <div className="flex flex-col gap-y-0.5">
+            <Label className="text-sm">Padrão 2</Label>
+            <span className="text-xs text-muted-foreground">[Descrição]</span>
+          </div>
+        </div>
+        <div className="flex flex-row items-start p-2 rounded-md cursor-pointer gap-x-2 hover:bg-accent hover:text-accent-foreground">
+          <Checkbox className="mt-1" />
+          <div className="flex flex-col gap-y-0.5">
+            <Label className="text-sm">Personalizado</Label>
+            <span className="text-xs text-muted-foreground">[Descrição]</span>
+          </div>
+          <Button size={'icon'} variant={'ghost'} className="ml-auto hover:bg-transparent">
+            <Cog />
+          </Button>
+        </div>
       </div>
     </div>
   )

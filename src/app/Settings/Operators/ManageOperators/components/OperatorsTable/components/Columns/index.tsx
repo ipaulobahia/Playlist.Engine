@@ -2,7 +2,7 @@ import { ColumnDef } from "@tanstack/react-table";
 import { DropdownMenuRowActions } from "./components";
 import { HeaderFilter } from "@/components/ui/header-filter";
 
-interface Operator {
+export interface Operator {
   name: string
   profile: string
   pin: boolean

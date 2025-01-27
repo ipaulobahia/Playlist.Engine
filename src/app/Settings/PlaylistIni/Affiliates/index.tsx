@@ -6,7 +6,7 @@ export const Affiliates = () => {
     <main className="relative flex flex-1 p-5 pb-20">
       <div className="justify-center w-full max-w-full mx-auto lg:max-w-3xl">
         <div>
-          <header className="justify-between px-4 py-6 mx-auto border rounded-md rounded-b-none border-muted-foreground/25 sm:flex sm:px-6">
+          <header className="justify-between p-6 mx-auto border rounded-md rounded-b-none border-muted-foreground/25 sm:flex">
             <div className="flex items-center w-full">
               <div>
                 <h1 className="text-2xl font-bold tracking-tight">Afiliadas</h1>

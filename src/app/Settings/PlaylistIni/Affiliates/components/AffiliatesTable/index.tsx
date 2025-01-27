@@ -3,6 +3,8 @@ import { ColumnFiltersState, flexRender, getCoreRowModel, getFacetedRowModel, ge
 import { useState } from "react"
 import { columns, Toolbar } from './components'
 
+const data = [] as any[]
+
 export const AffiliatesTable = () => {
   const [rowSelection, setRowSelection] = useState({})
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({})
@@ -10,7 +12,7 @@ export const AffiliatesTable = () => {
   const [sorting, setSorting] = useState<SortingState>([])
 
   const table = useReactTable({
-    data: [],
+    data,
     columns,
     state: { sorting, columnVisibility, rowSelection, columnFilters },
     enableRowSelection: true,
