@@ -19,7 +19,7 @@ export const CreateAffiliatesDialog = () => {
           </Label>
           <Input
             className="text-xs placeholder:text-xs"
-            id="name" placeholder="Padrão, Locutor, Gestor ou Administrador" />
+            id="name" placeholder="Rádio 1, Rádio 2 ou Rádio 3" />
         </div>
         <div className="flex flex-col gap-y-3">
           <Label htmlFor="ip" className="text-left">
@@ -27,7 +27,7 @@ export const CreateAffiliatesDialog = () => {
           </Label>
           <Input
             className="text-xs placeholder:text-xs"
-            id="ip" placeholder="Padrão, Locutor, Gestor ou Administrador" />
+            id="ip" placeholder="000.000.0.0" />
         </div>
       </div>
       <DialogFooter className="flex flex-row items-center justify-between w-full">

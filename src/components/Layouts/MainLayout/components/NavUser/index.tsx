@@ -3,7 +3,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogTrigger } from "@/components/ui/dialog"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Cog, Copyright, LogOut, Star } from "lucide-react"
+import { Cog, Copyright, LogOut } from "lucide-react"
 import { Link } from "react-router-dom"
 
 export const NavUser = () => {
@@ -38,7 +38,6 @@ export const NavUser = () => {
             </div>
           </DropdownMenuLabel>
           <DropdownMenuSeparator />
-          <DropdownMenuSeparator />
           <DropdownMenuGroup>
             <Link to={'/settings/my-account/operator'}>
               <DropdownMenuItem>
@@ -46,10 +45,6 @@ export const NavUser = () => {
                 Configurações
               </DropdownMenuItem>
             </Link>
-            <DropdownMenuItem>
-              <Star />
-              Favoritos
-            </DropdownMenuItem>
             <DialogTrigger asChild>
               <DropdownMenuItem>
                 <Copyright />

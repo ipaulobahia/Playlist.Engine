@@ -7,7 +7,7 @@ import { ScrollList } from "@/components/ui/scroll-list";
 
 export const ArchiveList = () => {
   return (
-    <section>
+    <div>
       <Toolbar />
       <ScrollList>
         {
@@ -32,6 +32,6 @@ export const ArchiveList = () => {
           })
         }
       </ScrollList>
-    </section>
+    </div>
   )
 }
