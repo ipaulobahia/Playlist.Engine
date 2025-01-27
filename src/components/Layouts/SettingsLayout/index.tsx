@@ -1,14 +1,13 @@
 import { DrawerDialogLicense } from "@/components/DrawerDialogLicense";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider } from "@/components/ui/sidebar";
 import { FAKE_CONFIG_PREFERENCE } from "@/utils/fakeData";
-import { ChevronLeft, CircleAlert, Cog, FileCog, Plus, User, UserPen, Users } from "lucide-react";
+import { ChevronLeft, CircleAlert, Cog, FileCog, User, UserPen, Users } from "lucide-react";
 import { useState } from "react";
 // @ts-ignore
 import "react-color-palette/css";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import { CreateOperatorDialog, DrawerDialogCreateProfile } from "./components";
+import { DrawerDialogCreateOperator, DrawerDialogCreateProfile } from "./components";
 import { PreferenceSidebarMenuItem } from "./components/PreferenceSidebarMenuItem";
 
 export const SettingsLayout = () => {
@@ -91,17 +90,7 @@ export const SettingsLayout = () => {
               <SidebarGroupContent className="pl-4">
                 <SidebarMenu>
                   <SidebarMenuItem>
-                    <Dialog>
-                      <DialogTrigger asChild>
-                        <SidebarMenuButton>
-                          <Plus size={12} />
-                          <span className="text-xs">
-                            Novo operador
-                          </span>
-                        </SidebarMenuButton>
-                      </DialogTrigger>
-                      <CreateOperatorDialog />
-                    </Dialog>
+                    <DrawerDialogCreateOperator />
                   </SidebarMenuItem>
                   <SidebarMenuItem>
                     <Link to={'/settings/operators/manage-operators'}>
