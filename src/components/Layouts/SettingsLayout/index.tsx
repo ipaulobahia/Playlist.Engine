@@ -1,20 +1,27 @@
-// @ts-ignore
-import "react-color-palette/css";
+import { DrawerDialogLicense } from "@/components/DrawerDialogLicense";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider } from "@/components/ui/sidebar";
+import { FAKE_CONFIG_PREFERENCE } from "@/utils/fakeData";
 import { ChevronLeft, CircleAlert, Cog, FileCog, Plus, User, UserPen, Users } from "lucide-react";
+import { useState } from "react";
+// @ts-ignore
+import "react-color-palette/css";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { CreateOperatorDialog, DrawerDialogCreateProfile } from "./components";
-import { FAKE_CONFIG_PREFERENCE } from "@/utils/fakeData";
 import { PreferenceSidebarMenuItem } from "./components/PreferenceSidebarMenuItem";
-import { LicenseDialog } from "@/components/LicenseDialog";
 
 export const SettingsLayout = () => {
   const { pathname } = useLocation()
 
+  const [open, setOpen] = useState(false)
+
+  function handlerDrawerDialogLicense() {
+    setOpen(prev => !prev)
+  }
+
   return (
-    <Dialog>
+    <>
       <SidebarProvider>
         <Sidebar collapsible="none" className="fixed z-10 hidden h-screen border-r sm:flex top-14 border-muted-foreground/25">
           <SidebarContent className="gap-1.5 mb-16">
@@ -161,13 +168,11 @@ export const SettingsLayout = () => {
               <SidebarGroupContent className="pl-4">
                 <SidebarMenu>
                   <SidebarMenuItem>
-                    <DialogTrigger asChild>
-                      <SidebarMenuButton>
-                        <span className="text-xs">
-                          Licença
-                        </span>
-                      </SidebarMenuButton>
-                    </DialogTrigger>
+                    <SidebarMenuButton onClick={handlerDrawerDialogLicense}>
+                      <span className="text-xs">
+                        Licença
+                      </span>
+                    </SidebarMenuButton>
                   </SidebarMenuItem>
                 </SidebarMenu>
               </SidebarGroupContent>
@@ -178,7 +183,7 @@ export const SettingsLayout = () => {
           <Outlet />
         </div>
       </SidebarProvider>
-      <LicenseDialog />
-    </Dialog>
+      <DrawerDialogLicense open={open} setOpen={setOpen} />
+    </>
   )
 }

@@ -1,15 +1,20 @@
-import { LicenseDialog } from "@/components/LicenseDialog"
+import { DrawerDialogLicense } from "@/components/DrawerDialogLicense"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
-import { Dialog, DialogTrigger } from "@/components/ui/dialog"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Cog, Copyright, LogOut } from "lucide-react"
+import { useState } from "react"
 import { Link } from "react-router-dom"
 
 export const NavUser = () => {
+  const [open, setOpen] = useState(false)
+
+  function handlerDrawerDialogLicense() {
+    setOpen(prev => !prev)
+  }
 
   return (
-    <Dialog>
+    <>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button size="icon" variant={'ghost'} className="p-0 focus-visible:outline-0 focus-visible:ring-0 size-8" >
@@ -45,12 +50,10 @@ export const NavUser = () => {
                 Configurações
               </DropdownMenuItem>
             </Link>
-            <DialogTrigger asChild>
-              <DropdownMenuItem>
-                <Copyright />
-                Licença
-              </DropdownMenuItem>
-            </DialogTrigger>
+            <DropdownMenuItem onClick={handlerDrawerDialogLicense}>
+              <Copyright />
+              Licença
+            </DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
           <Link to={'/'}>
@@ -61,7 +64,7 @@ export const NavUser = () => {
           </Link>
         </DropdownMenuContent>
       </DropdownMenu>
-      <LicenseDialog />
-    </Dialog>
+      <DrawerDialogLicense open={open} setOpen={setOpen} />
+    </>
   )
 }
