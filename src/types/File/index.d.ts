@@ -1,4 +1,4 @@
-interface IFile {
+interface File {
   fileId: string,
   folderId: number,
   title: string,
@@ -13,9 +13,9 @@ interface IFile {
   uploadStatus: number
 }
 
-interface GetFileResponse extends IFile { }
+interface GetFileResponse extends File { }
 
-interface IFiles {
+interface Files {
   count: number;
   folder: {
     id: number;
@@ -25,4 +25,4 @@ interface IFiles {
   files: IFile[];
 }
 
-interface GetFilesResponse extends IFiles { }
+interface GetFilesResponse extends Files { }

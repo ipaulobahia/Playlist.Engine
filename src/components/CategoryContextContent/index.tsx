@@ -1,6 +1,6 @@
-import { FolderOpen, Info, Star } from "lucide-react"
-import { ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuTrigger } from "../ui/context-menu"
+import { FolderOpen, Info } from "lucide-react"
 import { Link } from "react-router-dom"
+import { ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuTrigger } from "../ui/context-menu"
 
 interface CategoryContextContentProps {
   categoryId: number
@@ -22,12 +22,6 @@ export const CategoryContextContent = ({ children, categoryId }: CategoryContext
             </span>
           </ContextMenuItem>
         </Link>
-        <ContextMenuItem className="flex flex-row items-center gap-x-2">
-          <Star size={16} />
-          <span>
-            Favoritar
-          </span>
-        </ContextMenuItem>
         <ContextMenuItem className="flex flex-row items-center gap-x-2">
           <Info size={16} />
           <span>

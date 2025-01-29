@@ -1,30 +1,31 @@
 import {
-  Overview,
-  Login,
-  Users,
-  Archive,
-  Library,
-  Operator,
-  Appearance,
-  ManageProfile,
-  ManageOperators,
-  CreateProfile,
-  Category,
   Advanced,
+  Affiliates,
+  Appearance,
+  Archive,
   AudioSource,
+  BasicSettings,
+  Category,
   ControlSatellite,
+  CreateProfile,
   GeneralPreference,
+  Library,
+  Login,
+  ManageOperators,
+  ManageProfile,
   MetadataStreaming,
+  NotFound,
+  Operator,
   Outputs,
+  Overview,
+  PendingFiles,
   PlaylistServer,
   RdsRss,
+  RecentUploads,
   RemoteTriggering,
   StationOffice,
-  XmlWeb,
-  NotFound,
-  BasicSettings,
-  Affiliates,
-  RecentUploads
+  Users,
+  XmlWeb
 } from "@/app";
 import {
   LibraryLayout,
@@ -44,6 +45,7 @@ export const Routers = createBrowserRouter(
           <Route path="category" element={<Category />} />
           <Route path="category/archive" element={<Archive />} />
           <Route path="recent-uploads" element={<RecentUploads />} />
+          <Route path="pending-files" element={<PendingFiles />} />
         </Route>
         <Route path="/settings" element={<SettingsLayout />}>
           <Route path="my-account">

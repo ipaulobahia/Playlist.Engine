@@ -3,13 +3,13 @@ import { HeaderFilter } from "@/components/ui/header-filter";
 import { ColumnDef } from "@tanstack/react-table";
 import { MoreHorizontal } from "lucide-react";
 
-interface Affiliates {
+interface AffiliatesTable {
   id: number
   name: string
   ip: string
 }
 
-export const columns: ColumnDef<Affiliates>[] = [
+export const columns: ColumnDef<AffiliatesTable>[] = [
   {
     accessorKey: "id",
     header: ({ column }) => (<HeaderFilter column={column} title="Id" />),

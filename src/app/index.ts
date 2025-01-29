@@ -1,6 +1,7 @@
 export { Library } from "./Library";
 export { Category } from "./Library/Category";
 export { Archive } from "./Library/Category/Archive";
+export { PendingFiles } from "./Library/PendingFiles";
 export { RecentUploads } from "./Library/RecentUploads";
 export { Login } from "./Login";
 export { NotFound } from "./NotFound";

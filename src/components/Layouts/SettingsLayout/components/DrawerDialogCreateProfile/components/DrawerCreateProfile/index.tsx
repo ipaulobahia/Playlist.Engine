@@ -10,7 +10,7 @@ import { PopoverClose } from "@radix-ui/react-popover"
 import { Plus } from "lucide-react"
 import { useState } from "react"
 import { ColorPicker, useColor } from "react-color-palette"
-import { useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 interface DrawerCreateProfileProps {
   open: boolean
@@ -18,7 +18,6 @@ interface DrawerCreateProfileProps {
 }
 
 export const DrawerCreateProfile = ({ open, setOpen }: DrawerCreateProfileProps) => {
-  const navigate = useNavigate();
 
   const [selectedColor, setSelectedColor] = useState<string>('')
   const [colorPicker, setColorPicker] = useColor('')
@@ -109,12 +108,11 @@ export const DrawerCreateProfile = ({ open, setOpen }: DrawerCreateProfileProps)
           </div>
         </div>
         <DrawerFooter className="flex flex-row items-center justify-between w-full">
-          <DrawerClose>
-            <Button variant={'outline'}>Cancelar</Button>
-          </DrawerClose>
-          <DrawerClose asChild>
-            <Button onClick={() => navigate('/settings/profile/create-profile')} type="submit">Salvar</Button>
-          </DrawerClose>
+          <Link className="w-full" to={'/settings/profile/create-profile'}>
+            <DrawerClose asChild>
+              <Button className="w-full" type="submit">Salvar</Button>
+            </DrawerClose>
+          </Link>
         </DrawerFooter>
       </DrawerContent>
     </Drawer>

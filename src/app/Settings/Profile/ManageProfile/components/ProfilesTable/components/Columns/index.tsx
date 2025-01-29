@@ -1,34 +1,28 @@
+import { HeaderFilter } from "@/components/ui/header-filter";
 import { ColumnDef } from "@tanstack/react-table";
 import { DropdownMenuRowActions } from "./components";
-import { HeaderFilter } from "@/components/ui/header-filter";
 
-interface Profile {
+interface ProfileTable {
   name: string
   description: string
   status: string
 }
 
-export const columns: ColumnDef<Profile>[] = [
+export const columns: ColumnDef<ProfileTable>[] = [
   {
     accessorKey: "name",
     header: ({ column }) => (<HeaderFilter column={column} title="Nome" />),
-    cell: ({ row }) => (
-      <div>{row.getValue("name")}</div>
-    ),
+    cell: ({ row }) => (<div>{row.getValue("name")}</div>),
   },
   {
     accessorKey: "description",
     header: ({ column }) => (<HeaderFilter column={column} title="Descrição" />),
-    cell: ({ row }) => (
-      <div>{row.getValue("description")}</div>
-    ),
+    cell: ({ row }) => (<div>{row.getValue("description")}</div>),
   },
   {
     accessorKey: "status",
     header: ({ column }) => (<HeaderFilter column={column} title="Status" />),
-    cell: ({ row }) => (
-      <div>{row.getValue("status")}</div>
-    ),
+    cell: ({ row }) => (<div>{row.getValue("status")}</div>),
   },
   {
     id: "actions",

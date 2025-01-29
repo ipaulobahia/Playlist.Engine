@@ -1,9 +1,9 @@
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
-import { CategoryBreadchumbs, ArchiveList } from "./components"
 import { Button } from "@/components/ui/button"
-import { Info, List, Table2 } from "lucide-react"
-import { useInfoSidebar } from "@/hooks/use-sidebar"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import { useInfoSidebar } from "@/hooks/use-sidebar"
+import { Info, List, Table2 } from "lucide-react"
+import { ArchiveList, CategoryBreadchumbs } from "./components"
 
 export const Category = () => {
   const { toggleSidebar, isOpen } = useInfoSidebar()
@@ -48,7 +48,7 @@ export const Category = () => {
             </TabsList>
             <TooltipProvider>
               <Tooltip delayDuration={150}>
-                <TooltipTrigger>
+                <TooltipTrigger asChild>
                   <Button onClick={toggleSidebar} variant={'ghost'} size={'sm'}>
                     <Info />
                   </Button>

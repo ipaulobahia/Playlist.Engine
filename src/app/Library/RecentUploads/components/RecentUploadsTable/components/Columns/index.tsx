@@ -4,7 +4,7 @@ import { HeaderFilter } from "@/components/ui/header-filter";
 import { ColumnDef } from "@tanstack/react-table";
 import { MoreHorizontal } from "lucide-react";
 
-export interface IRecentUploadsTable {
+interface RecentUploadsTable {
   id: number
   title: string
   file: string
@@ -13,7 +13,7 @@ export interface IRecentUploadsTable {
   updatedDate: string
 }
 
-export const columns: ColumnDef<IRecentUploadsTable>[] = [
+export const columns: ColumnDef<RecentUploadsTable>[] = [
   {
     id: "select",
     header: ({ table }) => (
@@ -36,37 +36,27 @@ export const columns: ColumnDef<IRecentUploadsTable>[] = [
   {
     accessorKey: "title",
     header: ({ column }) => (<HeaderFilter column={column} title="Título" />),
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("title")}</div>
-    ),
+    cell: ({ row }) => (<div className="capitalize">{row.getValue("title")}</div>),
   },
   {
     accessorKey: "file",
     header: ({ column }) => (<HeaderFilter column={column} title="Arquivo" />),
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("file")}</div>
-    ),
+    cell: ({ row }) => (<div className="capitalize">{row.getValue("file")}</div>),
   },
   {
     accessorKey: "duration",
     header: ({ column }) => (<HeaderFilter column={column} title="Duração" />),
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("duration")}</div>
-    ),
+    cell: ({ row }) => (<div className="capitalize">{row.getValue("duration")}</div>),
   },
   {
     accessorKey: "size",
     header: ({ column }) => (<HeaderFilter column={column} title="Tamanho" />),
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("size")}</div>
-    ),
+    cell: ({ row }) => (<div className="capitalize">{row.getValue("size")}</div>),
   },
   {
     accessorKey: "updatedDate",
     header: ({ column }) => (<HeaderFilter column={column} title="Data de Upload" />),
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("updatedDate")}</div>
-    ),
+    cell: ({ row }) => (<div className="capitalize">{row.getValue("updatedDate")}</div>),
   },
   {
     id: "actions",

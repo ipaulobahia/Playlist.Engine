@@ -1,7 +1,8 @@
 import { DrawerDialogLicense } from "@/components/DrawerDialogLicense"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
+import { Separator } from "@radix-ui/react-context-menu"
 import { Cog, Copyright, LogOut } from "lucide-react"
 import { useState } from "react"
 import { Link } from "react-router-dom"
@@ -15,22 +16,22 @@ export const NavUser = () => {
 
   return (
     <>
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button size="icon" variant={'ghost'} className="p-0 focus-visible:outline-0 focus-visible:ring-0 size-8" >
+      <Popover>
+        <PopoverTrigger asChild>
+          <Button size="icon" variant={'ghost'} className="p-0 hover-visible:outline-0 hover-visible:ring-0 size-8" >
             <Avatar className="w-8 h-8 rounded-lg">
               <AvatarImage src='https://github.com/paulobahia.png' alt="Paulo Bahia" />
               <AvatarFallback className="rounded-lg">PB</AvatarFallback>
             </Avatar>
           </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent
-          className="rounded-lg min-w-56"
+        </PopoverTrigger>
+        <PopoverContent
+          className="p-1 rounded-lg w-fit"
           side="bottom"
           align="end"
           sideOffset={4}
         >
-          <DropdownMenuLabel className="p-0 font-normal">
+          <div className="p-0 text-sm font-normal">
             <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
               <Avatar className="w-8 h-8 rounded-lg">
                 <AvatarImage src='https://github.com/paulobahia.png' alt="Paulo Bahia" />
@@ -41,29 +42,29 @@ export const NavUser = () => {
                 <span className="text-xs truncate">pauloipatinga22@gmail.com</span>
               </div>
             </div>
-          </DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <DropdownMenuGroup>
+          </div>
+          <Separator className="h-px my-1 -mx-1 bg-muted" />
+          <div>
             <Link to={'/settings/my-account/operator'}>
-              <DropdownMenuItem>
+              <div className="cursor-pointer relative flex select-none items-center gap-2 rounded-sm px-2 py-1.5 text-xs transition-colors hover:bg-accent hover:text-accent-foreground [&>svg]:size-4">
                 <Cog />
                 Configurações
-              </DropdownMenuItem>
+              </div>
             </Link>
-            <DropdownMenuItem onClick={handlerDrawerDialogLicense}>
+            <div className="cursor-pointer relative flex select-none items-center gap-2 rounded-sm px-2 py-1.5 text-xs transition-colors hover:bg-accent hover:text-accent-foreground [&>svg]:size-4" onClick={() => handlerDrawerDialogLicense()}>
               <Copyright />
               Licença
-            </DropdownMenuItem>
-          </DropdownMenuGroup>
-          <DropdownMenuSeparator />
+            </div>
+          </div>
+          <Separator className="h-px my-1 -mx-1 bg-muted" />
           <Link to={'/'}>
-            <DropdownMenuItem>
+            <div className="cursor-pointer relative flex select-none items-center gap-2 rounded-sm px-2 py-1.5 text-xs transition-colors hover:bg-accent hover:text-accent-foreground [&>svg]:size-4">
               <LogOut />
               Log out
-            </DropdownMenuItem>
+            </div>
           </Link>
-        </DropdownMenuContent>
-      </DropdownMenu>
+        </PopoverContent>
+      </Popover>
       <DrawerDialogLicense open={open} setOpen={setOpen} />
     </>
   )

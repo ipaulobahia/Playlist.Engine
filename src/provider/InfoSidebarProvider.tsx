@@ -1,5 +1,5 @@
 import InfoSidebarContext from '@/contexts/InfoSidebarContext';
-import React, { useState, ReactNode } from 'react';
+import React, { ReactNode, useState } from 'react';
 
 interface InfoSidebarProviderProps {
   children: ReactNode;
@@ -7,7 +7,7 @@ interface InfoSidebarProviderProps {
 
 const InfoSidebarProvider: React.FC<InfoSidebarProviderProps> = ({ children }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [row, setRow] = useState<IFile | null>(null)
+  const [row, setRow] = useState<File | null>(null)
 
   const toggleSidebar = () => {
     setIsOpen(prev => !prev);
@@ -17,7 +17,7 @@ const InfoSidebarProvider: React.FC<InfoSidebarProviderProps> = ({ children }) =
     setIsOpen(false)
   }
 
-  const selectRow = (newRow: IFile) => {
+  const selectRow = (newRow: File) => {
     const isSameRow = newRow.fileId === row?.fileId
     setRow(isSameRow ? null : newRow)
   }

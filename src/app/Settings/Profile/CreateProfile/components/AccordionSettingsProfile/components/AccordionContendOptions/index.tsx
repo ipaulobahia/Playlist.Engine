@@ -1,9 +1,9 @@
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label"
-import { Switch } from "@/components/ui/switch"
+import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
 import { useState } from "react";
 
-interface IAccordionContentOptions {
+interface AccordionContentOptions {
   option: {
     id: number;
     name: string;
@@ -14,7 +14,7 @@ interface IAccordionContentOptions {
   }
 }
 
-export const AccordionContentOptions = ({ option }: IAccordionContentOptions) => {
+export const AccordionContentOptions = ({ option }: AccordionContentOptions) => {
   const { id, description, isChecked, active, name, inputValue } = option
   const [isActive, setIsActive] = useState<boolean>(active)
   const [input, setInput] = useState<string>(inputValue)

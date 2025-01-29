@@ -21,9 +21,8 @@ import {
 } from "@tanstack/react-table"
 import { useState } from "react"
 import { columns } from "./components"
-import { IRecentUploadsTable } from "./components/Columns"
 
-const data: IRecentUploadsTable[] = [
+const data: any[] = [
   {
     id: 0,
     duration: "",
@@ -91,7 +90,7 @@ export const RecentUploadsTable = () => {
   })
 
   return (
-    <Table className="border dark:border-transparent dark:border-none border-muted-foreground/25">
+    <Table className="mt-5 border dark:border-transparent dark:border-none border-muted-foreground/25">
       <TableHeader>
         {table.getHeaderGroups().map((headerGroup) => (
           <TableRow key={headerGroup.id}>

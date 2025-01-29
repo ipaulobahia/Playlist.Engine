@@ -10,7 +10,7 @@ import { PopoverClose } from "@radix-ui/react-popover"
 import { Plus } from "lucide-react"
 import { useState } from "react"
 import { ColorPicker, useColor } from "react-color-palette"
-import { useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 interface DialogCreateProfileProps {
   open: boolean
@@ -18,7 +18,6 @@ interface DialogCreateProfileProps {
 }
 
 export const DialogCreateProfile = ({ open, setOpen }: DialogCreateProfileProps) => {
-  const navigate = useNavigate();
 
   const [selectedColor, setSelectedColor] = useState<string>('')
   const [colorPicker, setColorPicker] = useColor('')
@@ -72,18 +71,20 @@ export const DialogCreateProfile = ({ open, setOpen }: DialogCreateProfileProps)
               Cor
             </Label>
             <div className="grid grid-cols-3 gap-2">
-              {profileColors.map((color) => (
-                <Button
-                  key={color.value}
-                  onClick={() => handlerColor(color.value)}
-                  variant="outline"
-                  size="sm"
-                  aria-pressed={selectedColor === color.value && !isCustomColor}
-                  className={`inline-flex items-center gap-2 whitespace-nowrap font-medium transition-colors bg-background shadow-sm rounded-md px-3 text-xs justify-start ${selectedColor === color.value && !isCustomColor ? 'ring-2 dark:ring-white ring-black' : ''}`}>
-                  <span className={`flex items-center justify-center mr-1 rounded-full size-4 shrink-0 ${color.bg}`} />
-                  <span>{color.label}</span>
-                </Button>
-              ))}
+              {
+                profileColors.map((color) => (
+                  <Button
+                    key={color.value}
+                    onClick={() => handlerColor(color.value)}
+                    variant="outline"
+                    size="sm"
+                    aria-pressed={selectedColor === color.value && !isCustomColor}
+                    className={`inline-flex items-center gap-2 whitespace-nowrap font-medium transition-colors bg-background shadow-sm rounded-md px-3 text-xs justify-start ${selectedColor === color.value && !isCustomColor ? 'ring-2 dark:ring-white ring-black' : ''}`}>
+                    <span className={`flex items-center justify-center mr-1 rounded-full size-4 shrink-0 ${color.bg}`} />
+                    <span>{color.label}</span>
+                  </Button>
+                ))
+              }
               <Popover>
                 <PopoverTrigger asChild>
                   <Button
@@ -112,9 +113,11 @@ export const DialogCreateProfile = ({ open, setOpen }: DialogCreateProfileProps)
           <DialogClose>
             <Button variant={'outline'}>Cancelar</Button>
           </DialogClose>
-          <DialogClose asChild>
-            <Button onClick={() => navigate('/settings/profile/create-profile')} type="submit">Salvar</Button>
-          </DialogClose>
+          <Link to={'/settings/profile/create-profile'}>
+            <DialogClose asChild>
+              <Button type="submit">Salvar</Button>
+            </DialogClose>
+          </Link>
         </DialogFooter>
       </DialogContent>
     </Dialog>

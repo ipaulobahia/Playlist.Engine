@@ -1,11 +1,14 @@
+import { Pagination } from "@/components/ui/pagination"
 import {
-  Table as TableUI,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
-  TableRow
+  TableRow,
+  Table as TableUI
 } from "@/components/ui/table"
+import { useInfoSidebar } from "@/hooks/use-sidebar"
+import { useFiles } from "@/service/api/files/getFiles"
 import {
   ColumnFiltersState,
   flexRender,
@@ -22,11 +25,8 @@ import {
   VisibilityState
 } from "@tanstack/react-table"
 import { useState } from "react"
-import { columns, Toolbar } from './components'
-import { useInfoSidebar } from "@/hooks/use-sidebar"
 import { useSearchParams } from "react-router-dom"
-import { useFiles } from "@/service/api/files/getFiles"
-import { Pagination } from "@/components/ui/pagination"
+import { columns, Toolbar } from './components'
 
 export const ArchiveTable = () => {
   const { selectRow } = useInfoSidebar()
@@ -58,7 +58,7 @@ export const ArchiveTable = () => {
     getFacetedUniqueValues: getFacetedUniqueValues(),
   })
 
-  function handlerSelectedRow(row: Row<IFile>, table: Table<IFile>) {
+  function handlerSelectedRow(row: Row<File>, table: Table<File>) {
     const fileId = row.original.fileId
     table.toggleAllPageRowsSelected(false)
     row.toggleSelected()

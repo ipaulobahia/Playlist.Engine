@@ -1,8 +1,8 @@
-import { ColumnDef } from "@tanstack/react-table"
-import dayjs from 'dayjs'
-import clsx from "clsx"
-import { DropdownMenuRowActions } from "./components"
 import { HeaderFilter } from "@/components/ui/header-filter"
+import { ColumnDef } from "@tanstack/react-table"
+import clsx from "clsx"
+import dayjs from 'dayjs'
+import { DropdownMenuRowActions } from "./components"
 
 interface File {
   name: string
@@ -10,7 +10,7 @@ interface File {
   type: string
 }
 
-export interface IAllFilesTable {
+export interface FilesTable {
   id: string
   file: File
   folder: string
@@ -18,7 +18,7 @@ export interface IAllFilesTable {
   lastModified: Date
 }
 
-export const columns: ColumnDef<IFile>[] = [
+export const columns: ColumnDef<FilesTable>[] = [
   {
     accessorKey: "title",
     header: ({ column }) => (<HeaderFilter column={column} title="Título" />),

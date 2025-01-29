@@ -1,14 +1,14 @@
-import { MP3SVG, TXTSVG } from "@/assets/svg"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { MP3SVG, TXTSVG } from "@/assets/svg";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { RotateCcw } from "lucide-react"
+import { RotateCcw } from "lucide-react";
 import { CircularProgressbar } from "./components/CircularProgressbar";
 
-interface IUploadAccordionProps {
+interface UploadAccordionProps {
   isVisible: boolean
 }
 
-export const UploadAccordion = ({ isVisible }: IUploadAccordionProps) => {
+export const UploadAccordion = ({ isVisible }: UploadAccordionProps) => {
   return (
     <Accordion type="multiple" defaultValue={['upload']}>
       <AccordionItem

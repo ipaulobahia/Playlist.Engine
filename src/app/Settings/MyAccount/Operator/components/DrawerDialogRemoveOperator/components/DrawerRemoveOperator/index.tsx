@@ -32,10 +32,7 @@ export const DrawerRemoveOperator = ({ open, setOpen }: DrawerRemoveOperatorProp
         </DrawerHeader>
         <DrawerFooter className="flex flex-row items-center justify-between w-full">
           <DrawerClose asChild>
-            <Button size={'sm'} variant={'outline'}>Cancelar</Button>
-          </DrawerClose>
-          <DrawerClose asChild>
-            <Button size={'sm'} variant={'destructive'}>
+            <Button className="w-full" size={'sm'} variant={'destructive'}>
               Remover
             </Button>
           </DrawerClose>

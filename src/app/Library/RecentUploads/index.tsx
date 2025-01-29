@@ -2,7 +2,7 @@ import { DrawerDialogDragInDrop, RecentUploadsBreadchumbs, RecentUploadsTable } 
 
 export const RecentUploads = () => {
   return (
-    <main className="relative flex-1 p-3 space-y-5">
+    <main className="relative flex-1 p-3">
       <RecentUploadsBreadchumbs />
       <div className="flex flex-row items-start justify-between gap-2 sm:items-center">
         <div className="flex flex-col px-3 gap-0.5">

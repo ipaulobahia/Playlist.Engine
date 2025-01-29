@@ -61,12 +61,9 @@ export const DrawerCreateOperator = ({ open, setOpen }: DrawerCreateOperatorProp
           </div>
         </div>
         <DrawerFooter className="flex flex-row items-center justify-between w-full">
-          <DrawerClose>
-            <Button variant={'outline'}>Cancelar</Button>
-          </DrawerClose>
-          <Link to={'/settings/profile/create-profile'}>
+          <Link className="w-full" to={'/settings/profile/create-profile'}>
             <DrawerClose asChild>
-              <Button type="submit">Salvar</Button>
+              <Button className="w-full" type="submit">Salvar</Button>
             </DrawerClose>
           </Link>
         </DrawerFooter>

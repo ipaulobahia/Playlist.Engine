@@ -1,3 +1,4 @@
+import { FileContextMenu } from "@/components/FileContextMenu"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import { Input } from "@/components/ui/input"
 import { SidebarGroup, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem } from "@/components/ui/sidebar"
@@ -25,11 +26,13 @@ export const ArchiveSidebarGroup = () => {
             <CollapsibleContent className="pb-16">
               <SidebarMenuSub>
                 {[...Array(45)].map((_, index) => (
-                  <SidebarMenuSubItem key={index}>
-                    <SidebarMenuSubButton asChild>
-                      <span className="text-xs">Arquivos - {index.toString().padStart(2, "0")}</span>
-                    </SidebarMenuSubButton>
-                  </SidebarMenuSubItem>
+                  <FileContextMenu key={index}>
+                    <SidebarMenuSubItem>
+                      <SidebarMenuSubButton asChild>
+                        <span className="text-xs">Arquivos - {index.toString().padStart(2, "0")}</span>
+                      </SidebarMenuSubButton>
+                    </SidebarMenuSubItem>
+                  </FileContextMenu>
                 ))}
               </SidebarMenuSub>
             </CollapsibleContent>

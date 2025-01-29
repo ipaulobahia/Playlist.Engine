@@ -18,8 +18,6 @@ export const CategorySidebarGroup = () => {
           <Search size={16} />
         </span>
       </div>
-      <SidebarGroupLabel>Favoritos</SidebarGroupLabel>
-      <SidebarGroupContent></SidebarGroupContent>
       <SidebarGroupLabel>Categorias</SidebarGroupLabel>
       <SidebarGroupContent className="pb-16">
         <SidebarMenu>

@@ -1,10 +1,10 @@
-import { Toolbar } from "./components";
-import { useState } from "react";
-import { File } from "lucide-react";
+import { ScrollList } from "@/components/ui/scroll-list";
 import { useInfoSidebar } from "@/hooks/use-sidebar";
 import { useFiles } from "@/service/api/files/getFiles";
+import { File } from "lucide-react";
+import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { ScrollList } from "@/components/ui/scroll-list";
+import { Toolbar } from "./components";
 
 export const ArchiveList = () => {
   const { selectRow } = useInfoSidebar()
@@ -12,11 +12,11 @@ export const ArchiveList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const folderId = searchParams.get("folderId");
 
-  const [selectedFile, setSelectedFile] = useState<IFile | null>(null)
+  const [selectedFile, setSelectedFile] = useState<File | null>(null)
 
   const { data } = useFiles(folderId)
 
-  function handleSelectedFile(newFile: IFile) {
+  function handleSelectedFile(newFile: File) {
     const fileId = newFile.fileId
     const isSameRow = newFile.fileId === selectedFile?.fileId
     setSelectedFile(isSameRow ? null : newFile)

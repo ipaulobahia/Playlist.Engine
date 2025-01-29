@@ -3,8 +3,8 @@ import { createContext } from 'react';
 interface InfoSidebarContextType {
   isOpen: boolean;
   toggleSidebar: () => void;
-  row: IFile | null
-  selectRow: (row: IFile) => void
+  row: File | null
+  selectRow: (row: File) => void
   closeSidebar: () => void;
 }
 

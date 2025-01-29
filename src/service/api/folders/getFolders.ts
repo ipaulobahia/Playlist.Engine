@@ -1,5 +1,5 @@
-import { http } from "@/config"
-import { useQuery } from "@tanstack/react-query"
+import { http } from "@/config";
+import { useQuery } from "@tanstack/react-query";
 
 interface Folder {
   folderId: number;
@@ -14,7 +14,7 @@ interface Folder {
   lnkFile: string;
 }
 
-export interface IFolders {
+export interface Folders {
   count: number;
   shared: {
     count: number;
@@ -23,13 +23,13 @@ export interface IFolders {
   folders: Folder[];
 }
 
-const getFolders = async (): Promise<IFolders> => {
+const getFolders = async (): Promise<Folders> => {
   const response = await http.get('/folders').then((i) => i.data);
   return response;
 };
 
 export const useFolders = () => {
-  return useQuery<IFolders, Error>({
+  return useQuery<Folders, Error>({
     queryKey: ['folders'],
     queryFn: getFolders
   });

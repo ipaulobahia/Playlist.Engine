@@ -1,15 +1,15 @@
+import { HeaderFilter } from "@/components/ui/header-filter";
 import { ColumnDef } from "@tanstack/react-table";
 import { DropdownMenuRowActions } from "./components";
-import { HeaderFilter } from "@/components/ui/header-filter";
 
-export interface Operator {
+interface OperatorTable {
   name: string
   profile: string
   pin: boolean
   status: string
 }
 
-export const columns: ColumnDef<Operator>[] = [
+export const columns: ColumnDef<OperatorTable>[] = [
   {
     accessorKey: "name",
     header: ({ column }) => (<HeaderFilter column={column} title="Nome" />),

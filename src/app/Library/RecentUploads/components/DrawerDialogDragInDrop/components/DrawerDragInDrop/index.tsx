@@ -64,11 +64,8 @@ export const DrawerDragInDrop = ({ open, setOpen }: DrawerDragInDropProps) => {
           </div>
         </div>
         <DrawerFooter className="flex flex-row justify-end w-full gap-x-2">
-          <DrawerClose>
-            <Button size={'sm'} variant={'ghost'}>Cancelar</Button>
-          </DrawerClose>
-          <DrawerClose>
-            <Button onClick={toggleElement} size={'sm'}>Realizar upload</Button>
+          <DrawerClose asChild>
+            <Button className="w-full" onClick={toggleElement} size={'sm'}>Realizar upload</Button>
           </DrawerClose>
         </DrawerFooter>
       </DrawerContent>

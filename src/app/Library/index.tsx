@@ -49,17 +49,19 @@ export const Library = () => {
             </span>
           </Card>
         </Link>
-        <Card className="flex flex-col gap-3 p-3 bg-transparent rounded cursor-pointer border-muted-foreground/25 dark:hover:bg-muted/50 hover:bg-muted">
-          <div className="flex flex-row justify-between w-full">
-            <div className="flex items-center justify-center rounded bg-accent-foreground size-8">
-              <FileClock className="text-white dark:text-black size-5" />
+        <Link to={"/library/pending-files"}>
+          <Card className="flex flex-col gap-3 p-3 bg-transparent rounded cursor-pointer border-muted-foreground/25 dark:hover:bg-muted/50 hover:bg-muted">
+            <div className="flex flex-row justify-between w-full">
+              <div className="flex items-center justify-center rounded bg-accent-foreground size-8">
+                <FileClock className="text-white dark:text-black size-5" />
+              </div>
+              <SquareArrowOutUpRight size={16} />
             </div>
-            <SquareArrowOutUpRight size={16} />
-          </div>
-          <span className="text-sm font-medium">
-            Arquivos pendentes
-          </span>
-        </Card>
+            <span className="text-sm font-medium">
+              Arquivos pendentes
+            </span>
+          </Card>
+        </Link>
       </div>
       <div className="flex flex-col px-5">
         <span className="text-base font-medium">
@@ -72,7 +74,7 @@ export const Library = () => {
                 <CategoryContextContent key={id} categoryId={id}>
                   <Link to={`/library/category?categoryId=${id}`}>
                     <Card className="flex flex-row items-start gap-2 p-3 bg-transparent rounded cursor-pointer border-muted-foreground/25 dark:hover:bg-muted/50 hover:bg-muted">
-                      <div className="flex items-center justify-center rounded bg-accent-foreground/30 dark:bg-accent min-w-9 min-h-9">
+                      <div className="flex items-center justify-center rounded bg-muted-foreground/10 dark:bg-accent min-w-9 min-h-9">
                         <img src={icon} className="w-4 h-4" />
                       </div>
                       <div className="flex flex-col w-full">
@@ -95,12 +97,12 @@ export const Library = () => {
       </div>
       <div className="flex flex-col gap-2 px-5">
         <span className="text-base font-semibold">Listas</span>
-        <div className="grid grid-cols-4 gap-3">
+        <div className="grid grid-cols-1 gap-3 lg:grid-cols-2 2xl:grid-cols-4">
           {
-            FAKE_LIST_LIBRARY.map(({ name, info, archiveCount }) => {
+            FAKE_LIST_LIBRARY.map(({ name, info, archiveCount }, index) => {
               return (
-                <Card className="flex flex-col items-center justify-start py-3 border rounded shadow-sm cursor-pointer h-60 bg-sidebar border-muted-foreground/25 hover:bg-sidebar-accent/80">
-                  <div className="flex flex-row justify-between w-full px-3 pb-3 border-b border-muted-foreground/25">
+                <Card key={index} className="flex flex-col items-center justify-start flex-1 border rounded shadow-sm cursor-pointer h-60 bg-sidebar border-muted-foreground/25 hover:bg-sidebar-accent/80">
+                  <div className="flex flex-row justify-between w-full p-3 border-b border-muted-foreground/25">
                     <div className="flex flex-row items-center gap-x-1">
                       <ListMusic className="size-4" />
                       <span className="text-xs font-semibold">
@@ -111,18 +113,14 @@ export const Library = () => {
                       <MoreVertical />
                     </Button>
                   </div>
-                  <div className="flex flex-col flex-1 w-full p-3 pt-5 gap-y-3">
-                    <div className="flex flex-col gap-y-1">
-                      <span className="text-xs font-semibold uppercase text-muted-foreground">Nome</span>
-                      <span className="text-xs font-medium">{info.name}</span>
-                    </div>
-                    <div className="flex flex-col gap-y-1">
-                      <span className="text-xs font-semibold uppercase text-muted-foreground">Descrição</span>
-                      <span className="text-xs font-normal">{info.description}</span>
-                    </div>
+                  <div className="flex flex-col items-start w-full p-3 gap-y-1">
+                    <span className="text-xs font-semibold uppercase text-muted-foreground">Nome</span>
+                    <span className="text-xs font-medium">{info.name}</span>
+                    <span className="text-xs font-semibold uppercase text-muted-foreground">Descrição</span>
+                    <span className="text-xs font-normal">{info.description}</span>
                   </div>
-                  <div className="flex items-center justify-between w-full px-3">
-                    <Badge variant={'default'}>
+                  <div className="flex flex-col items-start justify-end flex-1 w-full gap-2 p-3 2xl:flex-row 2xl:items-end 2xl:justify-start">
+                    <Badge variant={'default'} className="">
                       {archiveCount} arquivos
                     </Badge>
                     <span className="text-xs font-medium text-muted-foreground">

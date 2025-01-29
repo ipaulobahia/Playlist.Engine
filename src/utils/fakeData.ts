@@ -1,8 +1,8 @@
-import { IAllFilesTable } from '@/app/Library/Category/Archive/components/ArchiveTable/components/Columns';
-import { faker } from '@faker-js/faker'
+import { FilesTable } from '@/app/Library/Category/Archive/components/ArchiveTable/components/Columns';
 import {
   CalendarSVG,
   ClapperBoardSVG,
+  CommercialSVG,
   DiscSVG,
   FlagSVG,
   FolderSVG,
@@ -10,13 +10,13 @@ import {
   KeyboardMusicSVG,
   MicSVG,
   MusicNoteSVG,
+  PendingFileSVG,
   SaxSVG,
   SingerSVG,
   StarSVG,
-  CommercialSVG,
-  TextSVG,
-  PendingFileSVG
-} from '@/assets/svg/categories'
+  TextSVG
+} from '@/assets/svg/categories';
+import { faker } from '@faker-js/faker';
 
 export const FAKE_USERS_DATA = [
   { id: 1, avatar: 'https://github.com/shadcn.png', name: 'João', profile: 'Operador Padrão' },
@@ -1642,9 +1642,9 @@ export const FAKE_CONFIG_PREFERENCE: PreferenceConfig = [
   }
 ]
 
-export const FAKE_DATA_ARCHIVE: IAllFilesTable[] = [];
+export const FAKE_DATA_ARCHIVE: FilesTable[] = [];
 
-export const FAKE_DATA_ALL_FILES_TALBE: IAllFilesTable[] = [];
+export const FAKE_DATA_ALL_FILES_TALBE: FilesTable[] = [];
 
 function generateItem(id: number) {
   const fileType = faker.helpers.arrayElement(['.mp3', '.mp4', '.txt'])

@@ -42,11 +42,8 @@ export const DrawerCreateAffiliates = ({ open, setOpen }: DrawerCreateAffiliates
           </div>
         </div>
         <DrawerFooter className="flex flex-row items-center justify-between w-full">
-          <DrawerClose>
-            <Button variant={'outline'}>Cancelar</Button>
-          </DrawerClose>
           <DrawerClose asChild>
-            <Button>Salvar</Button>
+            <Button className="w-full">Salvar</Button>
           </DrawerClose>
         </DrawerFooter>
       </DrawerContent>
