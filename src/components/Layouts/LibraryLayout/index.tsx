@@ -24,7 +24,7 @@ export const LibraryLayout = () => {
         <LeftSidebar />
         <div className={`w-full p-0 sm:pl-[--sidebar-width] transition-all ease-linear ${isOpen ? 'pr-[16rem] xl:pr-[23rem]' : 'sm:pr-0'}`}>
           <Outlet />
-          <Draggable bounds="body"  handle=".drag">
+          <Draggable bounds="body" defaultPosition={{ x: 220, y: -180 }} handle=".drag">
             <Card className="z-50 absolute min-h-[70vh] flex flex-col w-[60vw] rounded-lg">
               <div className="flex flex-row items-center justify-between w-full h-8 border-b shadow border-muted-foreground/20 bg-sidebar drag">
                 <div className="flex flex-row items-center">
