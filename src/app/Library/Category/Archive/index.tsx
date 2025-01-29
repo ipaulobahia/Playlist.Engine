@@ -110,18 +110,6 @@ export const Archive = () => {
               <div className="grid flex-1 grid-cols-4">
                 <div className="relative flex flex-1 w-full col-span-3 py-4">
                   <div className="absolute flex items-center justify-center w-full gap-x-2 top-5">
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <span tabIndex={0}>
-                          <Button size={'icon'} variant={'ghost'}>
-                            <MousePointer2 />
-                          </Button>
-                        </span>
-                      </TooltipTrigger>
-                      <TooltipContent side="bottom" className="font-medium text-white bg-black dark:text-black dark:bg-white">
-                        <p>Cursor</p>
-                      </TooltipContent>
-                    </Tooltip>
                     <ButtonTooltip icon={MousePointer2} message="Cursor" />
                     <ButtonTooltip icon={Plus} message="Adicionar faixa" />
                     <ButtonTooltip icon={Mic} message="Adicionar locução" />
