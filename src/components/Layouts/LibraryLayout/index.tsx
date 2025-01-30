@@ -1,3 +1,4 @@
+import { AudioMarkerEditor } from "@/components/AudioMarkerEditor"
 import { SidebarProvider } from "@/components/ui/sidebar"
 import { useInfoSidebar } from "@/hooks/use-sidebar"
 import { useEffect } from "react"
@@ -15,7 +16,7 @@ export const LibraryLayout = () => {
         <LeftSidebar />
         <div className={`w-full p-0 sm:pl-[--sidebar-width] transition-all ease-linear ${isOpen ? 'pr-[16rem] xl:pr-[23rem]' : 'sm:pr-0'}`}>
           <Outlet />
-          {/* <AudioMarkerEditor /> */}
+          <AudioMarkerEditor />
         </div>
         <RightSidebar />
       </SidebarProvider >
