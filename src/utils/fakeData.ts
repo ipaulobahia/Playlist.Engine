@@ -18,6 +18,29 @@ import {
 } from '@/assets/svg/categories';
 import { faker } from '@faker-js/faker';
 
+export const FAKE_DATA_TRACKRS = [
+  {
+    id: 1,
+    name: "Carnaval é na Playlist",
+    color: "#DC2626"
+  },
+  {
+    id: 2,
+    name: "Hora do Brasil",
+    color: "#DB2777"
+  },
+  {
+    id: 3,
+    name: "Background",
+    color: "#EA580C"
+  },
+  {
+    id: 4,
+    name: "Som de Passarinho",
+    color: "#16A34A"
+  }
+]
+
 export const FAKE_USERS_DATA = [
   { id: 1, avatar: 'https://github.com/shadcn.png', name: 'João', profile: 'Operador Padrão' },
   { id: 2, avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80', name: 'Davi', profile: 'Locutor' },

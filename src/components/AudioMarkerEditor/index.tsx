@@ -1,10 +1,8 @@
 import { ButtonTooltip } from "@/components/ButtonTooltip"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Separator } from "@/components/ui/separator"
 import { Slider } from "@/components/ui/slider"
+import { FAKE_DATA_TRACKRS } from "@/utils/fakeData"
 import {
   DndContext,
   DragEndEvent,
@@ -21,40 +19,34 @@ import {
   sortableKeyboardCoordinates,
   verticalListSortingStrategy
 } from '@dnd-kit/sortable'
-import { AudioLines, FastForward, Mic, Minus, MousePointer2, Play, Plus, Redo2, Rewind, Save, Scissors, Square, SquareArrowOutUpRight, StepForward, TriangleRight, Undo2, Volume1, Wand, X } from "lucide-react"
-import { useRef, useState } from "react"
+import {
+  AudioLines,
+  FastForward,
+  Info,
+  Mic,
+  Minus,
+  MousePointer2,
+  Play,
+  Plus,
+  Redo2,
+  Rewind,
+  Save,
+  Scissors,
+  Square,
+  SquareArrowOutUpRight,
+  StepForward,
+  SwatchBook,
+  TriangleRight,
+  Undo2,
+  Wand,
+  X
+} from "lucide-react"
+import { useState } from "react"
 import Draggable from 'react-draggable'
-import { Track } from "./components/Track"
-
-const FAKE_DATA_TRACKRS = [
-  {
-    id: 1,
-    name: "Carnval é na Playlist",
-    color: "red"
-  },
-  {
-    id: 2,
-    name: "Hora do Brasil",
-    color: "pink"
-  },
-  {
-    id: 3,
-    name: "Background",
-    color: "orange"
-  }
-]
+import { ToolsSidebar, Track } from "./components"
 
 export const AudioMarkerEditor = () => {
-  const containerRef = useRef<HTMLDivElement | null>(null);
   const [trackList, setTrackList] = useState(FAKE_DATA_TRACKRS);
-
-  function handleWheel(e: React.WheelEvent<HTMLDivElement>) {
-    if (e.deltaY !== 0) {
-      if (containerRef.current) {
-        containerRef.current.scrollLeft += e.deltaY;
-      }
-    }
-  };
 
   const sensors = useSensors(
     useSensor(PointerSensor),
@@ -79,13 +71,23 @@ export const AudioMarkerEditor = () => {
   return (
     <Draggable bounds="body" defaultPosition={{ x: -160, y: -250 }} handle=".drag">
       <Card className="z-50 absolute min-h-[80vh] flex flex-col w-full max-w-[85vw] 2xl:max-w-[65vw] rounded-lg">
-        <div className="flex flex-row items-center justify-between w-full h-8 border-b shadow border-muted-foreground/20 bg-sidebar drag">
+        <div className="flex flex-row items-end w-full border-b shadow gap-x-2 h-9 border-muted-foreground/20 bg-sidebar drag">
           <div className="flex flex-row items-center">
             <Button variant={'ghost'} className="flex items-center justify-center cursor-default hover:bg-transparent" size={'icon'}>
               <AudioLines size={16} />
             </Button>
           </div>
           <div className="flex flex-row items-center">
+            <div className="flex items-center px-2 cursor-default hover:bg-card-foreground/10 border-b-0 py-1.5 border rounded-t-lg group gap-x-2 border-muted-foreground/20 bg-card">
+              <span className="text-xs font-medium">Carnavel é na Playlist.mp3</span>
+              <X size={12} className="cursor-pointer hover:text-accent-foreground text-muted-foreground" />
+            </div>
+            <div className="flex items-center cursor-default hover:bg-card-foreground/5 px-2 border-b-0 py-1.5 rounded-t-lg group gap-x-2">
+              <span className="text-xs font-medium">What's Up.mp3</span>
+              <X size={12} className="cursor-pointer hover:text-accent-foreground text-muted-foreground" />
+            </div>
+          </div>
+          <div className="flex flex-row items-center ml-auto">
             <Button variant={'ghost'} className="flex items-center justify-center" size={'icon'}>
               <Minus size={16} />
             </Button>
@@ -106,15 +108,15 @@ export const AudioMarkerEditor = () => {
               <ButtonTooltip icon={<Scissors />} message="Cortar" />
               <ButtonTooltip icon={<StepForward />} message="Inicio do áudio" />
               <ButtonTooltip icon={<Square />} message="Fim do áudio" />
+              <ButtonTooltip icon={<SwatchBook />} message="Refrão" />
+              <ButtonTooltip icon={<Info />} message="Anotação" />
               <ButtonTooltip icon={<TriangleRight />} message="Fade-in" />
               <ButtonTooltip icon={<TriangleRight className="scale-x-[-1]" />} message="Fade-out" />
               <ButtonTooltip icon={<Wand className="scale-x-[-1]" />} message="Restaura mixagem" />
               <ButtonTooltip className="flex lg:hidden" icon={<Save />} message="Salvar" />
             </div>
             <div
-              ref={containerRef}
-              onWheel={handleWheel}
-              className="flex flex-col max-h-[600px] pl-4 py-2 overflow-x-auto overflow-y-auto">
+              className="flex flex-col max-h-[700px] pl-4 py-2 overflow-x-auto overflow-y-auto">
               <DndContext
                 sensors={sensors}
                 collisionDetection={closestCenter}
@@ -171,67 +173,7 @@ export const AudioMarkerEditor = () => {
               </div>
             </div>
           </div>
-          <div className="lg:flex hidden flex-col p-4 border-l shadow w-full max-w-[30%] bg-sidebar gap-y-2 border-muted-foreground/20">
-            <Label className="text-base top-3">Ferramentas</Label>
-            <div className="flex flex-col gap-y-2">
-              <Label className="text-xs">Período selecionada</Label>
-              <div className="grid grid-cols-2 mt-1 gap-x-2">
-                <Input readOnly placeholder="Início: 00:00:00" className="h-8 text-xs rounded-md placeholder:text-xs bg-muted" />
-                <Input readOnly placeholder="Fim: 00:00:00" className="h-8 text-xs rounded-md placeholder:text-xs bg-muted" />
-              </div>
-            </div>
-            <Separator className="my-2 bg-sidebar-foreground/25 h-[0.5px]" />
-            <div className="flex flex-col gap-y-2">
-              <div className="flex flex-col gap-y-0.5">
-                <Label className="text-xs">Nível do Som</Label>
-                <Label className="text-xs font-normal text-muted-foreground">Volume máximo</Label>
-              </div>
-              <div className="flex flex-row items-center p-2 border rounded-md bg-muted">
-                <Volume1 size={15} className="dark:fill-white fill-black" />
-                <Slider
-                  defaultValue={[50]}
-                  max={100}
-                  step={1}
-                  className="w-full"
-                />
-              </div>
-              <div className="grid grid-cols-2 mt-1 gap-x-2">
-                <div className="flex gap-x-2 items-center p-1.5 text-muted-foreground justify-between rounded-md bg-muted">
-                  <span className="text-xs">
-                    L
-                  </span>
-                  <Slider
-                    defaultValue={[50]}
-                    max={100}
-                    step={1}
-                    className="w-full"
-                  />
-                  <span className="text-xs">
-                    0.0dB
-                  </span>
-                </div>
-                <div className="flex gap-x-2 items-center p-1.5 text-muted-foreground justify-between rounded-md bg-muted">
-                  <span className="text-xs">
-                    R
-                  </span>
-                  <Slider
-                    defaultValue={[50]}
-                    max={100}
-                    step={1}
-                    className="w-full"
-                  />
-                  <span className="text-xs">
-                    0.0dB
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="mt-auto">
-              <Button className="w-full">
-                Salvar
-              </Button>
-            </div>
-          </div>
+          <ToolsSidebar />
         </div>
       </Card>
     </Draggable>
