@@ -3,7 +3,6 @@ import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, Di
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Link } from "react-router-dom"
 
 interface DialogCreateOperatorProps {
   open: boolean
@@ -70,11 +69,9 @@ export const DialogCreateOperator = ({ open, setOpen }: DialogCreateOperatorProp
           <DialogClose>
             <Button variant={'outline'}>Cancelar</Button>
           </DialogClose>
-          <Link to={'/operator/profile/create-profile'}>
-            <DialogClose asChild>
-              <Button type="submit">Salvar</Button>
-            </DialogClose>
-          </Link>
+          <DialogClose asChild>
+            <Button type="submit">Salvar</Button>
+          </DialogClose>
         </DialogFooter>
       </DialogContent>
     </Dialog>

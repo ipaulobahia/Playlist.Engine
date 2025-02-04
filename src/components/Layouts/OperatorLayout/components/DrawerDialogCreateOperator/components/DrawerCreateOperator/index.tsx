@@ -3,7 +3,6 @@ import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, Dr
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Link } from "react-router-dom"
 
 interface DrawerCreateOperatorProps {
   open: boolean
@@ -67,11 +66,9 @@ export const DrawerCreateOperator = ({ open, setOpen }: DrawerCreateOperatorProp
           </div>
         </div>
         <DrawerFooter className="flex flex-row items-center justify-between w-full">
-          <Link className="w-full" to={'/operator/profile/create-profile'}>
-            <DrawerClose asChild>
-              <Button className="w-full" type="submit">Salvar</Button>
-            </DrawerClose>
-          </Link>
+          <DrawerClose asChild>
+            <Button className="w-full" type="submit">Salvar</Button>
+          </DrawerClose>
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
