@@ -1,6 +1,5 @@
-import { CategoryContextContent } from "@/components";
 import { Card } from "@/components/ui/card";
-import { FAKE_LIST_CATEGORY } from "@/utils/fakeData";
+import { FAKE_LIST_CATEGORY, FAKE_LIST_OTHER_CATEGORIES } from "@/utils/fakeData";
 import { FileClock, FolderUp, ListMusic, ListPlus, Plus, SquareArrowOutUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -63,31 +62,41 @@ export const Library = () => {
       </div>
       <div className="flex flex-col px-5">
         <span className="text-base font-medium">
-          Categorias
+          Categorias Principais
         </span>
-        <div className="grid grid-cols-1 gap-2 mt-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+        <div className="flex flex-row gap-2 mt-3">
           {
             FAKE_LIST_CATEGORY.map(({ id, name, icon }) => {
               return (
-                <CategoryContextContent key={id} categoryId={id}>
-                  <Link to={`/library/category?categoryId=${id}`}>
-                    <Card className="flex flex-row items-start gap-2 p-3 bg-transparent rounded cursor-pointer border-muted-foreground/25 dark:hover:bg-muted/50 hover:bg-muted">
-                      <div className="flex items-center justify-center rounded bg-muted-foreground/10 dark:bg-accent min-w-9 min-h-9">
-                        <img src={icon} className="w-4 h-4" />
-                      </div>
-                      <div className="flex flex-col w-full">
-                        <div className="flex flex-row items-start justify-between">
-                          <span className="text-[13px] font-medium">
-                            {name}
-                          </span>
-                        </div>
-                        <div className="flex flex-row items-center gap-0.5">
-                          <span className="text-xs font-normal text-muted-foreground">{Math.floor(Math.random() * (20 - 0 + 1) + 0)} arquivos</span>
-                        </div>
-                      </div>
-                    </Card>
-                  </Link>
-                </CategoryContextContent>
+                <Link to={`/library/category?categoryId=${id}`}>
+                  <Card className="flex flex-col items-center justify-center w-32 gap-2 p-3 bg-transparent border-0 rounded cursor-pointer dark:hover:bg-muted/50 hover:bg-muted">
+                    <img src={icon} className="size-10" />
+                    <span className="text-[13px] font-medium">
+                      {name}
+                    </span>
+                  </Card>
+                </Link>
+              )
+            })
+          }
+        </div>
+      </div>
+      <div className="flex flex-col px-5">
+        <span className="text-base font-medium">
+          Outras categorias
+        </span>
+        <div className="flex flex-wrap gap-2 mt-3">
+          {
+            FAKE_LIST_OTHER_CATEGORIES.map(({ id, name, icon }) => {
+              return (
+                <Link to={`/library/category?categoryId=${id}`}>
+                  <Card className="flex flex-col items-center justify-center w-32 gap-2 p-3 bg-transparent border-0 rounded cursor-pointer dark:hover:bg-muted/50 hover:bg-muted">
+                    <img src={icon} className="size-10" />
+                    <span className="text-[13px] font-medium">
+                      {name}
+                    </span>
+                  </Card>
+                </Link>
               )
             })
           }

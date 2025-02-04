@@ -11,6 +11,7 @@ import {
   MicSVG,
   MusicNoteSVG,
   PendingFileSVG,
+  PlayButton,
   SaxSVG,
   SingerSVG,
   StarSVG,
@@ -1755,77 +1756,85 @@ export const FAKE_LIST_LIBRARY = [
 
 export const FAKE_LIST_CATEGORY = [
   {
-    id: 0,
+    id: 1,
+    name: "Lista",
+    icon: PlayButton
+  },
+  {
+    id: 1,
     name: "Recentes",
     icon: PendingFileSVG
   },
   {
-    id: 1,
+    id: 2,
     name: "Gênero",
     icon: SaxSVG
   },
   {
-    id: 2,
+    id: 3,
     name: "Ritmo",
     icon: KeyboardMusicSVG
   },
   {
-    id: 3,
+    id: 4,
     name: "Classificação",
     icon: StarSVG
   },
   {
-    id: 4,
+    id: 5,
     name: "Idioma",
     icon: FlagSVG
   },
   {
-    id: 5,
+    id: 6,
     name: "Vocal",
     icon: MicSVG
-  },
+  }
+]
+
+export const FAKE_LIST_OTHER_CATEGORIES = [
   {
-    id: 6,
+    id: 0,
     name: "Artistas",
     icon: SingerSVG
   },
   {
-    id: 7,
+    id: 1,
     name: "Ano",
     icon: CalendarSVG
   },
   {
-    id: 8,
+    id: 2,
     name: "Album",
     icon: DiscSVG
   },
   {
-    id: 9,
+    id: 3,
     name: "Compositor",
     icon: GuitarSVG
   },
   {
-    id: 10,
+    id: 4,
     name: "Gravadora",
     icon: ClapperBoardSVG
   },
   {
-    id: 11,
+    id: 5,
     name: "Vinhetas",
     icon: MusicNoteSVG
   },
   {
-    id: 12,
+    id: 6,
     name: "Comerciais",
     icon: CommercialSVG
   },
   {
-    id: 13,
+    id: 7,
     name: "Textos",
     icon: TextSVG
   },
   {
-    id: 14,
+    id: 8,
     name: "Pastas",
     icon: FolderSVG
   }
