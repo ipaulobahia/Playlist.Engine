@@ -5,7 +5,6 @@ import { ArchiveSidebarGroup, CategorySidebarGroup } from "./components"
 export const LeftSidebar = () => {
   const { pathname } = useLocation()
 
-
   const isArchivePath = pathname == "/library/category/archive"
 
   return (

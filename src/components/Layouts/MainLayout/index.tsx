@@ -38,7 +38,12 @@ export const MainLayout = () => {
                   </NavigationMenuTrigger>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <Link to={'/settings/my-account/operator'}>
+                  <Link to={'/operator'}>
+                    <NavigationMenuTrigger className={`h-0 p-0 text-sm font-medium transition-colors text-muted-foreground dark:hover:text-white hover:text-black ${pathname.includes('/operator') && 'dark:text-white text-black'}`}>Operadores</NavigationMenuTrigger>
+                  </Link>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <Link to={'/settings'}>
                     <NavigationMenuTrigger className={`h-0 p-0 text-sm font-medium transition-colors text-muted-foreground dark:hover:text-white hover:text-black ${pathname.includes('/settings') && 'dark:text-white text-black'}`}>Configurações</NavigationMenuTrigger>
                   </Link>
                 </NavigationMenuItem>

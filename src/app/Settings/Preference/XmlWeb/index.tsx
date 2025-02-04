@@ -18,50 +18,50 @@ export const XmlWeb = () => {
               </div>
             </header>
             <div className="flex flex-col items-center gap-4 px-4 py-8 border border-t-0 rounded-md rounded-t-none gap-x-4 border-muted-foreground/25 sm:px-6">
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Arquivo com informações do item atual</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Arquivo XML comm informações sobre o item em execução e sobre os próximos eventos.</span>
                 </Label>
                 <Input className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Servidor FTP</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Servidor FTP para envio do XML com informações sobre a programaçã.o</span>
                 </Label>
                 <Input className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Usuário FTP</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Nome do usuário paraa login no servidor FTP.</span>
                 </Label>
                 <Input className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Senha FTP</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Senha do servidor FTP.</span>
                 </Label>
                 <Input className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Arquivo no servidor FTP</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Arquivo deestino no servidor FTP. Pode conter o nome da pasta destino.</span>
                 </Label>
                 <Input className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>FTP Passivo</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Enviar o arquivo usando conexão FTP em modo passivo.</span>
                 </Label>
-                <Switch checked id="adm" />
+                <Switch className="ml-auto" checked id="adm" />
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Enviar XML para UDP</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Informe um endereço IP e porta UDP para o envio do XML.</span>
                 </Label>

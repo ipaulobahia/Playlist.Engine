@@ -1,9 +1,7 @@
 import { CategoryContextContent } from "@/components";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { FAKE_LIST_CATEGORY, FAKE_LIST_LIBRARY } from "@/utils/fakeData";
-import { FileClock, FolderUp, ListMusic, ListPlus, MoreVertical, Plus, SquareArrowOutUpRight } from "lucide-react";
+import { FAKE_LIST_CATEGORY } from "@/utils/fakeData";
+import { FileClock, FolderUp, ListMusic, ListPlus, Plus, SquareArrowOutUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export const Library = () => {
@@ -90,44 +88,6 @@ export const Library = () => {
                     </Card>
                   </Link>
                 </CategoryContextContent>
-              )
-            })
-          }
-        </div>
-      </div>
-      <div className="flex flex-col gap-2 px-5">
-        <span className="text-base font-semibold">Listas</span>
-        <div className="grid grid-cols-1 gap-3 lg:grid-cols-2 2xl:grid-cols-4">
-          {
-            FAKE_LIST_LIBRARY.map(({ name, info, archiveCount }, index) => {
-              return (
-                <Card key={index} className="flex flex-col items-center justify-start flex-1 border rounded shadow-sm cursor-pointer h-60 bg-sidebar border-muted-foreground/25 hover:bg-sidebar-accent/80">
-                  <div className="flex flex-row justify-between w-full p-3 border-b border-muted-foreground/25">
-                    <div className="flex flex-row items-center gap-x-1">
-                      <ListMusic className="size-4" />
-                      <span className="text-xs font-semibold">
-                        {name}
-                      </span>
-                    </div>
-                    <Button size={'icon'} className="size-4" variant={'ghost'}>
-                      <MoreVertical />
-                    </Button>
-                  </div>
-                  <div className="flex flex-col items-start w-full p-3 gap-y-1">
-                    <span className="text-xs font-semibold uppercase text-muted-foreground">Nome</span>
-                    <span className="text-xs font-medium">{info.name}</span>
-                    <span className="text-xs font-semibold uppercase text-muted-foreground">Descrição</span>
-                    <span className="text-xs font-normal">{info.description}</span>
-                  </div>
-                  <div className="flex flex-col items-start justify-end flex-1 w-full gap-2 p-3 2xl:flex-row 2xl:items-end 2xl:justify-start">
-                    <Badge variant={'default'} className="">
-                      {archiveCount} arquivos
-                    </Badge>
-                    <span className="text-xs font-medium text-muted-foreground">
-                      Modificado a 2 semanas atrás
-                    </span>
-                  </div>
-                </Card>
               )
             })
           }

@@ -18,8 +18,8 @@ export const MetadataStreaming = () => {
               </div>
             </header>
             <div className="flex flex-col items-center gap-4 px-4 py-8 border border-t-0 rounded-md rounded-t-none gap-x-4 border-muted-foreground/25 sm:px-6">
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Serviço</span>
                 </Label>
                 <Select>
@@ -36,36 +36,36 @@ export const MetadataStreaming = () => {
                   </SelectContent>
                 </Select>
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Servidor</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Informe o endereço IP e porta do servidor SHOUTcast ou Icecast <b>(IP:Porta)</b></span>
                 </Label>
                 <Input className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Usuário</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Informe o usuário para o servidor Icecast, se necessário, valor padrão <b>(admin)</b></span>
                 </Label>
                 <Input className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Senha</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Informe a senha do servidor SHOUTcast ou Icecast</span>
                 </Label>
                 <Input className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Id</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Informe o ID (Stream ID ou Ponto de montagem) do seu streaming no servidor</span>
                 </Label>
                 <Input className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>URL</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Informe o endereço do website da emissora</span>
                 </Label>

@@ -17,33 +17,33 @@ export const PlaylistServer = () => {
               </div>
             </header>
             <div className="flex flex-col items-center gap-4 px-4 py-8 border border-t-0 rounded-md rounded-t-none gap-x-4 border-muted-foreground/25 sm:px-6">
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Servidor</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">[Descrição]</span>
                 </Label>
-                <Input placeholder="Seu servidor" className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
+                <Input placeholder="Seu servidor" className="w-full dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Porta</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">[Descrição]</span>
                 </Label>
-                <Input placeholder="0" className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
+                <Input placeholder="0" className="w-full dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Usuário</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">[Descrição]</span>
                 </Label>
-                <Input placeholder="Admin" className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
+                <Input placeholder="Admin" className="w-full dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Senha</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">[Descrição]</span>
                 </Label>
-                <Input placeholder="************" type="password" className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
+                <Input placeholder="************" type="password" className="w-full dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
             </div>
           </div>

@@ -12,14 +12,14 @@ export const Outputs = () => {
             <header className="justify-between px-4 py-6 mx-auto border rounded-md rounded-b-none border-muted-foreground/25 sm:flex sm:px-6">
               <div className="flex items-center w-full">
                 <div>
-                  <h1 className="text-2xl font-bold tracking-tight">Station Office</h1>
+                  <h1 className="text-2xl font-bold tracking-tight">Saídas</h1>
                   <p className="text-sm text-muted-foreground">[Descrição]</p>
                 </div>
               </div>
             </header>
             <div className="flex flex-col items-center gap-4 px-4 py-8 border border-t-0 rounded-md rounded-t-none gap-x-4 border-muted-foreground/25 sm:px-6">
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Programação</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Saída de áudio padrão para a programação.</span>
                 </Label>
@@ -39,8 +39,8 @@ export const Outputs = () => {
                   </SelectContent>
                 </Select>
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Pré-escuta</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Saída de áudio para pré-escuta</span>
                 </Label>
@@ -60,8 +60,8 @@ export const Outputs = () => {
                   </SelectContent>
                 </Select>
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>QuickStart</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Saída de áudio para veicular o áudio QuickStart</span>
                 </Label>
@@ -81,8 +81,8 @@ export const Outputs = () => {
                   </SelectContent>
                 </Select>
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Opção Tocar</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Saída utilizada ao exibir um áudio pela opção "Tocar"</span>
                 </Label>
@@ -102,8 +102,8 @@ export const Outputs = () => {
                   </SelectContent>
                 </Select>
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Comerciais</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Saída de áudio usada para veicular comerciais</span>
                 </Label>
@@ -123,8 +123,8 @@ export const Outputs = () => {
                   </SelectContent>
                 </Select>
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Músicas</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Saída de áudio usada para veicular músicas</span>
                 </Label>
@@ -144,8 +144,8 @@ export const Outputs = () => {
                   </SelectContent>
                 </Select>
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Vinhetas</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Saída de áudio usada para veicular vinhetas</span>
                 </Label>
@@ -177,26 +177,26 @@ export const Outputs = () => {
               </div>
             </header>
             <div className="flex flex-col items-center gap-4 px-4 py-8 border border-t-0 rounded-md rounded-t-none gap-x-4 border-muted-foreground/25 sm:px-6">
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Fone de ouvido (WH-1000XM5)</span>
                 </Label>
                 <Input defaultValue="CH1" className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Conector AUX Interno (DroidCam Audio)</span>
                 </Label>
                 <Input defaultValue="CH2" className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>LU28R55 (HD Audio Driver for Display Audio)</span>
                 </Label>
                 <Input defaultValue="CH3" className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Conector AUX Interno</span>
                 </Label>
                 <Input defaultValue="CH4" className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />

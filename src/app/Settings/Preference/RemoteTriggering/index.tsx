@@ -17,38 +17,38 @@ export const RemoteTriggering = () => {
               </div>
             </header>
             <div className="flex flex-col items-center gap-4 px-4 py-8 border border-t-0 rounded-md rounded-t-none gap-x-4 border-muted-foreground/25 sm:px-6">
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Aceitar comando em blocos locais</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Normalmmente os comandos remotos PLAY/STOP são ignorados nos blocos locais e aceitos apenas nos blocos 'Sat'</span>
                 </Label>
-                <Switch checked id="adm" />
+                <Switch checked id="adm" className="ml-auto"/>
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Aceita comando remoto 'PLAY'</span>
                 </Label>
-                <Switch checked id="adm" />
+                <Switch checked id="adm" className="ml-auto" />
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Aceita comendo remoto 'STOP'</span>
                 </Label>
-                <Switch checked id="adm" />
+                <Switch checked id="adm" className="ml-auto" />
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Ignora comando remoto 'STOP' em bloco comercial</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Dois comenados em menos de 2 segundos será acatado.</span>
                 </Label>
-                <Switch checked id="adm" />
+                <Switch checked id="adm" className="ml-auto" />
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Se exibindo, 'PLAY' passa para o próximo áudio</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Ao receber o comando remoto 'PLAY' em um bloco em execução (Local ou Sat), passar para o próximoo áudio.</span>
                 </Label>
-                <Switch checked id="adm" />
+                <Switch checked id="adm" className="ml-auto" />
               </div>
             </div>
           </div>

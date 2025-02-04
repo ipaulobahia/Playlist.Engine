@@ -9,7 +9,7 @@ interface ButtonTooltipProps extends Pick<ButtonProps, "variant" | "size" | "cla
 
 export const ButtonTooltip = ({ icon: Icon, message, className, size = 'icon', variant = 'ghost' }: ButtonTooltipProps) => {
   return (
-    <Tooltip>
+    <Tooltip delayDuration={100}>
       <TooltipTrigger asChild>
         <span tabIndex={0}>
           <Button size={size} variant={variant} className={cn(className)}>

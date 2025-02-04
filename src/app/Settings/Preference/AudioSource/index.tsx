@@ -19,8 +19,8 @@ export const AudioSource = () => {
               </div>
             </header>
             <div className="flex flex-col items-center gap-4 px-4 py-8 border border-t-0 rounded-md rounded-t-none gap-x-4 border-muted-foreground/25 sm:px-6">
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Entrada de áudio</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Fonte do áudio da rede via satélite.</span>
                 </Label>
@@ -43,8 +43,8 @@ export const AudioSource = () => {
                   </SelectContent>
                 </Select>
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Plugin DSP</span>
                 </Label>
                 <Select>
@@ -59,36 +59,36 @@ export const AudioSource = () => {
                   </SelectContent>
                 </Select>
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Exibir entrada de linha enquanto parado</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Fecha entrada de linha ao iniciar a programação e abre ao parar.</span>
                 </Label>
-                <Switch checked id="adm" />
+                <Switch checked id="adm" className="ml-auto" />
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Tempo de espera ates de fechar linha</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Informe o teempo de espera em segundos.</span>
                 </Label>
                 <Input placeholder="0" className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Comando DTMF Play</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Executar o comando remoto PLAY quando receber a sequência na entrada de áudio.</span>
                 </Label>
                 <Input className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Comando DTMF Stop</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Executar o comando remoto STOP quando receber a sequência na entrada de áudio.</span>
                 </Label>
                 <Input className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Nivel DTMF</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Um valor alto pode fazer comm que disparos sejam ignorados, Um valor muito baixo pode causar falsos disparos.</span>
                 </Label>

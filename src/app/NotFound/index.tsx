@@ -11,8 +11,8 @@ export const NotFound = () => {
         </div>
       </div>
       <div className="flex flex-col my-6 text-center">
-        <span className="tracking-wide">Parece que você encontrou a porta para o grande nada</span>
-        <span className="tracking-wide">Desculpe por isso! Por favor, vamos te redirecionar para a página inicial para te auxiliar a chegar onde você precisa ir.</span>
+        <span className="tracking-wide">Parece que você encontrou a porta para o grande nada!</span>
+        <span className="tracking-wide">Vamos te redirecionar para a página inicial para te auxiliar a chegar onde você precisa ir.</span>
       </div>
       <Link to={'/'}>
         <Button size={'lg'} className="mt-3">

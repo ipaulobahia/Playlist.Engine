@@ -19,8 +19,8 @@ export const RdsRss = () => {
               </div>
             </header>
             <div className="flex flex-col items-center gap-4 px-4 py-8 border border-t-0 rounded-md rounded-t-none gap-x-4 border-muted-foreground/25 sm:px-6">
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Modelo</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Selecione o modelo a ser utilizado: <b>Arquivo,Acadia Biquad, Audemat, Audemat Enc. Silver ou Inovonics</b></span>
                 </Label>
@@ -40,33 +40,33 @@ export const RdsRss = () => {
                   </SelectContent>
                 </Select>
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Endereço do encoder RDS</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Informe o endereço IP e porta do encoder RDS <b>(IP:Porta)</b></span>
                 </Label>
                 <Input className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Texto padrão</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Informe o texto que será enviado quando não estiver executando música e nos blocos comerciais sem título</span>
                 </Label>
                 <Input className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Enviar comerciais</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Enviar o nome das inserções comerciais em execução</span>
                 </Label>
-                <Switch checked id="adm" />
+                <Switch className="ml-auto" checked id="adm" />
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Remover carecteres especiais</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Remove caracteres especiais do nome da inserção</span>
                 </Label>
-                <Switch checked id="adm" />
+                <Switch className="ml-auto" checked id="adm" />
               </div>
             </div>
           </div>
@@ -80,40 +80,40 @@ export const RdsRss = () => {
               </div>
             </header>
             <div className="flex flex-col items-center gap-4 px-4 py-8 border border-t-0 rounded-md rounded-t-none gap-x-4 border-muted-foreground/25 sm:px-6">
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Endereço de Feed</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Adicione as URLS separadas por <b>;</b></span>
                 </Label>
                 <Input className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Intervalo em segundos para envio de RDS</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Configure quantos segundos a aplicação deve esperar deve esperar antes de enviar outro titulo de notícia para o RDS</span>
                 </Label>
                 <Input placeholder="180" className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Tamanho do campo PS do RDS</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Verificar documentação do RDS <b>(Padrão: 64)</b></span>
                 </Label>
                 <Input placeholder="64" className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Tamanho do campo RT do RDS</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Verificar documentação do RDS <b>(Padrão: 64)</b></span>
                 </Label>
                 <Input placeholder="64" className="flex-1 dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
               </div>
-              <div className="flex flex-row items-center justify-between w-full gap-x-4">
-                <Label className="flex flex-col text-sm font-medium leading-none gap-y-1 w-[65%]">
+              <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
+                <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
                   <span>Enviar o mesmo para o campo RT e PS</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Enviar o título da notícia para os campos <b>PS</b> e <b>RT</b> do <b>RDS</b></span>
                 </Label>
-                <Switch checked id="adm" />
+                <Switch className="ml-auto" checked id="adm" />
               </div>
             </div>
           </div>

@@ -1,14 +1,14 @@
 import { DrawerDialogLicense } from "@/components/DrawerDialogLicense";
 import { Button } from "@/components/ui/button";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider } from "@/components/ui/sidebar";
 import { FAKE_CONFIG_PREFERENCE } from "@/utils/fakeData";
-import { ChevronLeft, CircleAlert, Cog, FileCog, User, UserPen, Users } from "lucide-react";
+import { ChevronLeft, ChevronRight, CircleAlert, Cog, FileCog } from "lucide-react";
 import { useState } from "react";
 // @ts-ignore
 import "react-color-palette/css";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import { DrawerDialogCreateOperator, DrawerDialogCreateProfile } from "./components";
-import { PreferenceSidebarMenuItem } from "./components/PreferenceSidebarMenuItem";
+import { PreferenceSidebarMenuItem } from "./components";
 
 export const SettingsLayout = () => {
   const { pathname } = useLocation()
@@ -23,7 +23,7 @@ export const SettingsLayout = () => {
     <SidebarProvider>
       <Sidebar collapsible="none" className="fixed z-10 hidden h-screen border-r sm:flex top-14 border-muted-foreground/25">
         <SidebarContent className="gap-1.5 mb-16">
-          <div className="px-2 pt-2">
+          <div className="px-2 pt-2 w-fit">
             <Link to={'/overview'}>
               <Button className="flex flex-row items-center justify-center px-2" size={'sm'} variant={'ghost'}>
                 <ChevronLeft size={16} />
@@ -31,140 +31,89 @@ export const SettingsLayout = () => {
               </Button>
             </Link>
           </div>
-          <SidebarGroup className="px-3">
-            <div className="flex flex-row items-center">
-              <User size={16} />
-              <SidebarGroupLabel>[Nome do Operador]</SidebarGroupLabel>
-            </div>
-            <SidebarGroupContent className="pl-4">
-              <SidebarMenu>
-                <SidebarMenuItem>
-                  <Link to={'/settings/my-account/operator'}>
-                    <SidebarMenuButton className={`${pathname.includes('/settings/my-account/operator') && 'font-bold bg-sidebar-accent'}`}>
-                      <span className="text-xs">
-                        Operador
-                      </span>
-                    </SidebarMenuButton>
-                  </Link>
-                </SidebarMenuItem>
-                <SidebarMenuItem>
-                  <Link to={'/settings/my-account/appearance'}>
-                    <SidebarMenuButton className={`${pathname.includes('/settings/my-account/appearance') && 'font-bold bg-sidebar-accent'}`}>
-                      <span className="text-xs">
-                        Aparência
-                      </span>
-                    </SidebarMenuButton>
-                  </Link>
-                </SidebarMenuItem>
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
-          <SidebarGroup className="px-3 pt-0">
-            <div className="flex flex-row items-center">
-              <UserPen size={16} />
-              <SidebarGroupLabel>Perfil</SidebarGroupLabel>
-            </div>
-            <SidebarGroupContent className="pl-4">
-              <SidebarMenu>
-                <SidebarMenuItem>
-                  <DrawerDialogCreateProfile />
-                </SidebarMenuItem>
-                <SidebarMenuItem>
-                  <Link to={'/settings/profile/manage-profile'}>
-                    <SidebarMenuButton className={`${pathname.includes('/settings/profile/manage-profile') && 'font-bold bg-sidebar-accent'}`}>
-                      <span className="text-xs">
-                        Gerenciar perfils
-                      </span>
-                    </SidebarMenuButton>
-                  </Link>
-                </SidebarMenuItem>
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
-          <SidebarGroup className="px-3 pt-0">
-            <div className="flex flex-row items-center">
-              <Users size={16} />
-              <SidebarGroupLabel>Operadores</SidebarGroupLabel>
-            </div>
-            <SidebarGroupContent className="pl-4">
-              <SidebarMenu>
-                <SidebarMenuItem>
-                  <DrawerDialogCreateOperator />
-                </SidebarMenuItem>
-                <SidebarMenuItem>
-                  <Link to={'/settings/operators/manage-operators'}>
-                    <SidebarMenuButton className={`${pathname.includes('/settings/operators/manage-operators') && 'font-bold bg-sidebar-accent'}`}>
-                      <span className="text-xs">
-                        Gerenciar operadores
-                      </span>
-                    </SidebarMenuButton>
-                  </Link>
-                </SidebarMenuItem>
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
-          <SidebarGroup className="px-3 pt-0">
-            <div className="flex flex-row items-center">
-              <FileCog size={16} />
-              <SidebarGroupLabel>Playlist.Ini</SidebarGroupLabel>
-            </div>
-            <SidebarGroupContent className="pl-4">
-              <SidebarMenu>
-                <SidebarMenuItem>
-                  <Link to={'/settings/playlist-ini/basic-settings'}>
-                    <SidebarMenuButton className={`${pathname.includes('/settings/playlist-ini/basic-settings') && 'font-bold bg-sidebar-accent'}`}>
-                      <span className="text-xs">
-                        Configurações básicas
-                      </span>
-                    </SidebarMenuButton>
-                  </Link>
-                </SidebarMenuItem>
-                <SidebarMenuItem>
-                  <Link to={'/settings/playlist-ini/affiliates'}>
-                    <SidebarMenuButton className={`${pathname.includes('/settings/playlist-ini/affiliates') && 'font-bold bg-sidebar-accent'}`}>
-                      <span className="text-xs">
-                        Afiliadas
-                      </span>
-                    </SidebarMenuButton>
-                  </Link>
-                </SidebarMenuItem>
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
-          <SidebarGroup className="px-3 pt-0">
-            <div className="flex flex-row items-center">
-              <Cog size={16} />
-              <SidebarGroupLabel>Preferências</SidebarGroupLabel>
-            </div>
-            <SidebarGroupContent className="pl-4">
-              <SidebarMenu>
-                {
-                  FAKE_CONFIG_PREFERENCE.map(({ id, name, path }) => {
-                    return (
-                      <PreferenceSidebarMenuItem key={id} name={name} path={path} />
-                    )
-                  })
-                }
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
-          <SidebarGroup className="px-3 pt-0">
-            <div className="flex flex-row items-center">
-              <CircleAlert size={16} />
-              <SidebarGroupLabel>Outros</SidebarGroupLabel>
-            </div>
-            <SidebarGroupContent className="pl-4">
-              <SidebarMenu>
-                <SidebarMenuItem>
-                  <SidebarMenuButton onClick={handlerDrawerDialogLicense}>
-                    <span className="text-xs">
-                      Licença
-                    </span>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
+          <Collapsible className="group/collapsible" asChild>
+            <SidebarGroup className="px-3">
+              <CollapsibleTrigger asChild>
+                <div className="flex flex-row items-center px-2 rounded-md cursor-pointer hover:bg-sidebar-accent hover:text-sidebar-accent-foregroun">
+                  <Cog size={16} />
+                  <SidebarGroupLabel>Configurações</SidebarGroupLabel>
+                  <ChevronRight size={16} className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                </div>
+              </CollapsibleTrigger>
+              <CollapsibleContent>
+                <SidebarGroupContent className="pl-6">
+                  <SidebarMenu>
+                    {
+                      FAKE_CONFIG_PREFERENCE.map(({ id, name, path }) => {
+                        return (
+                          <PreferenceSidebarMenuItem key={id} name={name} path={path} />
+                        )
+                      })
+                    }
+                  </SidebarMenu>
+                </SidebarGroupContent>
+              </CollapsibleContent>
+            </SidebarGroup>
+          </Collapsible>
+          <Collapsible className="group/collapsible" asChild>
+            <CollapsibleTrigger asChild>
+              <SidebarGroup className="px-3 pt-0">
+                <div className="flex flex-row items-center px-2 rounded-md cursor-pointer hover:bg-sidebar-accent hover:text-sidebar-accent-foregroun">
+                  <FileCog size={16} />
+                  <SidebarGroupLabel>Playlist.Ini</SidebarGroupLabel>
+                  <ChevronRight size={16} className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                </div>
+                <CollapsibleContent>
+                  <SidebarGroupContent className="pl-6">
+                    <SidebarMenu>
+                      <SidebarMenuItem>
+                        <Link to={'/settings/playlist-ini/basic-settings'}>
+                          <SidebarMenuButton className={`${pathname.includes('/settings/playlist-ini/basic-settings') && 'font-bold bg-sidebar-accent'}`}>
+                            <span className="text-xs">
+                              Configurações básicas
+                            </span>
+                          </SidebarMenuButton>
+                        </Link>
+                      </SidebarMenuItem>
+                      <SidebarMenuItem>
+                        <Link to={'/settings/playlist-ini/affiliates'}>
+                          <SidebarMenuButton className={`${pathname.includes('/settings/playlist-ini/affiliates') && 'font-bold bg-sidebar-accent'}`}>
+                            <span className="text-xs">
+                              Afiliadas
+                            </span>
+                          </SidebarMenuButton>
+                        </Link>
+                      </SidebarMenuItem>
+                    </SidebarMenu>
+                  </SidebarGroupContent>
+                </CollapsibleContent>
+              </SidebarGroup>
+            </CollapsibleTrigger>
+          </Collapsible>
+          <Collapsible className="group/collapsible" asChild>
+            <CollapsibleTrigger asChild>
+              <SidebarGroup className="px-3 pt-0">
+                <div className="flex flex-row items-center px-2 rounded-md cursor-pointer hover:bg-sidebar-accent hover:text-sidebar-accent-foregroun">
+                  <CircleAlert size={16} />
+                  <SidebarGroupLabel>Outros</SidebarGroupLabel>
+                  <ChevronRight size={16} className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                </div>
+                <CollapsibleContent>
+                  <SidebarGroupContent className="pl-6">
+                    <SidebarMenu>
+                      <SidebarMenuItem>
+                        <SidebarMenuButton onClick={handlerDrawerDialogLicense}>
+                          <span className="text-xs">
+                            Licença
+                          </span>
+                        </SidebarMenuButton>
+                      </SidebarMenuItem>
+                    </SidebarMenu>
+                  </SidebarGroupContent>
+                </CollapsibleContent>
+              </SidebarGroup>
+            </CollapsibleTrigger>
+          </Collapsible>
         </SidebarContent>
       </Sidebar>
       <div className="w-full p-0 sm:pl-[--sidebar-width] transition-all ease-linear">

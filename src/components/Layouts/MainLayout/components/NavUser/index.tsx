@@ -45,7 +45,7 @@ export const NavUser = () => {
           </div>
           <Separator className="h-px my-1 -mx-1 bg-muted" />
           <div>
-            <Link to={'/settings/my-account/operator'}>
+            <Link to={'/settings'}>
               <div className="cursor-pointer relative flex select-none items-center gap-2 rounded-sm px-2 py-1.5 text-xs transition-colors hover:bg-accent hover:text-accent-foreground [&>svg]:size-4">
                 <Cog />
                 Configurações
@@ -55,7 +55,7 @@ export const NavUser = () => {
               <Copyright />
               Licença
             </div>
-          </div>
+          </div >
           <Separator className="h-px my-1 -mx-1 bg-muted" />
           <Link to={'/'}>
             <div className="cursor-pointer relative flex select-none items-center gap-2 rounded-sm px-2 py-1.5 text-xs transition-colors hover:bg-accent hover:text-accent-foreground [&>svg]:size-4">

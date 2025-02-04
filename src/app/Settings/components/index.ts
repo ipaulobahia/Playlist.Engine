@@ -1,0 +1,1 @@
+export { ResumedAffiliatesTable } from "./ResumedAffiliatesTable";
