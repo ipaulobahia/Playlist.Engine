@@ -2,18 +2,22 @@ import { Button } from "@/components/ui/button"
 import { Collapsible } from "@/components/ui/collapsible"
 import { SidebarGroup, SidebarGroupLabel } from "@/components/ui/sidebar"
 import { ChevronLeft, User, UserPen, Users } from "lucide-react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 export const OperatorSidebarGroup = () => {
+  const navigate = useNavigate()
+
+  function goBack() {
+    navigate(-1)
+  }
+
   return (
     <>
       <div className="px-2 pt-2 w-fit">
-        <Link to={'/overview'}>
-          <Button className="flex flex-row items-center justify-center px-2" size={'sm'} variant={'ghost'}>
-            <ChevronLeft size={16} />
-            <span className="text-sm font- text-sidebar-foreground">Voltar</span>
-          </Button>
-        </Link>
+        <Button onClick={goBack} className="flex flex-row items-center justify-center px-2" size={'sm'} variant={'ghost'}>
+          <ChevronLeft size={16} />
+          <span className="text-sm font- text-sidebar-foreground">Voltar</span>
+        </Button>
       </div>
       <Collapsible className="group/collapsible" asChild>
         <SidebarGroup className="px-3">

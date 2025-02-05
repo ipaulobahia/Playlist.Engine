@@ -2,16 +2,18 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { useInfoSidebar } from "@/hooks/use-sidebar";
+import { usePlaylistList } from "@/service/api/playlist/getPlaylistList";
 import { Info, List, Table2 } from "lucide-react";
+import { useSearchParams } from "react-router-dom";
 import { ArchiveBreadchumbs, ArchiveList, ArchiveTable } from "./components";
 
 export const Archive = () => {
-  // const [searchParams] = useSearchParams();
-  // const folderId = searchParams.get("folderId");
   const { toggleSidebar, isOpen } = useInfoSidebar()
+  const [searchParams] = useSearchParams();
 
-  // const { data } = useFiles("99")
-  // const folderName = data && data.folder.folderName
+  const folderId = searchParams.get("folderId");
+
+  const { data } = usePlaylistList(folderId)
 
   return (
     <main className="flex-1 p-3">
@@ -19,12 +21,7 @@ export const Archive = () => {
       <Tabs defaultValue="list">
         <div className="px-3 space-y-3">
           <div className="flex flex-row items-start justify-between gap-2 sm:items-center">
-            <div className="flex flex-row items-start gap-1">
-              <div className="flex flex-col gap-0.5">
-                <span className="text-xl font-semibold">[Nome da Pasta]</span>
-                <span className="text-sm font-normal text-muted-foreground">[Descrição da Pasta]</span>
-              </div>
-            </div>
+            <span className="text-xl font-semibold">{data?.title}</span>
             <TabsList className="hidden ml-auto sm:flex">
               <TooltipProvider>
                 <Tooltip delayDuration={100}>

@@ -1,10 +1,15 @@
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb"
-import { Link, useNavigate } from "react-router-dom"
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { usePlaylistList } from "@/service/api/playlist/getPlaylistList";
+import { CategoryEnum } from "@/utils";
+import { Link, useSearchParams } from "react-router-dom";
 
 export const ArchiveBreadchumbs = () => {
-  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
 
-  function goBack() { navigate(-1) }
+  const categoryType = searchParams.get("categoryType");
+  const folderId = searchParams.get("folderId");
+
+  const { data } = usePlaylistList(folderId)
 
   return (
     <Breadcrumb className="p-3">
@@ -26,13 +31,15 @@ export const ArchiveBreadchumbs = () => {
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink className="cursor-pointer" onClick={goBack}>
-            [Nome da Categoria]
+          <BreadcrumbLink className="cursor-pointer">
+            <Link to={`/library/category?categoryType=${categoryType}`}>
+              {CategoryEnum[categoryType as keyof typeof CategoryEnum]}
+            </Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbPage>[Nome da Pasta]</BreadcrumbPage>
+          <BreadcrumbPage>{data?.title}</BreadcrumbPage>
         </BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>

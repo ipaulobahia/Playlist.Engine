@@ -2,9 +2,21 @@ import { FileContextMenu } from "@/components/FileContextMenu"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import { Input } from "@/components/ui/input"
 import { SidebarGroup, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem } from "@/components/ui/sidebar"
+import { usePlaylistList } from "@/service/api/playlist/getPlaylistList"
+import { CategoryEnum } from "@/utils"
 import { FolderOpen, Search } from "lucide-react"
+import { useSearchParams } from "react-router-dom"
 
 export const ArchiveSidebarGroup = () => {
+  const [searchParams] = useSearchParams();
+
+  const categoryType = searchParams.get("categoryType");
+  const folderId = searchParams.get("folderId");
+
+  const { data } = usePlaylistList(folderId)
+
+  const emptyList = !data || !data.hasOwnProperty("mediaFiles")
+
   return (
     <SidebarGroup>
       <div className="relative">
@@ -13,27 +25,31 @@ export const ArchiveSidebarGroup = () => {
           <Search size={16} />
         </span>
       </div>
-      <SidebarGroupLabel>[Nome da Categoria]</SidebarGroupLabel>
+      <SidebarGroupLabel>
+        {CategoryEnum[categoryType as keyof typeof CategoryEnum]}
+      </SidebarGroupLabel>
       <SidebarMenu>
         <Collapsible asChild open>
           <SidebarMenuItem>
             <CollapsibleTrigger asChild>
-              <SidebarMenuButton>
+              <SidebarMenuButton className="cursor-default">
                 <FolderOpen />
-                <span className="text-xs">[Nome da Pasta]</span>
+                <span className="text-xs">{data?.title}</span>
               </SidebarMenuButton>
             </CollapsibleTrigger>
             <CollapsibleContent className="pb-16">
               <SidebarMenuSub>
-                {[...Array(45)].map((_, index) => (
-                  <FileContextMenu key={index}>
-                    <SidebarMenuSubItem>
-                      <SidebarMenuSubButton asChild>
-                        <span className="text-xs">Arquivos - {index.toString().padStart(2, "0")}</span>
-                      </SidebarMenuSubButton>
-                    </SidebarMenuSubItem>
-                  </FileContextMenu>
-                ))}
+                {
+                  !emptyList && data?.mediaFiles.map(({ title, fileId }) => (
+                    <FileContextMenu key={fileId}>
+                      <SidebarMenuSubItem>
+                        <SidebarMenuSubButton className="cursor-pointer" asChild>
+                          <span className="overflow-hidden text-xs select-none text-ellipsis whitespace-nowrap">{title}</span>
+                        </SidebarMenuSubButton>
+                      </SidebarMenuSubItem>
+                    </FileContextMenu>
+                  ))
+                }
               </SidebarMenuSub>
             </CollapsibleContent>
           </SidebarMenuItem>

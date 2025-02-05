@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/table"
 import { useInfoSidebar } from "@/hooks/use-sidebar"
 import { useFiles } from "@/service/api/files/getFiles"
+import { MediaFiles } from "@/service/api/playlist/getPlaylistList"
 import {
   ColumnFiltersState,
   flexRender,
@@ -58,12 +59,12 @@ export const ArchiveTable = () => {
     getFacetedUniqueValues: getFacetedUniqueValues(),
   })
 
-  function handlerSelectedRow(row: Row<File>, table: Table<File>) {
-    const fileId = row.original.fileId
+  function handlerSelectedRow(row: Row<MediaFiles>, table: Table<MediaFiles>) {
+    const fileId = row.original.folderId
     table.toggleAllPageRowsSelected(false)
     row.toggleSelected()
     setSearchParams((params) => {
-      params.set("fileId", fileId)
+      params.set("fileId", fileId.toString())
       return params
     })
     selectRow(row.original)

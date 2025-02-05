@@ -7,11 +7,12 @@ import { ChevronLeft, ChevronRight, CircleAlert, Cog, FileCog } from "lucide-rea
 import { useState } from "react";
 // @ts-ignore
 import "react-color-palette/css";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { PreferenceSidebarMenuItem } from "./components";
 
 export const SettingsLayout = () => {
   const { pathname } = useLocation()
+  const navigate = useNavigate()
 
   const [open, setOpen] = useState(false)
 
@@ -19,17 +20,19 @@ export const SettingsLayout = () => {
     setOpen(prev => !prev)
   }
 
+  function goBack() {
+    navigate(-1)
+  }
+
   return (
     <SidebarProvider>
       <Sidebar collapsible="none" className="fixed z-10 hidden h-screen border-r sm:flex top-14 border-muted-foreground/25">
         <SidebarContent className="gap-1.5 mb-16">
           <div className="px-2 pt-2 w-fit">
-            <Link to={'/overview'}>
-              <Button className="flex flex-row items-center justify-center px-2" size={'sm'} variant={'ghost'}>
-                <ChevronLeft size={16} />
-                <span className="text-sm font- text-sidebar-foreground">Voltar</span>
-              </Button>
-            </Link>
+            <Button onClick={goBack} className="flex flex-row items-center justify-center px-2" size={'sm'} variant={'ghost'}>
+              <ChevronLeft size={16} />
+              <span className="text-sm font- text-sidebar-foreground">Voltar</span>
+            </Button>
           </div>
           <Collapsible className="group/collapsible" asChild>
             <SidebarGroup className="px-3">

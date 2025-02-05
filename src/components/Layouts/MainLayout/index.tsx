@@ -1,4 +1,5 @@
 import { ModeToggle } from "@/components/mode-toggle"
+import { StationSwitcher } from "@/components/StationSwitcher"
 import { NavigationMenu, NavigationMenuItem, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu"
 import { Link, Outlet, useLocation } from "react-router-dom"
 import { NavUser } from "./components"
@@ -52,6 +53,7 @@ export const MainLayout = () => {
           </div>
           <div className="flex flex-row items-center gap-x-2">
             <ModeToggle />
+            <StationSwitcher />
             <NavUser />
           </div>
         </div>

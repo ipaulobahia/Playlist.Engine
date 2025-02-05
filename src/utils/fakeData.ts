@@ -1758,36 +1758,43 @@ export const FAKE_LIST_CATEGORY = [
   {
     id: 1,
     name: "Lista",
+    value: "List",
     icon: PlayButton
   },
   {
     id: 1,
     name: "Recentes",
+    value: "Dynamic",
     icon: PendingFileSVG
   },
   {
     id: 2,
     name: "Gênero",
+    value: "Genre",
     icon: SaxSVG
   },
   {
     id: 3,
     name: "Ritmo",
+    value: "Rhythm",
     icon: KeyboardMusicSVG
   },
   {
     id: 4,
     name: "Classificação",
+    value: "Concept",
     icon: StarSVG
   },
   {
     id: 5,
     name: "Idioma",
+    value: "Language",
     icon: FlagSVG
   },
   {
     id: 6,
     name: "Vocal",
+    value: "Vocal",
     icon: MicSVG
   }
 ]
@@ -1796,46 +1803,55 @@ export const FAKE_LIST_OTHER_CATEGORIES = [
   {
     id: 0,
     name: "Artistas",
+    value: "Artist",
     icon: SingerSVG
   },
   {
     id: 1,
     name: "Ano",
+    value: "Year",
     icon: CalendarSVG
   },
   {
     id: 2,
     name: "Album",
+    value: "Album",
     icon: DiscSVG
   },
   {
     id: 3,
     name: "Compositor",
+    value: "Composer",
     icon: GuitarSVG
   },
   {
     id: 4,
     name: "Gravadora",
+    value: "Publisher",
     icon: ClapperBoardSVG
   },
   {
     id: 5,
     name: "Vinhetas",
+    value: "",
     icon: MusicNoteSVG
   },
   {
     id: 6,
     name: "Comerciais",
+    value: "",
     icon: CommercialSVG
   },
   {
     id: 7,
     name: "Textos",
+    value: "",
     icon: TextSVG
   },
   {
     id: 8,
     name: "Pastas",
+    value: "Folder",
     icon: FolderSVG
   }
 ]

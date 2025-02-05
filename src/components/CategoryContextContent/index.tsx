@@ -3,18 +3,18 @@ import { Link } from "react-router-dom"
 import { ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuTrigger } from "../ui/context-menu"
 
 interface CategoryContextContentProps {
-  categoryId: number
+  categoryType: string
   children: React.ReactNode
 }
 
-export const CategoryContextContent = ({ children, categoryId }: CategoryContextContentProps) => {
+export const CategoryContextContent = ({ children, categoryType }: CategoryContextContentProps) => {
   return (
     <ContextMenu>
       <ContextMenuTrigger asChild>
         {children}
       </ContextMenuTrigger>
       <ContextMenuContent>
-        <Link to={`/library/category?categoryId=${categoryId}`}>
+        <Link to={`/library/category?categoryType=${categoryType}`}>
           <ContextMenuItem className="flex flex-row items-center gap-x-2">
             <FolderOpen size={16} />
             <span>

@@ -1,10 +1,11 @@
+import { MediaFiles } from '@/service/api/playlist/getPlaylistList';
 import { createContext } from 'react';
 
 interface InfoSidebarContextType {
   isOpen: boolean;
   toggleSidebar: () => void;
-  row: File | null
-  selectRow: (row: File) => void
+  row: MediaFiles | null
+  selectRow: (row: MediaFiles) => void
   closeSidebar: () => void;
 }
 

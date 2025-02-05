@@ -3,7 +3,23 @@ import { ColumnFiltersState, flexRender, getCoreRowModel, getFacetedRowModel, ge
 import { useState } from "react"
 import { columns } from './components'
 
-const data = [] as any[]
+const data = [
+  {
+    id: 1,
+    name: "Vitor-PC",
+    ip: "192.168.0.25"
+  },
+  {
+    id: 2,
+    name: "Elton-PC",
+    ip: "192.168.0.2"
+  },
+  {
+    id: 1,
+    name: "Ricardo-PC",
+    ip: "192.168.0.1"
+  }
+]
 
 export const ResumedAffiliatesTable = () => {
   const [rowSelection, setRowSelection] = useState({})

@@ -18,7 +18,7 @@ export const columns: ColumnDef<AffiliatesTable>[] = [
   {
     accessorKey: "name",
     header: ({ column }) => (<HeaderFilter column={column} title="Nome" />),
-    cell: ({ row }) => (<div>{row.getValue("name")}</div>),
+    cell: ({ row }) => (<div className="text-start">{row.getValue("name")}</div>),
   },
   {
     accessorKey: "ip",

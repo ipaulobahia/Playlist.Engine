@@ -8,3 +8,37 @@ export const profileColors = [
   { label: 'Verde', value: '#22C55E', bg: 'bg-green-500' },
   { label: 'Rosa', value: '#F43F5E', bg: 'bg-rose-500' },
 ];
+
+export enum CategoryEnum {
+  Genre = "Gênero",
+  Artist = "Artista",
+  Composer = "Compositor",
+  Publisher = "Gravadora",
+  Album = "Album",
+  Rhythm = "Ritmo",
+  Language = "Idioma",
+  Year = "Ano",
+  Folder = "Pasta",
+  Concept = "Classificação",
+  Vocal = "Vocal",
+  List = "Lista",
+  Generic = "Gênerico",
+  Dynamic = "Dinâmico"
+}
+
+export enum CategoryEnumReverse {
+  Gênero = "Genre",
+  Artista = "Artist",
+  Compositor = "Composer",
+  Gravadora = "Publisher",
+  Album = "Album",
+  Ritmo = "Rhythm",
+  Idioma = "Language",
+  Ano = "Year",
+  Pasta = "Folder",
+  Classificação = "Concept",
+  Vocal = "Vocal",
+  Lista = "List",
+  Gênerico = "Generic",
+  Dinâmico = "Dynamic"
+}

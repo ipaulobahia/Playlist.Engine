@@ -8,7 +8,7 @@ import { Link, useSearchParams } from "react-router-dom"
 export const CategorySidebarGroup = () => {
   const [searchParams] = useSearchParams();
 
-  const categoryId = searchParams.get("categoryId");
+  const categoryType = searchParams.get("categoryType");
 
   return (
     <SidebarGroup>
@@ -22,11 +22,11 @@ export const CategorySidebarGroup = () => {
       <SidebarGroupContent className="pb-16">
         <SidebarMenu>
           {
-            [...FAKE_LIST_CATEGORY, ...FAKE_LIST_OTHER_CATEGORIES].map(({ icon, name }, index) => {
+            [...FAKE_LIST_CATEGORY, ...FAKE_LIST_OTHER_CATEGORIES].map(({ icon, name, value }) => {
               return (
-                <CategoryContextContent key={index} categoryId={index}>
-                  <SidebarMenuItem className={`${(categoryId === index.toString()) && 'bg-sidebar-accent text-sidebar-accent-foreground'}`}>
-                    <Link to={`/library/category?categoryId=${index}`}>
+                <CategoryContextContent key={value} categoryType={value}>
+                  <SidebarMenuItem className={`${(categoryType === value.toString()) && 'bg-sidebar-accent text-sidebar-accent-foreground'}`}>
+                    <Link to={`/library/category?categoryType=${value}`}>
                       <SidebarMenuButton className="flex flex-row items-center justify-start">
                         <img src={icon} className="w-3.5 h-3.5" />
                         <span>

@@ -66,9 +66,9 @@ export const Library = () => {
         </span>
         <div className="flex flex-row gap-2 mt-3">
           {
-            FAKE_LIST_CATEGORY.map(({ id, name, icon }) => {
+            FAKE_LIST_CATEGORY.map(({ name, icon, value }) => {
               return (
-                <Link to={`/library/category?categoryId=${id}`}>
+                <Link to={`/library/category?categoryType=${value}`}>
                   <Card className="flex flex-col items-center justify-center w-32 gap-2 p-3 bg-transparent border-0 rounded cursor-pointer dark:hover:bg-muted/50 hover:bg-muted">
                     <img src={icon} className="size-10" />
                     <span className="text-[13px] font-medium">
@@ -89,7 +89,7 @@ export const Library = () => {
           {
             FAKE_LIST_OTHER_CATEGORIES.map(({ id, name, icon }) => {
               return (
-                <Link to={`/library/category?categoryId=${id}`}>
+                <Link to={`/library/category?categoryType=${id}`}>
                   <Card className="flex flex-col items-center justify-center w-32 gap-2 p-3 bg-transparent border-0 rounded cursor-pointer dark:hover:bg-muted/50 hover:bg-muted">
                     <img src={icon} className="size-10" />
                     <span className="text-[13px] font-medium">

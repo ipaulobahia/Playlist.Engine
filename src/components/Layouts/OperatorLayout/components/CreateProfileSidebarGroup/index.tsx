@@ -3,21 +3,24 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import { SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar"
 import { ChevronLeft, ChevronRight, UserCog } from "lucide-react"
 import { useState } from "react"
-import { Link, useLocation } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 
 export const CreateProfileSidebarGroup = () => {
   const { pathname } = useLocation()
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(true)
+
+  function goBack() {
+    navigate(-1)
+  }
 
   return (
     <>
       <div className="px-2 pt-2 w-fit">
-        <Link to={'/operator'}>
-          <Button className="flex flex-row items-center justify-center px-2" size={'sm'} variant={'ghost'}>
-            <ChevronLeft size={16} />
-            <span className="text-sm font- text-sidebar-foreground">Voltar</span>
-          </Button>
-        </Link>
+        <Button onClick={goBack} className="flex flex-row items-center justify-center px-2" size={'sm'} variant={'ghost'}>
+          <ChevronLeft size={16} />
+          <span className="text-sm font- text-sidebar-foreground">Voltar</span>
+        </Button>
       </div>
       <Collapsible
         open={isOpen}

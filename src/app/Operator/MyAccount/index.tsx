@@ -1,5 +1,6 @@
 import { BRFlag, ESFlag, EUAFlag } from "@/assets/flags"
 import { DarkMode, LighMode, SystemMode } from "@/assets/images"
+import { useTheme } from "@/components/theme-provider"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -7,6 +8,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { DrawerDialogRemoveOperator } from "./components"
 
 export const MyAccount = () => {
+  const { setTheme, theme } = useTheme()
+
   return (
     <main className="relative flex flex-1 p-5 pb-20">
       <div className="justify-center w-full max-w-full mx-auto lg:max-w-3xl">
@@ -46,19 +49,25 @@ export const MyAccount = () => {
             </div>
             <div className="flex flex-row justify-between px-4 py-8 border-b gap-x-4 border-muted-foreground/25 border-x sm:px-6">
               <div className="flex flex-col items-start gap-2 cursor-pointer">
-                <img src={SystemMode} className="flex items-center justify-center flex-1 rounded-lg h-36 " />
+                <div onClick={() => setTheme("system")} className={`flex items-center justify-center flex-1 rounded-sm h-36 border-2 ${theme === "system" ? "border-blue-500" : "border-transparent"}`}>
+                  <img src={SystemMode} />
+                </div>
                 <span className="text-sm font-semibold text-accent-foreground">
                   Padrão do sitema
                 </span>
               </div>
               <div className="flex flex-col items-start gap-2 cursor-pointer">
-                <img src={LighMode} className="flex items-center justify-center flex-1 rounded-lg h-36 " />
+                <div onClick={() => setTheme("light")} className={`flex items-center justify-center flex-1 rounded-sm h-36 border-2 ${theme === "light" ? "border-blue-500" : "border-transparent"}`}>
+                  <img src={LighMode} />
+                </div>
                 <span className="text-sm font-semibold text-accent-foreground">
                   Modo claro
                 </span>
               </div>
               <div className="flex flex-col items-start gap-2 cursor-pointer">
-                <img src={DarkMode} className="flex items-center justify-center flex-1 rounded-lg h-36 " />
+                <div onClick={() => setTheme("dark")} className={`flex items-center justify-center flex-1 rounded-sm h-36 border-2 ${theme === "dark" ? "border-blue-500" : "border-transparent"}`}>
+                  <img src={DarkMode} />
+                </div>
                 <span className="text-sm font-semibold text-accent-foreground">
                   Modo escuro
                 </span>
