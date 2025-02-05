@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const http = axios.create({
-  baseURL: 'http://localhost:8010',
+  baseURL: ' https://a210-186-235-79-149.ngrok-free.app',
   headers: { 'Content-Type': 'application/json' },
   withCredentials: true
 });
