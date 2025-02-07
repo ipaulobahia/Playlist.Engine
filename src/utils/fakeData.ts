@@ -1833,19 +1833,19 @@ export const FAKE_LIST_OTHER_CATEGORIES = [
   {
     id: 5,
     name: "Vinhetas",
-    value: "",
+    value: "Generic",
     icon: MusicNoteSVG
   },
   {
     id: 6,
     name: "Comerciais",
-    value: "",
+    value: "Commercial",
     icon: CommercialSVG
   },
   {
     id: 7,
     name: "Textos",
-    value: "",
+    value: "Text",
     icon: TextSVG
   },
   {

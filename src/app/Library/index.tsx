@@ -2,6 +2,7 @@ import { Card } from "@/components/ui/card";
 import { FAKE_LIST_CATEGORY, FAKE_LIST_OTHER_CATEGORIES } from "@/utils/fakeData";
 import { FileClock, FolderUp, ListMusic, ListPlus, Plus, SquareArrowOutUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { DrawerDialogCreateList } from "./components";
 
 export const Library = () => {
   return (
@@ -11,17 +12,19 @@ export const Library = () => {
         <span className="text-sm font-normal text-muted-foreground">Organize suas listas e arquivos de forma prática e eficiente</span>
       </div>
       <div className="grid grid-cols-1 gap-3 px-5 md:grid-cols-2 xl:grid-cols-4">
-        <Card className="flex flex-col gap-3 p-3 bg-transparent rounded cursor-pointer border-muted-foreground/25 dark:hover:bg-muted/50 hover:bg-muted">
-          <div className="flex flex-row justify-between w-full">
-            <div className="flex items-center justify-center rounded bg-accent-foreground size-8">
-              <ListPlus className="text-white dark:text-black size-5" />
+        <DrawerDialogCreateList>
+          <Card className="flex flex-col gap-3 p-3 bg-transparent rounded cursor-pointer border-muted-foreground/25 dark:hover:bg-muted/50 hover:bg-muted">
+            <div className="flex flex-row justify-between w-full">
+              <div className="flex items-center justify-center rounded bg-accent-foreground size-8">
+                <ListPlus className="text-white dark:text-black size-5" />
+              </div>
+              <Plus size={16} />
             </div>
-            <Plus size={16} />
-          </div>
-          <span className="text-sm font-medium">
-            Criar lista
-          </span>
-        </Card>
+            <span className="text-sm font-medium">
+              Criar lista
+            </span>
+          </Card>
+        </DrawerDialogCreateList>
         <Card className="flex flex-col gap-3 p-3 bg-transparent rounded cursor-pointer border-muted-foreground/25 dark:hover:bg-muted/50 hover:bg-muted">
           <div className="flex flex-row justify-between w-full">
             <div className="flex items-center justify-center rounded bg-accent-foreground size-8">
@@ -68,7 +71,7 @@ export const Library = () => {
           {
             FAKE_LIST_CATEGORY.map(({ name, icon, value }) => {
               return (
-                <Link to={`/library/category?categoryType=${value}`}>
+                <Link key={value} to={`/library/category?categoryType=${value}`}>
                   <Card className="flex flex-col items-center justify-center w-32 gap-2 p-3 bg-transparent border-0 rounded cursor-pointer dark:hover:bg-muted/50 hover:bg-muted">
                     <img src={icon} className="size-10" />
                     <span className="text-[13px] font-medium">
@@ -87,9 +90,9 @@ export const Library = () => {
         </span>
         <div className="flex flex-wrap gap-2 mt-3">
           {
-            FAKE_LIST_OTHER_CATEGORIES.map(({ id, name, icon }) => {
+            FAKE_LIST_OTHER_CATEGORIES.map(({ name, icon, value }) => {
               return (
-                <Link to={`/library/category?categoryType=${id}`}>
+                <Link to={`/library/category?categoryType=${value}`}>
                   <Card className="flex flex-col items-center justify-center w-32 gap-2 p-3 bg-transparent border-0 rounded cursor-pointer dark:hover:bg-muted/50 hover:bg-muted">
                     <img src={icon} className="size-10" />
                     <span className="text-[13px] font-medium">

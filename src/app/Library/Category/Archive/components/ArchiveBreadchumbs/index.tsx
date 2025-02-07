@@ -1,6 +1,6 @@
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { usePlaylistList } from "@/service/api/playlist/getPlaylistList";
-import { CategoryEnum } from "@/utils";
+import { CategoryEnum, translateToPT } from "@/utils";
 import { Link, useSearchParams } from "react-router-dom";
 
 export const ArchiveBreadchumbs = () => {
@@ -16,8 +16,8 @@ export const ArchiveBreadchumbs = () => {
       <BreadcrumbList>
         <BreadcrumbItem className="hidden sm:block">
           <BreadcrumbLink asChild>
-            <Link to={'/overview'}>
-              Overview
+            <Link to={'/dashboard'}>
+              Dashboard
             </Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
@@ -33,7 +33,7 @@ export const ArchiveBreadchumbs = () => {
         <BreadcrumbItem>
           <BreadcrumbLink className="cursor-pointer">
             <Link to={`/library/category?categoryType=${categoryType}`}>
-              {CategoryEnum[categoryType as keyof typeof CategoryEnum]}
+              {translateToPT(categoryType as CategoryEnum)}
             </Link>
           </BreadcrumbLink>
         </BreadcrumbItem>

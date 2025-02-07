@@ -10,35 +10,44 @@ export const profileColors = [
 ];
 
 export enum CategoryEnum {
-  Genre = "Gênero",
-  Artist = "Artista",
-  Composer = "Compositor",
-  Publisher = "Gravadora",
+  Genre = "Genre",
+  Artist = "Artist",
+  Composer = "Composer",
+  Publisher = "Publisher",
   Album = "Album",
-  Rhythm = "Ritmo",
-  Language = "Idioma",
-  Year = "Ano",
-  Folder = "Pasta",
-  Concept = "Classificação",
+  Rhythm = "Rhythm",
+  Language = "Language",
+  Year = "Year",
+  Folder = "Folder",
+  Concept = "Concept",
   Vocal = "Vocal",
-  List = "Lista",
-  Generic = "Gênerico",
-  Dynamic = "Dinâmico"
+  List = "List",
+  Generic = "Generic",
+  Dynamic = "Dynamic",
 }
 
-export enum CategoryEnumReverse {
-  Gênero = "Genre",
-  Artista = "Artist",
-  Compositor = "Composer",
-  Gravadora = "Publisher",
-  Album = "Album",
-  Ritmo = "Rhythm",
-  Idioma = "Language",
-  Ano = "Year",
-  Pasta = "Folder",
-  Classificação = "Concept",
-  Vocal = "Vocal",
-  Lista = "List",
-  Gênerico = "Generic",
-  Dinâmico = "Dynamic"
-}
+export const CategoryTranslations: Record<CategoryEnum, string> = {
+  [CategoryEnum.Genre]: "Gênero",
+  [CategoryEnum.Artist]: "Artista",
+  [CategoryEnum.Composer]: "Compositor",
+  [CategoryEnum.Publisher]: "Gravadora",
+  [CategoryEnum.Album]: "Álbum",
+  [CategoryEnum.Rhythm]: "Ritmo",
+  [CategoryEnum.Language]: "Idioma",
+  [CategoryEnum.Year]: "Ano",
+  [CategoryEnum.Folder]: "Pasta",
+  [CategoryEnum.Concept]: "Classificação",
+  [CategoryEnum.Vocal]: "Vocal",
+  [CategoryEnum.List]: "Lista",
+  [CategoryEnum.Generic]: "Genérico",
+  [CategoryEnum.Dynamic]: "Dinâmico"
+};
+
+export const translateToPT = (category: CategoryEnum): string => CategoryTranslations[category] || category;
+
+export const translateToEN = (ptName: string): CategoryEnum | undefined => {
+  return (Object.entries(CategoryTranslations) as [CategoryEnum, string][])
+    .find(([_, value]) => value === ptName)?.[0];
+};
+
+export const CategoryIndexList = Object.values(CategoryTranslations);

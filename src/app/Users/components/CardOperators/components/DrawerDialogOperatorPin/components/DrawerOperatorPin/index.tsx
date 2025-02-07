@@ -1,9 +1,8 @@
-import { Card } from "@/components/ui/card"
-import { Drawer, DrawerTrigger } from "@/components/ui/drawer"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle } from "@/components/ui/drawer"
+import { Card } from "@/components/ui/card"
+import { Drawer, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer"
 import { Input } from "@/components/ui/input"
 import { Label } from "@radix-ui/react-label"
 import { Eye, EyeOff } from "lucide-react"
@@ -89,7 +88,7 @@ export const DrawerOperatorPin = ({ open, operator, setOpen }: DrawerOperatorPin
           </div>
         </div>
         <DrawerFooter className="items-end">
-          <Link to={'/overview'}>
+          <Link to={'/dashboard'}>
             <Button size={'sm'} type="submit">
               Acessar
             </Button>

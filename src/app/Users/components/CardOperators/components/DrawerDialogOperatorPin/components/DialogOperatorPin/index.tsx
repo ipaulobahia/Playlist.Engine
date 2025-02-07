@@ -1,9 +1,8 @@
-import { Card } from "@/components/ui/card"
-import { Dialog, DialogTrigger } from "@/components/ui/dialog"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { Card } from "@/components/ui/card"
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@radix-ui/react-label"
 import { Eye, EyeOff } from "lucide-react"
@@ -89,7 +88,7 @@ export const DialogOperatorPin = ({ open, operator, setOpen }: DialogOperatorPin
           </div>
         </div>
         <DialogFooter className="justify-end">
-          <Link to={'/overview'}>
+          <Link to={'/dashboard'}>
             <Button size={'sm'} type="submit">
               Acessar
             </Button>

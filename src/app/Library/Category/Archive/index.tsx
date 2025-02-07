@@ -25,11 +25,11 @@ export const Archive = () => {
             <TabsList className="hidden ml-auto sm:flex">
               <TooltipProvider>
                 <Tooltip delayDuration={100}>
-                  <TooltipTrigger>
-                    <TabsTrigger value="list">
+                  <TabsTrigger asChild value="list">
+                    <TooltipTrigger>
                       <List size={16} className="text-zinc-600 dark:text-zinc-200" />
-                    </TabsTrigger>
-                  </TooltipTrigger>
+                    </TooltipTrigger>
+                  </TabsTrigger>
                   <TooltipContent side="bottom" className="font-medium text-white bg-black dark:text-black dark:bg-white">
                     Layout de lista
                   </TooltipContent>
@@ -37,11 +37,11 @@ export const Archive = () => {
               </TooltipProvider>
               <TooltipProvider>
                 <Tooltip delayDuration={100}>
-                  <TooltipTrigger>
-                    <TabsTrigger value="detailed" className="">
+                  <TabsTrigger asChild value="detailed">
+                    <TooltipTrigger>
                       <Table2 size={16} className="text-zinc-600 dark:text-zinc-200" />
-                    </TabsTrigger>
-                  </TooltipTrigger>
+                    </TooltipTrigger>
+                  </TabsTrigger>
                   <TooltipContent side="bottom" className="font-medium text-white bg-black dark:text-black dark:bg-white">
                     Layout detalhado
                   </TooltipContent>

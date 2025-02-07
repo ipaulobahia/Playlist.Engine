@@ -2,10 +2,11 @@ import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { useInfoSidebar } from "@/hooks/use-sidebar"
-import { CategoryEnum } from "@/utils"
+import { CategoryEnum, translateToPT } from "@/utils"
 import { Info, List, Table2 } from "lucide-react"
 import { useSearchParams } from "react-router-dom"
-import { ArchiveList, CategoryBreadchumbs } from "./components"
+import { DrawerDialogCreateList } from "../components"
+import { CategoryBreadchumbs, CategoryList, CategoryTable } from "./components"
 
 export const Category = () => {
   const { toggleSidebar, isOpen } = useInfoSidebar()
@@ -21,18 +22,18 @@ export const Category = () => {
           <div className="flex flex-row items-start justify-between gap-2 sm:items-center">
             <div className="flex flex-row items-start gap-1">
               <div className="flex flex-col gap-0.5">
-                <span className="text-xl font-semibold">{CategoryEnum[categoryType as keyof typeof CategoryEnum]}</span>
+                <span className="text-xl font-semibold">{translateToPT(categoryType as CategoryEnum)}</span>
                 <span className="text-sm font-normal text-muted-foreground">[Descrição da Categoria]</span>
               </div>
             </div>
             <TabsList className="hidden ml-auto sm:flex">
               <TooltipProvider>
                 <Tooltip delayDuration={100}>
-                  <TooltipTrigger>
-                    <TabsTrigger value="list">
+                  <TabsTrigger asChild value="list">
+                    <TooltipTrigger>
                       <List size={16} className="text-zinc-600 dark:text-zinc-200" />
-                    </TabsTrigger>
-                  </TooltipTrigger>
+                    </TooltipTrigger>
+                  </TabsTrigger>
                   <TooltipContent side="bottom" className="font-medium text-white bg-black dark:text-black dark:bg-white">
                     Layout de lista
                   </TooltipContent>
@@ -40,11 +41,11 @@ export const Category = () => {
               </TooltipProvider>
               <TooltipProvider>
                 <Tooltip delayDuration={100}>
-                  <TooltipTrigger>
-                    <TabsTrigger value="detailed" className="">
+                  <TabsTrigger asChild value="detailed">
+                    <TooltipTrigger>
                       <Table2 size={16} className="text-zinc-600 dark:text-zinc-200" />
-                    </TabsTrigger>
-                  </TooltipTrigger>
+                    </TooltipTrigger>
+                  </TabsTrigger>
                   <TooltipContent side="bottom" className="font-medium text-white bg-black dark:text-black dark:bg-white">
                     Layout detalhado
                   </TooltipContent>
@@ -73,12 +74,17 @@ export const Category = () => {
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>
+            <DrawerDialogCreateList>
+              <Button>
+                Criar Lista
+              </Button>
+            </DrawerDialogCreateList>
           </div>
           <TabsContent value="list" className="m-0">
-            <ArchiveList />
+            <CategoryList />
           </TabsContent>
           <TabsContent value="detailed" className="m-0">
-            <></>
+            <CategoryTable />
           </TabsContent>
         </div>
       </Tabs>

@@ -3,7 +3,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import { Input } from "@/components/ui/input"
 import { SidebarGroup, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem } from "@/components/ui/sidebar"
 import { usePlaylistList } from "@/service/api/playlist/getPlaylistList"
-import { CategoryEnum } from "@/utils"
+import { CategoryEnum, translateToPT } from "@/utils"
 import { FolderOpen, Search } from "lucide-react"
 import { useSearchParams } from "react-router-dom"
 
@@ -26,7 +26,7 @@ export const ArchiveSidebarGroup = () => {
         </span>
       </div>
       <SidebarGroupLabel>
-        {CategoryEnum[categoryType as keyof typeof CategoryEnum]}
+        {translateToPT(categoryType as CategoryEnum)}
       </SidebarGroupLabel>
       <SidebarMenu>
         <Collapsible asChild open>

@@ -18,9 +18,9 @@ export const MainLayout = () => {
             <NavigationMenu className="hidden sm:block" delayDuration={50}>
               <NavigationMenuList className="flex items-center mx-6 space-x-4 lg:space-x-6">
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className={`h-0 p-0 text-sm font-medium transition-colors text-muted-foreground dark:hover:text-white hover:text-black ${pathname.includes("overview") && 'dark:text-white text-black'}`}>
-                    <Link to={'/overview'}>
-                      Overview
+                  <NavigationMenuTrigger className={`h-0 p-0 text-sm font-medium transition-colors text-muted-foreground dark:hover:text-white hover:text-black ${pathname.includes("dashboard") && 'dark:text-white text-black'}`}>
+                    <Link to={'/dashboard'}>
+                      Dashboard
                     </Link>
                   </NavigationMenuTrigger>
                 </NavigationMenuItem>
@@ -33,9 +33,7 @@ export const MainLayout = () => {
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                   <NavigationMenuTrigger disabled className={`h-0 p-0 text-sm font-medium transition-colors text-muted-foreground dark:hover:text-white hover:text-black ${pathname.includes('/maps') && 'dark:text-white text-black'}`}>
-                    <Link to={'/overview'}>
-                      Mapas
-                    </Link>
+                    Mapas
                   </NavigationMenuTrigger>
                 </NavigationMenuItem>
                 <NavigationMenuItem>

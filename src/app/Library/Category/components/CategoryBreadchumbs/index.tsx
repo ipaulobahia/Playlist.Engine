@@ -1,5 +1,5 @@
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
-import { CategoryEnum } from "@/utils";
+import { CategoryEnum, translateToPT } from "@/utils";
 import { Link, useSearchParams } from "react-router-dom";
 
 export const CategoryBreadchumbs = () => {
@@ -12,8 +12,8 @@ export const CategoryBreadchumbs = () => {
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
-            <Link to={'/overview'}>
-              Overview
+            <Link to={'/dashboard'}>
+            Dashboard
             </Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
@@ -28,7 +28,7 @@ export const CategoryBreadchumbs = () => {
         <BreadcrumbSeparator />
         <BreadcrumbItem>
           <BreadcrumbPage>
-            {CategoryEnum[categoryType as keyof typeof CategoryEnum]}
+            {translateToPT(categoryType as CategoryEnum)}
           </BreadcrumbPage>
         </BreadcrumbItem>
       </BreadcrumbList>

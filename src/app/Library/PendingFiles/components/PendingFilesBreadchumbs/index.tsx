@@ -7,8 +7,8 @@ export const PendingFilesBreadchumbs = () => {
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
-            <Link to={'/overview'}>
-              Overview
+            <Link to={'/dashboard'}>
+            Dashboard
             </Link>
           </BreadcrumbLink>
         </BreadcrumbItem>

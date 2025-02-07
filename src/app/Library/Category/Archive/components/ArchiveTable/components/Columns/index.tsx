@@ -32,7 +32,6 @@ export const columns: ColumnDef<FilesTable>[] = [
     //   const keys: (keyof File)[] = ['name'];
 
     //   for (const key of keys) {
-    //     console.log(value)
     //     if (file[key].toLowerCase().includes(value.toLowerCase())) {
     //       return true;
     //     }
@@ -56,7 +55,6 @@ export const columns: ColumnDef<FilesTable>[] = [
     //   const keys: (keyof File)[] = ['size'];
 
     //   for (const key of keys) {
-    //     console.log(value)
     //     if (file[key].toLowerCase().includes(value.toLowerCase())) {
     //       return true;
     //     }
@@ -78,7 +76,6 @@ export const columns: ColumnDef<FilesTable>[] = [
     //   const keys: (keyof File)[] = ['type'];
 
     //   for (const key of keys) {
-    //     console.log(value)
     //     if (file[key].toLowerCase().includes(value.toLowerCase())) {
     //       return true;
     //     }

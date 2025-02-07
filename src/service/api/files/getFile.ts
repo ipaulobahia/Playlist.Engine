@@ -7,7 +7,6 @@ const getFile = async (fileId: string): Promise<GetFileResponse> => {
 };
 
 export const useFile = (fileId: string | null) => {
-  console.log("FILE ID =>",fileId)
   return useQuery<GetFileResponse, Error>({
     queryKey: ['file', fileId],
     queryFn: () => getFile(fileId!),

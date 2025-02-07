@@ -10,6 +10,7 @@ import {
   Commercials,
   ControlSatellite,
   CreateProfile,
+  Dashboard,
   DisplayPanel,
   Edition,
   Folder,
@@ -26,7 +27,6 @@ import {
   NotFound,
   Operator,
   Outputs,
-  Overview,
   Pause,
   PendingFiles,
   PlaylistServer,
@@ -55,7 +55,7 @@ export const Routers = createBrowserRouter(
       <Route index element={<Login />} />
       <Route path="/users" element={<Users />} />
       <Route element={<MainLayout />}>
-        <Route path="/overview" element={<Overview />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/library" element={<LibraryLayout />}>
           <Route path="" element={<Library />} />
           <Route path="category" element={<Category />} />
