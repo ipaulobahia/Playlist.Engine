@@ -1,21 +1,20 @@
-import { FilesTable } from '@/app/Library/Category/Archive/components/ArchiveTable/components/Columns';
+import { FilesTable } from '@/app/Library/Category/CategoryArchive/components/CategoryArchiveTable/components/Columns';
 import {
-  CalendarSVG,
-  ClapperBoardSVG,
-  CommercialSVG,
-  DiscSVG,
-  FlagSVG,
-  FolderSVG,
-  GuitarSVG,
-  KeyboardMusicSVG,
-  MicSVG,
-  MusicNoteSVG,
-  PendingFileSVG,
-  PlayButton,
-  SaxSVG,
-  SingerSVG,
-  StarSVG,
-  TextSVG
+    CalendarSVG,
+    ClapperBoardSVG,
+    CommercialSVG,
+    DiscSVG,
+    FlagSVG,
+    GuitarSVG,
+    KeyboardMusicSVG,
+    MicSVG,
+    MusicNoteSVG,
+    PendingFileSVG,
+    PlayButton,
+    SaxSVG,
+    SingerSVG,
+    StarSVG,
+    TextSVG
 } from '@/assets/svg/categories';
 import { faker } from '@faker-js/faker';
 
@@ -1848,12 +1847,6 @@ export const FAKE_LIST_OTHER_CATEGORIES = [
     value: "Text",
     icon: TextSVG
   },
-  {
-    id: 8,
-    name: "Pastas",
-    value: "Folder",
-    icon: FolderSVG
-  }
 ]
 
 for (let i = 1; i <= 200; i++) {

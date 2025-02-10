@@ -1,27 +1,20 @@
-import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { useInfoSidebar } from "@/hooks/use-sidebar";
-import { usePlaylistList } from "@/service/api/playlist/getPlaylistList";
-import { Info, List, Table2 } from "lucide-react";
-import { useSearchParams } from "react-router-dom";
-import { ArchiveBreadchumbs, ArchiveList, ArchiveTable } from "./components";
+import { Button } from "@/components/ui/button"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { useInfoSidebar } from "@/hooks/use-sidebar"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@radix-ui/react-tooltip"
+import { Info, List, Table2 } from "lucide-react"
+import { FolderArchiveBreadchumbs, FolderArchiveList } from "./components"
 
-export const Archive = () => {
+export const FolderArchive = () => {
   const { toggleSidebar, isOpen } = useInfoSidebar()
-  const [searchParams] = useSearchParams();
-
-  const folderId = searchParams.get("folderId");
-
-  const { data } = usePlaylistList(folderId)
 
   return (
     <main className="flex-1 p-3">
-      <ArchiveBreadchumbs />
+      <FolderArchiveBreadchumbs />
       <Tabs defaultValue="list">
         <div className="px-3 space-y-3">
           <div className="flex flex-row items-start justify-between gap-2 sm:items-center">
-            <span className="text-xl font-semibold">{data?.title}</span>
+            <span className="text-xl font-semibold">[Nome da pasta]</span>
             <TabsList className="hidden ml-auto sm:flex">
               <TooltipProvider>
                 <Tooltip delayDuration={100}>
@@ -72,13 +65,13 @@ export const Archive = () => {
             </TooltipProvider>
           </div>
           <TabsContent value="list" className="m-0">
-            <ArchiveList />
+            <FolderArchiveList />
           </TabsContent>
           <TabsContent value="detailed" className="m-0">
-            <ArchiveTable />
+            <></>
           </TabsContent>
         </div>
       </Tabs>
-    </main >
+    </main>
   )
 }

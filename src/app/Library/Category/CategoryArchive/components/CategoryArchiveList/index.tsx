@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Toolbar } from "./components";
 
-export const ArchiveList = () => {
+export const CategoryArchiveList = () => {
   const { selectRow } = useInfoSidebar()
 
   const [searchParams, setSearchParams] = useSearchParams();

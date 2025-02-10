@@ -29,7 +29,7 @@ import { useState } from "react"
 import { useSearchParams } from "react-router-dom"
 import { columns, Toolbar } from './components'
 
-export const ArchiveTable = () => {
+export const CategoryArchiveTable = () => {
   const { selectRow } = useInfoSidebar()
   const [searchParams, setSearchParams] = useSearchParams();
 

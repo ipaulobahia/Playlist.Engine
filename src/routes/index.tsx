@@ -2,10 +2,10 @@ import {
   Advanced,
   Affiliates,
   AnotherTypes,
-  Archive,
   AudioSource,
   BasicSettings,
   Category,
+  CategoryArchive,
   CommercialBlocks,
   Commercials,
   ControlSatellite,
@@ -14,9 +14,11 @@ import {
   DisplayPanel,
   Edition,
   Folder,
+  FolderArchive,
   General,
   GeneralPreference,
   Library,
+  LibraryFolder,
   Login,
   ManageOperators,
   ManageProfile,
@@ -58,8 +60,14 @@ export const Routers = createBrowserRouter(
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/library" element={<LibraryLayout />}>
           <Route path="" element={<Library />} />
-          <Route path="category" element={<Category />} />
-          <Route path="category/archive" element={<Archive />} />
+          <Route path="folder">
+            <Route path="" element={<LibraryFolder />} />
+            <Route path="archive" element={<FolderArchive />} />
+          </Route>
+          <Route path="category">
+            <Route path="" element={<Category />} />
+            <Route path="archive" element={<CategoryArchive />} />
+          </Route>
           <Route path="recent-uploads" element={<RecentUploads />} />
           <Route path="pending-files" element={<PendingFiles />} />
         </Route>

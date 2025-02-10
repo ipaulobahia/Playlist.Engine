@@ -1,3 +1,4 @@
+import { FolderSVG } from "@/assets/svg/categories"
 import { CategoryContextContent } from "@/components/CategoryContextContent"
 import { Input } from "@/components/ui/input"
 import { SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar"
@@ -39,6 +40,16 @@ export const CategorySidebarGroup = () => {
               )
             })
           }
+          <SidebarMenuItem className='bg-sidebar-accent text-sidebar-accent-foreground'>
+            <Link to={`/library/folder`}>
+              <SidebarMenuButton className="flex flex-row items-center justify-start">
+                <img src={FolderSVG} className="w-3.5 h-3.5" />
+                <span>
+                  Pastas
+                </span>
+              </SidebarMenuButton>
+            </Link>
+          </SidebarMenuItem>
         </SidebarMenu>
       </SidebarGroupContent>
     </SidebarGroup>

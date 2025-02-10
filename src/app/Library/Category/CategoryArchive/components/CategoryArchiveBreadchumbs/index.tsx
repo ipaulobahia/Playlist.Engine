@@ -3,7 +3,7 @@ import { usePlaylistList } from "@/service/api/playlist/getPlaylistList";
 import { CategoryEnum, translateToPT } from "@/utils";
 import { Link, useSearchParams } from "react-router-dom";
 
-export const ArchiveBreadchumbs = () => {
+export const CategoryArchiveBreadchumbs = () => {
   const [searchParams] = useSearchParams();
 
   const categoryType = searchParams.get("categoryType");

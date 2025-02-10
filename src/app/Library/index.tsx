@@ -1,3 +1,4 @@
+import { FolderSVG } from "@/assets/svg/categories";
 import { Card } from "@/components/ui/card";
 import { FAKE_LIST_CATEGORY, FAKE_LIST_OTHER_CATEGORIES } from "@/utils/fakeData";
 import { FileClock, FolderUp, ListMusic, ListPlus, Plus, SquareArrowOutUpRight } from "lucide-react";
@@ -103,6 +104,14 @@ export const Library = () => {
               )
             })
           }
+          <Link to='/library/folder'>
+            <Card className="flex flex-col items-center justify-center w-32 gap-2 p-3 bg-transparent border-0 rounded cursor-pointer dark:hover:bg-muted/50 hover:bg-muted">
+              <img src={FolderSVG} className="size-10" />
+              <span className="text-[13px] font-medium">
+                Pastas
+              </span>
+            </Card>
+          </Link>
         </div>
       </div>
     </main >

@@ -1,7 +1,9 @@
 export { Dashboard } from "./Dashboard";
 export { Library } from "./Library";
 export { Category } from "./Library/Category";
-export { Archive } from "./Library/Category/Archive";
+export { CategoryArchive } from "./Library/Category/CategoryArchive";
+export { Folder as LibraryFolder } from "./Library/Folder";
+export { FolderArchive } from "./Library/Folder/FolderArchive";
 export { PendingFiles } from "./Library/PendingFiles";
 export { RecentUploads } from "./Library/RecentUploads";
 export { Login } from "./Login";
@@ -15,4 +17,3 @@ export { Affiliates, BasicSettings } from "./Settings/PlaylistIni";
 export { Advanced, AudioSource, ControlSatellite, GeneralPreference, MetadataStreaming, Outputs, PlaylistServer, RdsRss, RemoteTriggering, StationOffice, XmlWeb } from "./Settings/Preference";
 export { Password } from "./Settings/Security";
 export { Users } from "./Users";
-
