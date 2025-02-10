@@ -65,7 +65,7 @@ export const Library = () => {
       </div>
       <div className="flex flex-col px-5">
         <span className="text-base font-medium">
-          Categorias Principais
+          Categorias
         </span>
         <div className="flex flex-row gap-2 mt-3">
           {

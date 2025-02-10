@@ -2,6 +2,8 @@ import { FolderOpen, Info, Pencil, Trash } from "lucide-react"
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import { ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuSeparator, ContextMenuTrigger } from "../ui/context-menu"
+import { Dialog, DialogTrigger } from "../ui/dialog"
+import { DialogDeleteList, DialogEditList } from "./components"
 
 interface ListContextContentProps {
   children: React.ReactNode
@@ -9,14 +11,15 @@ interface ListContextContentProps {
 }
 
 export const ListContextContent = ({ children, folderId }: ListContextContentProps) => {
-  const [_, setOpenDrawerDialogEditList] = useState(false)
+  const [dialogType, setDialogType] = useState<"Edit" | "Delete">("Edit")
+  const [open, setOpen] = useState(false)
 
-  function handlerDrawerDialogEditList() {
-    setOpenDrawerDialogEditList(true)
+  function handlerDialogType(type: "Edit" | "Delete") {
+    setDialogType(type)
   }
 
   return (
-    <>
+    <Dialog open={open} onOpenChange={setOpen}>
       <ContextMenu>
         <ContextMenuTrigger asChild>
           {children}
@@ -30,12 +33,14 @@ export const ListContextContent = ({ children, folderId }: ListContextContentPro
               </span>
             </ContextMenuItem>
           </Link>
-          <ContextMenuItem onClick={handlerDrawerDialogEditList}>
-            <Pencil size={16} />
-            <span>
-              Editar
-            </span>
-          </ContextMenuItem>
+          <DialogTrigger onClick={() => handlerDialogType("Edit")} className="w-full">
+            <ContextMenuItem className="flex flex-row items-center gap-x-2">
+              <Pencil size={16} />
+              <span>
+                Editar
+              </span>
+            </ContextMenuItem>
+          </DialogTrigger>
           <ContextMenuItem className="flex flex-row items-center gap-x-2">
             <Info size={16} />
             <span>
@@ -43,15 +48,18 @@ export const ListContextContent = ({ children, folderId }: ListContextContentPro
             </span>
           </ContextMenuItem>
           <ContextMenuSeparator />
-          <ContextMenuItem className="flex flex-row items-center gap-x-2">
-            <Trash size={16} />
-            <span>
-              Remover
-            </span>
-          </ContextMenuItem>
+          <DialogTrigger onClick={() => handlerDialogType("Delete")} className="w-full">
+            <ContextMenuItem className="flex flex-row items-center gap-x-2">
+              <Trash size={16} />
+              <span>
+                Remover
+              </span>
+            </ContextMenuItem>
+          </DialogTrigger>
         </ContextMenuContent>
       </ContextMenu>
-      {/* <DialogEditList folderId={folderId} open={openDrawerDialogEditList} setOpen={setOpenDrawerDialogEditList} /> */}
-    </>
+      {dialogType == "Edit" && <DialogEditList folderId={folderId} open={open} setOpen={setOpen} />}
+      {dialogType == "Delete" && <DialogDeleteList folderId={folderId} setOpen={setOpen} />}
+    </Dialog>
   )
 }

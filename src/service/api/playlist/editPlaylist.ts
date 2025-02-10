@@ -1,22 +1,24 @@
 import { http } from "@/config";
 import { EditPlaylist } from "@/contracts/Playlist";
-import { CategoryIndexList, translateToEN } from "@/utils";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { AxiosError } from "axios";
+import { useSearchParams } from "react-router-dom";
 import { toast } from "sonner";
 
 async function editPlaylist(payload: EditPlaylist) {
-  const response = await http.post('/playlist', payload).then((i) => i.data);
+  const response = await http.put(`/playlist/${payload.playlistId}`, payload).then((i) => i.data);
   return response
 }
 
 export function useEditPlaylist() {
+  const [searchParams] = useSearchParams();
+  const category = searchParams.get("categoryType");
+
   const queryClient = useQueryClient();
 
   return useMutation({
     mutationFn: editPlaylist,
-    onSuccess: (_, { playlistType }) => {
-      const category = translateToEN(CategoryIndexList[(parseInt(playlistType)) - 1])
+    onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['playlist', category] })
       toast.success('Sucesso!', { description: 'Lista editada com sucesso!' })
     },

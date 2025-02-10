@@ -18,7 +18,7 @@ interface DialogEditListProps {
   setOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export const DialogEditList = ({ folderId, setOpen }: DialogEditListProps) => {
+export const DialogEditList = ({ folderId, open, setOpen }: DialogEditListProps) => {
   const { mutate, isSuccess, isPending, isError } = useEditPlaylist()
   const [searchParams] = useSearchParams();
 
@@ -29,11 +29,15 @@ export const DialogEditList = ({ folderId, setOpen }: DialogEditListProps) => {
 
   const form = useForm<EditPlaylist>({
     resolver: zodResolver(editPlaylistSchema),
-    defaultValues: {
-      title: findList?.title,
-      playlistId: findList?.playlistId,
-      playlistType: findList?.playlistType.toString() as EditPlaylist["playlistType"]
-    },
+    defaultValues: findList ?
+      {
+        title: findList.title,
+        playlistId: findList.playlistId,
+        playlistType: findList.playlistType.toString() as EditPlaylist["playlistType"]
+      }
+      :
+      undefined
+    ,
   })
 
   const { handleSubmit, control, reset } = form
@@ -43,6 +47,16 @@ export const DialogEditList = ({ folderId, setOpen }: DialogEditListProps) => {
   }
 
   const onSubmit = useCallback(handleSubmitPlaylist, [mutate])
+
+  useEffect(() => {
+    if (open) {
+      reset(findList ? {
+        title: findList.title,
+        playlistId: findList.playlistId,
+        playlistType: findList.playlistType.toString() as EditPlaylist["playlistType"]
+      } : undefined);
+    }
+  }, [open, findList, reset]);
 
   useEffect(() => {
     if (isSuccess && !isError) {
@@ -58,7 +72,7 @@ export const DialogEditList = ({ folderId, setOpen }: DialogEditListProps) => {
           <DialogHeader>
             <DialogTitle>Editar lista</DialogTitle>
             <DialogDescription>
-              Preencha os campos abaixo para criar sua lista perfil. Defina um nome e uma categoria.
+              Preencha os campos abaixo para editar sua lista.
             </DialogDescription>
           </DialogHeader>
           <div className="grid gap-4 py-4">
@@ -109,7 +123,7 @@ export const DialogEditList = ({ folderId, setOpen }: DialogEditListProps) => {
             />
           </div>
           <DialogFooter className="flex flex-row items-center justify-between w-full">
-            <DialogClose>
+            <DialogClose asChild>
               <Button variant={'outline'}>Cancelar</Button>
             </DialogClose>
             <Button disabled={isPending} type="submit">
@@ -118,7 +132,7 @@ export const DialogEditList = ({ folderId, setOpen }: DialogEditListProps) => {
                   ?
                   <PingLoading />
                   :
-                  <span>Criar</span>
+                  <span>Editar</span>
               }
             </Button>
           </DialogFooter>

@@ -80,7 +80,7 @@ export const CategoryTable = () => {
             (
               <TableRow>
                 <TableCell colSpan={columns.length} className="h-24 text-center">
-                  Sem resultados
+                  Esta categoria está vazia.
                 </TableCell>
               </TableRow>
             )

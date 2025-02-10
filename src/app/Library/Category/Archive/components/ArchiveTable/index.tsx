@@ -118,7 +118,7 @@ export const ArchiveTable = () => {
             (
               <TableRow>
                 <TableCell colSpan={columns.length} className="h-24 text-center">
-                  Sem resultados
+                  Esta lista está vazia.
                 </TableCell>
               </TableRow>
             )

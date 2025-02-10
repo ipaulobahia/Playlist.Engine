@@ -36,8 +36,8 @@ export const ArchiveList = () => {
         emptyList
           ?
           <div className="flex items-center justify-center p-5 align-middle">
-            <span className="font-medium">
-              Sem resultados
+            <span className="text-xs font-medium">
+              Esta lista está vazia.
             </span>
           </div>
           :

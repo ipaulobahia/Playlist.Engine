@@ -76,7 +76,7 @@ export const AffiliatesTable = () => {
             (
               <TableRow>
                 <TableCell colSpan={columns.length} className="h-24 text-center">
-                  Sem resultados
+                  Nenhuma afiliada de rede cadastrada.
                 </TableCell>
               </TableRow>
             )

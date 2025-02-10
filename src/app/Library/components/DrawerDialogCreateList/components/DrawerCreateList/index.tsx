@@ -36,8 +36,6 @@ export const DrawerCreateList = ({ open, setOpen }: DrawerCreateListProps) => {
     },
   })
 
-  console.log(categoryType)
-
   const { handleSubmit, control, reset } = form
 
   function handleSubmitPlaylist({ playlistId, playlistType, title }: CreatePlaylist) {

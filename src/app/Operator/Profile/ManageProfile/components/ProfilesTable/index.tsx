@@ -1,8 +1,8 @@
+import { Pagination } from "@/components/ui/pagination"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { ColumnFiltersState, flexRender, getCoreRowModel, getFacetedRowModel, getFacetedUniqueValues, getFilteredRowModel, getPaginationRowModel, getSortedRowModel, SortingState, useReactTable, VisibilityState } from "@tanstack/react-table"
 import { useState } from "react"
 import { columns, Toolbar } from './components'
-import { Pagination } from "@/components/ui/pagination"
 
 const data = [] as any[]
 
@@ -77,7 +77,7 @@ export const ProfilesTable = () => {
             (
               <TableRow>
                 <TableCell colSpan={columns.length} className="h-24 text-center">
-                  Sem resultados
+                  Sem perfils cadastrados.
                 </TableCell>
               </TableRow>
             )
