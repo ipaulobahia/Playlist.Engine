@@ -5,6 +5,4 @@ interface UploadContextType {
   toggleElement: () => void
 }
 
-const UploadContext = createContext<UploadContextType | undefined>(undefined);
-
-export default UploadContext;
+export const UploadContext = createContext<UploadContextType | undefined>(undefined);

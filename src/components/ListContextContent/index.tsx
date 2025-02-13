@@ -1,9 +1,10 @@
 import { FolderOpen, Info, Pencil, Trash } from "lucide-react"
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import { DialogDeleteList } from "../DialogDeleteList"
+import { DialogEditList } from "../DialogEditList"
 import { ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuSeparator, ContextMenuTrigger } from "../ui/context-menu"
 import { Dialog, DialogTrigger } from "../ui/dialog"
-import { DialogDeleteList, DialogEditList } from "./components"
 
 interface ListContextContentProps {
   children: React.ReactNode

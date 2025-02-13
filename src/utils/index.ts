@@ -1,3 +1,5 @@
+import { MediaFiles } from "@/service/api/playlist/getPlaylistList";
+
 export const profileColors = [
   { label: 'Cinza', value: '#6B7280', bg: 'bg-gray-500' },
   { label: 'Vermelho', value: '#EF4444', bg: 'bg-red-500' },
@@ -51,3 +53,7 @@ export const translateToEN = (ptName: string): CategoryEnum | undefined => {
 };
 
 export const CategoryIndexList = Object.values(CategoryTranslations);
+
+export const isFileDuplicate = (fileId: string, mediaFiles: MediaFiles[]) => {
+  return mediaFiles.some((file) => file.fileId.toString() === fileId);
+};

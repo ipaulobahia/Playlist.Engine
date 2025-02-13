@@ -25,6 +25,6 @@ export const usePlaylistList = (playlistId: string | null) => {
   return useQuery<PlaylistList, Error>({
     queryKey: ["playlist-list", playlistId],
     queryFn: () => getPlaylistList(playlistId!),
-    enabled: playlistId !== null,
+    enabled: playlistId !== null && playlistId !== "",
   })
 }

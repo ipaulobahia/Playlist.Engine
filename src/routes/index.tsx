@@ -23,6 +23,7 @@ import {
   ManageOperators,
   ManageProfile,
   MetadataStreaming,
+  MoveAndCopy,
   MusicalBlock,
   Musics,
   MyAccount,
@@ -66,7 +67,10 @@ export const Routers = createBrowserRouter(
           </Route>
           <Route path="category">
             <Route path="" element={<Category />} />
-            <Route path="archive" element={<CategoryArchive />} />
+            <Route path="archive" >
+              <Route path="" element={<CategoryArchive />} />
+              <Route path="move-and-copy" element={<MoveAndCopy />} />
+            </Route>
           </Route>
           <Route path="recent-uploads" element={<RecentUploads />} />
           <Route path="pending-files" element={<PendingFiles />} />

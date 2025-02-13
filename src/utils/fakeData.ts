@@ -1,20 +1,20 @@
 import { FilesTable } from '@/app/Library/Category/CategoryArchive/components/CategoryArchiveTable/components/Columns';
 import {
-    CalendarSVG,
-    ClapperBoardSVG,
-    CommercialSVG,
-    DiscSVG,
-    FlagSVG,
-    GuitarSVG,
-    KeyboardMusicSVG,
-    MicSVG,
-    MusicNoteSVG,
-    PendingFileSVG,
-    PlayButton,
-    SaxSVG,
-    SingerSVG,
-    StarSVG,
-    TextSVG
+  CalendarSVG,
+  ClapperBoardSVG,
+  CommercialSVG,
+  DiscSVG,
+  FlagSVG,
+  GuitarSVG,
+  KeyboardMusicSVG,
+  MicSVG,
+  MusicNoteSVG,
+  PendingFileSVG,
+  PlayButton,
+  SaxSVG,
+  SingerSVG,
+  StarSVG,
+  TextSVG
 } from '@/assets/svg/categories';
 import { faker } from '@faker-js/faker';
 
@@ -1755,7 +1755,7 @@ export const FAKE_LIST_LIBRARY = [
 
 export const FAKE_LIST_CATEGORY = [
   {
-    id: 1,
+    id: 0,
     name: "Lista",
     value: "List",
     icon: PlayButton
@@ -1795,54 +1795,51 @@ export const FAKE_LIST_CATEGORY = [
     name: "Vocal",
     value: "Vocal",
     icon: MicSVG
-  }
-]
-
-export const FAKE_LIST_OTHER_CATEGORIES = [
+  },
   {
-    id: 0,
+    id: 7,
     name: "Artistas",
     value: "Artist",
     icon: SingerSVG
   },
   {
-    id: 1,
+    id: 8,
     name: "Ano",
     value: "Year",
     icon: CalendarSVG
   },
   {
-    id: 2,
+    id: 9,
     name: "Album",
     value: "Album",
     icon: DiscSVG
   },
   {
-    id: 3,
+    id: 10,
     name: "Compositor",
     value: "Composer",
     icon: GuitarSVG
   },
   {
-    id: 4,
+    id: 11,
     name: "Gravadora",
     value: "Publisher",
     icon: ClapperBoardSVG
   },
   {
-    id: 5,
+    id: 12,
     name: "Vinhetas",
     value: "Generic",
     icon: MusicNoteSVG
   },
   {
-    id: 6,
+    id: 13,
     name: "Comerciais",
     value: "Commercial",
     icon: CommercialSVG
   },
   {
-    id: 7,
+    id: 14,
     name: "Textos",
     value: "Text",
     icon: TextSVG

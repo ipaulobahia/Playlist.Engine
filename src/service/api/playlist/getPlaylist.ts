@@ -16,6 +16,6 @@ export const usePlaylist = (playlistType: string | null) => {
   return useQuery<Playlist[], Error>({
     queryKey: ["playlist", playlistType],
     queryFn: () => getPlaylist(playlistType!),
-    enabled: playlistType !== null,
+    enabled: playlistType !== null && playlistType !== "",
   })
 }

@@ -1,4 +1,4 @@
-import InfoSidebarContext from '@/contexts/InfoSidebarContext';
+import { InfoSidebarContext } from '@/contexts/InfoSidebarContext';
 import { useContext } from 'react';
 
 export const useInfoSidebar = () => {

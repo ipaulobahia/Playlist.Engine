@@ -16,9 +16,10 @@ interface DialogEditListProps {
   folderId: number
   open: boolean
   setOpen: React.Dispatch<React.SetStateAction<boolean>>
+  isDisableChangeCategory?: boolean
 }
 
-export const DialogEditList = ({ folderId, open, setOpen }: DialogEditListProps) => {
+export const DialogEditList = ({ folderId, open, setOpen, isDisableChangeCategory = false }: DialogEditListProps) => {
   const { mutate, isSuccess, isPending, isError } = useEditPlaylist()
   const [searchParams] = useSearchParams();
 
@@ -95,7 +96,7 @@ export const DialogEditList = ({ folderId, open, setOpen }: DialogEditListProps)
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-xs">Categoria</FormLabel>
-                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                  <Select disabled={isDisableChangeCategory} onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger className="text-xs placeholder:text-xs">
                         <SelectValue placeholder="Selecione uma categoria" />

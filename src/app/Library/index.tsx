@@ -1,6 +1,6 @@
 import { FolderSVG } from "@/assets/svg/categories";
 import { Card } from "@/components/ui/card";
-import { FAKE_LIST_CATEGORY, FAKE_LIST_OTHER_CATEGORIES } from "@/utils/fakeData";
+import { FAKE_LIST_CATEGORY } from "@/utils/fakeData";
 import { FileClock, FolderUp, ListMusic, ListPlus, Plus, SquareArrowOutUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { DrawerDialogCreateList } from "./components";
@@ -70,7 +70,7 @@ export const Library = () => {
         </span>
         <div className="flex flex-row gap-2 mt-3">
           {
-            FAKE_LIST_CATEGORY.map(({ name, icon, value }) => {
+            FAKE_LIST_CATEGORY.slice(0, 7).map(({ name, icon, value }) => {
               return (
                 <Link key={value} to={`/library/category?categoryType=${value}`}>
                   <Card className="flex flex-col items-center justify-center w-32 gap-2 p-3 bg-transparent border-0 rounded cursor-pointer dark:hover:bg-muted/50 hover:bg-muted">
@@ -91,9 +91,9 @@ export const Library = () => {
         </span>
         <div className="flex flex-wrap gap-2 mt-3">
           {
-            FAKE_LIST_OTHER_CATEGORIES.map(({ name, icon, value }) => {
+            FAKE_LIST_CATEGORY.slice(7).map(({ name, icon, value }) => {
               return (
-                <Link to={`/library/category?categoryType=${value}`}>
+                <Link key={value} to={`/library/category?categoryType=${value}`}>
                   <Card className="flex flex-col items-center justify-center w-32 gap-2 p-3 bg-transparent border-0 rounded cursor-pointer dark:hover:bg-muted/50 hover:bg-muted">
                     <img src={icon} className="size-10" />
                     <span className="text-[13px] font-medium">

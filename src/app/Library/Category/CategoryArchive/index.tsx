@@ -84,6 +84,6 @@ export const CategoryArchive = () => {
           </TabsContent>
         </div>
       </Tabs>
-    </main >
+    </main>
   )
 }

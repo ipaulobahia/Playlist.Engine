@@ -27,7 +27,7 @@ export const CategoryList = () => {
           :
           <ScrollList>
             {
-              data && data.map(({ title, playlistId }) => {
+               data.map(({ title, playlistId }) => {
                 return (
                   <ListContextContent key={playlistId} folderId={playlistId}>
                     <Link className="w-fit" to={`/library/category/archive?categoryType=${categoryType}&folderId=${playlistId}`}>

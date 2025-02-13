@@ -9,6 +9,4 @@ interface InfoSidebarContextType {
   closeSidebar: () => void;
 }
 
-const InfoSidebarContext = createContext<InfoSidebarContextType | undefined>(undefined);
-
-export default InfoSidebarContext;
+export const InfoSidebarContext = createContext<InfoSidebarContextType | undefined>(undefined);

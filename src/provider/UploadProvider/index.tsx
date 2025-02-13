@@ -1,4 +1,4 @@
-import UploadContext from '@/contexts/UploadContext';
+import { UploadContext } from '@/contexts/UploadContext';
 import { ReactNode, useState } from 'react';
 import 'react-circular-progressbar/dist/styles.css';
 import { UploadAccordion } from './components';

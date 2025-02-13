@@ -1,4 +1,4 @@
-import UploadContext from "@/contexts/UploadContext";
+import { UploadContext } from "@/contexts/UploadContext";
 import { useContext } from "react";
 
 export const useUpload = () => {
