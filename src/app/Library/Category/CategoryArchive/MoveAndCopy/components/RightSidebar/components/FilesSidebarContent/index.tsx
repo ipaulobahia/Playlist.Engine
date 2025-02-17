@@ -1,7 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { usePlaylistList } from "@/service/api/playlist/getPlaylistList";
+import { EditPlaylistFiles } from "@/contracts/Playlist";
+import { usePlaylistTabs } from "@/provider/PlaylistTabsProvider";
+import { useEditPlaylistFiles } from "@/service/api/playlist/editPlaylistFiles";
+import { MediaFiles as MediaFilesType, usePlaylistList } from "@/service/api/playlist/getPlaylistList";
 import { ChevronLeft } from "lucide-react";
-import { MediaFiles } from "./components";
+import { toast } from "sonner";
+import { FileContextMenu, MediaFiles } from "./components";
 
 interface FilesSidebarContentProps {
   list: { playlistType: number; playlistId: number; title: string; }
@@ -9,11 +13,30 @@ interface FilesSidebarContentProps {
 }
 
 export const FilesSidebarContent = ({ list, onBack }: FilesSidebarContentProps) => {
-  const { title, playlistId } = list
+  const { selectedTab } = usePlaylistTabs();
+  const { mutate } = useEditPlaylistFiles();
 
-  const { data } = usePlaylistList(playlistId.toString())
+  const { title, playlistId } = list;
 
-  const emptyList = !data || !data.hasOwnProperty("mediaFiles")
+  const { data: currentPlaylist } = usePlaylistList(playlistId.toString());
+  const selectedPlaylistId = selectedTab?.playlistId.toString();
+  const { data: targetPlaylist } = usePlaylistList(selectedPlaylistId ?? null);
+
+  const isEmptyPlaylist = !currentPlaylist?.mediaFiles;
+
+  function handleAddFile(fileId: number) {
+    if (!targetPlaylist) return;
+
+    const { playlistId, playlistType, title, mediaFiles } = targetPlaylist;
+
+    const fileExists = mediaFiles.some((file: MediaFilesType) => file.fileId === fileId);
+
+    if (fileExists) return toast.error("Erro!", { description: "Você não pode adicionar arquivos duplicados à lista." });
+
+    const updatedFiles = [...mediaFiles.map((file) => file.fileId), fileId];
+
+    mutate({ playlistId, title, playlistType: playlistType.toString() as EditPlaylistFiles["playlistType"], files: updatedFiles });
+  }
 
   return (
     <div className="flex-1 p-2">
@@ -26,7 +49,7 @@ export const FilesSidebarContent = ({ list, onBack }: FilesSidebarContentProps) 
         </span>
       </div>
       {
-        emptyList
+        isEmptyPlaylist
           ?
           <div className="flex items-center justify-center p-5 align-middle">
             <span className="text-xs font-medium">
@@ -34,9 +57,13 @@ export const FilesSidebarContent = ({ list, onBack }: FilesSidebarContentProps) 
             </span>
           </div>
           :
-          data.mediaFiles.map((mediaFile) => {
+          currentPlaylist.mediaFiles.map((mediaFile) => {
             const { fileId } = mediaFile
-            return <MediaFiles key={fileId} mediaFile={mediaFile} />
+            return (
+              <FileContextMenu key={fileId} onAddFile={() => handleAddFile(fileId)}>
+                <MediaFiles mediaFile={mediaFile} />
+              </FileContextMenu>
+            )
           })
       }
     </div>

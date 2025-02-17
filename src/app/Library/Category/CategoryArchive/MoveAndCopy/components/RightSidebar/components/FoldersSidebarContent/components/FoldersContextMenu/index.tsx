@@ -6,6 +6,7 @@ import {
   ContextMenuTrigger
 } from "@/components/ui/context-menu"
 import { DialogTrigger } from "@/components/ui/dialog"
+import { FilePenLine, FolderOpen, FolderPen, Trash2 } from "lucide-react"
 
 interface FoldersContextMenuProps {
   children: React.ReactNode
@@ -22,21 +23,33 @@ export const FoldersContextMenu = ({ children, onEditContentList, onOpenList, on
         {children}
       </ContextMenuTrigger>
       <ContextMenuContent>
-        <ContextMenuItem onClick={onOpenList} className="text-xs"  >
-          Abrir
+        <ContextMenuItem onClick={onOpenList} className="flex flex-row items-center text-xs gap-x-1">
+          <FolderOpen size={12} />
+          <span>
+            Abrir
+          </span>
         </ContextMenuItem>
         <ContextMenuSeparator />
-        <ContextMenuItem onClick={onEditContentList} className="text-xs">
-          Editar conteúdo
+        <ContextMenuItem onClick={onEditContentList} className="flex flex-row items-center text-xs gap-x-1">
+          <FolderPen size={12} />
+          <span>
+            Editar conteúdo
+          </span>
         </ContextMenuItem>
         <DialogTrigger className="w-full">
-          <ContextMenuItem onClick={onRemoveList} className="text-xs">
-            Excluir
+          <ContextMenuItem onClick={onRemoveList} className="flex flex-row items-center text-xs gap-x-1">
+            <Trash2 size={12} />
+            <span>
+              Excluir
+            </span>
           </ContextMenuItem>
         </DialogTrigger>
         <DialogTrigger className="w-full">
-          <ContextMenuItem onClick={onRenameList} className="text-xs">
-            Renomear
+          <ContextMenuItem onClick={onRenameList} className="flex flex-row items-center text-xs gap-x-1">
+            <FilePenLine size={12} />
+            <span>
+              Renomear
+            </span>
           </ContextMenuItem>
         </DialogTrigger>
       </ContextMenuContent>

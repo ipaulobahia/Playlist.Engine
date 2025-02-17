@@ -27,7 +27,7 @@ createRoot(document.getElementById('root')!).render(
       <InfoSidebarProvider>
         <UploadProvider>
           <RouterProvider router={Routers} />
-          <Toaster position='top-right' expand={false} richColors/>
+          <Toaster position='top-right' expand={false} richColors />
         </UploadProvider>
       </InfoSidebarProvider>
     </ThemeProvider>

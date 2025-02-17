@@ -9,16 +9,17 @@ import { CirclePlus, Copy, Play } from "lucide-react"
 
 interface FileContextMenuProps {
   children: React.ReactNode
+  onAddFile: () => void
 }
 
-export const FileContextMenu = ({ children }: FileContextMenuProps) => {
+export const FileContextMenu = ({ children, onAddFile }: FileContextMenuProps) => {
   return (
     <ContextMenu>
       <ContextMenuTrigger>
         {children}
       </ContextMenuTrigger>
       <ContextMenuContent>
-        <ContextMenuItem className="flex flex-row items-center text-xs gap-x-1">
+        <ContextMenuItem onClick={onAddFile} className="flex flex-row items-center text-xs gap-x-1">
           <CirclePlus size={12} />
           <span>
             Adicionar
@@ -31,7 +32,7 @@ export const FileContextMenu = ({ children }: FileContextMenuProps) => {
             Copiar
           </span>
         </ContextMenuItem>
-        <ContextMenuItem className="flex flex-row items-center text-xs gap-x-1">
+        <ContextMenuItem disabled className="flex flex-row items-center text-xs gap-x-1">
           <Play className="fill-accent-foreground" size={12} />
           <span>
             Reproduzir
