@@ -1,6 +1,6 @@
 import { ScrollList } from "@/components/ui/scroll-list";
 import { useInfoSidebar } from "@/hooks/use-sidebar";
-import { MediaFiles, usePlaylistList } from "@/service/api/playlist/getPlaylistList";
+import { MediaFiles, usePlaylistList } from "@/service/api/playlist/query/getPlaylistList";
 import { File } from "lucide-react";
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";

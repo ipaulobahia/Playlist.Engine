@@ -1,5 +1,5 @@
 import { InfoSidebarContext } from '@/contexts/InfoSidebarContext';
-import { MediaFiles } from '@/service/api/playlist/getPlaylistList';
+import { MediaFiles } from '@/service/api/playlist/query/getPlaylistList';
 import React, { ReactNode, useState } from 'react';
 
 interface InfoSidebarProviderProps {

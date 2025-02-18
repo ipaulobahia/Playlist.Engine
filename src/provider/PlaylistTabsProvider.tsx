@@ -1,6 +1,6 @@
 import { List } from "@/app/Library/Category/CategoryArchive/MoveAndCopy/types";
 import { PlaylistTabsContext } from "@/contexts/PlaylistTabsContext";
-import { usePlaylistList } from "@/service/api/playlist/getPlaylistList";
+import { usePlaylistList } from "@/service/api/playlist/query/getPlaylistList";
 import { ReactNode, useContext, useEffect, useState } from "react";
 
 interface PlaylistTabsProviderProps {

@@ -1,4 +1,4 @@
-import { MediaFiles } from '@/service/api/playlist/getPlaylistList';
+import { MediaFiles } from '@/service/api/playlist/query/getPlaylistList';
 import { createContext } from 'react';
 
 interface InfoSidebarContextType {

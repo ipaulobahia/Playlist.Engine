@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button"
 import { DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Label } from "@/components/ui/label"
 import { PingLoading } from "@/components/ui/ping-loading"
-import { useDeletePlaylist } from "@/service/api/playlist/deletePlaylist"
+import { useDeletePlaylist } from "@/service/api/playlist/mutate/deletePlaylist"
 import { useEffect } from "react"
 
 interface DialogDeleteListProps {

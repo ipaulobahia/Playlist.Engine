@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { useInfoSidebar } from "@/hooks/use-sidebar";
-import { usePlaylistList } from "@/service/api/playlist/getPlaylistList";
+import { usePlaylistList } from "@/service/api/playlist/query/getPlaylistList";
 import { Info, List, Table2 } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 import { CategoryArchiveBreadchumbs, CategoryArchiveList, CategoryArchiveTable, DrawerDialogAddFile } from "./components";

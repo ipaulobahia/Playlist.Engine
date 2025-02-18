@@ -1,5 +1,5 @@
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
-import { usePlaylistList } from "@/service/api/playlist/getPlaylistList";
+import { usePlaylistList } from "@/service/api/playlist/query/getPlaylistList";
 import { CategoryEnum, translateToPT } from "@/utils";
 import { Link, useSearchParams } from "react-router-dom";
 

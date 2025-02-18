@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { EditPlaylistFiles } from "@/contracts/Playlist";
 import { usePlaylistTabs } from "@/provider/PlaylistTabsProvider";
-import { useEditPlaylistFiles } from "@/service/api/playlist/editPlaylistFiles";
-import { MediaFiles as MediaFilesType, usePlaylistList } from "@/service/api/playlist/getPlaylistList";
+import { useEditPlaylistFiles } from "@/service/api/playlist/mutate/editPlaylistFiles";
+import { MediaFiles as MediaFilesType, usePlaylistList } from "@/service/api/playlist/query/getPlaylistList";
 import { ChevronLeft } from "lucide-react";
 import { toast } from "sonner";
 import { FileContextMenu, MediaFiles } from "./components";

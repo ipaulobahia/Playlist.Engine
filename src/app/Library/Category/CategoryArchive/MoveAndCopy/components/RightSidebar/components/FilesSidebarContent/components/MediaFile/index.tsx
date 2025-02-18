@@ -15,7 +15,7 @@ interface MediaFileProps {
 export const MediaFiles = ({ mediaFile }: MediaFileProps) => {
   const { title, fileId } = mediaFile
 
-  const { attributes, listeners, setNodeRef, transform } = useDraggable({ id: fileId, data: mediaFile });
+  const { attributes, listeners, setNodeRef, transform } = useDraggable({ id: `MediaFilesDraggable-${fileId}`, data: mediaFile });
 
   return (
     <div

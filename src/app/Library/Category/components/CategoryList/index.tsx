@@ -1,6 +1,6 @@
 import { ListContextContent } from "@/components";
 import { ScrollList } from "@/components/ui/scroll-list";
-import { usePlaylist } from "@/service/api/playlist/getPlaylist";
+import { usePlaylist } from "@/service/api/playlist/query/getPlaylist";
 import { Folder } from "lucide-react";
 import { Link, useSearchParams } from "react-router-dom";
 import { Toolbar } from "./components";

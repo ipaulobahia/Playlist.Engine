@@ -1,5 +1,5 @@
 import { usePlaylistTabs } from "@/provider/PlaylistTabsProvider";
-import { usePlaylistList } from "@/service/api/playlist/getPlaylistList";
+import { usePlaylistList } from "@/service/api/playlist/query/getPlaylistList";
 import { useDroppable } from "@dnd-kit/core";
 import { forwardRef } from "react";
 import { useSearchParams } from "react-router-dom";
@@ -8,9 +8,10 @@ import { MediaFiles } from "./components/MediaFile";
 
 interface MediaFilesListProps {
   selectedIndexes: number[]
+  setSelectedIndexes: React.Dispatch<React.SetStateAction<number[]>>
 }
 
-export const MediaFilesList = forwardRef<HTMLDivElement, MediaFilesListProps>(({ selectedIndexes }, ref) => {
+export const MediaFilesList = forwardRef<HTMLDivElement, MediaFilesListProps>(({ selectedIndexes, setSelectedIndexes }, ref) => {
   const { selectedTab } = usePlaylistTabs();
 
   const [searchParams] = useSearchParams();
@@ -22,8 +23,18 @@ export const MediaFilesList = forwardRef<HTMLDivElement, MediaFilesListProps>(({
 
   const { setNodeRef } = useDroppable({ id: "MediaFilesDroppable", data });
 
+  function handleSelectAllFiles() {
+    const countMediaFiles = data?.mediaFiles?.length ?? 0;
+
+    if (countMediaFiles > 0) {
+      setSelectedIndexes(Array.from({ length: countMediaFiles }, (_, index) => index));
+    }
+  }
+
   return (
-    <MediaFilesListContextMenu>
+    <MediaFilesListContextMenu
+      onSelectAllFiles={handleSelectAllFiles}
+    >
       <div className="h-full p-3" ref={setNodeRef} >
         {
           emptyList
@@ -37,7 +48,7 @@ export const MediaFilesList = forwardRef<HTMLDivElement, MediaFilesListProps>(({
             <div className="grid grid-flow-col gap-1.5 w-fit overflow-auto select-none grid-rows-18" ref={ref}>
               {data.mediaFiles.map((mediaFile, index) => {
                 const { fileId } = mediaFile;
-                return (<MediaFiles key={fileId} mediaFile={mediaFile} selectedFile={selectedIndexes.includes(index)} />);
+                return (<MediaFiles key={fileId} mediaFile={mediaFile} selectedFile={selectedIndexes.includes(index)} onSelectAllFiles={handleSelectAllFiles} />);
               })}
             </div>
         }

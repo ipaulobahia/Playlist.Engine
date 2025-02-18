@@ -1,5 +1,5 @@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { usePlaylist } from "@/service/api/playlist/getPlaylist"
+import { usePlaylist } from "@/service/api/playlist/query/getPlaylist"
 import { ColumnFiltersState, flexRender, getCoreRowModel, getFacetedRowModel, getFacetedUniqueValues, getFilteredRowModel, getPaginationRowModel, getSortedRowModel, SortingState, useReactTable, VisibilityState } from "@tanstack/react-table"
 import { useState } from "react"
 import { useSearchParams } from "react-router-dom"

@@ -1,6 +1,7 @@
 import { PlaylistTabsProvider } from "@/provider/PlaylistTabsProvider";
-import { useEditPlaylistFiles } from "@/service/api/playlist/editPlaylistFiles";
-import { MediaFiles } from "@/service/api/playlist/getPlaylistList";
+import { useEditPlaylistFiles } from "@/service/api/playlist/mutate/editPlaylistFiles";
+import { usePlaylistList } from "@/service/api/playlist/mutate/postPlaylistList";
+import { MediaFiles } from "@/service/api/playlist/query/getPlaylistList";
 import { Box, boxesIntersect, useSelectionContainer } from '@air/react-drag-to-select';
 import { DndContext, DragEndEvent } from "@dnd-kit/core";
 import { useEffect, useRef, useState } from "react";
@@ -20,6 +21,7 @@ export const MoveAndCopy = () => {
   const [enableDragSelection, setEnableDragSelection] = useState<boolean>(true)
 
   const { mutate } = useEditPlaylistFiles();
+  const { mutateAsync } = usePlaylistList()
 
   const { DragSelection } = useSelectionContainer({
     eventsElement: document.getElementById("root"),
@@ -58,22 +60,49 @@ export const MoveAndCopy = () => {
     isEnabled: enableDragSelection,
   });
 
-  function handleDragEnd(event: DragEndEvent) {
+  async function handleDragEnd(event: DragEndEvent) {
     const { active, over } = event;
     if (over && active.id !== over.id) {
-      const draggedFile = active.data.current;
-      const targetData = over.data.current;
-      if (!draggedFile || !targetData) return;
+      const activeIdSplit = active.id.toString().split('-')
+      const draggableType = activeIdSplit[0] as 'MediaFilesDraggable' | 'MediaFolderDraggable'
 
-      const fileAlreadyExists = targetData.mediaFiles.some((file: MediaFiles) => file.fileId === draggedFile.fileId);
+      if (draggableType == "MediaFolderDraggable") {
+        const draggedFolder = active.data.current;
+        const targetData = over.data.current;
 
-      if (fileAlreadyExists) {
-        return toast.error("Erro!", { description: "Você não pode adicionar arquivos duplicados à lista." });
+        if (!draggedFolder || !targetData) return;
+
+        if (draggedFolder.playlistId === targetData.playlistId) return;
+
+        const folder = await mutateAsync(draggedFolder.playlistId);
+
+        if (!folder?.mediaFiles) return;
+
+        const { playlistId, playlistType, title, mediaFiles = [] } = targetData;
+
+        const updatedFiles = Array.from(new Set([...mediaFiles, ...folder.mediaFiles].map((file: MediaFiles) => file.fileId)));
+
+        if (updatedFiles.length !== mediaFiles.length) {
+          mutate({ playlistId, title, playlistType, files: updatedFiles });
+        }
       }
 
-      const { playlistId, playlistType, title } = targetData;
-      const updatedFiles = [...targetData.mediaFiles.map((file: MediaFiles) => file.fileId), draggedFile.fileId];
-      mutate({ playlistId, title, playlistType, files: updatedFiles });
+      else if (draggableType == "MediaFilesDraggable") {
+        const draggedFile = active.data.current;
+        const targetData = over.data.current;
+
+        if (!draggedFile || !targetData) return;
+
+        const fileAlreadyExists = targetData.mediaFiles.some((file: MediaFiles) => file.fileId === draggedFile.fileId);
+
+        if (fileAlreadyExists) {
+          return toast.error("Erro!", { description: "Você não pode adicionar arquivos duplicados à lista." });
+        }
+
+        const { playlistId, playlistType, title } = targetData;
+        const updatedFiles = [...targetData.mediaFiles.map((file: MediaFiles) => file.fileId), draggedFile.fileId];
+        mutate({ playlistId, title, playlistType, files: updatedFiles });
+      }
     }
     setEnableDragSelection(true)
   }
@@ -106,7 +135,7 @@ export const MoveAndCopy = () => {
           <NavigationTabs />
           <>
             <DragSelection />
-            <MediaFilesList ref={mediaFilesListRef} selectedIndexes={selectedIndexes} />
+            <MediaFilesList ref={mediaFilesListRef} selectedIndexes={selectedIndexes} setSelectedIndexes={setSelectedIndexes} />
           </>
         </div>
         <RightSidebar />

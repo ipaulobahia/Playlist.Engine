@@ -1,4 +1,4 @@
-import { MediaFiles } from "@/service/api/playlist/getPlaylistList";
+import { MediaFiles } from "@/service/api/playlist/query/getPlaylistList";
 
 export const profileColors = [
   { label: 'Cinza', value: '#6B7280', bg: 'bg-gray-500' },

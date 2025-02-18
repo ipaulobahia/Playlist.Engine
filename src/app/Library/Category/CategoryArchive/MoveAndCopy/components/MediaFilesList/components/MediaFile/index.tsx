@@ -10,13 +10,14 @@ interface MediaFileProps {
     duration: string;
   }
   selectedFile: boolean
+  onSelectAllFiles(): void
 }
 
-export const MediaFiles = ({ mediaFile, selectedFile }: MediaFileProps) => {
+export const MediaFiles = ({ mediaFile, selectedFile, onSelectAllFiles }: MediaFileProps) => {
   const { title } = mediaFile
 
   return (
-    <MediaFileContextMenu>
+    <MediaFileContextMenu onSelectAllFiles={onSelectAllFiles}>
       <div className={`px-3 flex w-fit items-center gap-1.5 py-1.5 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground cursor-pointer rounded ${selectedFile && 'bg-sidebar-accent text-sidebar-accent-foreground'}`}>
         <File size={16} />
         <span className="text-sm font-medium">
