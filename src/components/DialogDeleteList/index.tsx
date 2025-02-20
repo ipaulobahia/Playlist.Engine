@@ -13,7 +13,7 @@ interface DialogDeleteListProps {
 export const DialogDeleteList = ({ folderId, setOpen }: DialogDeleteListProps) => {
   const { mutate, isSuccess, isError, isPending } = useDeletePlaylist()
 
-  function handlerDeletePlaylist() {
+  function handleDeletePlaylist() {
     mutate(folderId)
   }
 
@@ -39,7 +39,7 @@ export const DialogDeleteList = ({ folderId, setOpen }: DialogDeleteListProps) =
         <DialogClose asChild>
           <Button size={'sm'} variant={'outline'}>Cancelar</Button>
         </DialogClose>
-        <Button disabled={isPending} onClick={handlerDeletePlaylist} size={'sm'} variant={'destructive'}>
+        <Button disabled={isPending} onClick={handleDeletePlaylist} size={'sm'} variant={'destructive'}>
           {
             isPending
               ?

@@ -1,3 +1,6 @@
+export { CategoryFoldersSidebarContent } from "./CategoryFoldersSidebarContent";
 export { CategorySidebarContent } from "./CategorySidebarContent";
+export { FilesOnlyFoldersSidebarContent } from "./FilesOnlyFoldersSidebarContent";
 export { FilesSidebarContent } from "./FilesSidebarContent";
-export { FoldersSidebarContent } from "./FoldersSidebarContent";
+export { OnlyFoldersSidebarContent } from "./OnlyFoldersSidebarContent";
+

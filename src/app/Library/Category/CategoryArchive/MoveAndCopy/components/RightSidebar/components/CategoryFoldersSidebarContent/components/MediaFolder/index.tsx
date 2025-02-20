@@ -10,7 +10,7 @@ interface MediaFolderProps {
 export const MediaFolder = ({ list, onClick }: MediaFolderProps) => {
   const { title, playlistId } = list
 
-  const { listeners, setNodeRef, transform } = useDraggable({ id: `MediaFolderDraggable-${playlistId}`, data: list });
+  const { attributes, listeners, setNodeRef, transform } = useDraggable({ id: `MediaFolderDraggable-${playlistId}`, data: list });
 
   return (
     <div
@@ -24,7 +24,9 @@ export const MediaFolder = ({ list, onClick }: MediaFolderProps) => {
           {title}
         </span>
       </div>
-      <GripVertical  {...listeners} className="hidden border-0 cursor-grab group-hover:block ring-0" size={12} />
+      <div className="hidden cursor-grab group-hover:block aria-pressed:cursor-grabbing" {...attributes} {...listeners}>
+        <GripVertical size={12} />
+      </div>
     </div>
   )
 }

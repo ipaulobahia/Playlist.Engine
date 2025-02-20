@@ -23,13 +23,13 @@ export const ContextMenuContent = () => {
   return (
     <ContextMenuContentUI className="w-44">
       <ContextMenuItem className="flex flex-row items-center gap-x-2">
-        <Play className="text-accent-foreground " size={14} />
+        <Play className="text-accent-foreground " size={12} />
         <span>
           Tocar
         </span>
       </ContextMenuItem>
       <ContextMenuItem className="flex flex-row items-center gap-x-2">
-        <StepForward className="text-accent-foreground " size={14} />
+        <StepForward className="text-accent-foreground " size={12} />
         <span>
           Tocar do início
         </span>
@@ -42,19 +42,19 @@ export const ContextMenuContent = () => {
         </ContextMenuSubTrigger>
         <ContextMenuSubContent className="w-44">
           <ContextMenuItem className="flex flex-row items-center gap-x-2">
-            <Mic className="text-accent-foreground " size={14} />
+            <Mic className="text-accent-foreground " size={12} />
             <span>
               Locução
             </span>
           </ContextMenuItem>
           <ContextMenuItem className="flex flex-row items-center gap-x-2">
-            <SwatchBook className="text-accent-foreground " size={14} />
+            <SwatchBook className="text-accent-foreground " size={12} />
             <span>
               Refrão
             </span>
           </ContextMenuItem>
           <ContextMenuItem className="flex flex-row items-center gap-x-2">
-            <Info className="text-accent-foreground " size={14} />
+            <Info className="text-accent-foreground " size={12} />
             <span>
               Anotação
             </span>
@@ -71,25 +71,25 @@ export const ContextMenuContent = () => {
           </ContextMenuSub>
           <ContextMenuSeparator />
           <ContextMenuItem className="flex flex-row items-center gap-x-2">
-            <TriangleRight className="text-accent-foreground " size={14} />
+            <TriangleRight className="text-accent-foreground " size={12} />
             <span>
               Fade-in
             </span>
           </ContextMenuItem>
           <ContextMenuItem className="flex flex-row items-center gap-x-2">
-            <TriangleRight className="text-accent-foreground scale-x-[-1]" size={14} />
+            <TriangleRight className="text-accent-foreground scale-x-[-1]" size={12} />
             <span>
               Fade-out
             </span>
           </ContextMenuItem>
           <ContextMenuItem className="flex flex-row items-center gap-x-2">
-            <StepForward className="text-accent-foreground " size={14} />
+            <StepForward className="text-accent-foreground " size={12} />
             <span>
               Início do áudio
             </span>
           </ContextMenuItem>
           <ContextMenuItem className="flex flex-row items-center gap-x-2">
-            <Square className="text-accent-foreground " size={14} />
+            <Square className="text-accent-foreground " size={12} />
             <span>
               Fim do áudio
             </span>
@@ -98,14 +98,14 @@ export const ContextMenuContent = () => {
       </ContextMenuSub>
       <ContextMenuSeparator />
       <ContextMenuItem className="flex flex-row items-center gap-x-2">
-        <ZoomIn className="text-accent-foreground " size={14} />
+        <ZoomIn className="text-accent-foreground " size={12} />
         <span>
           Zoom in
         </span>
         <ContextMenuShortcut>Ctrl +</ContextMenuShortcut>
       </ContextMenuItem>
       <ContextMenuItem className="flex flex-row items-center gap-x-2">
-        <ZoomOut className="text-accent-foreground " size={14} />
+        <ZoomOut className="text-accent-foreground " size={12} />
         <span>
           Zoom out
         </span>

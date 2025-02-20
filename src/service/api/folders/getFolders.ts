@@ -1,7 +1,7 @@
 import { http } from "@/config";
 import { useQuery } from "@tanstack/react-query";
 
-interface Folder {
+export interface Folder {
   folderId: number;
   folderName: string;
   type: number;

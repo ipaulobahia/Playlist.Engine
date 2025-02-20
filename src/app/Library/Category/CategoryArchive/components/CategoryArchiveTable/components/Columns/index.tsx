@@ -4,21 +4,7 @@ import clsx from "clsx"
 import dayjs from 'dayjs'
 import { DropdownMenuRowActions } from "./components"
 
-interface File {
-  name: string
-  size: string
-  type: string
-}
-
-export interface FilesTable {
-  id: string
-  file: File
-  folder: string
-  uploadedBy: string
-  lastModified: Date
-}
-
-export const columns: ColumnDef<FilesTable>[] = [
+export const columns: ColumnDef<any>[] = [
   {
     accessorKey: "title",
     header: ({ column }) => (<HeaderFilter column={column} title="Título" />),

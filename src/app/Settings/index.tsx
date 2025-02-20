@@ -8,7 +8,7 @@ import { ResumedAffiliatesTable } from "./components"
 export const Settings = () => {
   const [open, setOpen] = useState(false)
 
-  function handlerDrawerDialogLicense() {
+  function handleDrawerDialogLicense() {
     setOpen(prev => !prev)
   }
 
@@ -218,7 +218,7 @@ export const Settings = () => {
               Outros
             </span>
           </div>
-          <div onClick={handlerDrawerDialogLicense} className="flex flex-row items-center justify-between w-full p-4 border rounded-lg shadow cursor-pointer hover:bg-muted border-muted-foreground/25">
+          <div onClick={handleDrawerDialogLicense} className="flex flex-row items-center justify-between w-full p-4 border rounded-lg shadow cursor-pointer hover:bg-muted border-muted-foreground/25">
             <div className="flex flex-row items-center gap-x-1">
               <Copyright size={16} />
               <span className="text-sm font-medium text-accent-foreground">Licença</span>

@@ -10,7 +10,7 @@ import { Link } from "react-router-dom"
 export const NavUser = () => {
   const [open, setOpen] = useState(false)
 
-  function handlerDrawerDialogLicense() {
+  function handleDrawerDialogLicense() {
     setOpen(prev => !prev)
   }
 
@@ -51,7 +51,7 @@ export const NavUser = () => {
                 Configurações
               </div>
             </Link>
-            <div className="cursor-pointer relative flex select-none items-center gap-2 rounded-sm px-2 py-1.5 text-xs transition-colors hover:bg-accent hover:text-accent-foreground [&>svg]:size-4" onClick={() => handlerDrawerDialogLicense()}>
+            <div className="cursor-pointer relative flex select-none items-center gap-2 rounded-sm px-2 py-1.5 text-xs transition-colors hover:bg-accent hover:text-accent-foreground [&>svg]:size-4" onClick={() => handleDrawerDialogLicense()}>
               <Copyright />
               Licença
             </div>

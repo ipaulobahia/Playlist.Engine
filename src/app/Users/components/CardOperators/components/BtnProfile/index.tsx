@@ -7,7 +7,7 @@ export const BtnProfile = () => {
   const [stationProfiles] = useState([...new Set(['Todos', ...FAKE_USERS_DATA.map(item => item.profile)])]);
   const [selectedProfile, setSelectedProfile] = useState('Todos')
 
-  function handlerSelectProfile(profile: string) {
+  function handleSelectProfile(profile: string) {
     setSelectedProfile(profile)
   }
 
@@ -16,7 +16,7 @@ export const BtnProfile = () => {
       {
         stationProfiles.map((profile, index) => {
           return (
-            <Button onClick={() => handlerSelectProfile(profile)} key={index} className={`items-center justify-between w-full rounded ${selectedProfile == profile ? "bg-secondary dark:bg-secondary/50" : "dark:bg-transparent dark:hover:bg-secondary/50"}`} size={'sm'} variant={'ghost'} >
+            <Button onClick={() => handleSelectProfile(profile)} key={index} className={`items-center justify-between w-full rounded ${selectedProfile == profile ? "bg-secondary dark:bg-secondary/50" : "dark:bg-transparent dark:hover:bg-secondary/50"}`} size={'sm'} variant={'ghost'} >
               <span>
                 {profile}
               </span>

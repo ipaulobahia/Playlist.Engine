@@ -21,7 +21,7 @@ export const DialogCreateProfile = ({ open, setOpen }: DialogCreateProfileProps)
   const [colorPicker, setColorPicker] = useColor('')
   const [isCustomColor, setIsCustomColor] = useState<boolean>(false)
 
-  function handlerColor(color: string, customColor: boolean = false) {
+  function handleColor(color: string, customColor: boolean = false) {
     if (customColor) {
       setSelectedColor(color)
       setIsCustomColor(true)
@@ -72,7 +72,7 @@ export const DialogCreateProfile = ({ open, setOpen }: DialogCreateProfileProps)
                 profileColors.map((color) => (
                   <Button
                     key={color.value}
-                    onClick={() => handlerColor(color.value)}
+                    onClick={() => handleColor(color.value)}
                     variant="outline"
                     size="sm"
                     aria-pressed={selectedColor === color.value && !isCustomColor}
@@ -98,7 +98,7 @@ export const DialogCreateProfile = ({ open, setOpen }: DialogCreateProfileProps)
                   <div className="flex flex-row justify-between p-3">
                     <Button size="sm" variant="outline">Cancelar</Button>
                     <PopoverClose asChild>
-                      <Button onClick={() => handlerColor(colorPicker.hex, true)} size="sm">Salvar</Button>
+                      <Button onClick={() => handleColor(colorPicker.hex, true)} size="sm">Salvar</Button>
                     </PopoverClose>
                   </div>
                 </PopoverContent>

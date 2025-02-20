@@ -22,7 +22,7 @@ interface Files {
     folderName: string;
     folderIcon: string
   }
-  files: IFile[];
+  files: File[];
 }
 
 interface GetFilesResponse extends Files { }

@@ -1,12 +1,18 @@
 import { ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuTrigger } from "@/components/ui/context-menu"
+import { useCopyPaste } from "@/provider/CopyPasteProvider"
 import { ClipboardPaste, Play, SquareMousePointer } from "lucide-react"
 
 interface MediaFilesListContextMenuProps {
   children: React.ReactNode
   onSelectAllFiles(): void
+  onPasteFile: () => void
 }
 
-export const MediaFilesListContextMenu = ({ children, onSelectAllFiles }: MediaFilesListContextMenuProps) => {
+export const MediaFilesListContextMenu = ({ children, onSelectAllFiles, onPasteFile }: MediaFilesListContextMenuProps) => {
+  const { isValidCopyData } = useCopyPaste()
+
+  const isEnablePasteBtn = !isValidCopyData;
+
   return (
     <ContextMenu>
       <ContextMenuTrigger>
@@ -19,7 +25,7 @@ export const MediaFilesListContextMenu = ({ children, onSelectAllFiles }: MediaF
             Selecionar tudo
           </span>
         </ContextMenuItem>
-        <ContextMenuItem disabled className="flex flex-row items-center text-xs gap-x-1">
+        <ContextMenuItem onClick={onPasteFile} disabled={isEnablePasteBtn} className="flex flex-row items-center text-xs gap-x-1">
           <ClipboardPaste size={12} />
           <span>
             Colar

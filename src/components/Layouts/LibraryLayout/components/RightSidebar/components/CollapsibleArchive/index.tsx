@@ -1,12 +1,12 @@
 import { Button } from "@/components/ui/button"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
-import { TableBody, TableRow, TableCell, Table } from "@/components/ui/table"
-import { useFile } from "@/service/api/files/getFile"
+import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table"
+import { useFile } from "@/service/api/files/query/getFile"
+import { format } from "date-fns"
+import { ptBR } from 'date-fns/locale/pt-BR'
 import { ChevronDown } from "lucide-react"
 import { useState } from "react"
 import { useSearchParams } from "react-router-dom"
-import { format } from "date-fns"
-import { ptBR } from 'date-fns/locale/pt-BR'
 import { CollapsibleContentSkeleton } from "./components"
 
 export const CollapsibleArchive = () => {

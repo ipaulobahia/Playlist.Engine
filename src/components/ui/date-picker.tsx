@@ -3,13 +3,13 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Switch } from "@/components/ui/switch"
 import { cn } from "@/lib/utils"
 import { format } from "date-fns"
-import { CalendarIcon } from "lucide-react"
 import { ptBR } from 'date-fns/locale/pt-BR'
+import { CalendarIcon } from "lucide-react"
 import { useState } from "react"
+import { DateRange } from "react-day-picker"
+import { Button } from "./button"
 import { Label } from "./label"
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "./select"
-import { Button } from "./button"
-import { DateRange } from "react-day-picker"
 
 export const DatePicker = () => {
   const [showFilterDate, setShowFilterDate] = useState<boolean>(false)
@@ -18,7 +18,7 @@ export const DatePicker = () => {
   const [date, setDate] = useState<Date | undefined>()
   const [rangeDate, setRangeDate] = useState<DateRange | undefined>()
 
-  function handlerCalendar() {
+  function handleCalendar() {
     setIsCapendarOpen(prev => !prev)
   }
 
@@ -77,7 +77,7 @@ export const DatePicker = () => {
                 isRangeDate
                   ?
                   <Calendar
-                    onDayClick={handlerCalendar}
+                    onDayClick={handleCalendar}
                     mode="single"
                     locale={ptBR}
                     selected={date}

@@ -15,7 +15,7 @@ export const ListContextContent = ({ children, folderId }: ListContextContentPro
   const [dialogType, setDialogType] = useState<"Edit" | "Delete">("Edit")
   const [open, setOpen] = useState(false)
 
-  function handlerDialogType(type: "Edit" | "Delete") {
+  function handleDialogType(type: "Edit" | "Delete") {
     setDialogType(type)
   }
 
@@ -34,7 +34,7 @@ export const ListContextContent = ({ children, folderId }: ListContextContentPro
               </span>
             </ContextMenuItem>
           </Link>
-          <DialogTrigger onClick={() => handlerDialogType("Edit")} className="w-full">
+          <DialogTrigger onClick={() => handleDialogType("Edit")} className="w-full">
             <ContextMenuItem className="flex flex-row items-center gap-x-2">
               <Pencil size={16} />
               <span>
@@ -49,7 +49,7 @@ export const ListContextContent = ({ children, folderId }: ListContextContentPro
             </span>
           </ContextMenuItem>
           <ContextMenuSeparator />
-          <DialogTrigger onClick={() => handlerDialogType("Delete")} className="w-full">
+          <DialogTrigger onClick={() => handleDialogType("Delete")} className="w-full">
             <ContextMenuItem className="flex flex-row items-center gap-x-2">
               <Trash size={16} />
               <span>

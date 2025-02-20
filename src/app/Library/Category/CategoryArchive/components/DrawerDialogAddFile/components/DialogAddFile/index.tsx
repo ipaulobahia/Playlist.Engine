@@ -25,7 +25,7 @@ export const DialogAddFile = ({ children, open, setOpen }: DialogAddFileProps) =
     setAddFileType(type)
   }
 
-  function handlerConfirmAddFileType() {
+  function handleConfirmAddFileType() {
     if (addFileType === "Upload") {
       return
     }
@@ -67,7 +67,7 @@ export const DialogAddFile = ({ children, open, setOpen }: DialogAddFileProps) =
             <Button variant={'outline'}>Cancelar</Button>
           </DialogClose>
           <DialogClose asChild>
-            <Button onClick={handlerConfirmAddFileType}>
+            <Button onClick={handleConfirmAddFileType}>
               <span>Confirmar</span>
             </Button>
           </DialogClose>

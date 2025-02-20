@@ -1,4 +1,3 @@
-import { FilesTable } from '@/app/Library/Category/CategoryArchive/components/CategoryArchiveTable/components/Columns';
 import {
   CalendarSVG,
   ClapperBoardSVG,
@@ -1665,9 +1664,9 @@ export const FAKE_CONFIG_PREFERENCE: PreferenceConfig = [
   }
 ]
 
-export const FAKE_DATA_ARCHIVE: FilesTable[] = [];
+export const FAKE_DATA_ARCHIVE: any[] = [];
 
-export const FAKE_DATA_ALL_FILES_TALBE: FilesTable[] = [];
+export const FAKE_DATA_ALL_FILES_TALBE: any[] = [];
 
 function generateItem(id: number) {
   const fileType = faker.helpers.arrayElement(['.mp3', '.mp4', '.txt'])

@@ -16,7 +16,7 @@ export const SettingsLayout = () => {
 
   const [open, setOpen] = useState(false)
 
-  function handlerDrawerDialogLicense() {
+  function handleDrawerDialogLicense() {
     setOpen(prev => !prev)
   }
 
@@ -105,7 +105,7 @@ export const SettingsLayout = () => {
                   <SidebarGroupContent className="pl-6">
                     <SidebarMenu>
                       <SidebarMenuItem>
-                        <SidebarMenuButton onClick={handlerDrawerDialogLicense}>
+                        <SidebarMenuButton onClick={handleDrawerDialogLicense}>
                           <span className="text-xs">
                             Licença
                           </span>

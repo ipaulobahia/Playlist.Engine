@@ -1,4 +1,4 @@
-import { AudioLines, Info, Pencil, PlayCircle } from "lucide-react"
+import { AudioLines, Info, Pencil, Play } from "lucide-react"
 import { ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuSeparator, ContextMenuTrigger } from "../ui/context-menu"
 
 interface FileContextMenuProps {
@@ -13,26 +13,26 @@ export const FileContextMenu = ({ children }: FileContextMenuProps) => {
       </ContextMenuTrigger>
       <ContextMenuContent>
         <ContextMenuItem className="flex flex-row items-center gap-x-2">
-          <Pencil size={16} />
+          <Pencil size={12} />
           <span>
             Editar
           </span>
         </ContextMenuItem>
         <ContextMenuItem className="flex flex-row items-center gap-x-2">
-          <PlayCircle size={16} />
+          <Play className="fill-accent-foreground" size={12} />
           <span>
-            Escutar
+            Reproduzir
           </span>
         </ContextMenuItem>
         <ContextMenuItem className="flex flex-row items-center gap-x-2">
-          <AudioLines size={16} />
+          <AudioLines size={12} />
           <span>
             Mixagem
           </span>
         </ContextMenuItem>
         <ContextMenuSeparator />
         <ContextMenuItem className="flex flex-row items-center gap-x-2">
-          <Info size={16} />
+          <Info size={12} />
           <span>
             Detalhes
           </span>

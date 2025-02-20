@@ -1,4 +1,6 @@
+import { CopyPasteProvider } from "@/provider/CopyPasteProvider";
 import { PlaylistTabsProvider } from "@/provider/PlaylistTabsProvider";
+import { useFiles } from "@/service/api/files/mutate/postFiles";
 import { useEditPlaylistFiles } from "@/service/api/playlist/mutate/editPlaylistFiles";
 import { usePlaylistList } from "@/service/api/playlist/mutate/postPlaylistList";
 import { MediaFiles } from "@/service/api/playlist/query/getPlaylistList";
@@ -22,6 +24,7 @@ export const MoveAndCopy = () => {
 
   const { mutate } = useEditPlaylistFiles();
   const { mutateAsync } = usePlaylistList()
+  const { mutateAsync: mutateAsyncFiles } = useFiles()
 
   const { DragSelection } = useSelectionContainer({
     eventsElement: document.getElementById("root"),
@@ -53,9 +56,9 @@ export const MoveAndCopy = () => {
       isSelecting.current = true;
     },
     onSelectionEnd: () => {
-      setTimeout(() => {
+      requestAnimationFrame(() => {
         isSelecting.current = false;
-      }, 50);
+      });
     },
     isEnabled: enableDragSelection,
   });
@@ -64,7 +67,7 @@ export const MoveAndCopy = () => {
     const { active, over } = event;
     if (over && active.id !== over.id) {
       const activeIdSplit = active.id.toString().split('-')
-      const draggableType = activeIdSplit[0] as 'MediaFilesDraggable' | 'MediaFolderDraggable'
+      const draggableType = activeIdSplit[0]
 
       if (draggableType == "MediaFolderDraggable") {
         const draggedFolder = active.data.current;
@@ -87,20 +90,45 @@ export const MoveAndCopy = () => {
         }
       }
 
-      else if (draggableType == "MediaFilesDraggable") {
+      else if (draggableType == "OnlyFolderDraggable") {
+        const draggedFolder = active.data.current;
+        const targetData = over.data.current;
+
+        if (!draggedFolder || !targetData) return;
+
+        const folder = await mutateAsyncFiles(draggedFolder.folderId);
+
+        if (folder.files.length === 0) return;
+
+        const { playlistId, playlistType, title, mediaFiles = [] } = targetData;
+
+        const updatedFiles = Array.from(new Set([...mediaFiles, ...folder.files].map((file: MediaFiles) => file.fileId)));
+
+        if (updatedFiles.length !== mediaFiles.length) {
+          mutate({ playlistId, title, playlistType, files: updatedFiles });
+        }
+      }
+
+      else if (draggableType == "MediaFilesDraggable" || draggableType == "OnlyFoldersFileDraggable") {
         const draggedFile = active.data.current;
         const targetData = over.data.current;
 
         if (!draggedFile || !targetData) return;
 
-        const fileAlreadyExists = targetData.mediaFiles.some((file: MediaFiles) => file.fileId === draggedFile.fileId);
+        const { playlistId, playlistType, title } = targetData;
+        const existingFiles = targetData.mediaFiles ?? [];
 
-        if (fileAlreadyExists) {
+        if (existingFiles.length === 0) {
+          mutate({ playlistId, title, playlistType, files: [draggedFile.fileId] });
+          return;
+        }
+
+        if (existingFiles.some((file: MediaFiles) => file.fileId == draggedFile.fileId)) {
           return toast.error("Erro!", { description: "Você não pode adicionar arquivos duplicados à lista." });
         }
 
-        const { playlistId, playlistType, title } = targetData;
-        const updatedFiles = [...targetData.mediaFiles.map((file: MediaFiles) => file.fileId), draggedFile.fileId];
+        const updatedFiles = [...existingFiles.map((file: MediaFiles) => file.fileId), draggedFile.fileId];
+
         mutate({ playlistId, title, playlistType, files: updatedFiles });
       }
     }
@@ -121,9 +149,33 @@ export const MoveAndCopy = () => {
     }
   }, [selectedIndexes]);
 
-  function handlerClearIndexes() {
+  function handleClearIndexes() {
     if (isSelecting.current) return;
     setSelectedIndexes([])
+  }
+
+  function handleSelectAllFiles(allIndexes: number[]) {
+    isSelecting.current = true;
+    setSelectedIndexes(allIndexes);
+
+    requestAnimationFrame(() => {
+      isSelecting.current = false;
+    });
+  }
+
+  function handleSelectFile(index: number) {
+    isSelecting.current = true;
+
+    setSelectedIndexes((prev) => {
+      if (prev.includes(index)) {
+        return prev.filter((item) => item !== index);
+      }
+      else { return [...prev, index]; }
+    });
+
+    requestAnimationFrame(() => {
+      isSelecting.current = false;
+    });
   }
 
   return (
@@ -131,14 +183,16 @@ export const MoveAndCopy = () => {
       <DndContext
         onDragStart={handleDragStart}
         onDragEnd={handleDragEnd}>
-        <div onClick={handlerClearIndexes} className="flex h-screen flex-col fixed w-full pr-[24vw]">
-          <NavigationTabs />
-          <>
-            <DragSelection />
-            <MediaFilesList ref={mediaFilesListRef} selectedIndexes={selectedIndexes} setSelectedIndexes={setSelectedIndexes} />
-          </>
-        </div>
-        <RightSidebar />
+        <CopyPasteProvider>
+          <div onClick={handleClearIndexes} className="flex h-screen flex-col fixed w-full pr-[24vw]">
+            <NavigationTabs />
+            <>
+              <DragSelection />
+              <MediaFilesList ref={mediaFilesListRef} selectedIndexes={selectedIndexes} onSelectAllFiles={handleSelectAllFiles} onSelectFile={handleSelectFile} />
+            </>
+          </div>
+          <RightSidebar />
+        </CopyPasteProvider>
       </DndContext>
     </PlaylistTabsProvider>
   );

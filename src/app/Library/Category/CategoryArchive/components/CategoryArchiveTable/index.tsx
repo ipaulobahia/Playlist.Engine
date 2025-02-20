@@ -8,7 +8,7 @@ import {
   Table as TableUI
 } from "@/components/ui/table"
 import { useInfoSidebar } from "@/hooks/use-sidebar"
-import { useFiles } from "@/service/api/files/getFiles"
+import { useFiles } from "@/service/api/files/query/getFiles"
 import { MediaFiles } from "@/service/api/playlist/query/getPlaylistList"
 import {
   ColumnFiltersState,
@@ -59,7 +59,7 @@ export const CategoryArchiveTable = () => {
     getFacetedUniqueValues: getFacetedUniqueValues(),
   })
 
-  function handlerSelectedRow(row: Row<MediaFiles>, table: Table<MediaFiles>) {
+  function handleSelectedRow(row: Row<MediaFiles>, table: Table<MediaFiles>) {
     const fileId = row.original.folderId
     table.toggleAllPageRowsSelected(false)
     row.toggleSelected()
@@ -102,7 +102,7 @@ export const CategoryArchiveTable = () => {
             (
               table.getRowModel().rows.map((row) => (
                 <TableRow
-                  onClick={() => handlerSelectedRow(row, table)}
+                  onClick={() => handleSelectedRow(row, table)}
                   className="cursor-pointer" key={row.id} data-state={row.getIsSelected() && "selected"}>
                   {
                     row.getVisibleCells().map((cell) => (

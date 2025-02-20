@@ -1,11 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { EditPlaylistFiles } from "@/contracts/Playlist";
+import { useCopyPaste } from "@/provider/CopyPasteProvider";
 import { usePlaylistTabs } from "@/provider/PlaylistTabsProvider";
 import { useEditPlaylistFiles } from "@/service/api/playlist/mutate/editPlaylistFiles";
-import { MediaFiles as MediaFilesType, usePlaylistList } from "@/service/api/playlist/query/getPlaylistList";
+import { usePlaylistList } from "@/service/api/playlist/query/getPlaylistList";
 import { ChevronLeft } from "lucide-react";
+import { useState } from "react";
 import { toast } from "sonner";
-import { FileContextMenu, MediaFiles } from "./components";
+import { FileContextMenu } from "./components";
+import { MediaFiles } from "./components/MediaFile";
 
 interface FilesSidebarContentProps {
   list: { playlistType: number; playlistId: number; title: string; }
@@ -13,6 +16,7 @@ interface FilesSidebarContentProps {
 }
 
 export const FilesSidebarContent = ({ list, onBack }: FilesSidebarContentProps) => {
+  const { copy } = useCopyPaste()
   const { selectedTab } = usePlaylistTabs();
   const { mutate } = useEditPlaylistFiles();
 
@@ -22,20 +26,40 @@ export const FilesSidebarContent = ({ list, onBack }: FilesSidebarContentProps) 
   const selectedPlaylistId = selectedTab?.playlistId.toString();
   const { data: targetPlaylist } = usePlaylistList(selectedPlaylistId ?? null);
 
+  const [selectedFileIds, setSelectedFileIds] = useState<Array<number>>([])
+
   const isEmptyPlaylist = !currentPlaylist?.mediaFiles;
 
   function handleAddFile(fileId: number) {
     if (!targetPlaylist) return;
 
-    const { playlistId, playlistType, title, mediaFiles } = targetPlaylist;
+    const { playlistId, playlistType, title } = targetPlaylist;
+    const existingFiles = targetPlaylist.mediaFiles ?? [];
 
-    const fileExists = mediaFiles.some((file: MediaFilesType) => file.fileId === fileId);
+    if (existingFiles.length === 0) {
+      return mutate({ playlistId, title, playlistType: playlistType.toString() as EditPlaylistFiles["playlistType"], files: [fileId] });
+    }
 
-    if (fileExists) return toast.error("Erro!", { description: "Você não pode adicionar arquivos duplicados à lista." });
+    if (existingFiles.some((file) => file.fileId === fileId)) {
+      return toast.error("Erro!", { description: "Você não pode adicionar arquivos duplicados à lista." });
+    }
 
-    const updatedFiles = [...mediaFiles.map((file) => file.fileId), fileId];
+    const updatedFiles = [...new Set([...existingFiles.map((file) => file.fileId), ...selectedFileIds, fileId]),];
 
     mutate({ playlistId, title, playlistType: playlistType.toString() as EditPlaylistFiles["playlistType"], files: updatedFiles });
+  }
+
+  function handleCopyFile(fileId: number) {
+    copy({ command: "CopyFile", value: [fileId] })
+  }
+
+  function handleSelectFile(fileId: number) {
+    setSelectedFileIds((prev) => {
+      if (prev.includes(fileId)) {
+        return prev.filter((item) => item !== fileId);
+      }
+      else { return [...prev, fileId]; }
+    });
   }
 
   return (
@@ -60,8 +84,16 @@ export const FilesSidebarContent = ({ list, onBack }: FilesSidebarContentProps) 
           currentPlaylist.mediaFiles.map((mediaFile) => {
             const { fileId } = mediaFile
             return (
-              <FileContextMenu key={fileId} onAddFile={() => handleAddFile(fileId)}>
-                <MediaFiles mediaFile={mediaFile} />
+              <FileContextMenu
+                key={fileId}
+                onAddFile={() => handleAddFile(fileId)}
+                onCopyFile={() => handleCopyFile(fileId)}
+              >
+                <MediaFiles
+                  selectedFileIds={selectedFileIds}
+                  onSelectFile={() => handleSelectFile(fileId)}
+                  mediaFile={mediaFile}
+                />
               </FileContextMenu>
             )
           })

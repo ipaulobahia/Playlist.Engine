@@ -5,14 +5,15 @@ import {
   ContextMenuSeparator,
   ContextMenuTrigger
 } from "@/components/ui/context-menu"
-import { CirclePlus, Copy, Play } from "lucide-react"
+import { Copy, Play, Plus } from "lucide-react"
 
 interface FileContextMenuProps {
   children: React.ReactNode
   onAddFile: () => void
+  onCopyFile: () => void
 }
 
-export const FileContextMenu = ({ children, onAddFile }: FileContextMenuProps) => {
+export const FileContextMenu = ({ children, onAddFile, onCopyFile }: FileContextMenuProps) => {
   return (
     <ContextMenu>
       <ContextMenuTrigger>
@@ -20,13 +21,13 @@ export const FileContextMenu = ({ children, onAddFile }: FileContextMenuProps) =
       </ContextMenuTrigger>
       <ContextMenuContent>
         <ContextMenuItem onClick={onAddFile} className="flex flex-row items-center text-xs gap-x-1">
-          <CirclePlus size={12} />
+          <Plus size={12} />
           <span>
             Adicionar
           </span>
         </ContextMenuItem>
         <ContextMenuSeparator />
-        <ContextMenuItem className="flex flex-row items-center text-xs gap-x-1">
+        <ContextMenuItem onClick={onCopyFile} className="flex flex-row items-center text-xs gap-x-1">
           <Copy size={12} />
           <span>
             Copiar
