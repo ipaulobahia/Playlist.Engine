@@ -31,7 +31,7 @@ export const CategoryArchiveBreadchumbs = () => {
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink className="cursor-pointer">
+          <BreadcrumbLink asChild className="cursor-pointer">
             <Link to={`/library/category?categoryType=${categoryType}`}>
               {translateToPT(categoryType as CategoryEnum)}
             </Link>

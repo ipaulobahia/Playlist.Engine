@@ -78,10 +78,10 @@ export const DialogDragInDrop = ({ open, setOpen }: DialogDragInDropProps) => {
         </div>
         <Separator />
         <DialogFooter className="flex flex-row justify-end w-full gap-x-2">
-          <DialogClose>
+          <DialogClose asChild>
             <Button size={'sm'} variant={'ghost'}>Cancelar</Button>
           </DialogClose>
-          <DialogClose>
+          <DialogClose asChild>
             <Button onClick={toggleElement} size={'sm'}>Realizar upload</Button>
           </DialogClose>
         </DialogFooter>

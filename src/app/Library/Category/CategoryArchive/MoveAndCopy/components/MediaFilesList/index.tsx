@@ -122,7 +122,7 @@ export const MediaFilesList = forwardRef<HTMLDivElement, MediaFilesListProps>(({
                     onSelectAllFiles={handleSelectAllFiles}
                     onCutFiles={() => handleCutFiles(index)}
                     onCopyFile={() => handleCopyFile(fileId)}
-                    onPasteFile={() => handlePasteFile()}
+                    onPasteFile={handlePasteFile}
                   />
                 );
               })}

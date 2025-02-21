@@ -28,7 +28,7 @@ export const ListContextContent = ({ children, folderId }: ListContextContentPro
         <ContextMenuContent>
           <Link to={`/library/category/archive?folderId=${folderId}`}>
             <ContextMenuItem className="flex flex-row items-center gap-x-2">
-              <FolderOpen size={16} />
+              <FolderOpen size={14} />
               <span>
                 Abrir
               </span>
@@ -36,22 +36,22 @@ export const ListContextContent = ({ children, folderId }: ListContextContentPro
           </Link>
           <DialogTrigger onClick={() => handleDialogType("Edit")} className="w-full">
             <ContextMenuItem className="flex flex-row items-center gap-x-2">
-              <Pencil size={16} />
+              <Pencil size={14} />
               <span>
                 Editar
               </span>
             </ContextMenuItem>
           </DialogTrigger>
           <ContextMenuItem className="flex flex-row items-center gap-x-2">
-            <Info size={16} />
+            <Info size={14} />
             <span>
               Detalhes
             </span>
           </ContextMenuItem>
           <ContextMenuSeparator />
           <DialogTrigger onClick={() => handleDialogType("Delete")} className="w-full">
-            <ContextMenuItem className="flex flex-row items-center gap-x-2">
-              <Trash size={16} />
+            <ContextMenuItem className="flex flex-row items-center gap-x-2 focus:bg-destructive/90">
+              <Trash size={14} />
               <span>
                 Remover
               </span>

@@ -27,7 +27,7 @@ export const DialogLicense = ({ open, setOpen }: DialogLicenseProps) => {
                 Contato por telefone (31) 2136-2929
               </span>
             </div>
-            <DialogClose>
+            <DialogClose asChild>
               <Button variant={'outline'} size={'sm'}>
                 Fechar
               </Button>

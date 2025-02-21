@@ -107,7 +107,7 @@ export const DialogCreateProfile = ({ open, setOpen }: DialogCreateProfileProps)
           </div>
         </div>
         <DialogFooter className="flex flex-row items-center justify-between w-full">
-          <DialogClose>
+          <DialogClose asChild>
             <Button variant={'outline'}>Cancelar</Button>
           </DialogClose>
           <Link to={'/operator/profile/create-profile'}>

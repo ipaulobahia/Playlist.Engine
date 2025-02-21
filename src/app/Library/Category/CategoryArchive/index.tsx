@@ -26,8 +26,10 @@ export const CategoryArchive = () => {
               <TooltipProvider>
                 <Tooltip delayDuration={100}>
                   <TabsTrigger asChild value="list">
-                    <TooltipTrigger>
-                      <List size={16} className="text-zinc-600 dark:text-zinc-200" />
+                    <TooltipTrigger asChild>
+                      <div className="cursor-pointer">
+                        <List size={16} className="text-zinc-600 dark:text-zinc-200" />
+                      </div>
                     </TooltipTrigger>
                   </TabsTrigger>
                   <TooltipContent side="bottom" className="font-medium text-white bg-black dark:text-black dark:bg-white">
@@ -38,8 +40,10 @@ export const CategoryArchive = () => {
               <TooltipProvider>
                 <Tooltip delayDuration={100}>
                   <TabsTrigger asChild value="detailed">
-                    <TooltipTrigger>
-                      <Table2 size={16} className="text-zinc-600 dark:text-zinc-200" />
+                    <TooltipTrigger asChild>
+                      <div className="cursor-pointer">
+                        <Table2 size={16} className="text-zinc-600 dark:text-zinc-200" />
+                      </div>
                     </TooltipTrigger>
                   </TabsTrigger>
                   <TooltipContent side="bottom" className="font-medium text-white bg-black dark:text-black dark:bg-white">
@@ -50,7 +54,7 @@ export const CategoryArchive = () => {
             </TabsList>
             <TooltipProvider>
               <Tooltip delayDuration={150}>
-                <TooltipTrigger>
+                <TooltipTrigger asChild>
                   <Button onClick={toggleSidebar} variant={'ghost'} size={'sm'}>
                     <Info />
                   </Button>

@@ -16,14 +16,14 @@ export const CategoryContextContent = ({ children, categoryType }: CategoryConte
       <ContextMenuContent>
         <Link to={`/library/category?categoryType=${categoryType}`}>
           <ContextMenuItem className="flex flex-row items-center gap-x-2">
-            <FolderOpen size={16} />
+            <FolderOpen size={14} />
             <span>
               Abrir
             </span>
           </ContextMenuItem>
         </Link>
         <ContextMenuItem className="flex flex-row items-center gap-x-2">
-          <Info size={16} />
+          <Info size={14} />
           <span>
             Detalhes
           </span>

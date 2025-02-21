@@ -1,10 +1,10 @@
-import { Button } from "@/components/ui/button"
-import { DialogClose, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { Separator } from "@/components/ui/separator";
-import { Upload, X } from "lucide-react"
-import { useRef, useState } from "react";
 import { TXTSVG } from "@/assets/svg";
+import { Button } from "@/components/ui/button";
+import { DialogClose, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Separator } from "@/components/ui/separator";
 import { useUpload } from "@/hooks/use-upload";
+import { Upload, X } from "lucide-react";
+import { useRef, useState } from "react";
 
 export const DragInDropDialog = () => {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
@@ -64,10 +64,10 @@ export const DragInDropDialog = () => {
       </div>
       <Separator />
       <DialogFooter className="flex flex-row justify-end w-full gap-x-2">
-        <DialogClose>
+        <DialogClose asChild>
           <Button size={'sm'} variant={'ghost'}>Cancelar</Button>
         </DialogClose>
-        <DialogClose>
+        <DialogClose asChild>
           <Button onClick={toggleElement} size={'sm'}>Realizar upload</Button>
         </DialogClose>
       </DialogFooter>

@@ -68,7 +68,7 @@ export const CategoryTable = () => {
                   className="cursor-pointer" key={row.id} data-state={row.getIsSelected() && "selected"}>
                   {
                     row.getVisibleCells().map((cell) => (
-                      <TableCell className="px-3 py-1 text-xs font-medium " key={cell.id}>
+                      <TableCell className="px-5 py-1 text-xs font-medium " key={cell.id}>
                         {flexRender(cell.column.columnDef.cell, cell.getContext())}
                       </TableCell>
                     ))

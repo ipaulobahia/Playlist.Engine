@@ -66,7 +66,7 @@ export const DialogCreateOperator = ({ open, setOpen }: DialogCreateOperatorProp
           </div>
         </div>
         <DialogFooter className="flex flex-row items-center justify-between w-full">
-          <DialogClose>
+          <DialogClose asChild>
             <Button variant={'outline'}>Cancelar</Button>
           </DialogClose>
           <DialogClose asChild>

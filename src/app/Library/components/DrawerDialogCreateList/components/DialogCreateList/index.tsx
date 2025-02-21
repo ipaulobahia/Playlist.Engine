@@ -117,7 +117,7 @@ export const DialogCreateList = ({ children, open, setOpen }: DialogCreateListPr
               />
             </div>
             <DialogFooter className="flex flex-row items-center justify-between w-full">
-              <DialogClose>
+              <DialogClose asChild>
                 <Button variant={'outline'}>Cancelar</Button>
               </DialogClose>
               <Button disabled={isPending} type="submit">

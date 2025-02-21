@@ -13,26 +13,26 @@ export const FileContextMenu = ({ children }: FileContextMenuProps) => {
       </ContextMenuTrigger>
       <ContextMenuContent>
         <ContextMenuItem className="flex flex-row items-center gap-x-2">
-          <Pencil size={12} />
+          <Pencil size={14} />
           <span>
             Editar
           </span>
         </ContextMenuItem>
         <ContextMenuItem className="flex flex-row items-center gap-x-2">
-          <Play className="fill-accent-foreground" size={12} />
+          <Play className="fill-accent-foreground" size={14} />
           <span>
             Reproduzir
           </span>
         </ContextMenuItem>
         <ContextMenuItem className="flex flex-row items-center gap-x-2">
-          <AudioLines size={12} />
+          <AudioLines size={14} />
           <span>
             Mixagem
           </span>
         </ContextMenuItem>
         <ContextMenuSeparator />
         <ContextMenuItem className="flex flex-row items-center gap-x-2">
-          <Info size={12} />
+          <Info size={14} />
           <span>
             Detalhes
           </span>
