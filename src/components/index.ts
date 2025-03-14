@@ -6,4 +6,5 @@ export { DialogDeleteList } from "./DialogDeleteList";
 export { DialogEditList } from "./DialogEditList";
 export { DrawerDialogLicense } from "./DrawerDialogLicense";
 export { FileContextMenu } from "./FileContextMenu";
+export { FolderContextContent } from "./FolderContextContent";
 export { ListContextContent } from "./ListContextContent";

@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Label } from "@/components/ui/label"
 import { Trash2 } from "lucide-react"
+import { useTranslation } from "react-i18next"
 
 interface DialogRemoveOperatorProps {
   open: boolean
@@ -9,13 +10,15 @@ interface DialogRemoveOperatorProps {
 }
 
 export const DialogRemoveOperator = ({ open, setOpen }: DialogRemoveOperatorProps) => {
+  const { t } = useTranslation()
+
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button size={'sm'} variant={'destructive'}>
           <Trash2 />
           <span>
-            Remover operador
+            {t("Remove-Operator")}
           </span>
         </Button>
       </DialogTrigger>
@@ -32,7 +35,7 @@ export const DialogRemoveOperator = ({ open, setOpen }: DialogRemoveOperatorProp
         </DialogHeader>
         <DialogFooter className="flex flex-row items-center justify-between w-full">
           <DialogClose asChild>
-            <Button size={'sm'} variant={'outline'}>Cancelar</Button>
+            <Button size={'sm'} variant={'outline'}>{t("Cancel")}</Button>
           </DialogClose>
           <DialogClose asChild>
             <Button size={'sm'} variant={'destructive'}>

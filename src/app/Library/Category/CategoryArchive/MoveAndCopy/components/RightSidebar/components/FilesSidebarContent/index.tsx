@@ -6,6 +6,7 @@ import { useEditPlaylistFiles } from "@/service/api/playlist/mutate/editPlaylist
 import { usePlaylistList } from "@/service/api/playlist/query/getPlaylistList";
 import { ChevronLeft } from "lucide-react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 import { FileContextMenu } from "./components";
 import { MediaFiles } from "./components/MediaFile";
@@ -16,6 +17,8 @@ interface FilesSidebarContentProps {
 }
 
 export const FilesSidebarContent = ({ list, onBack }: FilesSidebarContentProps) => {
+  const { t } = useTranslation()
+  
   const { copy } = useCopyPaste()
   const { selectedTab } = usePlaylistTabs();
   const { mutate } = useEditPlaylistFiles();
@@ -41,7 +44,7 @@ export const FilesSidebarContent = ({ list, onBack }: FilesSidebarContentProps) 
     }
 
     if (existingFiles.some((file) => file.fileId === fileId)) {
-      return toast.error("Erro!", { description: "Você não pode adicionar arquivos duplicados à lista." });
+      return toast.error("Erro!", { description: t("Duplicate-Files-Error") });
     }
 
     const updatedFiles = [...new Set([...existingFiles.map((file) => file.fileId), ...selectedFileIds, fileId]),];

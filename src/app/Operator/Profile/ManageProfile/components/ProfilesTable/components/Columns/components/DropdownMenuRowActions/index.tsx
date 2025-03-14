@@ -1,12 +1,15 @@
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { MoreVertical } from "lucide-react"
+import { useTranslation } from "react-i18next"
 
 interface DropdownMenuRowActionsProps {
   currentStatus: string
 }
 
 export const DropdownMenuRowActions = ({ currentStatus }: DropdownMenuRowActionsProps) => {
+  const { t } = useTranslation()
+
   return (
     <DropdownMenu>
       <div className="flex justify-end">
@@ -19,10 +22,10 @@ export const DropdownMenuRowActions = ({ currentStatus }: DropdownMenuRowActions
       </div>
       <DropdownMenuContent align="end">
         <DropdownMenuItem>
-          Editar
+          {t("Edit")}
         </DropdownMenuItem>
         <DropdownMenuSub>
-          <DropdownMenuSubTrigger>Status</DropdownMenuSubTrigger>
+          <DropdownMenuSubTrigger>{t("Status")}</DropdownMenuSubTrigger>
           <DropdownMenuSubContent>
             <DropdownMenuRadioGroup value={currentStatus}>
               <DropdownMenuRadioItem disabled={currentStatus == "0"} value="0">

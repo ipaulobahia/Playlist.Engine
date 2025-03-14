@@ -7,11 +7,14 @@ import { ptBR } from 'date-fns/locale/pt-BR'
 import { CalendarIcon } from "lucide-react"
 import { useState } from "react"
 import { DateRange } from "react-day-picker"
+import { useTranslation } from "react-i18next"
 import { Button } from "./button"
 import { Label } from "./label"
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "./select"
 
 export const DatePicker = () => {
+  const { t } = useTranslation()
+
   const [showFilterDate, setShowFilterDate] = useState<boolean>(false)
   const [isCalendarOpen, setIsCapendarOpen] = useState<boolean>(false)
   const [range, setRange] = useState<string>()
@@ -56,7 +59,7 @@ export const DatePicker = () => {
                 {
                   isRangeDate
                     ?
-                    date ? format(date, "PPP", { locale: ptBR }) : <span>Selecione uma data</span>
+                    date ? format(date, "PPP", { locale: ptBR }) : <span>{t("Select-Date")}</span>
                     :
                     rangeDate?.from
                       ?
@@ -68,7 +71,7 @@ export const DatePicker = () => {
                           (format(rangeDate.from, "LLL dd, y"))
                       )
                       :
-                      (<span>Selecione uma data</span>)
+                      (<span>{t("Select-Date")}</span>)
                 }
               </Button>
             </PopoverTrigger>

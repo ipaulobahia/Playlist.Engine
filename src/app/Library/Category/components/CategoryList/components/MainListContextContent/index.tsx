@@ -1,9 +1,9 @@
 import { DialogCreateList } from "@/components"
 import { ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuTrigger } from "@/components/ui/context-menu"
 import { Dialog, DialogTrigger } from "@/components/ui/dialog"
-import { CategoryEnum, translateToPT } from "@/utils"
 import { Plus } from "lucide-react"
 import { useState } from "react"
+import { useTranslation } from "react-i18next"
 import { useSearchParams } from "react-router-dom"
 
 interface MainListContextContentProps {
@@ -11,6 +11,8 @@ interface MainListContextContentProps {
 }
 
 export const MainListContextContent = ({ children }: MainListContextContentProps) => {
+  const { t } = useTranslation()
+
   const [searchParams] = useSearchParams();
   const categoryType = searchParams.get("categoryType");
 
@@ -27,7 +29,7 @@ export const MainListContextContent = ({ children }: MainListContextContentProps
             <ContextMenuItem className="flex flex-row items-center text-xs gap-x-1">
               <Plus size={12} />
               <span>
-                {translateToPT(categoryType as CategoryEnum)}
+                {t(categoryType as string)}
               </span>
             </ContextMenuItem>
           </DialogTrigger>

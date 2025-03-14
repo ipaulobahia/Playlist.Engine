@@ -2,11 +2,14 @@ import { Pagination } from "@/components/ui/pagination"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { ColumnFiltersState, flexRender, getCoreRowModel, getFacetedRowModel, getFacetedUniqueValues, getFilteredRowModel, getPaginationRowModel, getSortedRowModel, SortingState, useReactTable, VisibilityState } from "@tanstack/react-table"
 import { useState } from "react"
+import { useTranslation } from "react-i18next"
 import { columns, Toolbar } from './components'
 
 const data = [] as any[]
 
 export const ProfilesTable = () => {
+  const { t } = useTranslation()
+
   const [rowSelection, setRowSelection] = useState({})
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({})
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
@@ -65,7 +68,7 @@ export const ProfilesTable = () => {
                   className="cursor-pointer" key={row.id} data-state={row.getIsSelected() && "selected"}>
                   {
                     row.getVisibleCells().map((cell) => (
-                      <TableCell className="px-3 py-1 text-xs font-medium " key={cell.id}>
+                      <TableCell className="px-5 py-1 text-xs font-medium" key={cell.id}>
                         {flexRender(cell.column.columnDef.cell, cell.getContext())}
                       </TableCell>
                     ))
@@ -77,7 +80,7 @@ export const ProfilesTable = () => {
             (
               <TableRow>
                 <TableCell colSpan={columns.length} className="h-24 text-center">
-                  Sem perfils cadastrados.
+                  {t("Empty-Profiles")}
                 </TableCell>
               </TableRow>
             )

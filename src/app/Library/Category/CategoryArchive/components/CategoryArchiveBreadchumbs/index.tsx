@@ -1,9 +1,12 @@
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { usePlaylistList } from "@/service/api/playlist/query/getPlaylistList";
 import { CategoryEnum, translateToPT } from "@/utils";
+import { useTranslation } from "react-i18next";
 import { Link, useSearchParams } from "react-router-dom";
 
 export const CategoryArchiveBreadchumbs = () => {
+  const { t } = useTranslation()
+
   const [searchParams] = useSearchParams();
 
   const categoryType = searchParams.get("categoryType");
@@ -17,7 +20,7 @@ export const CategoryArchiveBreadchumbs = () => {
         <BreadcrumbItem className="hidden sm:block">
           <BreadcrumbLink asChild>
             <Link to={'/dashboard'}>
-              Dashboard
+              {t("Dashboard")}
             </Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
@@ -25,7 +28,7 @@ export const CategoryArchiveBreadchumbs = () => {
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
             <Link to={'/library'}>
-              Biblioteca
+              {t("Library")}
             </Link>
           </BreadcrumbLink>
         </BreadcrumbItem>

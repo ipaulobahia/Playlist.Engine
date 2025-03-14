@@ -2,9 +2,12 @@ import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Input } from "@/components/ui/input"
 import { ListFilter, Search } from "lucide-react"
+import { useTranslation } from "react-i18next"
 import { DropdownMenuContentFilter } from "./components"
 
 export const Toolbar = () => {
+  const { t } = useTranslation()
+
   return (
     <div className="flex flex-row items-center justify-between my-3">
       <div className="flex flex-row items-center gap-x-1">
@@ -13,7 +16,7 @@ export const Toolbar = () => {
             <Search size={16} />
           </span>
           <Input
-            placeholder="Pesquise"
+            placeholder={t('Search')}
             className="h-8 border-0 dark:bg-black placeholder:text-xs"
           />
         </div>

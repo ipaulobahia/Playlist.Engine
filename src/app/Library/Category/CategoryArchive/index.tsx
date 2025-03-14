@@ -4,16 +4,25 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import { useInfoSidebar } from "@/hooks/use-sidebar";
 import { usePlaylistList } from "@/service/api/playlist/query/getPlaylistList";
 import { Info, List, Table2 } from "lucide-react";
-import { useSearchParams } from "react-router-dom";
-import { CategoryArchiveBreadchumbs, CategoryArchiveList, CategoryArchiveTable, DrawerDialogAddFile } from "./components";
+import { useTranslation } from "react-i18next";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { CategoryArchiveBreadchumbs, CategoryArchiveList, CategoryArchiveTable } from "./components";
 
 export const CategoryArchive = () => {
+  const { t } = useTranslation()
+
   const { toggleSidebar, isOpen } = useInfoSidebar()
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate()
 
+  const categoryType = searchParams.get("categoryType");
   const folderId = searchParams.get("folderId");
 
   const { data } = usePlaylistList(folderId)
+
+  function navigateToAddFile() {
+    navigate(`/library/category/archive/move-and-copy?categoryType=${categoryType}&folderId=${folderId}`)
+  }
 
   return (
     <main className="flex-1 p-3">
@@ -74,11 +83,9 @@ export const CategoryArchive = () => {
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>
-            <DrawerDialogAddFile>
-              <Button>
-                Adicionar arquivo
-              </Button>
-            </DrawerDialogAddFile>
+            <Button onClick={navigateToAddFile}>
+              {t("To-Add-File")}
+            </Button>
           </div>
           <TabsContent value="list" className="m-0">
             <CategoryArchiveList />

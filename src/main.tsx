@@ -8,6 +8,7 @@ import InfoSidebarProvider from './provider/InfoSidebarProvider'
 import { UploadProvider } from './provider/UploadProvider'
 import { Routers } from './routes'
 import './styles/global.css'
+import './utils/i18n'
 
 const queryClient = new QueryClient(
   {
@@ -15,7 +16,7 @@ const queryClient = new QueryClient(
     {
       queries: {
         refetchOnWindowFocus: false,
-        staleTime: 5 * (60 * 1000) // 5 Minutos
+        staleTime: 0
       }
     }
   }

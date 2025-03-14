@@ -4,6 +4,7 @@ import { Label } from "@/components/ui/label"
 import { PingLoading } from "@/components/ui/ping-loading"
 import { useDeletePlaylist } from "@/service/api/playlist/mutate/deletePlaylist"
 import { useEffect } from "react"
+import { useTranslation } from "react-i18next"
 
 interface DialogDeleteListProps {
   folderId: number
@@ -11,6 +12,8 @@ interface DialogDeleteListProps {
 }
 
 export const DialogDeleteList = ({ folderId, setOpen }: DialogDeleteListProps) => {
+  const { t } = useTranslation()
+
   const { mutate, isSuccess, isError, isPending } = useDeletePlaylist()
 
   function handleDeletePlaylist() {
@@ -37,7 +40,7 @@ export const DialogDeleteList = ({ folderId, setOpen }: DialogDeleteListProps) =
       </DialogHeader>
       <DialogFooter className="flex flex-row items-center justify-between w-full">
         <DialogClose asChild>
-          <Button size={'sm'} variant={'outline'}>Cancelar</Button>
+          <Button size={'sm'} variant={'outline'}>{t("Cancel")}</Button>
         </DialogClose>
         <Button disabled={isPending} onClick={handleDeletePlaylist} size={'sm'} variant={'destructive'}>
           {

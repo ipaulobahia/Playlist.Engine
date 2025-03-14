@@ -8,6 +8,7 @@ import { profileColors } from "@/utils"
 import { PopoverClose } from "@radix-ui/react-popover"
 import { useState } from "react"
 import { ColorPicker, useColor } from "react-color-palette"
+import { useTranslation } from "react-i18next"
 import { Link } from "react-router-dom"
 
 interface DrawerCreateProfileProps {
@@ -16,6 +17,7 @@ interface DrawerCreateProfileProps {
 }
 
 export const DrawerCreateProfile = ({ open, setOpen }: DrawerCreateProfileProps) => {
+  const { t } = useTranslation()
 
   const [selectedColor, setSelectedColor] = useState<string>('')
   const [colorPicker, setColorPicker] = useColor('')
@@ -37,35 +39,35 @@ export const DrawerCreateProfile = ({ open, setOpen }: DrawerCreateProfileProps)
       <DrawerTrigger asChild>
         <Button size={'sm'}>
           <span className="text-xs">
-            Novo perfil
+            {t('New-Profile')}
           </span>
         </Button>
       </DrawerTrigger>
       <DrawerContent className="px-3">
         <DrawerHeader>
-          <DrawerTitle>Novo perfil</DrawerTitle>
+          <DrawerTitle>{t('New-Profile')}</DrawerTitle>
           <DrawerDescription>
-            Preencha os campos abaixo para criar seu perfil. Defina um nome único, uma descrição e selecione uma cor.
+            {t('New-Profile-Description')}
           </DrawerDescription>
         </DrawerHeader>
         <div className="grid gap-4 py-4">
           <div className="flex flex-col gap-y-3">
             <Label htmlFor="name" className="text-left">
-              Nome
+              {t('Name')}
             </Label>
             <Input
               className="text-xs placeholder:text-xs"
-              id="name" placeholder="Padrão, Locutor, Gestor ou Administrador" />
+              id="name" placeholder={t('Placeholder-Name-Profile')} />
           </div>
           <div className="flex flex-col gap-y-3">
             <Label className="text-left">
-              Descrição
+              {t('Description')}
             </Label>
-            <Textarea className="max-h-44 min-h-32 placeholder:text-xs" placeholder="Adicione uma breve descrição sobre o perfil." />
+            <Textarea className="max-h-44 min-h-32 placeholder:text-xs" placeholder={t('Placeholder-Description-Profile')} />
           </div>
           <div className="flex flex-col gap-y-3">
             <Label className="text-left">
-              Cor
+              {t('Color')}
             </Label>
             <div className="grid grid-cols-3 gap-2">
               {profileColors.map((color) => (
@@ -88,15 +90,15 @@ export const DrawerCreateProfile = ({ open, setOpen }: DrawerCreateProfileProps)
                     aria-pressed={isCustomColor}
                     className={`inline-flex items-center gap-2 whitespace-nowrap font-medium transition-colors bg-background shadow-sm rounded-md px-3 text-xs justify-start ${isCustomColor ? 'ring-2 dark:ring-white ring-black' : ''}`}>
                     <span className="flex items-center justify-center mr-1 rounded-full size-4 shrink-0 rainbow" />
-                    <span>Personalizado</span>
+                    <span>{t('Personalized')}</span>
                   </Button>
                 </PopoverTrigger>
                 <PopoverContent className="p-0" side="top">
                   <ColorPicker color={colorPicker} onChange={setColorPicker} />
                   <div className="flex flex-row justify-between p-3">
-                    <Button size="sm" variant="outline">Cancelar</Button>
+                    <Button size="sm" variant="outline">{t('Cancel')}</Button>
                     <PopoverClose asChild>
-                      <Button onClick={() => handleColor(colorPicker.hex, true)} size="sm">Salvar</Button>
+                      <Button onClick={() => handleColor(colorPicker.hex, true)} size="sm">{t('Save')}</Button>
                     </PopoverClose>
                   </div>
                 </PopoverContent>
@@ -107,7 +109,7 @@ export const DrawerCreateProfile = ({ open, setOpen }: DrawerCreateProfileProps)
         <DrawerFooter className="flex flex-row items-center justify-between w-full">
           <Link className="w-full" to={'/operator/profile/create-profile'}>
             <DrawerClose asChild>
-              <Button className="w-full" type="submit">Salvar</Button>
+              <Button className="w-full" type="submit">{t('Save')}</Button>
             </DrawerClose>
           </Link>
         </DrawerFooter>

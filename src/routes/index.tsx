@@ -35,7 +35,7 @@ import {
   PlaylistServer,
   QuickStart,
   RdsRss,
-  RecentUploads,
+  RecentFiles,
   RemoteTriggering,
   Settings,
   StationOffice,
@@ -60,29 +60,29 @@ export const Routers = createBrowserRouter(
       <Route element={<MainLayout />}>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/library" element={<LibraryLayout />}>
-          <Route path="" element={<Library />} />
+          <Route index element={<Library />} />
           <Route path="folder">
-            <Route path="" element={<LibraryFolder />} />
+            <Route index element={<LibraryFolder />} />
             <Route path="archive" element={<FolderArchive />} />
           </Route>
           <Route path="category">
-            <Route path="" element={<Category />} />
+            <Route index element={<Category />} />
             <Route path="archive" >
-              <Route path="" element={<CategoryArchive />} />
+              <Route index element={<CategoryArchive />} />
               <Route path="move-and-copy" element={<MoveAndCopy />} />
             </Route>
           </Route>
-          <Route path="recent-uploads" element={<RecentUploads />} />
+          <Route path="recent-files" element={<RecentFiles />} />
           <Route path="pending-files" element={<PendingFiles />} />
         </Route>
         <Route path="/operator" element={<OperatorLayout />}>
-          <Route path="" element={<Operator />} />
+          <Route index element={<Operator />} />
           <Route path="my-account" element={<MyAccount />} />
           <Route path="manage-operators" element={<ManageOperators />} />
           <Route path="profile">
             <Route path="manage-profile" element={<ManageProfile />} />
             <Route path="create-profile">
-              <Route path="" element={<CreateProfile />} />
+              <Route index element={<CreateProfile />} />
               <Route path="general" element={<General />} />
               <Route path="edition" element={<Edition />} />
               <Route path="quickstart" element={<QuickStart />} />
@@ -100,7 +100,7 @@ export const Routers = createBrowserRouter(
           </Route>
         </Route>
         <Route path="/settings" element={<SettingsLayout />}>
-          <Route path="" element={<Settings />} />
+          <Route index element={<Settings />} />
           <Route path="playlist-ini">
             <Route path="basic-settings" element={<BasicSettings />} />
             <Route path="affiliates" element={<Affiliates />} />

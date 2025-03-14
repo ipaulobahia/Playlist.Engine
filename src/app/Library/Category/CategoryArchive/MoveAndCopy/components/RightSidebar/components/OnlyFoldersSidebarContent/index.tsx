@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { useFolders } from "@/service/api/folders/getFolders"
 import { ChevronLeft } from "lucide-react"
+import { useTranslation } from "react-i18next"
 import { OnlyFolder } from "./components"
 
 interface OnlyFoldersSidebarContentProps {
@@ -9,6 +10,8 @@ interface OnlyFoldersSidebarContentProps {
 }
 
 export const OnlyFoldersSidebarContent = ({ onBack, onSelectOnlyFolder }: OnlyFoldersSidebarContentProps) => {
+  const { t } = useTranslation()
+
   const { data } = useFolders()
 
   const emptyList = !data
@@ -20,7 +23,7 @@ export const OnlyFoldersSidebarContent = ({ onBack, onSelectOnlyFolder }: OnlyFo
           <ChevronLeft size={12} />
         </Button>
         <span className="font-semibold">
-          Pastas
+          {t("Folders")}
         </span>
       </div>
       {
@@ -28,7 +31,7 @@ export const OnlyFoldersSidebarContent = ({ onBack, onSelectOnlyFolder }: OnlyFo
           ?
           <div className="flex items-center justify-center p-5 align-middle">
             <span className="text-sm font-medium">
-              Esta categoria está vazia.
+              {t('Empty-Categories')}
             </span>
           </div>
           :
@@ -36,6 +39,7 @@ export const OnlyFoldersSidebarContent = ({ onBack, onSelectOnlyFolder }: OnlyFo
             const { folderId } = folder
             return (
               <OnlyFolder
+                key={folderId}
                 onClick={() => onSelectOnlyFolder(folderId)}
                 folder={folder}
               />

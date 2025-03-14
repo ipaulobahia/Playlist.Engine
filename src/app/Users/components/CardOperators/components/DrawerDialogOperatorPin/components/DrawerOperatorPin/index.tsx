@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@radix-ui/react-label"
 import { Eye, EyeOff } from "lucide-react"
 import { useState } from "react"
+import { useTranslation } from "react-i18next"
 import { Link } from "react-router-dom"
 
 interface DrawerOperatorPinProps {
@@ -21,6 +22,8 @@ interface DrawerOperatorPinProps {
 }
 
 export const DrawerOperatorPin = ({ open, operator, setOpen }: DrawerOperatorPinProps) => {
+  const { t } = useTranslation()
+
   const { id, name, profile } = operator
 
   const [typePassword, setTypePassword] = useState<"password" | "text">("password")
@@ -52,26 +55,25 @@ export const DrawerOperatorPin = ({ open, operator, setOpen }: DrawerOperatorPin
       </DrawerTrigger>
       <DrawerContent className="px-3">
         <DrawerHeader className="flex flex-col justify-start">
-          <DrawerTitle>Aceesar operador</DrawerTitle>
+          <DrawerTitle>{t('Access-Operator')}</DrawerTitle>
           <DrawerDescription>
-            Este operador está protegido por senha. Por favor, insira a senha para acessar o operador.
+            {t("Access-Operator-Description")}
           </DrawerDescription>
         </DrawerHeader>
         <div className="grid gap-4 py-4">
           <div className="grid items-center gap-3">
             <Label htmlFor="operator" className="text-sm text-start">
-              Operador
+              {t("Operator")}
             </Label>
             <Input
               readOnly
               id="operator"
-              defaultValue="Paulo"
               className="dark:bg-black border-muted-foreground/25 placeholder:text-xs"
             />
           </div>
           <div className="grid items-center gap-3">
             <Label htmlFor="password" className="text-sm text-start">
-              Senha
+              {t("Password")}
             </Label>
             <div className="relative w-full">
               <Input
@@ -90,7 +92,7 @@ export const DrawerOperatorPin = ({ open, operator, setOpen }: DrawerOperatorPin
         <DrawerFooter className="items-end">
           <Link to={'/dashboard'}>
             <Button size={'sm'} type="submit">
-              Acessar
+              {t("Access")}
             </Button>
           </Link>
         </DrawerFooter>

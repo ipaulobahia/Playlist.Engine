@@ -1,7 +1,6 @@
 import { http } from "@/config";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { AxiosError } from "axios";
-import { useSearchParams } from "react-router-dom";
 import { toast } from "sonner";
 
 async function deletePlaylist(playlistId: number) {
@@ -10,15 +9,12 @@ async function deletePlaylist(playlistId: number) {
 }
 
 export function useDeletePlaylist() {
-  const [searchParams] = useSearchParams();
-  const category = searchParams.get("categoryType");
-
   const queryClient = useQueryClient();
 
   return useMutation({
     mutationFn: deletePlaylist,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['playlist', category] })
+      queryClient.invalidateQueries({ queryKey: ['playlist'] })
       toast.success('Sucesso!', { description: 'Lista removida com sucesso!' })
     },
     onError: (error: AxiosError) => {

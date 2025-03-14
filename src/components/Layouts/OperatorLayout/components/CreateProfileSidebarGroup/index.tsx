@@ -3,9 +3,12 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import { SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar"
 import { ChevronLeft, ChevronRight, UserCog } from "lucide-react"
 import { useState } from "react"
+import { useTranslation } from "react-i18next"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 
 export const CreateProfileSidebarGroup = () => {
+  const { t } = useTranslation()
+
   const { pathname } = useLocation()
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(true)
@@ -86,7 +89,7 @@ export const CreateProfileSidebarGroup = () => {
                   <Link to={'/operator/profile/create-profile/musical-block'}>
                     <SidebarMenuButton className={`${pathname.includes('/operator/profile/create-profile/musical-block') && 'font-bold bg-sidebar-accent'}`}>
                       <span className="text-xs">
-                        Bloco musical
+                        {t("Musical-Block")}
                       </span>
                     </SidebarMenuButton>
                   </Link>
@@ -149,7 +152,7 @@ export const CreateProfileSidebarGroup = () => {
                   <Link to={'/operator/profile/create-profile/folder'}>
                     <SidebarMenuButton className={`${pathname.includes('/operator/profile/create-profile/folder') && 'font-bold bg-sidebar-accent'}`}>
                       <span className="text-xs">
-                        Pastas
+                        {t("Folders")}
                       </span>
                     </SidebarMenuButton>
                   </Link>

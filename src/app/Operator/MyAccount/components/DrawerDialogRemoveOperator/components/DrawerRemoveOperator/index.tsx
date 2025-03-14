@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer"
 import { Label } from "@/components/ui/label"
 import { Trash2 } from "lucide-react"
+import { useTranslation } from "react-i18next"
 
 interface DrawerRemoveOperatorProps {
   open: boolean
@@ -9,13 +10,15 @@ interface DrawerRemoveOperatorProps {
 }
 
 export const DrawerRemoveOperator = ({ open, setOpen }: DrawerRemoveOperatorProps) => {
+  const { t } = useTranslation()
+
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
         <Button size={'sm'} variant={'destructive'}>
           <Trash2 />
           <span>
-            Remover operador
+            {t("Remove-Operator")}
           </span>
         </Button>
       </DrawerTrigger>

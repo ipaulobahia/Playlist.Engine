@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { useTranslation } from "react-i18next"
 
 export const PlaylistServer = () => {
+  const { t } = useTranslation()
+
   return (
     <main className="relative flex flex-1 p-5 pb-20">
       <div className="justify-center w-full max-w-full mx-auto lg:max-w-3xl">
@@ -40,7 +43,7 @@ export const PlaylistServer = () => {
               </div>
               <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
                 <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
-                  <span>Senha</span>
+                  <span>{t("Password")}</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">[Descrição]</span>
                 </Label>
                 <Input placeholder="************" type="password" className="w-full dark:bg-black border-muted-foreground/25 placeholder:text-xs" />
@@ -52,10 +55,10 @@ export const PlaylistServer = () => {
       <footer className="fixed bottom-0 left-0 flex justify-end w-full p-4 border border-t shadow border-muted-foreground/25 bg-muted">
         <div className="flex flex-row items-center justify-between gap-x-2">
           <Button size={'sm'} variant={'ghost'} disabled>
-            Cancelar
+            {t("Cancel")}
           </Button>
           <Button size={'sm'} disabled>
-            Salvar
+            {t("Save")}
           </Button>
         </div>
       </footer>

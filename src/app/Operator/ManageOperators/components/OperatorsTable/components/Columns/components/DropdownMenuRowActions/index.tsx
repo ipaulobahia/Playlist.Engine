@@ -1,28 +1,31 @@
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { MoreVertical } from "lucide-react"
+import { useTranslation } from "react-i18next"
 
 type DropdownMenuRowActionsProps = {
   currentStatus: string
 }
 
 export const DropdownMenuRowActions = ({ currentStatus }: DropdownMenuRowActionsProps) => {
+  const { t } = useTranslation()
+
   return (
     <DropdownMenu>
       <div className="flex justify-end">
         <DropdownMenuTrigger asChild>
           <Button size={'sm'} variant="ghost" className="p-0 size-8">
-            <span className="sr-only">Abrir menu</span>
+            <span className="sr-only">{t("Open-Menu")}</span>
             <MoreVertical />
           </Button>
         </DropdownMenuTrigger>
       </div>
       <DropdownMenuContent align="end">
         <DropdownMenuItem>
-          Editar
+          {t("Edit")}
         </DropdownMenuItem>
         <DropdownMenuSub>
-          <DropdownMenuSubTrigger>Status</DropdownMenuSubTrigger>
+          <DropdownMenuSubTrigger>{t("Status")}</DropdownMenuSubTrigger>
           <DropdownMenuSubContent>
             <DropdownMenuRadioGroup value={currentStatus}>
               <DropdownMenuRadioItem disabled={currentStatus == "0"} value="0">

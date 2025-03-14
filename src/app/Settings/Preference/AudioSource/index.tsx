@@ -3,8 +3,11 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Switch } from "@/components/ui/switch"
+import { useTranslation } from "react-i18next"
 
 export const AudioSource = () => {
+  const { t } = useTranslation()
+
   return (
     <main className="relative flex flex-1 p-5 pb-20">
       <div className="justify-center w-full max-w-full mx-auto lg:max-w-3xl">
@@ -26,7 +29,7 @@ export const AudioSource = () => {
                 </Label>
                 <Select>
                   <SelectTrigger className="flex-1 h-8 text-xs border bg-muted border-muted-foreground/10">
-                    <SelectValue placeholder="Selecione o fonte do áudio" />
+                    <SelectValue placeholder={t("Select-Audio-Source")} />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
@@ -49,7 +52,7 @@ export const AudioSource = () => {
                 </Label>
                 <Select>
                   <SelectTrigger className="flex-1 h-8 text-xs border bg-muted border-muted-foreground/10">
-                    <SelectValue placeholder="Selecione o plugin DSP" />
+                    <SelectValue placeholder={t("Select-DSP-Plugin")} />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
@@ -101,10 +104,10 @@ export const AudioSource = () => {
       <footer className="fixed bottom-0 left-0 flex justify-end w-full p-4 border border-t shadow border-muted-foreground/25 bg-muted">
         <div className="flex flex-row items-center justify-between gap-x-2">
           <Button size={'sm'} variant={'ghost'} disabled>
-            Cancelar
+            {t("Cancel")}
           </Button>
           <Button size={'sm'} disabled>
-            Salvar
+            {t("Save")}
           </Button>
         </div>
       </footer>

@@ -4,9 +4,12 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Eye, EyeOff } from "lucide-react"
 import { useState } from "react"
+import { useTranslation } from "react-i18next"
 import { Link } from "react-router-dom"
 
-export function LoginForm() {
+export const LoginForm = () => {
+  const { t } = useTranslation()
+
   const [typePassword, setTypePassword] = useState<"password" | "text">("password")
 
   function changeTypePassword() {
@@ -23,13 +26,15 @@ export function LoginForm() {
           <form className="flex items-center justify-center p-8 bg-sidebar">
             <div className="flex flex-col w-full gap-6">
               <div className="flex flex-col items-center text-center">
-                <h1 className="text-2xl font-bold">Bem-vindo de volta</h1>
+                <h1 className="text-2xl font-bold">
+                  {t('Welcome-Back')}
+                </h1>
                 <p className="text-balance text-muted-foreground">
-                  Informe sua conta do Playlist Engine
+                  {t('Playlist-Engine-Account')}
                 </p>
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="email">E-mail</Label>
+                <Label htmlFor="email">{t('E-mail')}</Label>
                 <Input
                   id="email"
                   type="email"
@@ -40,13 +45,7 @@ export function LoginForm() {
               </div>
               <div className="grid gap-2">
                 <div className="flex items-center">
-                  <Label htmlFor="password">Senha</Label>
-                  <a
-                    href="#"
-                    className="ml-auto text-sm underline-offset-2 hover:underline"
-                  >
-                    Esqueceu a senha?
-                  </a>
+                  <Label htmlFor="password">{t('Password')}</Label>
                 </div>
                 <div className="relative w-full">
                   <Input
@@ -63,7 +62,7 @@ export function LoginForm() {
               </div>
               <Link to={'/users'}>
                 <Button size={'sm'} className="w-full">
-                  Conecte-se
+                  {t('Connect')}
                 </Button>
               </Link>
             </div>
@@ -77,10 +76,10 @@ export function LoginForm() {
           </div>
         </CardContent>
       </Card>
-      <div className="text-balance text-center text-xs text-muted-foreground [&_a]:underline [&_a]:underline-offset-4 hover:[&_a]:text-primary">
-        Ao clicar em continuar, você concorda com nossos <a href="#">Termos de Serviço</a>{" "}
-        e <a href="#">Política de Privacidade</a>.
-      </div>
+      <div
+        className="text-balance text-center text-xs text-muted-foreground [&_a]:underline [&_a]:underline-offset-4 hover:[&_a]:text-primary"
+        dangerouslySetInnerHTML={{ __html: t('Terms-Of-Service-Privacy-Policy') }}
+      />
     </div>
   )
 }

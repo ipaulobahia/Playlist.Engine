@@ -7,10 +7,13 @@ import { ChevronLeft, ChevronRight, CircleAlert, Cog, FileCog } from "lucide-rea
 import { useState } from "react";
 // @ts-ignore
 import "react-color-palette/css";
+import { useTranslation } from "react-i18next";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { PreferenceSidebarMenuItem } from "./components";
 
 export const SettingsLayout = () => {
+  const { t } = useTranslation()
+
   const { pathname } = useLocation()
   const navigate = useNavigate()
 
@@ -31,19 +34,19 @@ export const SettingsLayout = () => {
           <div className="px-2 pt-2 w-fit">
             <Button onClick={goBack} className="flex flex-row items-center justify-center px-2" size={'sm'} variant={'ghost'}>
               <ChevronLeft size={16} />
-              <span className="text-sm font- text-sidebar-foreground">Voltar</span>
+              <span className="text-sm font- text-sidebar-foreground">{t('Back')}</span>
             </Button>
           </div>
           <Collapsible className="group/collapsible" asChild>
-            <SidebarGroup className="px-3">
+            <SidebarGroup className="p-0 px-3">
               <CollapsibleTrigger asChild>
                 <div className="flex flex-row items-center px-2 rounded-md cursor-pointer hover:bg-sidebar-accent hover:text-sidebar-accent-foregroun">
                   <Cog size={16} />
-                  <SidebarGroupLabel>Configurações</SidebarGroupLabel>
+                  <SidebarGroupLabel>{t('Settings')}</SidebarGroupLabel>
                   <ChevronRight size={16} className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                 </div>
               </CollapsibleTrigger>
-              <CollapsibleContent>
+              <CollapsibleContent className="mt-1">
                 <SidebarGroupContent className="pl-6">
                   <SidebarMenu>
                     {
@@ -60,20 +63,20 @@ export const SettingsLayout = () => {
           </Collapsible>
           <Collapsible className="group/collapsible" asChild>
             <CollapsibleTrigger asChild>
-              <SidebarGroup className="px-3 pt-0">
+              <SidebarGroup className="p-0 px-3">
                 <div className="flex flex-row items-center px-2 rounded-md cursor-pointer hover:bg-sidebar-accent hover:text-sidebar-accent-foregroun">
                   <FileCog size={16} />
                   <SidebarGroupLabel>Playlist.Ini</SidebarGroupLabel>
                   <ChevronRight size={16} className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                 </div>
-                <CollapsibleContent>
+                <CollapsibleContent className="mt-1">
                   <SidebarGroupContent className="pl-6">
                     <SidebarMenu>
                       <SidebarMenuItem>
                         <Link to={'/settings/playlist-ini/basic-settings'}>
                           <SidebarMenuButton className={`${pathname.includes('/settings/playlist-ini/basic-settings') && 'font-bold bg-sidebar-accent'}`}>
                             <span className="text-xs">
-                              Configurações básicas
+                              {t("Basic-Settings")}
                             </span>
                           </SidebarMenuButton>
                         </Link>
@@ -82,7 +85,7 @@ export const SettingsLayout = () => {
                         <Link to={'/settings/playlist-ini/affiliates'}>
                           <SidebarMenuButton className={`${pathname.includes('/settings/playlist-ini/affiliates') && 'font-bold bg-sidebar-accent'}`}>
                             <span className="text-xs">
-                              Afiliadas
+                              {t("Affiliates")}
                             </span>
                           </SidebarMenuButton>
                         </Link>
@@ -95,19 +98,21 @@ export const SettingsLayout = () => {
           </Collapsible>
           <Collapsible className="group/collapsible" asChild>
             <CollapsibleTrigger asChild>
-              <SidebarGroup className="px-3 pt-0">
+              <SidebarGroup className="p-0 px-3">
                 <div className="flex flex-row items-center px-2 rounded-md cursor-pointer hover:bg-sidebar-accent hover:text-sidebar-accent-foregroun">
                   <CircleAlert size={16} />
-                  <SidebarGroupLabel>Outros</SidebarGroupLabel>
+                  <SidebarGroupLabel>
+                    {t("Others")}
+                  </SidebarGroupLabel>
                   <ChevronRight size={16} className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                 </div>
-                <CollapsibleContent>
+                <CollapsibleContent className="mt-1">
                   <SidebarGroupContent className="pl-6">
                     <SidebarMenu>
                       <SidebarMenuItem>
                         <SidebarMenuButton onClick={handleDrawerDialogLicense}>
                           <span className="text-xs">
-                            Licença
+                            {t("License")}
                           </span>
                         </SidebarMenuButton>
                       </SidebarMenuItem>

@@ -1,13 +1,16 @@
 import { AudioLines, ChevronRight, Cog, Folders, LayoutPanelTop, ListEnd, ListMusic, Music, Music2, PanelsRightBottom, PauseCircle, Pencil } from "lucide-react"
+import { useTranslation } from "react-i18next"
 import { Link } from "react-router-dom"
 
 export const CreateProfile = () => {
+  const { t } = useTranslation()
+
   return (
     <main className="relative flex flex-1 p-5 pb-20">
       <div className="flex flex-col items-center justify-center w-full max-w-full mx-auto gap-y-5 lg:max-w-3xl">
         <div className="flex flex-col items-center gap-y-1">
-          <span className="text-3xl font-semibold text-accent-foreground">Criar Perfil</span>
-          <span className="text-base font-normal text-muted-foreground">Aqui você ira preencher as permissões e obrigações desse perfil.</span>
+          <span className="text-3xl font-semibold text-accent-foreground">{t('Create-Profile')}</span>
+          <span className="text-base font-normal text-muted-foreground">{t('Create-Description')}</span>
         </div>
         <div className="flex flex-col w-full gap-y-3">
           <div className="flex flex-col items-center w-full gap-y-3">
@@ -15,7 +18,7 @@ export const CreateProfile = () => {
               <div className="flex flex-col w-full border rounded-lg shadow cursor-pointer border-muted-foreground/25">
                 <div className="grid w-full grid-cols-3 p-4">
                   <div className="flex flex-col justify-center col-span-2 gap-y-1">
-                    <span className="text-base font-medium">Geral</span>
+                    <span className="text-base font-medium">{t('General')}</span>
                     <span className="text-xs font-normal text-muted-foreground">[Descrição]</span>
                   </div>
                   <div className="flex items-center justify-center ml-auto rounded-full size-24 bg-muted-foreground/10">
@@ -23,7 +26,9 @@ export const CreateProfile = () => {
                   </div>
                 </div>
                 <div className="flex flex-row items-center justify-between flex-1 px-4 py-3 border-t hover:bg-muted-foreground/10 border-muted-foreground/25">
-                  <span className="text-xs font-medium text-accent-foreground">Veja mais</span>
+                  <span className="text-xs font-medium text-accent-foreground">
+                    {t("See-More")}
+                  </span>
                   <ChevronRight size={16} />
                 </div>
               </div>
@@ -41,7 +46,9 @@ export const CreateProfile = () => {
                     </div>
                   </div>
                   <div className="flex flex-row items-center justify-between flex-1 px-4 py-3 border-t hover:bg-muted-foreground/10 border-muted-foreground/25">
-                    <span className="text-xs font-medium text-accent-foreground">Veja mais</span>
+                    <span className="text-xs font-medium text-accent-foreground">
+                      {t("See-More")}
+                    </span>
                     <ChevronRight size={16} />
                   </div>
                 </div>
@@ -58,7 +65,9 @@ export const CreateProfile = () => {
                     </div>
                   </div>
                   <div className="flex flex-row items-center justify-between flex-1 px-4 py-3 border-t hover:bg-muted-foreground/10 border-muted-foreground/25 ">
-                    <span className="text-xs font-medium text-accent-foreground">Veja mais</span>
+                    <span className="text-xs font-medium text-accent-foreground">
+                      {t("See-More")}
+                    </span>
                     <ChevronRight size={16} />
                   </div>
                 </div>
@@ -76,7 +85,9 @@ export const CreateProfile = () => {
                   </div>
                 </div>
                 <div className="flex flex-row items-center justify-between flex-1 px-4 py-3 border-t hover:bg-muted-foreground/10 border-muted-foreground/25">
-                  <span className="text-xs font-medium text-accent-foreground">Veja mais</span>
+                  <span className="text-xs font-medium text-accent-foreground">
+                    {t("See-More")}
+                  </span>
                   <ChevronRight size={16} />
                 </div>
               </div>
@@ -94,7 +105,9 @@ export const CreateProfile = () => {
                     </div>
                   </div>
                   <div className="flex flex-row items-center justify-between flex-1 px-4 py-3 border-t hover:bg-muted-foreground/10 border-muted-foreground/25">
-                    <span className="text-xs font-medium text-accent-foreground">Veja mais</span>
+                    <span className="text-xs font-medium text-accent-foreground">
+                      {t("See-More")}
+                    </span>
                     <ChevronRight size={16} />
                   </div>
                 </div>
@@ -103,7 +116,7 @@ export const CreateProfile = () => {
                 <div className="flex flex-col flex-1 border rounded-lg shadow cursor-pointer border-muted-foreground/25">
                   <div className="grid items-center w-full grid-cols-3 p-4">
                     <div className="flex flex-col col-span-2 gap-y-1">
-                      <span className="text-sm font-medium">Bloco musical</span>
+                      <span className="text-sm font-medium">{t("Musical-Block")}</span>
                       <span className="text-xs font-normal text-muted-foreground">[Descrição]</span>
                     </div>
                     <div className="flex items-center justify-center ml-auto rounded-full size-24 bg-muted-foreground/10">
@@ -111,7 +124,9 @@ export const CreateProfile = () => {
                     </div>
                   </div>
                   <div className="flex flex-row items-center justify-between flex-1 px-4 py-3 border-t hover:bg-muted-foreground/10 border-muted-foreground/25 ">
-                    <span className="text-xs font-medium text-accent-foreground">Veja mais</span>
+                    <span className="text-xs font-medium text-accent-foreground">
+                      {t("See-More")}
+                    </span>
                     <ChevronRight size={16} />
                   </div>
                 </div>
@@ -129,7 +144,9 @@ export const CreateProfile = () => {
                   </div>
                 </div>
                 <div className="flex flex-row items-center justify-between flex-1 px-4 py-3 border-t hover:bg-muted-foreground/10 border-muted-foreground/25">
-                  <span className="text-xs font-medium text-accent-foreground">Veja mais</span>
+                  <span className="text-xs font-medium text-accent-foreground">
+                    {t("See-More")}
+                  </span>
                   <ChevronRight size={16} />
                 </div>
               </div>
@@ -147,7 +164,9 @@ export const CreateProfile = () => {
                     </div>
                   </div>
                   <div className="flex flex-row items-center justify-between flex-1 px-4 py-3 border-t hover:bg-muted-foreground/10 border-muted-foreground/25">
-                    <span className="text-xs font-medium text-accent-foreground">Veja mais</span>
+                    <span className="text-xs font-medium text-accent-foreground">
+                      {t("See-More")}
+                    </span>
                     <ChevronRight size={16} />
                   </div>
                 </div>
@@ -164,7 +183,9 @@ export const CreateProfile = () => {
                     </div>
                   </div>
                   <div className="flex flex-row items-center justify-between flex-1 px-4 py-3 border-t hover:bg-muted-foreground/10 border-muted-foreground/25 ">
-                    <span className="text-xs font-medium text-accent-foreground">Veja mais</span>
+                    <span className="text-xs font-medium text-accent-foreground">
+                      {t("See-More")}
+                    </span>
                     <ChevronRight size={16} />
                   </div>
                 </div>
@@ -182,7 +203,9 @@ export const CreateProfile = () => {
                   </div>
                 </div>
                 <div className="flex flex-row items-center justify-between flex-1 px-4 py-3 border-t hover:bg-muted-foreground/10 border-muted-foreground/25">
-                  <span className="text-xs font-medium text-accent-foreground">Veja mais</span>
+                  <span className="text-xs font-medium text-accent-foreground">
+                    {t("See-More")}
+                  </span>
                   <ChevronRight size={16} />
                 </div>
               </div>
@@ -200,7 +223,9 @@ export const CreateProfile = () => {
                     </div>
                   </div>
                   <div className="flex flex-row items-center justify-between flex-1 px-4 py-3 border-t hover:bg-muted-foreground/10 border-muted-foreground/25">
-                    <span className="text-xs font-medium text-accent-foreground">Veja mais</span>
+                    <span className="text-xs font-medium text-accent-foreground">
+                      {t("See-More")}
+                    </span>
                     <ChevronRight size={16} />
                   </div>
                 </div>
@@ -217,7 +242,9 @@ export const CreateProfile = () => {
                     </div>
                   </div>
                   <div className="flex flex-row items-center justify-between flex-1 px-4 py-3 border-t hover:bg-muted-foreground/10 border-muted-foreground/25 ">
-                    <span className="text-xs font-medium text-accent-foreground">Veja mais</span>
+                    <span className="text-xs font-medium text-accent-foreground">
+                      {t("See-More")}
+                    </span>
                     <ChevronRight size={16} />
                   </div>
                 </div>
@@ -227,7 +254,7 @@ export const CreateProfile = () => {
               <div className="flex flex-col w-full border rounded-lg shadow cursor-pointer border-muted-foreground/25">
                 <div className="grid w-full grid-cols-3 p-4">
                   <div className="flex flex-col justify-center col-span-2 gap-y-1">
-                    <span className="text-base font-medium">Pastas</span>
+                    <span className="text-base font-medium">{t("Folders")}</span>
                     <span className="text-xs font-normal text-muted-foreground">[Descrição]</span>
                   </div>
                   <div className="flex items-center justify-center ml-auto rounded-full size-24 bg-muted-foreground/10">
@@ -235,7 +262,9 @@ export const CreateProfile = () => {
                   </div>
                 </div>
                 <div className="flex flex-row items-center justify-between flex-1 px-4 py-3 border-t hover:bg-muted-foreground/10 border-muted-foreground/25">
-                  <span className="text-xs font-medium text-accent-foreground">Veja mais</span>
+                  <span className="text-xs font-medium text-accent-foreground">
+                    {t("See-More")}
+                  </span>
                   <ChevronRight size={16} />
                 </div>
               </div>

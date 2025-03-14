@@ -12,6 +12,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { ListPlus, Plus } from "lucide-react"
 import { useCallback, useEffect } from "react"
 import { useForm } from "react-hook-form"
+import { useTranslation } from "react-i18next"
 import { useSearchParams } from "react-router-dom"
 
 interface DrawerCreateListProps {
@@ -21,6 +22,8 @@ interface DrawerCreateListProps {
 }
 
 export const DrawerCreateList = ({ open, setOpen }: DrawerCreateListProps) => {
+  const { t } = useTranslation()
+
   const { mutate, isSuccess, isPending, isError } = useCreatePlaylist()
 
   const [searchParams] = useSearchParams();
@@ -68,7 +71,7 @@ export const DrawerCreateList = ({ open, setOpen }: DrawerCreateListProps) => {
             <Plus size={16} />
           </div>
           <span className="text-sm font-medium">
-            Criar lista
+            {t("Create-List")}
           </span>
         </Card>
       </DrawerTrigger>
@@ -76,9 +79,9 @@ export const DrawerCreateList = ({ open, setOpen }: DrawerCreateListProps) => {
         <Form {...form}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <DrawerHeader>
-              <DrawerTitle>Nova lista</DrawerTitle>
+              <DrawerTitle>{t("New-List")}</DrawerTitle>
               <DrawerDescription>
-                Preencha os campos abaixo para criar sua lista perfil. Defina um nome e uma categoria.
+                {t("New-List-Description")}
               </DrawerDescription>
             </DrawerHeader>
             <div className="grid gap-4 py-4">
@@ -87,7 +90,7 @@ export const DrawerCreateList = ({ open, setOpen }: DrawerCreateListProps) => {
                 name="title"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-xs">Nome</FormLabel>
+                    <FormLabel className="text-xs">{t("Name")}</FormLabel>
                     <FormControl>
                       <Input className="text-xs placeholder:text-xs" {...field} />
                     </FormControl>
@@ -100,11 +103,11 @@ export const DrawerCreateList = ({ open, setOpen }: DrawerCreateListProps) => {
                 name="playlistType"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-xs">Categoria</FormLabel>
+                    <FormLabel className="text-xs">{t("Create-List")}</FormLabel>
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
                         <SelectTrigger className="text-xs placeholder:text-xs">
-                          <SelectValue placeholder="Selecione uma categoria" />
+                          <SelectValue placeholder={t("Select-Category")} />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
@@ -130,7 +133,7 @@ export const DrawerCreateList = ({ open, setOpen }: DrawerCreateListProps) => {
             </div>
             <DrawerFooter className="flex flex-row items-center justify-between w-full">
               <DrawerClose>
-                <Button variant={'outline'}>Cancelar</Button>
+                <Button variant={'outline'}>{t("Cancel")}</Button>
               </DrawerClose>
               <Button disabled={isPending} type="submit">
                 {
@@ -138,7 +141,7 @@ export const DrawerCreateList = ({ open, setOpen }: DrawerCreateListProps) => {
                     ?
                     <PingLoading />
                     :
-                    <span>Criar</span>
+                    <span>{t("Create")}</span>
                 }
               </Button>
             </DrawerFooter>

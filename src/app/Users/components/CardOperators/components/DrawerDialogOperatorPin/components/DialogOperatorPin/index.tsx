@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@radix-ui/react-label"
 import { Eye, EyeOff } from "lucide-react"
 import { useState } from "react"
+import { useTranslation } from "react-i18next"
 import { Link } from "react-router-dom"
 
 interface DialogOperatorPinProps {
@@ -21,6 +22,8 @@ interface DialogOperatorPinProps {
 }
 
 export const DialogOperatorPin = ({ open, operator, setOpen }: DialogOperatorPinProps) => {
+  const { t } = useTranslation()
+
   const { id, name, profile } = operator
 
   const [typePassword, setTypePassword] = useState<"password" | "text">("password")
@@ -52,26 +55,25 @@ export const DialogOperatorPin = ({ open, operator, setOpen }: DialogOperatorPin
       </DialogTrigger>
       <DialogContent className="w-[90%]">
         <DialogHeader className="flex flex-col justify-start">
-          <DialogTitle>Aceesar operador</DialogTitle>
+          <DialogTitle>{t('Access-Operator')}</DialogTitle>
           <DialogDescription>
-            Este operador está protegido por senha. Por favor, insira a senha para acessar o operador.
+            {t("Access-Operator-Description")}
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <div className="grid items-center gap-3">
             <Label htmlFor="operator" className="text-sm text-start">
-              Operador
+              {t("Operator")}
             </Label>
             <Input
               readOnly
               id="operator"
-              defaultValue="Paulo"
               className="dark:bg-black border-muted-foreground/25 placeholder:text-xs"
             />
           </div>
           <div className="grid items-center gap-3">
             <Label htmlFor="password" className="text-sm text-start">
-              Senha
+              {t("Password")}
             </Label>
             <div className="relative w-full">
               <Input
@@ -90,7 +92,7 @@ export const DialogOperatorPin = ({ open, operator, setOpen }: DialogOperatorPin
         <DialogFooter className="justify-end">
           <Link to={'/dashboard'}>
             <Button size={'sm'} type="submit">
-              Acessar
+              {t("Acess")}
             </Button>
           </Link>
         </DialogFooter>

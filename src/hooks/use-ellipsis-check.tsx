@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-export function useEllipsisCheck<T extends HTMLElement>(dependency?: any) {
+export const useEllipsisCheck = <T extends HTMLElement>(dependency?: any) => {
   const textRef = useRef<T>(null);
   const [isEllipsis, setIsEllipsis] = useState(false);
 

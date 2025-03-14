@@ -1,3 +1,4 @@
+import { FileContextMenu } from "@/components";
 import { ScrollList } from "@/components/ui/scroll-list";
 import { useInfoSidebar } from "@/hooks/use-sidebar";
 import { MediaFiles, usePlaylistList } from "@/service/api/playlist/query/getPlaylistList";
@@ -7,7 +8,7 @@ import { useSearchParams } from "react-router-dom";
 import { Toolbar } from "./components";
 
 export const CategoryArchiveList = () => {
-  const { selectRow } = useInfoSidebar()
+  const { selectRow, toggleSidebar } = useInfoSidebar()
 
   const [searchParams, setSearchParams] = useSearchParams();
   const folderId = searchParams.get("folderId");
@@ -29,6 +30,11 @@ export const CategoryArchiveList = () => {
 
   const emptyList = !data || !data.hasOwnProperty("mediaFiles")
 
+  function handleOpenDetailFile(mediaFile: MediaFiles) {
+    handleSelectedFile(mediaFile)
+    toggleSidebar()
+  }
+
   return (
     <section>
       <Toolbar />
@@ -46,16 +52,16 @@ export const CategoryArchiveList = () => {
               data.mediaFiles.map((mediaFile) => {
                 const { fileId, title } = mediaFile
                 return (
-                  <div
-                    key={fileId}
-                    onClick={() => handleSelectedFile(mediaFile)}
-                    className={`px-3 flex w-fit items-center gap-1.5 py-1.5 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground cursor-pointer rounded ${selectedFile?.fileId == fileId && 'bg-sidebar-accent'}`}
-                  >
-                    <File size={16} />
-                    <span className="text-sm font-medium">
-                      {title}
-                    </span>
-                  </div>
+                  <FileContextMenu
+                    onOpenDetailFile={() => handleOpenDetailFile(mediaFile)}
+                    key={fileId}>
+                    <div onClick={() => handleSelectedFile(mediaFile)} className={`px-3 flex items-center w-fit gap-1.5 py-1.5 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground cursor-pointer rounded ${selectedFile?.fileId == fileId && 'bg-sidebar-accent'}`}>
+                      <File size={16} />
+                      <span className="text-sm font-medium">
+                        {title}
+                      </span>
+                    </div>
+                  </FileContextMenu>
                 )
               })
             }

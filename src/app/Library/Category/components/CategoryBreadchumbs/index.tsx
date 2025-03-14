@@ -1,8 +1,9 @@
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
-import { CategoryEnum, translateToPT } from "@/utils";
+import { useTranslation } from "react-i18next";
 import { Link, useSearchParams } from "react-router-dom";
 
 export const CategoryBreadchumbs = () => {
+  const { t } = useTranslation()
   const [searchParams] = useSearchParams();
 
   const categoryType = searchParams.get("categoryType");
@@ -13,7 +14,7 @@ export const CategoryBreadchumbs = () => {
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
             <Link to={'/dashboard'}>
-            Dashboard
+              {t("Dashboard")}
             </Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
@@ -21,14 +22,14 @@ export const CategoryBreadchumbs = () => {
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
             <Link to={'/library'}>
-              Biblioteca
+              {t("Library")}
             </Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
           <BreadcrumbPage>
-            {translateToPT(categoryType as CategoryEnum)}
+            {t(categoryType as string)}
           </BreadcrumbPage>
         </BreadcrumbItem>
       </BreadcrumbList>

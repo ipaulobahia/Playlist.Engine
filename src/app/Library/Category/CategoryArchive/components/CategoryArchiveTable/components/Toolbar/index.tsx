@@ -3,6 +3,7 @@ import { DropdownMenu, DropdownMenuTrigger } from "@/components/ui/dropdown-menu
 import { Input } from "@/components/ui/input"
 import { Table } from "@tanstack/react-table"
 import { ListFilter, Search } from "lucide-react"
+import { useTranslation } from "react-i18next"
 import { ColumnFilter, DropdownMenuContentFilter } from "./components"
 
 interface ToolbarProps<TData> {
@@ -10,6 +11,8 @@ interface ToolbarProps<TData> {
 }
 
 export const Toolbar = <TData,>({ table }: ToolbarProps<TData>) => {
+  const { t } = useTranslation()
+
   return (
     <div className="flex flex-row items-center justify-between my-3">
       <div className="flex flex-row items-center gap-x-1">
@@ -18,7 +21,7 @@ export const Toolbar = <TData,>({ table }: ToolbarProps<TData>) => {
             <Search size={16} />
           </span>
           <Input
-            placeholder="Pesquise"
+            placeholder={t('Search')}
             value={(table.getColumn("file")?.getFilterValue() as string) ?? ""}
             onChange={(event) => table.getColumn("file")?.setFilterValue(event.target.value)}
             className="h-8 border-0 dark:bg-black placeholder:text-xs"
@@ -27,11 +30,11 @@ export const Toolbar = <TData,>({ table }: ToolbarProps<TData>) => {
       </div>
       <div className="flex flex-row items-center gap-x-1">
         <DropdownMenu>
-          <DropdownMenuTrigger asChild>
+          <DropdownMenuTrigger disabled asChild>
             <Button size={'sm'} variant={'outline'}>
               <ListFilter />
               <span className="font-medium">
-                Filtros
+                {t('Filters')}
               </span>
             </Button>
           </DropdownMenuTrigger>

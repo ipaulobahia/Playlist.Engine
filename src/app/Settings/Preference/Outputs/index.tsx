@@ -2,8 +2,11 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { useTranslation } from "react-i18next"
 
 export const Outputs = () => {
+  const { t } = useTranslation()
+
   return (
     <main className="relative flex flex-1 p-5 pb-20">
       <div className="justify-center w-full max-w-full mx-auto lg:max-w-3xl">
@@ -12,7 +15,7 @@ export const Outputs = () => {
             <header className="justify-between px-4 py-6 mx-auto border rounded-md rounded-b-none border-muted-foreground/25 sm:flex sm:px-6">
               <div className="flex items-center w-full">
                 <div>
-                  <h1 className="text-2xl font-bold tracking-tight">Saídas</h1>
+                  <h1 className="text-2xl font-bold tracking-tight">{t("Outputs")}</h1>
                   <p className="text-sm text-muted-foreground">[Descrição]</p>
                 </div>
               </div>
@@ -20,16 +23,16 @@ export const Outputs = () => {
             <div className="flex flex-col items-center gap-4 px-4 py-8 border border-t-0 rounded-md rounded-t-none gap-x-4 border-muted-foreground/25 sm:px-6">
               <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
                 <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
-                  <span>Programação</span>
-                  <span className="text-xs font-normal leading-snug text-muted-foreground">Saída de áudio padrão para a programação.</span>
+                  <span>{t("Programming")}</span>
+                  <span className="text-xs font-normal leading-snug text-muted-foreground">{t("Programming-Description")}</span>
                 </Label>
                 <Select>
                   <SelectTrigger className="flex-1 h-8 text-xs border bg-muted border-muted-foreground/10">
-                    <SelectValue placeholder="Selecione o dispositivo" />
+                    <SelectValue placeholder={t("Select-Device")} />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
-                      <SelectLabel>Dispositivo</SelectLabel>
+                      <SelectLabel>{t("Device")}</SelectLabel>
                       <SelectItem value="1">Padrão</SelectItem>
                       <SelectItem value="2">Fones de ouvidos (WH-1000XM5)</SelectItem>
                       <SelectItem value="3">Conector AUX Interno (DroidCam Audio)</SelectItem>
@@ -41,16 +44,16 @@ export const Outputs = () => {
               </div>
               <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
                 <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
-                  <span>Pré-escuta</span>
-                  <span className="text-xs font-normal leading-snug text-muted-foreground">Saída de áudio para pré-escuta</span>
+                  <span>{t("Pre-Listen")}</span>
+                  <span className="text-xs font-normal leading-snug text-muted-foreground">{t("Pre-Listen-Description")}</span>
                 </Label>
                 <Select>
                   <SelectTrigger className="flex-1 h-8 text-xs border bg-muted border-muted-foreground/10">
-                    <SelectValue placeholder="Selecione o dispositivo" />
+                    <SelectValue placeholder={t("Select-Device")} />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
-                      <SelectLabel>Dispositivo</SelectLabel>
+                      <SelectLabel>{t("Device")}</SelectLabel>
                       <SelectItem value="1">Padrão</SelectItem>
                       <SelectItem value="2">Fones de ouvidos (WH-1000XM5)</SelectItem>
                       <SelectItem value="3">Conector AUX Interno (DroidCam Audio)</SelectItem>
@@ -62,16 +65,16 @@ export const Outputs = () => {
               </div>
               <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
                 <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
-                  <span>QuickStart</span>
-                  <span className="text-xs font-normal leading-snug text-muted-foreground">Saída de áudio para veicular o áudio QuickStart</span>
+                  <span>{t("Quickstart")}</span>
+                  <span className="text-xs font-normal leading-snug text-muted-foreground">{t("Quickstart-Description")}</span>
                 </Label>
                 <Select>
                   <SelectTrigger className="flex-1 h-8 text-xs border bg-muted border-muted-foreground/10">
-                    <SelectValue placeholder="Selecione o dispositivo" />
+                    <SelectValue placeholder={t("Select-Device")} />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
-                      <SelectLabel>Dispositivo</SelectLabel>
+                      <SelectLabel>{t("Device")}</SelectLabel>
                       <SelectItem value="1">Padrão</SelectItem>
                       <SelectItem value="2">Fones de ouvidos (WH-1000XM5)</SelectItem>
                       <SelectItem value="3">Conector AUX Interno (DroidCam Audio)</SelectItem>
@@ -83,16 +86,16 @@ export const Outputs = () => {
               </div>
               <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
                 <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
-                  <span>Opção Tocar</span>
-                  <span className="text-xs font-normal leading-snug text-muted-foreground">Saída utilizada ao exibir um áudio pela opção "Tocar"</span>
+                  <span>{t("Play-Option")}</span>
+                  <span className="text-xs font-normal leading-snug text-muted-foreground">{t("Play-Option-Description")}</span>
                 </Label>
                 <Select>
                   <SelectTrigger className="flex-1 h-8 text-xs border bg-muted border-muted-foreground/10">
-                    <SelectValue placeholder="Selecione o dispositivo" />
+                    <SelectValue placeholder={t("Select-Device")} />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
-                      <SelectLabel>Dispositivo</SelectLabel>
+                      <SelectLabel>{t("Device")}</SelectLabel>
                       <SelectItem value="1">Padrão</SelectItem>
                       <SelectItem value="2">Fones de ouvidos (WH-1000XM5)</SelectItem>
                       <SelectItem value="3">Conector AUX Interno (DroidCam Audio)</SelectItem>
@@ -104,16 +107,16 @@ export const Outputs = () => {
               </div>
               <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
                 <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
-                  <span>Comerciais</span>
-                  <span className="text-xs font-normal leading-snug text-muted-foreground">Saída de áudio usada para veicular comerciais</span>
+                  <span>{t("Commercials")}</span>
+                  <span className="text-xs font-normal leading-snug text-muted-foreground">{t("Commercials-Description")}</span>
                 </Label>
                 <Select>
                   <SelectTrigger className="flex-1 h-8 text-xs border bg-muted border-muted-foreground/10">
-                    <SelectValue placeholder="Selecione o dispositivo" />
+                    <SelectValue placeholder={t("Select-Device")} />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
-                      <SelectLabel>Dispositivo</SelectLabel>
+                      <SelectLabel>{t("Device")}</SelectLabel>
                       <SelectItem value="1">Padrão</SelectItem>
                       <SelectItem value="2">Fones de ouvidos (WH-1000XM5)</SelectItem>
                       <SelectItem value="3">Conector AUX Interno (DroidCam Audio)</SelectItem>
@@ -125,16 +128,16 @@ export const Outputs = () => {
               </div>
               <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
                 <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
-                  <span>Músicas</span>
-                  <span className="text-xs font-normal leading-snug text-muted-foreground">Saída de áudio usada para veicular músicas</span>
+                  <span>{t("Songs")}</span>
+                  <span className="text-xs font-normal leading-snug text-muted-foreground">{t("Songs-Description")}</span>
                 </Label>
                 <Select>
                   <SelectTrigger className="flex-1 h-8 text-xs border bg-muted border-muted-foreground/10">
-                    <SelectValue placeholder="Selecione o dispositivo" />
+                    <SelectValue placeholder={t("Select-Device")} />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
-                      <SelectLabel>Dispositivo</SelectLabel>
+                      <SelectLabel>{t("Device")}</SelectLabel>
                       <SelectItem value="1">Padrão</SelectItem>
                       <SelectItem value="2">Fones de ouvidos (WH-1000XM5)</SelectItem>
                       <SelectItem value="3">Conector AUX Interno (DroidCam Audio)</SelectItem>
@@ -146,16 +149,16 @@ export const Outputs = () => {
               </div>
               <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
                 <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
-                  <span>Vinhetas</span>
-                  <span className="text-xs font-normal leading-snug text-muted-foreground">Saída de áudio usada para veicular vinhetas</span>
+                  <span>{t("Vignettes")}</span>
+                  <span className="text-xs font-normal leading-snug text-muted-foreground">{t("Vignettes-Description")}</span>
                 </Label>
                 <Select>
                   <SelectTrigger className="flex-1 h-8 text-xs border bg-muted border-muted-foreground/10">
-                    <SelectValue placeholder="Selecione o dispositivo" />
+                    <SelectValue placeholder={t("Select-Device")} />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
-                      <SelectLabel>Dispositivo</SelectLabel>
+                      <SelectLabel>{t("Device")}</SelectLabel>
                       <SelectItem value="1">Padrão</SelectItem>
                       <SelectItem value="2">Fones de ouvidos (WH-1000XM5)</SelectItem>
                       <SelectItem value="3">Conector AUX Interno (DroidCam Audio)</SelectItem>
@@ -208,10 +211,10 @@ export const Outputs = () => {
       <footer className="fixed bottom-0 left-0 flex justify-end w-full p-4 border border-t shadow border-muted-foreground/25 bg-muted">
         <div className="flex flex-row items-center justify-between gap-x-2">
           <Button size={'sm'} variant={'ghost'} disabled>
-            Cancelar
+            {t("Cancel")}
           </Button>
           <Button size={'sm'} disabled>
-            Salvar
+            {t("Save")}
           </Button>
         </div>
       </footer>

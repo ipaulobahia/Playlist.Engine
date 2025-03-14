@@ -5,6 +5,7 @@ import { useEditPlaylistFiles } from "@/service/api/playlist/mutate/editPlaylist
 import { usePlaylistList } from "@/service/api/playlist/query/getPlaylistList";
 import { useDroppable } from "@dnd-kit/core";
 import { forwardRef } from "react";
+import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
 import { toast } from "sonner";
 import { MediaFilesListContextMenu } from "./components";
@@ -17,6 +18,8 @@ interface MediaFilesListProps {
 }
 
 export const MediaFilesList = forwardRef<HTMLDivElement, MediaFilesListProps>(({ selectedIndexes, onSelectAllFiles, onSelectFile }, ref) => {
+  const { t } = useTranslation()
+
   const { copyData, copy } = useCopyPaste()
   const { selectedTab } = usePlaylistTabs();
 
@@ -54,7 +57,7 @@ export const MediaFilesList = forwardRef<HTMLDivElement, MediaFilesListProps>(({
     const existingFileIds = new Set(existingFiles.map((file) => file.fileId));
     const newFileIds = fileIds.filter((id) => !existingFileIds.has(id));
 
-    if (newFileIds.length === 0 || newFileIds[0] === 0) { return toast.error("Erro!", { description: "Você não pode adicionar arquivos duplicados à lista." }); }
+    if (newFileIds.length === 0 || newFileIds[0] === 0) { return toast.error("Erro!", { description: t("Duplicate-Files-Error") }); }
 
     newFileIds.forEach((id) => existingFileIds.add(id));
 

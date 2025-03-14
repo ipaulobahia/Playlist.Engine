@@ -7,11 +7,14 @@ import { MediaFiles } from "@/service/api/playlist/query/getPlaylistList";
 import { Box, boxesIntersect, useSelectionContainer } from '@air/react-drag-to-select';
 import { DndContext, DragEndEvent } from "@dnd-kit/core";
 import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
 import { toast } from "sonner";
 import { MediaFilesList, NavigationTabs, RightSidebar } from "./components";
 
 export const MoveAndCopy = () => {
+  const { t } = useTranslation()
+
   const [searchParams] = useSearchParams();
   const folderId = searchParams.get("folderId");
 
@@ -124,7 +127,7 @@ export const MoveAndCopy = () => {
         }
 
         if (existingFiles.some((file: MediaFiles) => file.fileId == draggedFile.fileId)) {
-          return toast.error("Erro!", { description: "Você não pode adicionar arquivos duplicados à lista." });
+          return toast.error("Erro!", { description: t("Duplicate-Files-Error") });
         }
 
         const updatedFiles = [...existingFiles.map((file: MediaFiles) => file.fileId), draggedFile.fileId];

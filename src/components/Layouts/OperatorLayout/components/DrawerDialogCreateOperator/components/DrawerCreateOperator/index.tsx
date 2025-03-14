@@ -3,6 +3,7 @@ import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, Dr
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { useTranslation } from "react-i18next"
 
 interface DrawerCreateOperatorProps {
   open: boolean
@@ -10,31 +11,35 @@ interface DrawerCreateOperatorProps {
 }
 
 export const DrawerCreateOperator = ({ open, setOpen }: DrawerCreateOperatorProps) => {
+  const { t } = useTranslation()
+
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
         <Button>
           <span className="text-xs">
-            Novo operador
+            {t('New-Operator')}
           </span>
         </Button>
       </DrawerTrigger>
       <DrawerContent className="px-3">
         <DrawerHeader>
-          <DrawerTitle>Novo operador</DrawerTitle>
+          <DrawerTitle>
+            {t('New-Operator')}
+          </DrawerTitle>
           <DrawerDescription>
-            Preencha os campos abaixo para criar um novo operador. Defina um nome e selecione um perfil.
+            {t('New-Operator-Description')}
           </DrawerDescription>
         </DrawerHeader>
         <div className="grid gap-4 py-4">
           <div className="flex flex-col gap-y-3">
             <Label htmlFor="name" className="text-left">
-              Nome
+              {t('Name')}
             </Label>
             <Input
               className="text-xs placeholder:text-xs"
               id="name"
-              placeholder="Bruno, João, Davi ou Felipe" />
+              placeholder={t("Placeholder-Name-New-Operator")} />
           </div>
           <div className="flex flex-col gap-y-3">
             <Label htmlFor="name" className="text-left">
@@ -47,15 +52,15 @@ export const DrawerCreateOperator = ({ open, setOpen }: DrawerCreateOperatorProp
           </div>
           <div className="flex flex-col gap-y-3">
             <Label htmlFor="name" className="text-left">
-              Perfil
+              {t("Profile")}
             </Label>
             <Select>
               <SelectTrigger className="text-xs">
-                <SelectValue placeholder="Selecione um perfil" />
+                <SelectValue placeholder={t("Select-Profile")} />
               </SelectTrigger>
               <SelectContent>
                 <SelectGroup>
-                  <SelectLabel>Perfils</SelectLabel>
+                  <SelectLabel>{t("Profiles")}</SelectLabel>
                   <SelectItem value="1">Padrão</SelectItem>
                   <SelectItem value="2">Locutor</SelectItem>
                   <SelectItem value="3">Gestor</SelectItem>
@@ -67,7 +72,7 @@ export const DrawerCreateOperator = ({ open, setOpen }: DrawerCreateOperatorProp
         </div>
         <DrawerFooter className="flex flex-row items-center justify-between w-full">
           <DrawerClose asChild>
-            <Button className="w-full" type="submit">Salvar</Button>
+            <Button className="w-full" type="submit">{t("Save")}</Button>
           </DrawerClose>
         </DrawerFooter>
       </DrawerContent>

@@ -3,6 +3,7 @@ import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, Di
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { useTranslation } from "react-i18next"
 
 interface DialogCreateOperatorProps {
   open: boolean
@@ -10,31 +11,33 @@ interface DialogCreateOperatorProps {
 }
 
 export const DialogCreateOperator = ({ open, setOpen }: DialogCreateOperatorProps) => {
+  const { t } = useTranslation()
+
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button>
           <span className="text-xs">
-            Novo operador
+            {t('New-Operator')}
           </span>
         </Button>
       </DialogTrigger>
       <DialogContent className="w-[90%]">
         <DialogHeader>
-          <DialogTitle>Novo operador</DialogTitle>
+          <DialogTitle>{t('New-Operator')}</DialogTitle>
           <DialogDescription>
-            Preencha os campos abaixo para criar um novo operador. Defina um nome e selecione um perfil.
+            {t('New-Operator-Description')}
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <div className="flex flex-col gap-y-3">
             <Label htmlFor="name" className="text-left">
-              Nome
+              {t("Name")}
             </Label>
             <Input
               className="text-xs placeholder:text-xs"
               id="name"
-              placeholder="Bruno, João, Davi ou Felipe" />
+              placeholder={t("Placeholder-Name-New-Operator")} />
           </div>
           <div className="flex flex-col gap-y-3">
             <Label htmlFor="name" className="text-left">
@@ -47,15 +50,15 @@ export const DialogCreateOperator = ({ open, setOpen }: DialogCreateOperatorProp
           </div>
           <div className="flex flex-col gap-y-3">
             <Label htmlFor="name" className="text-left">
-              Perfil
+              {t("Profile")}
             </Label>
             <Select>
               <SelectTrigger className="text-xs">
-                <SelectValue placeholder="Selecione um perfil" />
+                <SelectValue placeholder={t("Select-Profile")} />
               </SelectTrigger>
               <SelectContent>
                 <SelectGroup>
-                  <SelectLabel>Perfils</SelectLabel>
+                  <SelectLabel>{t("Profiles")}</SelectLabel>
                   <SelectItem value="1">Padrão</SelectItem>
                   <SelectItem value="2">Locutor</SelectItem>
                   <SelectItem value="3">Gestor</SelectItem>
@@ -67,10 +70,10 @@ export const DialogCreateOperator = ({ open, setOpen }: DialogCreateOperatorProp
         </div>
         <DialogFooter className="flex flex-row items-center justify-between w-full">
           <DialogClose asChild>
-            <Button variant={'outline'}>Cancelar</Button>
+            <Button variant={'outline'}>{t("Cancel")}</Button>
           </DialogClose>
           <DialogClose asChild>
-            <Button type="submit">Salvar</Button>
+            <Button type="submit">{t("Save")}</Button>
           </DialogClose>
         </DialogFooter>
       </DialogContent>

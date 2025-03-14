@@ -1,10 +1,12 @@
 import { ModeToggle } from "@/components/mode-toggle"
 import { StationSwitcher } from "@/components/StationSwitcher"
 import { NavigationMenu, NavigationMenuItem, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu"
+import { useTranslation } from "react-i18next"
 import { Link, Outlet, useLocation } from "react-router-dom"
 import { NavUser } from "./components"
 
 export const MainLayout = () => {
+  const { t } = useTranslation()
   const { pathname } = useLocation()
 
   return (
@@ -20,30 +22,25 @@ export const MainLayout = () => {
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className={`h-0 p-0 text-sm font-medium transition-colors text-muted-foreground dark:hover:text-white hover:text-black ${pathname.includes("dashboard") && 'dark:text-white text-black'}`}>
                     <Link to={'/dashboard'}>
-                      Dashboard
+                      {t("Dashboard")}
                     </Link>
                   </NavigationMenuTrigger>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className={`h-0 p-0 text-sm font-medium transition-colors text-muted-foreground dark:hover:text-white hover:text-black ${pathname.includes("library") && 'dark:text-white text-black'}`}>
                     <Link to={'/library'}>
-                      Biblioteca
+                      {t("Library")}
                     </Link>
                   </NavigationMenuTrigger>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger disabled className={`h-0 p-0 text-sm font-medium transition-colors text-muted-foreground dark:hover:text-white hover:text-black ${pathname.includes('/maps') && 'dark:text-white text-black'}`}>
-                    Mapas
-                  </NavigationMenuTrigger>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
                   <Link to={'/operator'}>
-                    <NavigationMenuTrigger className={`h-0 p-0 text-sm font-medium transition-colors text-muted-foreground dark:hover:text-white hover:text-black ${pathname.includes('/operator') && 'dark:text-white text-black'}`}>Operadores</NavigationMenuTrigger>
+                    <NavigationMenuTrigger className={`h-0 p-0 text-sm font-medium transition-colors text-muted-foreground dark:hover:text-white hover:text-black ${pathname.includes('/operator') && 'dark:text-white text-black'}`}>{t('Operators')}</NavigationMenuTrigger>
                   </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                   <Link to={'/settings'}>
-                    <NavigationMenuTrigger className={`h-0 p-0 text-sm font-medium transition-colors text-muted-foreground dark:hover:text-white hover:text-black ${pathname.includes('/settings') && 'dark:text-white text-black'}`}>Configurações</NavigationMenuTrigger>
+                    <NavigationMenuTrigger className={`h-0 p-0 text-sm font-medium transition-colors text-muted-foreground dark:hover:text-white hover:text-black ${pathname.includes('/settings') && 'dark:text-white text-black'}`}>{t("Settings")}</NavigationMenuTrigger>
                   </Link>
                 </NavigationMenuItem>
               </NavigationMenuList>

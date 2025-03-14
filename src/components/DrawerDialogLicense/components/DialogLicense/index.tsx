@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogClose, DialogContent, DialogTitle } from "@/components/ui/dialog"
+import { useTranslation } from "react-i18next"
 
 interface DialogLicenseProps {
   open: boolean
@@ -7,6 +8,8 @@ interface DialogLicenseProps {
 }
 
 export const DialogLicense = ({ open, setOpen }: DialogLicenseProps) => {
+  const { t } = useTranslation()
+
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent className="max-w-[720px] p-4">
@@ -21,15 +24,15 @@ export const DialogLicense = ({ open, setOpen }: DialogLicenseProps) => {
             <div className="flex flex-col gapy-1">
               <span className="text-xs font-thin">
                 Copyright© - Playlist Software Solutions Inc.<br />
-                Todos os direitos reservados. Proibido o uso ou distribuição sem autorização do autor.
+                {t("License-Description")}
               </span>
               <span className="text-xs font-thin">
-                Contato por telefone (31) 2136-2929
+                {t("License-Contact")} (31) 2136-2929
               </span>
             </div>
             <DialogClose asChild>
               <Button variant={'outline'} size={'sm'}>
-                Fechar
+                {t("Close")}
               </Button>
             </DialogClose>
           </div>

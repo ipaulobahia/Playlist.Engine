@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/context-menu"
 import { DialogTrigger } from "@/components/ui/dialog"
 import { FilePenLine, FolderOpen, FolderPen, Trash2 } from "lucide-react"
+import { useTranslation } from "react-i18next"
 
 interface FoldersContextMenuProps {
   children: React.ReactNode
@@ -17,6 +18,8 @@ interface FoldersContextMenuProps {
 }
 
 export const FoldersContextMenu = ({ children, onEditContentList, onOpenList, onRemoveList, onRenameList }: FoldersContextMenuProps) => {
+  const { t } = useTranslation()
+
   return (
     <ContextMenu>
       <ContextMenuTrigger>
@@ -26,14 +29,14 @@ export const FoldersContextMenu = ({ children, onEditContentList, onOpenList, on
         <ContextMenuItem onClick={onOpenList} className="flex flex-row items-center text-xs gap-x-1">
           <FolderOpen size={12} />
           <span>
-            Abrir
+            {t("Open")}
           </span>
         </ContextMenuItem>
         <ContextMenuSeparator />
         <ContextMenuItem onClick={onEditContentList} className="flex flex-row items-center text-xs gap-x-1">
           <FolderPen size={12} />
           <span>
-            Editar conteúdo
+            {t("Edit-Content")}
           </span>
         </ContextMenuItem>
         <DialogTrigger className="w-full">

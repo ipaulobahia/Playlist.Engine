@@ -4,8 +4,11 @@ import { Label } from "@/components/ui/label"
 import { Separator } from "@/components/ui/separator"
 import { Slider } from "@/components/ui/slider"
 import { Volume1 } from "lucide-react"
+import { useTranslation } from "react-i18next"
 
 export const ToolsSidebar = () => {
+  const { t } = useTranslation()
+
   return (
     <div className="lg:flex hidden flex-col p-4 border-l shadow w-full max-w-[30%] bg-sidebar gap-y-2 border-muted-foreground/20">
       <Label className="text-base top-3">Ferramentas</Label>
@@ -64,7 +67,7 @@ export const ToolsSidebar = () => {
       </div>
       <div className="mt-auto">
         <Button className="w-full">
-          Salvar
+          {t("Save")}
         </Button>
       </div>
     </div>

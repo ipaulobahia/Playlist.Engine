@@ -10,6 +10,7 @@ import { CategoryEnum } from "@/utils"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useCallback, useEffect } from "react"
 import { useForm } from "react-hook-form"
+import { useTranslation } from "react-i18next"
 
 interface DialogCreateListProps {
   open: boolean
@@ -18,19 +19,14 @@ interface DialogCreateListProps {
 }
 
 export const DialogCreateList = ({ open, setOpen, categoryValue }: DialogCreateListProps) => {
+  const { t } = useTranslation()
+
   const { mutate, isSuccess, isPending, isError } = useCreatePlaylist()
 
   const categoryTypeIndex = (Object.values(CategoryEnum).indexOf(categoryValue as CategoryEnum) + 1).toString();
   const categoryType = categoryTypeIndex.toString();
 
-  const form = useForm<CreatePlaylist>({
-    resolver: zodResolver(createPlaylistSchema),
-    defaultValues: {
-      title: "",
-      playlistId: 0,
-      playlistType: categoryType == "0" ? undefined : categoryType as CreatePlaylist["playlistType"]
-    },
-  })
+  const form = useForm<CreatePlaylist>({ resolver: zodResolver(createPlaylistSchema) })
 
   const { handleSubmit, control, reset } = form
 
@@ -42,9 +38,13 @@ export const DialogCreateList = ({ open, setOpen, categoryValue }: DialogCreateL
 
   useEffect(() => {
     if (open) {
-      reset()
+      reset({
+        title: "",
+        playlistId: 0,
+        playlistType: categoryType as CreatePlaylist["playlistType"]
+      });
     }
-  }, [open])
+  }, [open, reset, categoryType]);
 
   useEffect(() => {
     if (isSuccess && !isError) {
@@ -69,7 +69,7 @@ export const DialogCreateList = ({ open, setOpen, categoryValue }: DialogCreateL
               name="title"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-xs">Nome</FormLabel>
+                  <FormLabel className="text-xs">{t("Name")}</FormLabel>
                   <FormControl>
                     <Input className="text-xs placeholder:text-xs" {...field} />
                   </FormControl>
@@ -82,11 +82,11 @@ export const DialogCreateList = ({ open, setOpen, categoryValue }: DialogCreateL
               name="playlistType"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-xs">Categoria</FormLabel>
+                  <FormLabel className="text-xs">{t("Category")}</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger className="text-xs placeholder:text-xs">
-                        <SelectValue placeholder="Selecione uma categoria" />
+                        <SelectValue placeholder={t("Select-Category")} />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
@@ -112,7 +112,7 @@ export const DialogCreateList = ({ open, setOpen, categoryValue }: DialogCreateL
           </div>
           <DialogFooter className="flex flex-row items-center justify-between w-full">
             <DialogClose asChild>
-              <Button variant={'outline'}>Cancelar</Button>
+              <Button variant={'outline'}>{t("Cancel")}</Button>
             </DialogClose>
             <Button disabled={isPending} type="submit">
               {

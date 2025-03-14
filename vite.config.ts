@@ -11,5 +11,15 @@ export default defineConfig({
   },
   server: {
     open: true
-  }
+  },
+  build: {
+    outDir: path.resolve('../http'),
+    emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        entryFileNames: 'assets/main.js',
+        assetFileNames: 'assets/[name][extname]'
+      }
+    },
+  },
 })

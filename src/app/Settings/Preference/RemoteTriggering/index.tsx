@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
+import { useTranslation } from "react-i18next"
 
 export const RemoteTriggering = () => {
+  const { t } = useTranslation()
+
   return (
     <main className="relative flex flex-1 p-5 pb-20">
       <div className="justify-center w-full max-w-full mx-auto lg:max-w-3xl">
@@ -22,7 +25,7 @@ export const RemoteTriggering = () => {
                   <span>Aceitar comando em blocos locais</span>
                   <span className="text-xs font-normal leading-snug text-muted-foreground">Normalmmente os comandos remotos PLAY/STOP são ignorados nos blocos locais e aceitos apenas nos blocos 'Sat'</span>
                 </Label>
-                <Switch checked id="adm" className="ml-auto"/>
+                <Switch checked id="adm" className="ml-auto" />
               </div>
               <div className="grid items-center justify-between w-full grid-cols-3 gap-x-4">
                 <Label className="flex flex-col col-span-2 text-sm font-medium leading-none gap-y-1">
@@ -57,10 +60,10 @@ export const RemoteTriggering = () => {
       <footer className="fixed bottom-0 left-0 flex justify-end w-full p-4 border border-t shadow border-muted-foreground/25 bg-muted">
         <div className="flex flex-row items-center justify-between gap-x-2">
           <Button size={'sm'} variant={'ghost'} disabled>
-            Cancelar
+            {t("Cancel")}
           </Button>
           <Button size={'sm'} disabled>
-            Salvar
+            {t("Save")}
           </Button>
         </div>
       </footer>

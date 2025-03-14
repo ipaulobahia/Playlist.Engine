@@ -1,8 +1,9 @@
 import { Button } from "@/components/ui/button"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
-import { TableBody, TableRow, TableCell, Table } from "@/components/ui/table"
+import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table"
 import { ChevronDown } from "lucide-react"
 import { useState } from "react"
+import { CellTooltip } from "../CollapsibleArchive/components/CellTooltip"
 
 export const CollapsiblePlaylist = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -37,7 +38,9 @@ export const CollapsiblePlaylist = () => {
             </TableRow>
             <TableRow>
               <TableCell className="font-medium">Album</TableCell>
-              <TableCell className="text-left">(How You've Grown) Los Angeles, CA 10-25-1993</TableCell>
+              <CellTooltip description="(How You've Grown) Los Angeles, CA 10-25-1993">
+                <TableCell className="overflow-hidden text-left max-w-0 text-ellipsis whitespace-nowrap">(How You've Grown) Los Angeles, CA 10-25-1993</TableCell>
+              </CellTooltip>
             </TableRow>
             <TableRow>
               <TableCell className="font-medium">Ano</TableCell>

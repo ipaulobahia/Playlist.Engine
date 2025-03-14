@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { useTranslation } from "react-i18next"
 
 interface DrawerCreateAffiliatesProps {
   open: boolean
@@ -9,24 +10,24 @@ interface DrawerCreateAffiliatesProps {
 }
 
 export const DrawerCreateAffiliates = ({ open, setOpen }: DrawerCreateAffiliatesProps) => {
+  const { t } = useTranslation()
+
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
-        <Button size={'sm'}>
-          Nova afiliada
-        </Button>
+        <Button size={'sm'}>{t("New-Affiliates")}</Button>
       </DrawerTrigger>
       <DrawerContent className="px-3">
         <DrawerHeader>
-          <DrawerTitle>Nova afiliada</DrawerTitle>
+          <DrawerTitle>{t("New-Affiliates")}</DrawerTitle>
           <DrawerDescription>
-            Preencha os campos abaixo para criar uma afiliada. Ela sera utilizada para que a cabeças de rede enviem disparo via IP.
+            {t("Affiliates-DialogDrawer-Description")}
           </DrawerDescription>
         </DrawerHeader>
         <div className="grid gap-4 py-4">
           <div className="flex flex-col gap-y-3">
             <Label htmlFor="name" className="text-left">
-              Nome
+              {t("Name")}
             </Label>
             <Input
               className="text-xs placeholder:text-xs"
@@ -43,7 +44,7 @@ export const DrawerCreateAffiliates = ({ open, setOpen }: DrawerCreateAffiliates
         </div>
         <DrawerFooter className="flex flex-row items-center justify-between w-full">
           <DrawerClose asChild>
-            <Button className="w-full">Salvar</Button>
+            <Button className="w-full">{t("Save")}</Button>
           </DrawerClose>
         </DrawerFooter>
       </DrawerContent>

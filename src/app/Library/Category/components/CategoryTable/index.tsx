@@ -2,10 +2,13 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { usePlaylist } from "@/service/api/playlist/query/getPlaylist"
 import { ColumnFiltersState, flexRender, getCoreRowModel, getFacetedRowModel, getFacetedUniqueValues, getFilteredRowModel, getPaginationRowModel, getSortedRowModel, SortingState, useReactTable, VisibilityState } from "@tanstack/react-table"
 import { useState } from "react"
+import { useTranslation } from "react-i18next"
 import { useSearchParams } from "react-router-dom"
 import { columns } from './components'
 
 export const CategoryTable = () => {
+  const { t } = useTranslation()
+
   const [searchParams] = useSearchParams();
 
   const categoryType = searchParams.get("categoryType");
@@ -68,7 +71,7 @@ export const CategoryTable = () => {
                   className="cursor-pointer" key={row.id} data-state={row.getIsSelected() && "selected"}>
                   {
                     row.getVisibleCells().map((cell) => (
-                      <TableCell className="px-5 py-1 text-xs font-medium " key={cell.id}>
+                      <TableCell className="px-5 py-1 text-xs font-medium" key={cell.id}>
                         {flexRender(cell.column.columnDef.cell, cell.getContext())}
                       </TableCell>
                     ))
@@ -80,7 +83,7 @@ export const CategoryTable = () => {
             (
               <TableRow>
                 <TableCell colSpan={columns.length} className="h-24 text-center">
-                  Esta categoria está vazia.
+                  {t('Empty-Categories')}
                 </TableCell>
               </TableRow>
             )

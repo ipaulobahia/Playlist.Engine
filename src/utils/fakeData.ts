@@ -1,7 +1,6 @@
 import {
   CalendarSVG,
   ClapperBoardSVG,
-  CommercialSVG,
   DiscSVG,
   FlagSVG,
   GuitarSVG,
@@ -12,8 +11,7 @@ import {
   PlayButton,
   SaxSVG,
   SingerSVG,
-  StarSVG,
-  TextSVG
+  StarSVG
 } from '@/assets/svg/categories';
 import { faker } from '@faker-js/faker';
 
@@ -1514,7 +1512,7 @@ export const FAKE_CONFIG_PREFERENCE: PreferenceConfig = [
   },
   {
     id: 2,
-    name: "Avançado",
+    name: "Advanced",
     description: "",
     path: "advanced",
     options: {
@@ -1544,7 +1542,7 @@ export const FAKE_CONFIG_PREFERENCE: PreferenceConfig = [
   },
   {
     id: 4,
-    name: "Saídas",
+    name: "Outputs",
     description: "",
     path: "outputs",
     options: {
@@ -1559,7 +1557,7 @@ export const FAKE_CONFIG_PREFERENCE: PreferenceConfig = [
   },
   {
     id: 5,
-    name: "Entrada de áudio",
+    name: "Audio-Input",
     description: "",
     path: "audio-source",
     options: {
@@ -1574,7 +1572,7 @@ export const FAKE_CONFIG_PREFERENCE: PreferenceConfig = [
   },
   {
     id: 6,
-    name: "Disparo Remoto",
+    name: "Remote-Shooting",
     description: "",
     path: "remote-triggering",
     options: {
@@ -1589,7 +1587,7 @@ export const FAKE_CONFIG_PREFERENCE: PreferenceConfig = [
   },
   {
     id: 7,
-    name: "Afiliada de rede",
+    name: "Network-Affiliate",
     description: "",
     path: "control-satellite",
     options: {
@@ -1604,7 +1602,7 @@ export const FAKE_CONFIG_PREFERENCE: PreferenceConfig = [
   },
   {
     id: 8,
-    name: "XML para Web",
+    name: "XML-For-Web",
     description: "",
     path: "xml-web",
     options: {
@@ -1619,7 +1617,7 @@ export const FAKE_CONFIG_PREFERENCE: PreferenceConfig = [
   },
   {
     id: 9,
-    name: "RDS e RSS",
+    name: "RDS-and-RSS",
     description: "",
     path: "rds-rss",
     options: {
@@ -1634,7 +1632,7 @@ export const FAKE_CONFIG_PREFERENCE: PreferenceConfig = [
   },
   {
     id: 10,
-    name: "Metadata para streaming",
+    name: "Metadata-For-Streaming",
     description: "",
     path: "metadata-streaming",
     options: {
@@ -1649,7 +1647,7 @@ export const FAKE_CONFIG_PREFERENCE: PreferenceConfig = [
   },
   {
     id: 11,
-    name: "Diversos",
+    name: "Several",
     description: "",
     path: "general",
     options: {
@@ -1831,18 +1829,18 @@ export const FAKE_LIST_CATEGORY = [
     value: "Generic",
     icon: MusicNoteSVG
   },
-  {
-    id: 13,
-    name: "Comerciais",
-    value: "Commercial",
-    icon: CommercialSVG
-  },
-  {
-    id: 14,
-    name: "Textos",
-    value: "Text",
-    icon: TextSVG
-  },
+  // {
+  //   id: 13,
+  //   name: "Comerciais",
+  //   value: "Commercial",
+  //   icon: CommercialSVG
+  // },
+  // {
+  //   id: 14,
+  //   name: "Textos",
+  //   value: "Text",
+  //   icon: TextSVG
+  // },
 ]
 
 for (let i = 1; i <= 200; i++) {

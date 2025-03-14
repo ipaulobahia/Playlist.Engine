@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { useTranslation } from "react-i18next"
 
 interface DialogCreateAffiliatesProps {
   open: boolean
@@ -9,24 +10,26 @@ interface DialogCreateAffiliatesProps {
 }
 
 export const DialogCreateAffiliates = ({ open, setOpen }: DialogCreateAffiliatesProps) => {
+  const { t } = useTranslation()
+
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button size={'sm'}>
-          Nova afiliada
+          {t("New-Affiliates")}
         </Button>
       </DialogTrigger>
       <DialogContent className="w-[90%]">
         <DialogHeader>
-          <DialogTitle>Nova afiliada</DialogTitle>
+          <DialogTitle>{t("New-Affiliates")}</DialogTitle>
           <DialogDescription>
-            Preencha os campos abaixo para criar uma afiliada. Ela sera utilizada para que a cabeças de rede enviem disparo via IP.
+            {t("Affiliates-DialogDrawer-Description")}
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <div className="flex flex-col gap-y-3">
             <Label htmlFor="name" className="text-left">
-              Nome
+              {t("Name")}
             </Label>
             <Input
               className="text-xs placeholder:text-xs"
@@ -43,10 +46,14 @@ export const DialogCreateAffiliates = ({ open, setOpen }: DialogCreateAffiliates
         </div>
         <DialogFooter className="flex flex-row items-center justify-between w-full">
           <DialogClose asChild>
-            <Button variant={'outline'}>Cancelar</Button>
+            <Button variant={'outline'}>
+              {t("Cancel")}
+            </Button>
           </DialogClose>
           <DialogClose asChild>
-            <Button>Salvar</Button>
+            <Button>
+              {t("Save")}
+            </Button>
           </DialogClose>
         </DialogFooter>
       </DialogContent>

@@ -130,7 +130,7 @@ export const AudioMarkerEditor = () => {
                   {
                     trackList.map((track, index) => {
                       return (
-                        <Track track={{ ...track, index }} />
+                        <Track key={track.id} track={{ ...track, index }} />
                       )
                     }
                     )

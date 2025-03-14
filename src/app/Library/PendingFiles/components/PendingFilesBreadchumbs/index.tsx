@@ -1,14 +1,17 @@
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb"
+import { useTranslation } from "react-i18next"
 import { Link } from "react-router-dom"
 
 export const PendingFilesBreadchumbs = () => {
+  const { t } = useTranslation()
+
   return (
     <Breadcrumb className="p-3">
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
             <Link to={'/dashboard'}>
-            Dashboard
+              {t("Dashboard")}
             </Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
@@ -16,13 +19,15 @@ export const PendingFilesBreadchumbs = () => {
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
             <Link to={'/library'}>
-              Biblioteca
+              {t("Library")}
             </Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbPage>Arquivos pendentes</BreadcrumbPage>
+          <BreadcrumbPage>
+            {t("Pending-Files")}
+          </BreadcrumbPage>
         </BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>

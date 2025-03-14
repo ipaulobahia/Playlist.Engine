@@ -3,10 +3,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { useInfoSidebar } from "@/hooks/use-sidebar"
 import { Info, List, Table2 } from "lucide-react"
+import { useTranslation } from "react-i18next"
 import { FolderBreadchumbs, FolderList } from "./components"
 
-
 export const Folder = () => {
+  const { t } = useTranslation()
+
   const { toggleSidebar, isOpen } = useInfoSidebar()
 
   return (
@@ -17,7 +19,7 @@ export const Folder = () => {
           <div className="flex flex-row items-start justify-between gap-2 sm:items-center">
             <div className="flex flex-row items-start gap-1">
               <div className="flex flex-col gap-0.5">
-                <span className="text-xl font-semibold">Pastas</span>
+                <span className="text-xl font-semibold">{t("Folders")}</span>
                 <span className="text-sm font-normal text-muted-foreground">[Descrição]</span>
               </div>
             </div>

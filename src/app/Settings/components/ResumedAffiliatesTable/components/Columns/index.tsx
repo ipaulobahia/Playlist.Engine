@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { HeaderFilter } from "@/components/ui/header-filter";
 import { ColumnDef } from "@tanstack/react-table";
 import { MoreHorizontal } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 interface AffiliatesTable {
   id: number
@@ -17,7 +18,7 @@ export const columns: ColumnDef<AffiliatesTable>[] = [
   },
   {
     accessorKey: "name",
-    header: ({ column }) => (<HeaderFilter column={column} title="Nome" />),
+    header: ({ column }) => (<HeaderFilter column={column} title={useTranslation().t("Name")} />),
     cell: ({ row }) => (<div className="text-start">{row.getValue("name")}</div>),
   },
   {
@@ -30,10 +31,12 @@ export const columns: ColumnDef<AffiliatesTable>[] = [
     enableHiding: false,
     cell: () => {
       return (
-        <Button variant="ghost" className="w-8 h-8 p-0">
-          <span className="sr-only">Open menu</span>
-          <MoreHorizontal />
-        </Button>
+        <div className="flex justify-end w-full">
+          <Button variant="ghost" size={'icon'}>
+            <span className="sr-only">Open menu</span>
+            <MoreHorizontal />
+          </Button>
+        </div>
       )
     },
   }

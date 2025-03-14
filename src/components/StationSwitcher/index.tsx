@@ -5,6 +5,7 @@ import { Check, ChevronsUpDown } from "lucide-react"
 import { useEllipsisCheck } from "@/hooks/use-ellipsis-check"
 import { cn } from "@/lib/utils"
 import { useState } from "react"
+import { useTranslation } from "react-i18next"
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
 import { Button } from "../ui/button"
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "../ui/command"
@@ -39,6 +40,8 @@ const groups = [
 type Team = (typeof groups)[number]["teams"][number]
 
 export const StationSwitcher = () => {
+  const { t } = useTranslation()
+
   const [selectedTeam, setSelectedTeam] = useState<Team>(groups[0].teams[0])
   const [open, setOpen] = useState(false)
 
@@ -51,7 +54,7 @@ export const StationSwitcher = () => {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          aria-label="Selecione uma station"
+          aria-label={t("Select-Station")}
           className="justify-between w-56"
         >
           <Avatar className="size-5">
@@ -82,7 +85,7 @@ export const StationSwitcher = () => {
       </PopoverTrigger>
       <PopoverContent className="w-56 p-0">
         <Command>
-          <CommandInput placeholder="Pesquise por uma Station..." className="placeholder:text-xs" />
+          <CommandInput placeholder={t('Search-Station')} className="placeholder:text-xs" />
           <CommandList>
             <CommandEmpty className="py-4 text-xs text-center">Nenhuma Station encontrada</CommandEmpty>
             {groups.map((group) => (

@@ -1,14 +1,17 @@
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 export const FolderArchiveBreadchumbs = () => {
+  const { t } = useTranslation()
+
   return (
     <Breadcrumb className="p-3">
       <BreadcrumbList>
         <BreadcrumbItem className="hidden sm:block">
           <BreadcrumbLink asChild>
             <Link to={'/dashboard'}>
-              Dashboard
+              {t("Dashboard")}
             </Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
@@ -16,7 +19,7 @@ export const FolderArchiveBreadchumbs = () => {
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
             <Link to={'/library'}>
-              Biblioteca
+              {t("Library")}
             </Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
@@ -24,7 +27,7 @@ export const FolderArchiveBreadchumbs = () => {
         <BreadcrumbItem>
           <BreadcrumbLink className="cursor-pointer">
             <Link to={`/library/folder`}>
-              Pastas
+              {t("Folders")}
             </Link>
           </BreadcrumbLink>
         </BreadcrumbItem>

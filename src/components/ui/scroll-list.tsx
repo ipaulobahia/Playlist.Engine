@@ -22,7 +22,7 @@ export const ScrollList = ({ children, className }: ScrollListProps) => {
   return (
     <div
       ref={containerRef}
-      className={cn("grid grid-flow-col gap-2 overflow-auto select-none grid-rows-18", className)}
+      className={cn("grid grid-flow-col gap-1 overflow-auto select-none grid-rows-22", className)}
       onWheel={handleWheel}
     >
       {children}

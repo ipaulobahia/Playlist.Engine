@@ -8,8 +8,8 @@ import {
   Table as TableUI
 } from "@/components/ui/table"
 import { useInfoSidebar } from "@/hooks/use-sidebar"
-import { useFiles } from "@/service/api/files/query/getFiles"
-import { MediaFiles } from "@/service/api/playlist/query/getPlaylistList"
+import { MediaFiles, usePlaylistList } from "@/service/api/playlist/query/getPlaylistList"
+
 import {
   ColumnFiltersState,
   flexRender,
@@ -34,15 +34,15 @@ export const CategoryArchiveTable = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [rowSelection, setRowSelection] = useState({})
-  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({ uploadedBy: false, folder: false, type: false, size: false })
+  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({})
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
   const [sorting, setSorting] = useState<SortingState>([])
 
   const folderId = searchParams.get("folderId");
-  const { data: files } = useFiles(folderId)
+  const { data } = usePlaylistList(folderId)
 
   const table = useReactTable({
-    data: files ? files.files : [],
+    data: data ? data.mediaFiles : [],
     columns,
     state: { sorting, columnVisibility, rowSelection, columnFilters },
     enableRowSelection: true,
@@ -106,7 +106,7 @@ export const CategoryArchiveTable = () => {
                   className="cursor-pointer" key={row.id} data-state={row.getIsSelected() && "selected"}>
                   {
                     row.getVisibleCells().map((cell) => (
-                      <TableCell className="px-3 py-1 text-xs font-medium " key={cell.id}>
+                      <TableCell className="px-5 py-1 text-xs font-medium" key={cell.id}>
                         {flexRender(cell.column.columnDef.cell, cell.getContext())}
                       </TableCell>
                     ))

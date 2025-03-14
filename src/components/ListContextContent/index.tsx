@@ -1,6 +1,7 @@
 import { FolderOpen, Info, Pencil, Trash } from "lucide-react"
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { useTranslation } from "react-i18next"
+import { Link, useSearchParams } from "react-router-dom"
 import { DialogDeleteList } from "../DialogDeleteList"
 import { DialogEditList } from "../DialogEditList"
 import { ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuSeparator, ContextMenuTrigger } from "../ui/context-menu"
@@ -12,6 +13,12 @@ interface ListContextContentProps {
 }
 
 export const ListContextContent = ({ children, folderId }: ListContextContentProps) => {
+  const { t } = useTranslation()
+
+  const [searchParams] = useSearchParams();
+
+  const categoryType = searchParams.get("categoryType");
+
   const [dialogType, setDialogType] = useState<"Edit" | "Delete">("Edit")
   const [open, setOpen] = useState(false)
 
@@ -26,11 +33,11 @@ export const ListContextContent = ({ children, folderId }: ListContextContentPro
           {children}
         </ContextMenuTrigger>
         <ContextMenuContent>
-          <Link to={`/library/category/archive?folderId=${folderId}`}>
+          <Link to={`/library/category/archive?categoryType=${categoryType}&folderId=${folderId}`}>
             <ContextMenuItem className="flex flex-row items-center gap-x-2">
               <FolderOpen size={14} />
               <span>
-                Abrir
+                {t("Open")}
               </span>
             </ContextMenuItem>
           </Link>
@@ -38,7 +45,7 @@ export const ListContextContent = ({ children, folderId }: ListContextContentPro
             <ContextMenuItem className="flex flex-row items-center gap-x-2">
               <Pencil size={14} />
               <span>
-                Editar
+                {t("Edit")}
               </span>
             </ContextMenuItem>
           </DialogTrigger>

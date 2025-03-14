@@ -10,6 +10,7 @@ import { usePlaylist } from "@/service/api/playlist/query/getPlaylist"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useCallback, useEffect } from "react"
 import { useForm } from "react-hook-form"
+import { useTranslation } from "react-i18next"
 import { useSearchParams } from "react-router-dom"
 
 interface DialogEditListProps {
@@ -20,6 +21,8 @@ interface DialogEditListProps {
 }
 
 export const DialogEditList = ({ folderId, open, setOpen, isDisableChangeCategory = false }: DialogEditListProps) => {
+  const { t } = useTranslation()
+
   const { mutate, isSuccess, isPending, isError } = useEditPlaylist()
   const [searchParams] = useSearchParams();
 
@@ -71,9 +74,9 @@ export const DialogEditList = ({ folderId, open, setOpen, isDisableChangeCategor
       <Form {...form}>
         <form onSubmit={handleSubmit(onSubmit)}>
           <DialogHeader>
-            <DialogTitle>Editar lista</DialogTitle>
+            <DialogTitle>{t("Edit-List")}</DialogTitle>
             <DialogDescription>
-              Preencha os campos abaixo para editar sua lista.
+              {t("Edit-List-Description")}
             </DialogDescription>
           </DialogHeader>
           <div className="grid gap-4 py-4">
@@ -82,7 +85,7 @@ export const DialogEditList = ({ folderId, open, setOpen, isDisableChangeCategor
               name="title"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-xs">Nome</FormLabel>
+                  <FormLabel className="text-xs">{t("Name")}</FormLabel>
                   <FormControl>
                     <Input className="text-xs placeholder:text-xs" {...field} />
                   </FormControl>
@@ -95,11 +98,11 @@ export const DialogEditList = ({ folderId, open, setOpen, isDisableChangeCategor
               name="playlistType"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-xs">Categoria</FormLabel>
+                  <FormLabel className="text-xs">{t("Category")}</FormLabel>
                   <Select disabled={isDisableChangeCategory} onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger className="text-xs placeholder:text-xs">
-                        <SelectValue placeholder="Selecione uma categoria" />
+                        <SelectValue placeholder={t("Select-Category")} />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
@@ -125,7 +128,7 @@ export const DialogEditList = ({ folderId, open, setOpen, isDisableChangeCategor
           </div>
           <DialogFooter className="flex flex-row items-center justify-between w-full">
             <DialogClose asChild>
-              <Button variant={'outline'}>Cancelar</Button>
+              <Button variant={'outline'}>{t("Cancel")}</Button>
             </DialogClose>
             <Button disabled={isPending} type="submit">
               {
@@ -133,7 +136,9 @@ export const DialogEditList = ({ folderId, open, setOpen, isDisableChangeCategor
                   ?
                   <PingLoading />
                   :
-                  <span>Editar</span>
+                  <span>
+                    {t("Edit")}
+                  </span>
               }
             </Button>
           </DialogFooter>

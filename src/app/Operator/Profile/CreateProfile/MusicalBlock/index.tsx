@@ -1,7 +1,9 @@
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
+import { useTranslation } from "react-i18next"
 
 export const MusicalBlock = () => {
+  const { t } = useTranslation()
 
   const FAKE_CONFIG_MUSICAL_BLOCKS = [
     {
@@ -60,7 +62,7 @@ export const MusicalBlock = () => {
         <header className="justify-between px-4 py-6 mx-auto border rounded-md rounded-b-none border-muted-foreground/25 sm:flex sm:px-6">
           <div className="flex items-center w-full">
             <div>
-              <h1 className="text-2xl font-bold tracking-tight">Bloco Musical</h1>
+              <h1 className="text-2xl font-bold tracking-tight">{t("Musical-Block")}</h1>
               <p className="text-sm text-muted-foreground">[Descrição]</p>
             </div>
           </div>
